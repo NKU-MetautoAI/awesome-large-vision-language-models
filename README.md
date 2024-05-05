@@ -24,7 +24,9 @@ Here is list of LLMs, to reach list of VLMs. Click [here](https://github.com/HuB
 
 ### Llama 2
 
-[![arXiv](https://img.shields.io/badge/arXiv-2401.17270-b31b1b.svg)](https://arxiv.org/abs/2307.09288) [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/meta-llama/llama) [![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/collections/meta-llama/llama-2-family-661da1f90a9d678b6f55773b)
+[![arXiv](https://img.shields.io/badge/arXiv-2307.09288-b31b1b.svg)](https://arxiv.org/abs/2307.09288) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/meta-llama/llama)
+[![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/collections/meta-llama/llama-2-family-661da1f90a9d678b6f55773b)
 
 
 Llama 2预训练模型相较于 Llama 1 模型有显著提升，增加了 40% 的训练词元总数，并采用了更长的上下文长度（高达 4000 词元），同时还利用分组查询注意力机制，极大加速了 70B 模型的推理速度。Llama 2-Chat 系列模型采用了基于人类反馈的强化学习（RLHF）技术，专门针对对话场景进行优化。在广泛的有用性和安全性测试基准中，Llama 2-Chat 的表现超过了多数现有开放模型，并且在人类评估中显示出与 ChatGPT 相媲美的性能。
@@ -39,7 +41,8 @@ Llama 2预训练模型相较于 Llama 1 模型有显著提升，增加了 40% �
 ### Llama 3
 
 [![AI Blog](https://img.shields.io/badge/AI%20Blog-Meta%20AI-orange.svg)](https://ai.meta.com/blog/)
- [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/meta-llama/llama3) [![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/collections/meta-llama/meta-llama-3-66214712577ca38149ebb2b6)
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/meta-llama/llama3)
+[![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/collections/meta-llama/meta-llama-3-66214712577ca38149ebb2b6)
 
 相较于 Llama 2，Llama 3 最显著的变化在于引入了一个新的 Tokenizer，并将词汇表的规模扩展到了 128,256 个词汇（先前版本为 32,000 个 Token）。这样一个更庞大的词汇表可以更有效地对文本进行编码，无论是输入还是输出，也可能增强模型处理多语言的能力。然而，这一改变同时导致了嵌入层的输入和输出矩阵的尺寸增大，从而增加了小型模型的参数量。
 
@@ -52,7 +55,7 @@ Llama 2预训练模型相较于 Llama 1 模型有显著提升，增加了 40% �
 
 ### Qwen
 
-[![arXiv](https://img.shields.io/badge/arXiv-2401.17270-b31b1b.svg)](https://arxiv.org/abs/2309.16609) 
+[![arXiv](https://img.shields.io/badge/arXiv-2309.16609-b31b1b.svg)](https://arxiv.org/abs/2309.16609) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/QwenLM/Qwen) 
 [![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/Qwen)
 
@@ -99,7 +102,7 @@ Qwen1.5的各个模型在训练上使用了更多的Token，并针对特定任�
 
 ### XGen
 
-[![arXiv](https://img.shields.io/badge/arXiv-2401.17270-b31b1b.svg)](https://arxiv.org/abs/2309.03450) 
+[![arXiv](https://img.shields.io/badge/arXiv-2309.03450-b31b1b.svg)](https://arxiv.org/abs/2309.03450) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/salesforce/xGen) 
 [![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/Salesforce/xgen-7b-4k-base)
 
@@ -148,7 +151,7 @@ XGen-7B模型在支持长达8K令牌的输入，通过使用标准密集注意�
 
 ### phi3
 
-[![arXiv](https://img.shields.io/badge/arXiv-2401.17270-b31b1b.svg)](https://arxiv.org/abs/2404.14219) 
+[![arXiv](https://img.shields.io/badge/arXiv-2404.14219-b31b1b.svg)](https://arxiv.org/abs/2404.14219) 
 [![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3)
 
 采用了transformer decoder架构，其默认的上下文长度为**4K token**。团队还通过LongRope技术推出了长上下文版本，将上下文长度扩展到**128K token**。由于体积小巧，phi-3-mini模型可以被量化为**4 bit**，使其内存占用仅约为**1.8GB**。团队通过在配备A16仿生芯片的iPhone 14上部署phi-3-mini进行了测试，该模型能够在完全离线的状态下原生运行，并实现了每秒处理超过12个tokens的速度。
