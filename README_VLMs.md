@@ -15,7 +15,7 @@ Here is list of VLMs, to reach list of VLMs. Click [here](https://github.com/HuB
 |  XGen   |           7B            | [xgen-7b-4k-base](https://huggingface.co/Salesforce/xgen-7b-4k-base) |
 | Falcon  |   1.3B/7.5B/40B/180B    | [Falcon Family](https://huggingface.co/collections/tiiuae/falcon-64fb432660017eeec9837b5a) |
 |   phi   |       1B/1.5B/2B        | [phi-1B()](https://huggingface.co/microsoft/phi-1)<br />[phi-1.5B](https://huggingface.co/microsoft/phi-1_5)<br />[phi-2B](https://huggingface.co/microsoft/phi-2) |
-|  phi3   |       3.8B/7B/14B       | [Phi-3 family**(only phi-3-mini is available now)**](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3) |
+|  phi3   |       3.8B/7B/14B       | [Phi-3 family **(only phi-3-mini is available now)**](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3) |
 |  Gemma  |          2B/7B          | [GemmaFamily](https://huggingface.co/collections/google/gemma-release-65d5efbccdbb8c4202ec078b) |
 
 
