@@ -1,29 +1,30 @@
 # awesome-list-of-LLM_VLMs🌐✨
 github awesome list of recent LLMs and VLMs.
 
-Here is list of LLMs, to reach list of VLMs. Click [here](https://github.com/HuBocheng/awesome-list-of-LLM_VLMs/blob/master/README_VLMs.md)🚀
+Here is list of LLMs, to reach list of VLMs. 🚀
+
+
 
 ## Quick Start🏁
 
-|  Model  | Organization |       Parameters        |                          CheckPoint                          | Details |
-| :-----: | :----------: | :---------------------: | :----------------------------------------------------------: | ------- |
-| Llama 2 |     Meta     |       7B/13B/70B        | [Llama2 Family](https://huggingface.co/collections/meta-llama/llama-2-family-661da1f90a9d678b6f55773b) |         |
-| Llama 3 |     Meta     |         8B/70B          | [Llama3 Family](https://huggingface.co/collections/meta-llama/meta-llama-3-66214712577ca38149ebb2b6) |         |
-|  Qwen   |   Alibaba    | 0.5B/1.8B/4B/7B/14B/72B |             [Qwen](https://huggingface.co/Qwen)              |         |
-| Qwen1.5 |   Alibaba    | 0.5B/1.8B/4B/7B/14B/72B |            [Qwen1.5](https://huggingface.co/Qwen)            |         |
-| Vicuna  |    LMSYS     |       7B/13B/33B        |            [Vicuna](https://huggingface.co/lmsys)            |         |
-|  XGen   |  Salesforce  |           7B            | [xgen-7b-4k-base](https://huggingface.co/Salesforce/xgen-7b-4k-base) |         |
-| Falcon  |     UAE      |   1.3B/7.5B/40B/180B    | [Falcon Family](https://huggingface.co/collections/tiiuae/falcon-64fb432660017eeec9837b5a) |         |
-|   phi   |  Microsoft   |       1B/1.5B/2B        | [phi-1B()](https://huggingface.co/microsoft/phi-1)<br />[phi-1.5B](https://huggingface.co/microsoft/phi-1_5)<br />[phi-2B](https://huggingface.co/microsoft/phi-2) |         |
-|  phi3   |  Microsoft   |       3.8B/7B/14B       | [Phi-3 family **(only phi-3-mini is available now)**](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3) |         |
-|  Gemma  |    Google    |          2B/7B          | [GemmaFamily](https://huggingface.co/collections/google/gemma-release-65d5efbccdbb8c4202ec078b) |         |
+|  Model  | Organization |       Parameters        |                          CheckPoint                          |      Details       |
+| :-----: | :----------: | :---------------------: | :----------------------------------------------------------: | :----------------: |
+| Llama 2 |     Meta     |       7B/13B/70B        | [Llama2 Family](https://huggingface.co/collections/meta-llama/llama-2-family-661da1f90a9d678b6f55773b) | [Llama2](#llama2)  |
+| Llama 3 |     Meta     |         8B/70B          | [Llama3 Family](https://huggingface.co/collections/meta-llama/meta-llama-3-66214712577ca38149ebb2b6) | [Llama3](#llama3)  |
+|  Qwen   |   Alibaba    | 0.5B/1.8B/4B/7B/14B/72B |             [Qwen](https://huggingface.co/Qwen)              |   [Qwen](#qwen)    |
+| Qwen1.5 |   Alibaba    | 0.5B/1.8B/4B/7B/14B/72B |            [Qwen1.5](https://huggingface.co/Qwen)            | [Qwen1.5](#qwen15) |
+| Vicuna  |    LMSYS     |       7B/13B/33B        |            [Vicuna](https://huggingface.co/lmsys)            | [Vicuna](#vicuna)  |
+|  XGen   |  Salesforce  |           7B            | [xgen-7b-4k-base](https://huggingface.co/Salesforce/xgen-7b-4k-base) |   [XGen](#xGen)    |
+| Falcon  |     UAE      |   1.3B/7.5B/40B/180B    | [Falcon Family](https://huggingface.co/collections/tiiuae/falcon-64fb432660017eeec9837b5a) | [Falcon](#falcon)  |
+|   phi   |  Microsoft   |       1B/1.5B/2B        | [phi-1B()](https://huggingface.co/microsoft/phi-1)<br />[phi-1.5B](https://huggingface.co/microsoft/phi-1_5)<br />[phi-2B](https://huggingface.co/microsoft/phi-2) |    [phi](#phi)     |
+|  phi3   |  Microsoft   |       3.8B/7B/14B       | [Phi-3 family **(only phi-3-mini is available now)**](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3) |   [phi3](#phi3)    |
+|  Gemma  |    Google    |          2B/7B          | [GemmaFamily](https://huggingface.co/collections/google/gemma-release-65d5efbccdbb8c4202ec078b) |  [Gemma](#gemma)   |
 
 
-[123](#phi3)
-[234](#Llama2)
+
 ## Details Regarding Models Above📊
 
-### Llama 2🦙
+### Llama2
 
 [![arXiv](https://img.shields.io/badge/arXiv-2307.09288-b31b1b.svg)](https://arxiv.org/abs/2307.09288) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/meta-llama/llama)
@@ -39,7 +40,7 @@ Llama 2预训练模型相较于 Llama 1 模型有显著提升，增加了 40% �
 
 
 
-### Llama 3🦙
+### Llama3
 
 [![AI Blog](https://img.shields.io/badge/AI%20Blog-Meta%20AI-orange.svg)](https://ai.meta.com/blog/)
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/meta-llama/llama3)
@@ -131,7 +132,7 @@ XGen-7B模型在支持长达8K令牌的输入，通过使用标准密集注意�
 
 
 
-### phi
+### Phi
 
 [![AI Blog](https://img.shields.io/badge/AI%20Blog-Phi%20AI-orange.svg)](https://www.microsoft.com/en-us/research/blog/phi-2-the-surprising-power-of-small-language-models/) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/microsoft/dstoolkit-phi2-finetune) 
@@ -150,7 +151,7 @@ XGen-7B模型在支持长达8K令牌的输入，通过使用标准密集注意�
 
 
 
-### phi3
+### Phi3
 
 [![arXiv](https://img.shields.io/badge/arXiv-2404.14219-b31b1b.svg)](https://arxiv.org/abs/2404.14219) 
 [![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3)
@@ -168,8 +169,10 @@ XGen-7B模型在支持长达8K令牌的输入，通过使用标准密集注意�
 
 ### Gemma
 
-- **Date:** 2024-04
-- **Pretrain Data Scale:** 3.3T～4.8T
+可在各类消费级硬件上运行，无需数据量化处理，拥有高达 8K tokens 的处理能力，在 7B 参数级别Gemma 表现出色，比同参数级别的Llama2性能要好一些。与 Google Cloud 集成，可以通过 Vertex AI 或 Google Kubernetes Engine (GKE) 在 Google Cloud 上部署和训练 Gemma。
+
+- **Date:** 2024-02
+- **Pretrain Data Scale:** 2T
 - **Language Support:** en
 - **Parameter Size:** 2B/7B
 
@@ -191,40 +194,107 @@ Chatbot Arena的主要功能介绍：
 
 1. **模型对战（Arena Battle）**：在Chatbot Arena中，用户可以选择两个不同的匿名模型（如ChatGPT、Claude、Llama等），并将它们进行对比。在一个安全的比赛环境中，用户可以提问并评估两个模型的回答，通过投票决定哪个模型表现更出色。这一比较过程可以多轮进行，直到确定最终的胜利者。为了保证比赛的公平性，如果某轮对话暴露了模型的具体身份，该轮的投票结果将被排除。
 2. **实时聊天（Direct Chat）**：Chatbot Arena提供了一个实时聊天功能，允许用户直接与选定的模型进行对话。无论用户选择的是文本还是视觉聊天模式，都能即时接收到模型的反馈。
-3. **排行榜（Leaderboard）**：Chatbot Arena通过分析超过300,000个人类用户的投票结果，采用基于Elo系统的方法来评估各大语言模型（LLMs）的排名。这让用户能够直观地了解哪些模型当前处于领先地位，轻松识别出LLM领域的佼佼者。
+3. **排行榜（Leaderboard）**：Chatbot Arena通过分析超过300,000个人类用户的投票结果，采用基于Elo系统的方法来评估各个LLM的排名。这让用户能够直观地了解哪些模型当前处于领先地位，轻松识别出LLM领域的佼佼者。
 
 
 
-## benchmarks
+## Benchmarks
 
 ### ARC (AI2 Reasoning Challenge)
 
-[![arXiv](https://img.shields.io/badge/arXiv-2404.14219-b31b1b.svg)](https://arxiv.org/abs/2404.14219) 
-[![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3)
+[![Paper with Code](https://img.shields.io/badge/Paper%20with%20Code-arc%20challenge-blue.svg)](https://paperswithcode.com/sota/common-sense-reasoning-on-arc-challenge)
+[![Paper with Code](https://img.shields.io/badge/Paper%20with%20Code-arc%20easy-blue.svg)](https://paperswithcode.com/sota/common-sense-reasoning-on-arc-easy)
+[![arXiv](https://img.shields.io/badge/arXiv-2305.18354-b31b1b.svg)](https://arxiv.org/pdf/2305.18354) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/fchollet/ARC) 
 
-This benchmark tests a model's ability to reason and solve grade-school level science questions. It's designed to challenge models to think more deeply about a problem rather than relying on superficial patterns in data.
+The ARC (Abstraction and Reasoning Corpus) benchmark is a challenging framework used to evaluate the performance of large language models, particularly in their ability to perform tasks that require both abstraction and reasoning. This benchmark is part of an effort to push the boundaries of what AI models can achieve beyond standard pattern recognition tasks that are common in many benchmarks today.
+
+##### Key Features of ARC
+
+- **Task Design**: The tasks in ARC are designed to be straightforward for humans but challenging for AI. Each task involves an input and a correct output, with the goal being to predict the output from the input by discerning the underlying pattern or rule. The tasks cover various types of cognitive functions, including pattern recognition, spatial reasoning, and logical deduction.
+- **Dataset**: The ARC dataset is publicly available and consists of a training set and a test set, where the test set contains completely novel tasks that require generalizing beyond the training data. This setup is intended to simulate real-world learning scenarios where direct answers are not always available, and reasoning must be applied.
+- **Evaluation**: Success in ARC requires developing models that can truly understand and manipulate abstract concepts, making it a stringent test of an AI’s reasoning abilities rather than just its data processing capabilities.
+
+
 
 ### HellaSwag
 
-This benchmark aims to assess the model's ability to complete sentences in a sensible manner. It focuses on common sense reasoning and predicting plausible sentence endings in a narrative context.
+[![Paper with Code](https://img.shields.io/badge/Paper%20with%20Code-hellaswag-blue.svg)](https://paperswithcode.com/sota/sentence-completion-on-hellaswag)
+[![arXiv](https://img.shields.io/badge/arXiv-1905.07830-b31b1b.svg)](https://arxiv.org/abs/1905.07830) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/rowanz/hellaswag) 
+
+**HellaSwag** is a benchmark designed to evaluate the performance of language models on commonsense natural language inference. It specifically tests the model's ability to predict the continuation of straightforward descriptions of everyday activities, which are obvious to humans but potentially challenging for algorithms. The benchmark consists of numerous multiple-choice questions, each providing a scenario and four possible continuations, from which the model must select the most appropriate one.
+
+The questions in HellaSwag primarily derive from two domains: ActivityNet and WikiHow, enriching the dataset with practical relevance and diversity. The correct answer describes the actual next event, while the other three incorrect options are adversarially generated and human-verified to mislead models but not humans.
+
+The construction of HellaSwag includes an "Adversarial Filtering" technique, where a series of discriminators iteratively select machine-generated wrong answers that effectively deceive models. This method has proven its effectiveness in challenging models to recognize real-world scenarios and has highlighted the limitations of even state-of-the-art models.
+
+
 
 ### MMLU (Massive Multitask Language Understanding)
+
+[![Paper with Code](https://img.shields.io/badge/Paper%20with%20Code-MMLU-blue.svg)](https://paperswithcode.com/sota/multi-task-language-understanding-on-mmlu?tag_filter=183)
+[![arXiv](https://img.shields.io/badge/arXiv-2009.03300-b31b1b.svg)](https://arxiv.org/abs/2009.03300) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/hendrycks/test) 
 
 This is a broad and diverse benchmark that evaluates a model's understanding across a wide range of subjects, from humanities to science. It's designed to test the model's general knowledge and understanding capabilities on various topics.
 
 > 注意：MMLU的评估包含三种形式，分别是MMLU (HELM)、MMLU (Harness)和MMLU (Original)。曾经，在Hugging Face的OpenLLM排行榜上，[**LLaMA model 🦙**](https://ai.facebook.com/blog/large-language-model-llama-meta-ai/)被爆出MMLU评估结果明显低于[已发表的 LLaMa 论文](https://arxiv.org/abs/2302.13971)中的数字。最终[Blog](https://huggingface.co/blog/open-llm-leaderboard-mmlu)上的声明将这个现象归结为用于测试的MMLU benchmark的细节不同导致了结果不同，详情可参见[Blog](https://huggingface.co/blog/open-llm-leaderboard-mmlu)
 
+
+
 ### TruthfulQA
+
+[![Paper with Code](https://img.shields.io/badge/Paper%20with%20Code-truthfulqa-blue.svg)](https://paperswithcode.com/sota/question-answering-on-truthfulqa)
+[![arXiv](https://img.shields.io/badge/arXiv-2109.07958-b31b1b.svg)](https://arxiv.org/abs/2109.07958) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/sylinrl/TruthfulQA) 
 
 This benchmark evaluates a model's ability to provide truthful answers. It focuses on minimizing the spread of misinformation by testing how models handle questions that might typically lead to untruthful or misleading answers.
 
+**TruthfulQA** is a benchmark designed to assess the truthfulness of answers generated by large language models. It consists of 817 questions across 38 categories, including sectors like health, law, finance, and politics. The questions are designed to probe models on their ability to handle scenarios where humans might respond incorrectly due to misconceptions or false beliefs. The main goal of TruthfulQA is to measure how accurately models can generate truthful responses. The benchmark employs various tasks and modes, including single and multiple-choice questions as well as generative tasks, to evaluate a model's capacity to identify and generate truthful answers.
+
+##### Tasks and Evaluation Methods
+
+TruthfulQA includes two primary tasks:
+
+1. **Generation Task**: Models are given a question and must generate a one to two-sentence answer. The primary metric for this task is the overall truthfulness of the model’s answers, assessed against a standard where the truth must describe the literal truth about the real world. Secondary metrics include informativeness, assessed by whether the model provides meaningful information rather than evasive responses.
+2. **Multiple-Choice Task**: This task comes in two forms:
+   - **MC1 (Single-true)**: Models are provided with a question and several answer choices, and they must select the single correct answer.
+   - **MC2 (Multi-true)**: Models are given multiple true and false reference answers and must identify all correct answers.
+
+##### Important Points
+
+- **Adversarial Nature**: The questions in TruthfulQA are adversarially designed to test models on potential weaknesses in generating truthful answers. This includes crafting questions that leverage common misconceptions or that models might commonly answer falsely due to their training on biased data distributions.
+- **Validation and Benchmarks**: The benchmark includes validation mechanisms where external researchers assess the truthfulness and accuracy of the reference answers, ensuring the robustness of the benchmark's evaluations.
+
+
+
 ### Winogrande
 
-An extension of the Winograd Schema Challenge, this benchmark tests a model's ability to resolve coreference ambiguities in sentences, which is critical for understanding relationships and context within text.
+[![Paper with Code](https://img.shields.io/badge/Paper%20with%20Code-Winogrande-blue.svg)](https://paperswithcode.com/sota/common-sense-reasoning-on-winogrande)
+[![arXiv](https://img.shields.io/badge/arXiv-1907.10641-b31b1b.svg)](https://arxiv.org/pdf/1907.10641) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/allenai/winogrande) 
+
+WINOGRANDE is a language understanding benchmark based on the Winograd Schema Challenge (WSC) designed to evaluate the performance of large language models (LLMs) in solving pronoun resolution problems that require common sense and reasoning abilities. By offering a larger and more challenging dataset than the original WSC, WINOGRANDE is better suited for assessing the capabilities of modern artificial intelligence language models.
+
+Developed by the Allen Institute for AI, the purpose of the WINOGRANDE benchmark is to test models' reasoning abilities through pronoun resolution tasks. These tasks typically involve a sentence with a pronoun and multiple potential referents, and the model needs to determine the correct referent for the pronoun. For example:
+
+```less
+Sentence: The elephant put the apple there because it was ______.
+Options: A) empty B) heavy
+Correct Answer: A) empty
+```
+
+This type of question requires the model to understand not just the literal meaning of the language but also to reason about implicit relationships within the context.
+
+
 
 ### GSM8K (Grade School Math 8K)
 
-This benchmark evaluates a model's ability to solve mathematical problems typically found at the grade school level. It tests the model's numerical and reasoning abilities in a structured question format.
+[![Paper with Code](https://img.shields.io/badge/Paper%20with%20Code-GSM8K-blue.svg)](https://paperswithcode.com/dataset/gsm8k)
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/openai/grade-school-math) 
+
+The GSM8K (Grade School Math 8K) dataset, developed by OpenAI, is designed to evaluate the performance of large language models on solving elementary school-level math problems. The benchmark consists of 8,500 high-quality, linguistically diverse math word problems that require basic arithmetic operations such as addition, subtraction, multiplication, and division. These problems typically take between two to eight steps to solve. The dataset is divided into 7,500 training problems and 1,000 test problems, aimed at testing the models' capabilities in multi-step mathematical reasoning. GSM8K is particularly useful for assessing how well models handle problems that involve sequential logic and computational steps.
 
 
 
