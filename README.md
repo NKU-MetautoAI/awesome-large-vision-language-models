@@ -19,7 +19,8 @@ Here is list of LLMs, to reach list of VLMs. Click [here](https://github.com/HuB
 |  Gemma  |    Google    |          2B/7B          | [GemmaFamily](https://huggingface.co/collections/google/gemma-release-65d5efbccdbb8c4202ec078b) |         |
 
 
-[123](https://github.com/HuBocheng/awesome-list-of-LLM_VLMs?tab=readme-ov-file#phi3)
+[123](#phi3)
+[234](#Llama2)
 ## Details Regarding Models Above📊
 
 ### Llama 2🦙
