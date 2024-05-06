@@ -1,28 +1,28 @@
-# awesome-list-of-LLM_VLMs
+# awesome-list-of-LLM_VLMs🌐✨
 github awesome list of recent LLMs and VLMs.
 
-Here is list of LLMs, to reach list of VLMs. Click [here](https://github.com/HuBocheng/awesome-list-of-LLM_VLMs/blob/master/README_VLMs.md)
+Here is list of LLMs, to reach list of VLMs. Click [here](https://github.com/HuBocheng/awesome-list-of-LLM_VLMs/blob/master/README_VLMs.md)🚀
 
-## Quick Start
+## Quick Start🏁
 
-|  Model  |       Parameters        |                          CheckPoint                          |
-| :-----: | :---------------------: | :----------------------------------------------------------: |
-| Llama 2 |       7B/13B/70B        | [Llama2 Family](https://huggingface.co/collections/meta-llama/llama-2-family-661da1f90a9d678b6f55773b) |
-| Llama 3 |         8B/70B          | [Llama3 Family](https://huggingface.co/collections/meta-llama/meta-llama-3-66214712577ca38149ebb2b6) |
-|  Qwen   | 0.5B/1.8B/4B/7B/14B/72B |             [Qwen](https://huggingface.co/Qwen)              |
-| Qwen1.5 | 0.5B/1.8B/4B/7B/14B/72B |            [Qwen1.5](https://huggingface.co/Qwen)            |
-| Vicuna  |       7B/13B/33B        |            [Vicuna](https://huggingface.co/lmsys)            |
-|  XGen   |           7B            | [xgen-7b-4k-base](https://huggingface.co/Salesforce/xgen-7b-4k-base) |
-| Falcon  |   1.3B/7.5B/40B/180B    | [Falcon Family](https://huggingface.co/collections/tiiuae/falcon-64fb432660017eeec9837b5a) |
-|   phi   |       1B/1.5B/2B        | [phi-1B()](https://huggingface.co/microsoft/phi-1)<br />[phi-1.5B](https://huggingface.co/microsoft/phi-1_5)<br />[phi-2B](https://huggingface.co/microsoft/phi-2) |
-|  phi3   |       3.8B/7B/14B       | [Phi-3 family**(only phi-3-mini is available now)**](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3) |
-|  Gemma  |          2B/7B          | [GemmaFamily](https://huggingface.co/collections/google/gemma-release-65d5efbccdbb8c4202ec078b) |
+|  Model  | Organization |       Parameters        |                          CheckPoint                          | Details |
+| :-----: | :----------: | :---------------------: | :----------------------------------------------------------: | ------- |
+| Llama 2 |     Meta     |       7B/13B/70B        | [Llama2 Family](https://huggingface.co/collections/meta-llama/llama-2-family-661da1f90a9d678b6f55773b) |         |
+| Llama 3 |     Meta     |         8B/70B          | [Llama3 Family](https://huggingface.co/collections/meta-llama/meta-llama-3-66214712577ca38149ebb2b6) |         |
+|  Qwen   |   Alibaba    | 0.5B/1.8B/4B/7B/14B/72B |             [Qwen](https://huggingface.co/Qwen)              |         |
+| Qwen1.5 |   Alibaba    | 0.5B/1.8B/4B/7B/14B/72B |            [Qwen1.5](https://huggingface.co/Qwen)            |         |
+| Vicuna  |    LMSYS     |       7B/13B/33B        |            [Vicuna](https://huggingface.co/lmsys)            |         |
+|  XGen   |  Salesforce  |           7B            | [xgen-7b-4k-base](https://huggingface.co/Salesforce/xgen-7b-4k-base) |         |
+| Falcon  |     UAE      |   1.3B/7.5B/40B/180B    | [Falcon Family](https://huggingface.co/collections/tiiuae/falcon-64fb432660017eeec9837b5a) |         |
+|   phi   |  Microsoft   |       1B/1.5B/2B        | [phi-1B()](https://huggingface.co/microsoft/phi-1)<br />[phi-1.5B](https://huggingface.co/microsoft/phi-1_5)<br />[phi-2B](https://huggingface.co/microsoft/phi-2) |         |
+|  phi3   |  Microsoft   |       3.8B/7B/14B       | [Phi-3 family **(only phi-3-mini is available now)**](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3) |         |
+|  Gemma  |    Google    |          2B/7B          | [GemmaFamily](https://huggingface.co/collections/google/gemma-release-65d5efbccdbb8c4202ec078b) |         |
 
 
 
-## Details Regarding Models Above
+## Details Regarding Models Above📊
 
-### Llama 2
+### Llama 2🦙
 
 [![arXiv](https://img.shields.io/badge/arXiv-2307.09288-b31b1b.svg)](https://arxiv.org/abs/2307.09288) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/meta-llama/llama)
@@ -38,7 +38,7 @@ Llama 2预训练模型相较于 Llama 1 模型有显著提升，增加了 40% �
 
 
 
-### Llama 3
+### Llama 3🦙
 
 [![AI Blog](https://img.shields.io/badge/AI%20Blog-Meta%20AI-orange.svg)](https://ai.meta.com/blog/)
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/meta-llama/llama3)
@@ -165,10 +165,69 @@ XGen-7B模型在支持长达8K令牌的输入，通过使用标准密集注意�
 
 
 
+### Gemma
+
+- **Date:** 2024-04
+- **Pretrain Data Scale:** 3.3T～4.8T
+- **Language Support:** en
+- **Parameter Size:** 2B/7B
 
 
 
+## 模型评估平台
 
-## 模型评估汇总
+### OpenLLM Leaderboard by Hugging Face[[Leaderboard]](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard)
 
-Hugging face中的实时排行榜：[Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard)
+Hugging Face的OpenLLM排行榜是一个旨在追踪、评级和评估开源大型语言模型（LLMs）和聊天机器人的平台。这个排行榜提供了一个集中的平台。
+
+[Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) is actually just a wrapper running the open-source benchmarking library [Eleuther AI LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness) created by the [EleutherAI non-profit AI research lab](https://www.eleuther.ai/) famous for creating [The Pile](https://pile.eleuther.ai/) and training [GPT-J](https://huggingface.co/EleutherAI/gpt-j-6b), [GPT-Neo-X 20B](https://huggingface.co/EleutherAI/gpt-neox-20b), and [Pythia](https://github.com/EleutherAI/pythia). A team with serious credentials in the AI space!（Citation from Hugging Face blog）
+
+
+
+### Chatbot Arena by LMSYS and SkyLab[[Chatbot Arena]]([Chat with Open Large Language Models (lmsys.org)](https://arena.lmsys.org/))
+
+Chatbot Arena的主要功能介绍：
+
+1. **模型对战（Arena Battle）**：在Chatbot Arena中，用户可以选择两个不同的匿名模型（如ChatGPT、Claude、Llama等），并将它们进行对比。在一个安全的比赛环境中，用户可以提问并评估两个模型的回答，通过投票决定哪个模型表现更出色。这一比较过程可以多轮进行，直到确定最终的胜利者。为了保证比赛的公平性，如果某轮对话暴露了模型的具体身份，该轮的投票结果将被排除。
+2. **实时聊天（Direct Chat）**：Chatbot Arena提供了一个实时聊天功能，允许用户直接与选定的模型进行对话。无论用户选择的是文本还是视觉聊天模式，都能即时接收到模型的反馈。
+3. **排行榜（Leaderboard）**：Chatbot Arena通过分析超过300,000个人类用户的投票结果，采用基于Elo系统的方法来评估各大语言模型（LLMs）的排名。这让用户能够直观地了解哪些模型当前处于领先地位，轻松识别出LLM领域的佼佼者。
+
+
+
+## benchmarks
+
+### ARC (AI2 Reasoning Challenge)
+
+[![arXiv](https://img.shields.io/badge/arXiv-2404.14219-b31b1b.svg)](https://arxiv.org/abs/2404.14219) 
+[![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3)
+
+This benchmark tests a model's ability to reason and solve grade-school level science questions. It's designed to challenge models to think more deeply about a problem rather than relying on superficial patterns in data.
+
+### HellaSwag
+
+This benchmark aims to assess the model's ability to complete sentences in a sensible manner. It focuses on common sense reasoning and predicting plausible sentence endings in a narrative context.
+
+### MMLU (Massive Multitask Language Understanding)
+
+This is a broad and diverse benchmark that evaluates a model's understanding across a wide range of subjects, from humanities to science. It's designed to test the model's general knowledge and understanding capabilities on various topics.
+
+> 注意：MMLU的评估包含三种形式，分别是MMLU (HELM)、MMLU (Harness)和MMLU (Original)。曾经，在Hugging Face的OpenLLM排行榜上，[**LLaMA model 🦙**](https://ai.facebook.com/blog/large-language-model-llama-meta-ai/)被爆出MMLU评估结果明显低于[已发表的 LLaMa 论文](https://arxiv.org/abs/2302.13971)中的数字。最终[Blog](https://huggingface.co/blog/open-llm-leaderboard-mmlu)上的声明将这个现象归结为用于测试的MMLU benchmark的细节不同导致了结果不同，详情可参见[Blog](https://huggingface.co/blog/open-llm-leaderboard-mmlu)
+
+### TruthfulQA
+
+This benchmark evaluates a model's ability to provide truthful answers. It focuses on minimizing the spread of misinformation by testing how models handle questions that might typically lead to untruthful or misleading answers.
+
+### Winogrande
+
+An extension of the Winograd Schema Challenge, this benchmark tests a model's ability to resolve coreference ambiguities in sentences, which is critical for understanding relationships and context within text.
+
+### GSM8K (Grade School Math 8K)
+
+This benchmark evaluates a model's ability to solve mathematical problems typically found at the grade school level. It tests the model's numerical and reasoning abilities in a structured question format.
+
+
+
+## Quantitative metrics for large model inference
+
+Quantitative metrics for large model inference using NVIDIA GPUs and Apple Silicon chips, please reach [here](https://github.com/XiongjieDai/GPU-Benchmarks-on-LLM-Inference)
+
