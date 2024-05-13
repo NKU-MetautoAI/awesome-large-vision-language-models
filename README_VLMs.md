@@ -75,7 +75,7 @@ CogVLM在语言模型中增加了一个可训练的视觉专家（visual expert�
 
 ##### Architecture
 
-<img src="./image/cogVLM.png" alt="image-20240510165317066" style="zoom:80%;" />
+<img src="./image/cogVLM.png" alt="image-20240510165317066" style="zoom:50%;" />
 
 
 
@@ -125,14 +125,13 @@ LLM是在Vicuna-7B的基础上训练得来的，保证其NLP能力的前提下�
 
 ##### Architecture
 
-<img src="./image/cogAgent.png" alt="image-20240510171107123" style="zoom:80%;" />
+<img src="./image/cogAgent.png" alt="image-20240510171107123" style="zoom:20%;" />
 
 
 
 ### HPT
-
-[![AI Blog](/Users/hubocheng/Markdown图片/AI Blog-Meta AI-orange.svg)](https://www.hypergai.com/blog)
-[![GitHub](/Users/hubocheng/Markdown图片/github-5589853.svg)](https://github.com/THUDM/CogVLM)
+[![AI Blog](https://img.shields.io/badge/AI%20Blog-hypergai%20AI-orange.svg)](https://hypergai.com/blog/) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/HyperGAI/HPT/) 
 
 提出的Hyper-Pretrained Transformers（HPT）框架，是一种全新的多模态LLM预训练框架。它能够以高效和可扩展的方式训练出一个大型的多模态基础模型，这个模型能够理解多种模态的输入。有HPT Pro与HPT Air两个版本。
 
