@@ -22,11 +22,10 @@ Here is list of **VLMs**, to reach list of LLMs. Click [here](https://github.com
 
 ### MiniGemini
 
-[dvlab-research/MGM: Official repo for "Mini-Gemini: Mining the Potential of Multi-modality Vision Language Models" (github.com)](https://github.com/dvlab-research/MGM?tab=readme-ov-file)
+[![arXiv](https://img.shields.io/badge/arXiv-2403.18814-b31b1b.svg)](https://arxiv.org/pdf/2403.18814) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/dvlab-research/MGM)
+[![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/collections/YanweiLi/mgm-6603c50b9b43d044171d0854)
 
-[2403.18814 (arxiv.org)](https://arxiv.org/pdf/2403.18814)
-
-[MGM  Family](https://huggingface.co/collections/YanweiLi/mgm-6603c50b9b43d044171d0854)
 
 ##### 动机
 
@@ -62,9 +61,8 @@ The enhancements are further supported by employing an end-to-end workflow, a du
 
 ### Bunny
 
-[BAAI-DCAI/Bunny: A family of lightweight multimodal models. (github.com)](https://github.com/BAAI-DCAI/Bunny)
-
-[2402.11530 (arxiv.org)](https://arxiv.org/pdf/2402.11530)
+[![arXiv](https://img.shields.io/badge/arXiv-2402.11530-b31b1b.svg)](https://arxiv.org/pdf/2402.11530) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/BAAI-DCAI/Bunny)
 
 For more information on the Bunny model checkpoints, please refer to the GitHub link above or click [here](https://github.com/BAAI-DCAI/Bunny). This includes the fully trained checkpoints (for evaluation), the pre-trained checkpoints, and more.
 
