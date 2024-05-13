@@ -1,7 +1,7 @@
 # awesome-list-of-LLM_VLMs🌐✨
 github awesome list of recent LLMs and VLMs.
 
-Here is list of LLMs, to reach list of VLMs. 🚀
+Here is list of **LLMs**, to reach list of VLMs. Click [here](https://github.com/HuBocheng/awesome-list-of-LLM_VLMs/blob/master/README_VLMs.md)🚀
 
 
 
