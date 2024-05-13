@@ -18,7 +18,7 @@ Here is list of **VLMs**, to reach list of LLMs. Click [here](https://github.com
 | TinyLLaVA |  | |  | [TinyLLaVA](#tinyllava) |
 | TinyGPT-V |  | |  | [TinyGPT-V](#tinygpt-v) |
 
-## Details Regarding Models Above
+## Details Regarding Models Above📊
 
 ### MiniGemini
 
