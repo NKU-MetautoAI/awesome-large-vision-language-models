@@ -1,7 +1,7 @@
 # awesome-list-of-LLM_VLMs🌐✨
 github awesome list of recent LLMs and VLMs.
 
-Here is list of **VLMs**, to reach list of LLMs. Click [here](https://github.com/HuBocheng/awesome-list-of-LLM_VLMs/blob/master/README.md)](https://github.com/HuBocheng/awesome-list-of-LLM_VLMs/blob/master/README_VLMs.md)🚀
+Here is list of **VLMs**, to reach list of LLMs. Click [here](https://github.com/HuBocheng/awesome-list-of-LLM_VLMs/blob/master/README.md)🚀
 
 
 
@@ -9,11 +9,11 @@ Here is list of **VLMs**, to reach list of LLMs. Click [here](https://github.com
 
 |   Model    |       Parameters        |                             Demo                             |                          CheckPoint                          | Details |
 | :--------: | :---------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :-----: |
-| MiniGemini |       7B/13B/70B        |                                                              | [Llama2 Family](https://huggingface.co/collections/meta-llama/llama-2-family-661da1f90a9d678b6f55773b) |         |
-|   Bunny    |         8B/70B          |                                                              | [Llama3 Family](https://huggingface.co/collections/meta-llama/meta-llama-3-66214712577ca38149ebb2b6) |         |
-|   Llava    | 0.5B/1.8B/4B/7B/14B/72B |                                                              |             [Qwen](https://huggingface.co/Qwen)              |         |
-| Cog Series | 0.5B/1.8B/4B/7B/14B/72B | [CogVLM & CogAgent](https://huggingface.co/spaces/THUDM/CogVLM-CogAgent) |            [Qwen1.5](https://huggingface.co/Qwen)            |         |
-|    HPT     |       7B/13B/33B        |                                                              |            [Vicuna](https://huggingface.co/lmsys)            |         |
+| MiniGemini |       7B/13B/70B        |                                                              | [Llama2 Family](https://huggingface.co/collections/meta-llama/llama-2-family-661da1f90a9d678b6f55773b) |    [MiniGemini](#minigemini)     |
+|   Bunny    |         8B/70B          |                                                              | [Llama3 Family](https://huggingface.co/collections/meta-llama/meta-llama-3-66214712577ca38149ebb2b6) |     [Bunny](#bunny)    |
+|   Llava    | 0.5B/1.8B/4B/7B/14B/72B |                                                              |             [Qwen](https://huggingface.co/Qwen)              |    [Llava](#llava)     |
+| Cog Series | 0.5B/1.8B/4B/7B/14B/72B | [CogVLM & CogAgent](https://huggingface.co/spaces/THUDM/CogVLM-CogAgent) |            [Qwen1.5](https://huggingface.co/Qwen)            |    [Cog Series](#cog-series)      |
+|    HPT     |       7B/13B/33B        |                                                              |            [Vicuna](https://huggingface.co/lmsys)            |    [HPT](#hpt)    |
 
 
 
