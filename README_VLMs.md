@@ -9,26 +9,94 @@ Here is list of **VLMs**, to reach list of LLMs. Click [here](https://github.com
 
 |   Model    |       Parameters        |                             Demo                             |                          CheckPoint                          | Details |
 | :--------: | :---------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :-----: |
-| MiniGemini |       7B/13B/70B        |                                                              | [Llama2 Family](https://huggingface.co/collections/meta-llama/llama-2-family-661da1f90a9d678b6f55773b) |    [MiniGemini](#minigemini)     |
-|   Bunny    |         8B/70B          |                                                              | [Llama3 Family](https://huggingface.co/collections/meta-llama/meta-llama-3-66214712577ca38149ebb2b6) |     [Bunny](#bunny)    |
-|   Llava    | 0.5B/1.8B/4B/7B/14B/72B |                                                              |             [Qwen](https://huggingface.co/Qwen)              |    [Llava](#llava)     |
-| Cog Series | 0.5B/1.8B/4B/7B/14B/72B | [CogVLM & CogAgent](https://huggingface.co/spaces/THUDM/CogVLM-CogAgent) |            [Qwen1.5](https://huggingface.co/Qwen)            |    [Cog Series](#cog-series)      |
-|    HPT     |       7B/13B/33B        |                                                              |            [Vicuna](https://huggingface.co/lmsys)            |    [HPT](#hpt)    |
-
-
+| MiniGemini<br />(MGM) |       2B/7B/13B/34B       | [MGM](https://huggingface.co/spaces/jiaqianjing/Mini-Gemini) | [MGM  Family](https://huggingface.co/collections/YanweiLi/mgm-6603c50b9b43d044171d0854) |    [MiniGemini](#minigemini)     |
+|   Bunny    |         2B/3B/4B/8B         | [Bunny](http://bunny.dataoptim.org/) | [BAAI](https://huggingface.co/BAAI) |     [Bunny](#bunny)    |
+|   Llava    |               |                                                              |                           |    [Llava](#llava)     |
+| Cog Series |    17B/18B    | [CogVLM & CogAgent](https://huggingface.co/spaces/THUDM/CogVLM-CogAgent) |            [THUDM ](https://huggingface.co/THUDM)            |    [Cog Series](#cog-series)      |
+|    HPT     |       3-8B/6B | NONE |            [HPT](https://huggingface.co/HyperGAI)            |    [HPT](#hpt)    |
+| MiniGPT4 Series | 7B/13B | Invalid Now | [Vision-CAIR ](https://huggingface.co/Vision-CAIR) | [MiniGPT4 Series](#minigpt4-series) |
+| TinyLLaVA |  | |  | [TinyLLaVA](#tinyllava) |
+| TinyGPT-V |  | |  | [TinyGPT-V](#tinygpt-v) |
 
 ## Details Regarding Models Above
 
 ### MiniGemini
 
+[dvlab-research/MGM: Official repo for "Mini-Gemini: Mining the Potential of Multi-modality Vision Language Models" (github.com)](https://github.com/dvlab-research/MGM?tab=readme-ov-file)
 
-<a href='https://arxiv.org/pdf/2403.18814.pdf'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
-<a href='https://huggingface.co/collections/YanweiLi/mgm-6603c50b9b43d044171d0854'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue'></a>
-<a href='https://huggingface.co/collections/YanweiLi/mgm-data-660463ea895a01d8f367624e'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Data-green'></a>
+[2403.18814 (arxiv.org)](https://arxiv.org/pdf/2403.18814)
+
+[MGM  Family](https://huggingface.co/collections/YanweiLi/mgm-6603c50b9b43d044171d0854)
+
+##### 动机
+
+为了缩小当前视觉语言模型（VLMs）与先进模型（如GPT-4和Gemini）之间的性能差距，通过挖掘VLMs的潜力，提高其在视觉理解、推理和生成方面的表现。这个动机来源于对VLMs在高分辨率视觉标记、高质量数据和VLM引导生成方面的潜力的探索，以期提升其性能和拓展应用范围。
+
+##### 创新点
+
+主要从下面三个方面挖掘VLM的潜能
+
+1. **High-Resolution Visual Tokens**: Initially, ConvNets are used to generate high-resolution images to enhance image detail. To minimize computational resource expenditure, the author further proposes optimizing for high-resolution without increasing the number of visual tokens, by employing an additional visual encoder.
+2. **High-Quality Data**: To bolster data quality, the author amalgamates high-quality datasets from diverse public sources, ensuring a rich and varied foundational dataset.
+3. **VLM Guided Generation**: By integrating with a text-to-image model, the capability for image generation is enhanced.
+
+Mini-Gemini supports a series of dense and MoE Large Language Models (LLMs) from 2B to 34B. It is demonstrated to achieve leading performance in several zero-shot benchmarks and even surpasses the developed private models
+
+
+
+##### Architecture
+
+<div align="center">
+  <img src="./image/minigemini1.png" alt="image-20240510165317066" width="600" />
+</div>
+
+<div align="center">
+  <img src="./image/minigemini2.png" alt="image-20240510165317066" width="600" />
+</div>
+
+In conclusion, dual vision encoders are utilized to provide low-resolution visual embedding and high-resolution candidates; patch info mining is proposed to conduct patch-level mining between high-resolution regions and low-resolution visual queries; LLM is utilized to marry text with images for both comprehension and generation at the same time.
+
+The enhancements are further supported by employing an end-to-end workflow, a dual-resolution visual encoder design for high and low resolution, and a patch info mining module. For detailed information, refer to the paper.
+
+
 
 ### Bunny
 
+[BAAI-DCAI/Bunny: A family of lightweight multimodal models. (github.com)](https://github.com/BAAI-DCAI/Bunny)
 
+[2402.11530 (arxiv.org)](https://arxiv.org/pdf/2402.11530)
+
+For more information on the Bunny model checkpoints, please refer to the GitHub link above or click [here](https://github.com/BAAI-DCAI/Bunny). This includes the fully trained checkpoints (for evaluation), the pre-trained checkpoints, and more.
+
+##### 动机
+
+想要beat the scaling law，解决大型MLLM的计算成本问题，通过构建更具信息性的训练数据来训练出性能优越的较小MLLM，从而提高模型的效率和性能。
+
+
+
+##### 创新点
+
+该工作 focus on data optimization to compensate for the reduction in model size，并且通过数据集压缩构建了信息量更大的训练数据，即从更广泛的来源中精选数据。
+
+1. **预训练数据集的构建**：整个过程涉及一个精细的三步核心选择方案，基于CLIP嵌入
+
+   - **聚类和图构建**：受SemDeDup方法的启发，他们首先使用k-means算法对所有20亿个图像嵌入进行聚类。在每个簇中，他们创建一个无向图，其中的节点（图像嵌入）在余弦相似度超过预定义阈值（本例中为0.86）时相连。这一步有助于识别相似的图像并减少冗余。
+   - **子图过滤**：对于簇中形成的每个连通子图，只保留一个样本 —— 即其到簇质心的欧几里得距离处于中位数的样本。此方法有效地将样本量减少到9.52亿张图像，同时确保每个簇中最具代表性的样本被保留。
+   - **基于文本-图像相似度的质量过滤**：然后，他们通过对样本基于每个样本的文本嵌入和对应图像嵌入的余弦相似度进行排序，继续精炼这个子集。通过选择排名在40%到60%之间的样本，他们消除了较低质量的图像-文本对，将数据集规模进一步缩减到1.9亿。
+   - **捕捉多样性和本质**：剩余的样本按照每个图像嵌入与其簇质心的余弦相似度进行排序。这里，他们保留排名在15%到35%之间的样本。这一步确保了最终的子集，现在减少到3800万，捕获了原始LAION-2B数据集的本质和多样性。
+   - **最终抽样以提高训练效率**：从这个精炼的3800万核心集中，随机抽取200万个样本，形成最终的数据集，命名为Bunny-pretrain-LAION-2M。选择这个规模是为了平衡数据的丰富性与训练的成本和效率。
+
+2. 该工作收集了一组视觉指令微调数据集 — DataOptim1。基于此数据集，他们探索了更好的微调数据集组合。具体而言，他们利用了SVIT-mix-665K [17] 并在其中用WizardLM-evol-instruct-70K [33] 替换了ShareGPT-40K [26]，从而形成了Bunny-695K数据集。
+
+   >他们发现，将多模态学习语言模型（MLLM）在多模态数据上进行微调可能会损害其从预训练语言模型（LLM）继承的认知能力。这可能是由于多模态训练数据中文本信息较少且多样性较低所致。在微调数据集中保留一定量的高质量纯文本数据可以缓解这个问题。
+
+3. 一个即插即用的VLM框架，设计EVA-CLIP 和 SigLIP等视觉编码器和Phi-1.5、StableLM-2 和、Phi-2等大语言模型.
+
+##### Architecture
+
+<div align="center">
+  <img src="./image/bunny.png"  width="600" />
+</div>
 
 
 
@@ -157,7 +225,25 @@ LLM是在Vicuna-7B的基础上训练得来的，保证其NLP能力的前提下�
 
 最新的VLMs survey存储库，包括VLM预训练、迁移学习方法和知识蒸馏方法，还有可以使用的数据集汇总：[github](https://github.com/jingyi0000/VLM_survey)
 
-## 模型评估汇总
 
-Hugging face中的实时排行榜：[Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard)
+
+### MiniGPT4 Series
+
+#### MiniGPT4
+
+
+
+#### MiniGPT4-V2
+
+
+
+
+
+### TinyLLaVA
+
+
+
+
+
+### TinyGPT-V  
 
