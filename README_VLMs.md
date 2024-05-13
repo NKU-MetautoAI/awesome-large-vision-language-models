@@ -75,7 +75,10 @@ CogVLM在语言模型中增加了一个可训练的视觉专家（visual expert�
 
 ##### Architecture
 
-<img src="./image/cogVLM.png" alt="image-20240510165317066" style="zoom:50%;" />
+<div align="center">
+  <img src="./image/cogVLM.png" alt="image-20240510165317066" width="600" />
+</div>
+
 
 
 
@@ -125,7 +128,9 @@ LLM是在Vicuna-7B的基础上训练得来的，保证其NLP能力的前提下�
 
 ##### Architecture
 
-<img src="./image/cogAgent.png" alt="image-20240510171107123" style="zoom:20%;" />
+<div align="center">
+  <img src="./image/cogAgent.png" alt="image-20240510171107123" width="600" />
+</div>
 
 
 
@@ -142,7 +147,9 @@ LLM是在Vicuna-7B的基础上训练得来的，保证其NLP能力的前提下�
 
 ##### Architecture
 
-![image-20240513163155883](./image/HPT.png)
+<div align="center">
+  <img src="./image/HPT.png"  width="600" />
+</div>
 
 
 
