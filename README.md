@@ -5,20 +5,35 @@ Here is list of **LLMs**, to reach list of VLMs. Click [here](https://github.com
 
 
 
+## OverView
+
+
+
 ## Quick Start🏁
 
-|  Model  | Organization |       Parameters        |                          CheckPoint                          |      Details       |
-| :-----: | :----------: | :---------------------: | :----------------------------------------------------------: | :----------------: |
-| Llama 2 |     Meta     |       7B/13B/70B        | [Llama2 Family](https://huggingface.co/collections/meta-llama/llama-2-family-661da1f90a9d678b6f55773b) | [Llama2](#llama2)  |
-| Llama 3 |     Meta     |         8B/70B          | [Llama3 Family](https://huggingface.co/collections/meta-llama/meta-llama-3-66214712577ca38149ebb2b6) | [Llama3](#llama3)  |
-|  Qwen   |   Alibaba    | 0.5B/1.8B/4B/7B/14B/72B |             [Qwen](https://huggingface.co/Qwen)              |   [Qwen](#qwen)    |
-| Qwen1.5 |   Alibaba    | 0.5B/1.8B/4B/7B/14B/72B |            [Qwen1.5](https://huggingface.co/Qwen)            | [Qwen1.5](#qwen15) |
-| Vicuna  |    LMSYS     |       7B/13B/33B        |            [Vicuna](https://huggingface.co/lmsys)            | [Vicuna](#vicuna)  |
-|  XGen   |  Salesforce  |           7B            | [xgen-7b-4k-base](https://huggingface.co/Salesforce/xgen-7b-4k-base) |   [XGen](#xgen)    |
-| Falcon  |     UAE      |   1.3B/7.5B/40B/180B    | [Falcon Family](https://huggingface.co/collections/tiiuae/falcon-64fb432660017eeec9837b5a) | [Falcon](#falcon)  |
-|   phi   |  Microsoft   |       1B/1.5B/2B        | [phi-1B()](https://huggingface.co/microsoft/phi-1)<br />[phi-1.5B](https://huggingface.co/microsoft/phi-1_5)<br />[phi-2B](https://huggingface.co/microsoft/phi-2) |    [phi](#phi)     |
-|  phi3   |  Microsoft   |       3.8B/7B/14B       | [Phi-3 family **(only phi-3-mini is available now)**](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3) |   [phi3](#phi3)    |
-|  Gemma  |    Google    |          2B/7B          | [GemmaFamily](https://huggingface.co/collections/google/gemma-release-65d5efbccdbb8c4202ec078b) |  [Gemma](#gemma)   |
+按发布时间排序
+
+|    Model     |     Organization      |        Parameters        |                          CheckPoint                          |            Details            |
+| :----------: | :-------------------: | :----------------------: | :----------------------------------------------------------: | :---------------------------: |
+|   Llama 2    |         Meta          |        7B/13B/70B        | [Llama2 Family](https://huggingface.co/collections/meta-llama/llama-2-family-661da1f90a9d678b6f55773b) |       [Llama2](#llama2)       |
+|   Llama 3    |         Meta          |          8B/70B          | [Llama3 Family](https://huggingface.co/collections/meta-llama/meta-llama-3-66214712577ca38149ebb2b6) |       [Llama3](#llama3)       |
+|    Orca2     |       Microsoft       |          7B/13B          | [Orca Family](https://huggingface.co/collections/microsoft/orca-65bbeef1980f5719cccc89a3) |        [Orca2](#orca2)        |
+|     Qwen     |        Alibaba        | 0.5B/1.8B/4B/7B/14B/72B  |             [Qwen](https://huggingface.co/Qwen)              |         [Qwen](#qwen)         |
+|   Qwen1.5    |        Alibaba        | 0.5B/1.8B/4B/7B/14B/72B  |            [Qwen1.5](https://huggingface.co/Qwen)            |      [Qwen1.5](#qwen15)       |
+|    Vicuna    |         LMSYS         |        7B/13B/33B        |            [Vicuna](https://huggingface.co/lmsys)            |       [Vicuna](#vicuna)       |
+|     XGen     |      Salesforce       |            7B            | [xgen-7b-4k-base](https://huggingface.co/Salesforce/xgen-7b-4k-base) |         [XGen](#xgen)         |
+|    Falcon    |          UAE          |    1.3B/7.5B/40B/180B    | [Falcon Family](https://huggingface.co/collections/tiiuae/falcon-64fb432660017eeec9837b5a) |       [Falcon](#falcon)       |
+|     phi      |       Microsoft       |        1B/1.5B/2B        | [phi-1B()](https://huggingface.co/microsoft/phi-1)<br />[phi-1.5B](https://huggingface.co/microsoft/phi-1_5)<br />[phi-2B](https://huggingface.co/microsoft/phi-2) |          [phi](#phi)          |
+|     phi3     |       Microsoft       |       3.8B/7B/14B        | [Phi-3 family **(only phi-3-mini is available now)**](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3) |         [phi3](#phi3)         |
+|    Gemma     |        Google         |          2B/7B           | [Gemma Family](https://huggingface.co/collections/google/gemma-release-65d5efbccdbb8c4202ec078b) |        [Gemma](#gemma)        |
+|    Mamba     | Albert Gu and Tri Dao | 130M/370M/790M/1.4B/2.8B |     [state-spaces](https://huggingface.co/state-spaces)      |        [Mamba](#mamba)        |
+|    Pythia    |      EleutherAI       |         14M～12B         | [Pythia Family](https://huggingface.co/collections/EleutherAI/pythia-scaling-suite-64fb5dfa8c21ebb3db7ad2e1) |       [Pythia](pythia)        |
+|   Mistral    |      Mistral AI       |            7B            |         [Mistral](https://huggingface.co/mistralai)          |      [Mistral](#Mistral)      |
+|      YI      |         01-ai         |        6B/9B/34B         | [Yi Family](https://huggingface.co/collections/01-ai/yi-2023-11-663f3f19119ff712e176720f) |           [Yi](#yi)           |
+|    YI-1.5    |         01-ai         |        6B/9B/34B         | [Yi-1.5 Family](https://huggingface.co/collections/01-ai/yi-15-2024-05-663f3ecab5f815a3eaca7ca8) |        [Yi-1.5](#yi15)        |
+|    Zephyr    |     Hugging Face      |            7B            |    [HuggingFaceH4 ](https://huggingface.co/HuggingFaceH4)    |       [Zephyr](#zephyr)       |
+| StripedHyena |      Together AI      |            7B            | [StripedHyena Family](https://huggingface.co/collections/togethercomputer/stripedhyena-65d8e6e77540dd1da932dbe1) | [StripedHyena](#stripedHyena) |
+|  Persimmon   |     Adept AI Labs     |            8B            | [persimmon-8b-chat ](https://huggingface.co/adept/persimmon-8b-chat) |    [Persimmon](#persimmon)    |
 
 
 
@@ -52,6 +67,23 @@ Llama 2预训练模型相较于 Llama 1 模型有显著提升，增加了 40% �
 - **Pretrain Data Scale:** 1.5T
 - **Language Support:** en
 - **Parameter Size:** 8B/70B
+
+
+
+### Orca2
+
+https://arxiv.org/pdf/2311.11045.pdf
+
+[Orca Family](https://huggingface.co/collections/microsoft/orca-65bbeef1980f5719cccc89a3)
+
+Orca 2 is a finetuned version of LLAMA-2. Orca 2’s training data is a synthetic dataset that was created to enhance the small model’s reasoning abilities. All synthetic training data was moderated using the Microsoft Azure content filters.
+
+论文中详细介绍了Orca 是如何在较小模型的情况下，也能媲美 GPT 3.5 甚至 GPT 4 的大语言模型。
+
+- **Date:** 2023-11
+- **Pretrain Data Scale:** same as LLAMA-2
+- **Language Support:** en
+- **Parameter Size:** 7B/13B
 
 
 
@@ -173,14 +205,232 @@ XGen-7B模型在支持长达8K令牌的输入，通过使用标准密集注意�
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/google-deepmind/gemma) 
 [![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/collections/google/gemma-release-65d5efbccdbb8c4202ec078b)
 
-
-
 可在各类消费级硬件上运行，无需数据量化处理，拥有高达 8K tokens 的处理能力，在 7B 参数级别Gemma 表现出色，比同参数级别的Llama2性能要好一些。与 Google Cloud 集成，可以通过 Vertex AI 或 Google Kubernetes Engine (GKE) 在 Google Cloud 上部署和训练 Gemma。
 
 - **Date:** 2024-02
 - **Pretrain Data Scale:** 2T
 - **Language Support:** en
 - **Parameter Size:** 2B/7B
+
+
+
+### Mamba
+
+[![arXiv](https://img.shields.io/badge/arXiv-2312.00752-b31b1b.svg)](https://arxiv.org/abs/2312.00752) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/state-spaces/mamba) 
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/state-spaces)
+- **Date:** 2023-12
+- **Pretrain Data Scale:** 10B
+- **Language Support:** en
+- **Parameter Size:** 130M/370M/790M/1.4B/2.8B
+
+Mamba 2.8B 是一种基于状态空间模型架构的大型语言模型，在处理信息密集型数据（如语言建模）方面可以和传统的 Transformer 模型竞争。
+
+主要创新点如下
+
+1. **选择性状态空间模型（SSMs）**：Mamba 通过基于输入参数化 SSM 参数引入了选择机制。这使得模型可以根据当前令牌沿序列长度维度选择性地传播或遗忘信息，增强了其聚焦相关信息同时丢弃无关数据的能力。
+
+2. **硬件感知并行算法：** 为了克服选择性状态空间模型（SSMs）带来的计算复杂性，Mamba 采用了一种硬件感知算法，使用扫描而非卷积来计算模型
+
+   > 扫描操作在递归计算中更常见，尤其是在处理需要根据输入动态调整参数的模型时，在 Mamba 模型中，由于引入了选择性机制，使得模型的参数可以根据输入动态变化，这破坏了卷积的使用条件。扫描操作按照序列的顺序，一步步地计算序列的状态，允许每一步的计算都可以基于当前的输入和前一状态动态调整。
+
+3. **长上下文处理**：可以达到100万序列长度，在音频处理和基因组学方面性能良好
+
+
+
+
+
+### Pythia
+[![arXiv](https://img.shields.io/badge/arXiv-2304.01373-b31b1b.svg)](https://arxiv.org/abs/2304.01373) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/EleutherAI/pythia) 
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/collections/EleutherAI/pythia-scaling-suite-64fb5dfa8c21ebb3db7ad2e1)
+- **Date:** 2023-04
+- **Pretrain Data Scale:** 10B
+- **Language Support:** en
+- **Parameter Size:** 130M/370M/790M/1.4B/2.8B
+
+
+Pythia *Scaling Suite*是为促进可解释性研究而开发的模型集合，is a suite of 16 LLMs all trained on public data seen in the exact same order and ranging in size from 70M to 12B parameters.
+
+> 大型语言模型（LLM）套件，是一系列用于科学研究的语言模型的集合。这些模型在设计和实现时注重一致性和可重现性，目的是让研究者能够深入分析和理解大型语言模型在训练和扩展过程中的表现和变化。
+
+Pythia contains two sets of eight models of sizes 70M, 160M, 410M, 1B, 1.4B, 2.8B, 6.9B, and 12B. For each size, there are two models: one trained on the Pile, and one trained on the Pile after the dataset has been globally deduplicated. All 8 model sizes are trained on the exact same data, in the exact same order. 
+
+> Pile 是一个大型的、开源的英文文本数据集，专为训练大型语言模型而设计。它由 22 个不同的、高质量的子数据集组成，这些子数据集包括了从书籍、学术论文、法律文献、在线问答，到编程代码和电影字幕等多种类型的文本。被广泛用于训练包括自回归变换器在内的大型语言模型，详情：[click here](https://pile.eleuther.ai/)。
+
+Pythia套件是唯一一个满足以下三个关键特性的公开发布的LLM套件：
+
+1. 模型覆盖了多个数量级的模型规模。
+2. 所有模型都按照相同的顺序在相同的数据上进行训练。
+3. 数据和中间检查点可供公开研究使用。
+
+作者还进行了三个语言建模研究的案例研究
+
+1. **数据偏见如何影响学习行为**：研究表明，通过对语言模型的适当干预，可以发现数据中代词的出现频率会影响模型的学习偏差。研究也提出一种可控的方法来分析和减轻模型的偏差问题。
+2. **训练顺序是否影响记忆**：研究者发现，泊松模型能够很好地适配数据，这说明训练顺序对于记忆的影响较小。该模型表明，在训练过程的开始或结束阶段，记忆序列并不会更密集地出现，而是在各个检查点之间，可以观察到大致相同数量的记忆序列分布。
+3. **预训练术语频率是否影响整个训练过程中的任务性能**：这种相关性在较大的模型中表现得更为明显。较小的模型即便在训练的后期阶段也很难在这些任务上取得准确的结果，表明这些模型无论训练数据中相关信息的频率如何，都无法成功学习这些任务。
+
+
+
+
+
+### Mistral
+[![arXiv](https://img.shields.io/badge/arXiv-2310.06825-b31b1b.svg)](https://arxiv.org/abs/2310.06825) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/mistralai/mistral-common) 
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/mistralai)
+
+- **Date:** 2023-09
+- **Pretrain Data Scale:** 8T
+- **Language Support:** en
+- **Parameter Size:** 7B
+
+Mistral 7B 超越了以前最好的 130 亿参数模型（Llama 2）在所有评测基准上的表现，并且在推理、数学和代码生成方面超过了最好的 340 亿参数模型（Llama 1），利用分组查询注意力（Grouped-query Attention, GQA）和滑动窗口注意力（Sliding Window Attention, SWA）。GQA 显著提高了推理速度，减少了解码时的内存需求。SWA 能够更有效地处理更长的序列，从而降低计算成本。
+
+Mistral-7B is a decoder-only Transformer with the following architectural choices:
+
+- Sliding Window Attention - Trained with 8k context length and fixed cache size, with a theoretical attention span of 128K tokens
+- GQA (Grouped Query Attention) - allowing faster inference and lower cache size.
+- Byte-fallback BPE tokenizer - ensures that characters are never mapped to out of vocabulary tokens.
+
+
+
+### YI
+[![arXiv](https://img.shields.io/badge/arXiv-2403.04652-b31b1b.svg)](https://arxiv.org/abs/2403.04652) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/01-ai/Yi) 
+[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/01-ai/yi-2023-11-663f3f19119ff712e176720f)
+
+- **Date:** 2023-11
+- **Pretrain Data Scale:**0. 8T～3T
+- **Language Support:** Multiple
+- **Parameter Size:** 6B/9B/34B
+
+Yi系列包括6B、9B和34B参数规模的基础模型，每个模型的默认上下文窗口为4K，并在推理时可以扩展到32K。
+
+核心亮点有以下几方面
+
+1. **高质量数据预处理**：Yi系列模型使用了严格的清洗管道来确保高质量的训练数据。这包括使用启发式规则和学习过滤器来去除低质量和不适当的内容，确保数据集的纯净度和相关性。
+2. **改进的注意力机制**：Yi模型采用了改进的Grouped-Query Attention（GQA）机制，这大大减少了训练和推理的成本，与传统的多头注意力机制相比具有更高的效率。
+3. **多模态支持**：Yi系列还包括多模态模型（Yi-VL），这些模型能够处理文本和图像输入，进行多轮对话和视觉问答。
+4. **对中文支持更好**：对标chatGPT4在CMMLU、E-Eval、Gaokao 三个主要的中文指标上Yi-34B表现得很好。
+
+> Grouped-Query Attention (GQA) 机制的原理：传统的多头注意力机制中，每个注意力头都有自己独立的查询（Q）、键（K）和值（V）向量。在GQA中，查询头被分成若干组，每组共享一个键（K）和一个值（V）向量。具体来说，如果一个注意力层有`H`个查询头，这些查询头被分成`G`组（`G < H`），每组共享相同的K和V向量。
+>
+> 在GQA机制下，键和值向量的计算次数减少，因为同一组内的多个查询头共享相同的K和V。这减少了矩阵乘法的次数，从而降低了计算复杂度。
+
+
+
+### YI-1.5
+[![arXiv](https://img.shields.io/badge/arXiv-2403.04652-b31b1b.svg)](https://arxiv.org/abs/2403.04652) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/01-ai/Yi-1.5) 
+[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/01-ai/yi-15-2024-05-663f3ecab5f815a3eaca7ca8)
+
+- **Date:** 2023-05
+- **Pretrain Data Scale:** 3.6T
+- **Language Support:** Multiple
+- **Parameter Size:** 6B/9B/34B
+
+Yi-1.5模型预训练在5000亿高质量语料库上，并在300万多样化样本上进行了微调。这种大规模的数据训练使得模型在编程、数学、推理和指令遵循任务上的性能更强。包括34B、9B和6B参数模型，每种模型支持的上下文长度分别为4K、16K和32K。
+
+在Yi-1.5系列中特别是9B模型，采用了**后期层的复制方法**以提高模型性能，同时保持高效的训练。与传统的模型扩展方法相比，这种方法能更好地保持性能，减少损失。
+
+最大的 Yi 1.5. 34B 在基准测试中几乎与 Meta Llama 3 70B 相当。
+
+> Yi-34B-200K在“Needle-in-a-Haystack”测试中的表现从89.3%提高到99.8%
+
+
+
+
+
+
+
+### Zephyr
+[![arXiv](https://img.shields.io/badge/arXiv-2310.16944-b31b1b.svg)](https://arxiv.org/abs/2310.16944) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/huggingface/alignment-handbook) 
+- **Date:** 2023-05
+- **Pretrain Data Scale:** According to LLM
+- **Language Support:** en
+- **Parameter Size:** 7B
+
+Zephyr 系列大语言模型采用了多样的偏好优化技术，使其更符合特定的用户偏好或任务需求。这个系列共有三个模型，每个模型使用了不同的偏好优化算法和底座LLM。
+
+> 偏好优化技术可以确保生成的输出更符合期望，**减少不良输出**，可以极大地增强模型的定制化能力。
+
+
+
+#### Zephyr-7B
+
+[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/HuggingFaceH4/zephyr-7b-6538c6d6d5ddd1cbb1744a66
+)
+
+Zephyr-7B-β 是Zephyr 系列列中的第一个模型，是基于 [Mistralai/Mistral-7B-v0.1](https://link.zhihu.com/?target=https%3A//huggingface.co/mistralai/Mistral-7B-v0.1) 微调而来的，使用的是**直接偏好优化（DPO）**算法
+
+此外该模型利用知识蒸馏技术，即用较小的“学生”模型学习和复制较大“教师”模型的性能。这使得Zephyr-7B在保留较大模型能力的同时，具有更高的计算效率，并且更容易部署在计算资源有限的设备上。
+
+使用的数据集是UltraChat和UltraFeedback数据集
+
+- UltraChat是由ChatGPT生成的合成对话数据集
+- UltraFeedback包含了各种提示和响应，并由GPT-4进行了注释
+
+>直接偏好优化（Direct Preference Optimization, DPO）通过直接最大化模型生成的首选响应的概率来进行偏好对齐。DPO算法通过直接优化模型生成的首选响应的概率，而不需要参考模型，简化了训练过程。
+
+
+
+#### Zephyr ORPO
+[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/HuggingFaceH4/zephyr-orpo-6617eba2c5c0e2cc3c151524)
+
+Zephyr-ORPO-141B-A35b-v0.1是一个具有 141B 总参数和 39B 有效参数的专家混合 （MoE） 模型，是在[Mixtral-8x22B-v0.1](https://huggingface.co/mistral-community/Mixtral-8x22B-v0.1)的基础上微调的。采用[Odds Ratio Preference Optimization (ORPO)](https://huggingface.co/papers/2403.07691)算法进行偏好优化，ORPO 不需要 SFT 步骤即可实现高性能，因此计算效率比 DPO 和 PPO 等方法高得多。
+
+ORPO模型通过动态惩罚机制还可以有效地减少了不良响应的生成，确保输出内容的高质量和适用性。
+
+> **Odds Ratio Preference Optimization (ORPO)** 算法通过计算首选响应和非首选响应的赔率比进行优化，确保模型更倾向于生成首选响应。
+
+
+
+#### Zephyr-7B Gemma
+[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/HuggingFaceH4/zephyr-7b-gemma-65e1fd82d26b426e3e63d956)
+
+是在HuggingFaceH4/deita-10k-v0-sft 数据集上 [google/gemma-7b](https://huggingface.co/google/gemma-7b) 的微调版本，使用的也是DPO的偏好优化算法。
+
+
+
+### StripedHyena
+[![AI Blog](https://img.shields.io/badge/AI%20Blog-Phi%20AI-orange.svg)](https://www.together.ai/blog/stripedhyena-7b) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/togethercomputer/stripedhyena) 
+
+[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/togethercomputer/stripedhyena-65d8e6e77540dd1da932dbe1)
+
+-  2023-12
+- **Pretrain Data Scale:** 2T
+- **Language Support:** Multiple
+- **Parameter Size:** 7B
+
+该模型系列包括 StripedHyena-Hessian-7B 和 StripedHyena-Nous-7B 两个主要变种。[前者](https://huggingface.co/togethercomputer/StripedHyena-Hessian-7B)为基础模型[后者](https://huggingface.co/togethercomputer/StripedHyena-Nous-7B)为聊天模型
+
+StripedHyena 采用了一种混合架构，结合了门控卷积（gated convolutions）和分组查询注意力机制（grouped-query attention）。该模型的核心组件是状态空间模型（SSM）层，传统上用于建模复杂序列和时间序列数据。SSM 层能够更高效地处理长序列任务，减少计算资源需求，相较于经典的 Transformer，在长序列训练中速度更快。
+
+StripedHyena 训练序列长度可达 32k，能够处理更长的提示
+
+
+
+### Persimmon
+[![AI Blog](https://img.shields.io/badge/AI%20Blog-Phi%20AI-orange.svg)](https://www.adept.ai/blog/persimmon-8b) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/persimmon-ai-labs/adept-inference) 
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/adept/persimmon-8b-chat)
+
+- **Date:** 2023-09
+- **Pretrain Data Scale:**  0.737T
+- **Language Support:** en
+- **Parameter Size:** 8B
+
+Persimmon-8B 支持 16K 的上下文长度，是 LLaMA2 的四倍，GPT-3 的八倍
+
+采用了一些架构优化，包括平方 ReLU 激活函数和旋转位置编码（rotary positional encodings）。
+
+模型的输入和输出嵌入进行了分离优化，避免了大嵌入层梯度的全量减少，从而提升了训练效率。
+
+
+
+
 
 
 

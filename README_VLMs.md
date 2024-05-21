@@ -7,6 +7,8 @@ Here is list of **VLMs**, to reach list of LLMs. Click [here](https://github.com
 
 ## Quick Start🏁
 
+按发布时间排序
+
 |   Model    |       Parameters        |                             Demo                             |                          CheckPoint                          | Details |
 | :--------: | :---------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :-----: |
 | MiniGemini<br />(MGM) |       2B/7B/13B/34B       | [MGM](https://huggingface.co/spaces/jiaqianjing/Mini-Gemini) | [MGM  Family](https://huggingface.co/collections/YanweiLi/mgm-6603c50b9b43d044171d0854) |    [MiniGemini](#minigemini)     |
@@ -17,6 +19,8 @@ Here is list of **VLMs**, to reach list of LLMs. Click [here](https://github.com
 | MiniGPT4 Series | 7B/13B | Invalid Now | [Vision-CAIR ](https://huggingface.co/Vision-CAIR) | [MiniGPT4 Series](#minigpt4-series) |
 | TinyLLaVA |  | |  | [TinyLLaVA](#tinyllava) |
 | TinyGPT-V |  | |  | [TinyGPT-V](#tinygpt-v) |
+| PaliGemma | 3B | [PaliGemma](https://huggingface.co/spaces/big-vision/paligemma) | [PaliGemma Family](https://huggingface.co/collections/google/paligemma-ft-models-6643b03efb769dad650d2dda) | [PaliGemma](#paligemma) |
+| PaLI-3 | 5B |  |  | [PaLI-3](#palI-3) |
 
 ## Details Regarding Models Above📊
 
@@ -24,7 +28,7 @@ Here is list of **VLMs**, to reach list of LLMs. Click [here](https://github.com
 
 [![arXiv](https://img.shields.io/badge/arXiv-2403.18814-b31b1b.svg)](https://arxiv.org/pdf/2403.18814) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/dvlab-research/MGM)
-[![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/collections/YanweiLi/mgm-6603c50b9b43d044171d0854)
+[![Hugging Face Collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Collections-blue)](https://huggingface.co/collections/YanweiLi/mgm-6603c50b9b43d044171d0854)
 
 
 ##### 动机
@@ -244,4 +248,73 @@ LLM是在Vicuna-7B的基础上训练得来的，保证其NLP能力的前提下�
 
 
 ### TinyGPT-V  
+
+
+
+### PaLI-3
+
+[[2310.09199\] PaLI-3 Vision Language Models: Smaller, Faster, Stronger (arxiv.org)](https://arxiv.org/abs/2310.09199)
+
+[google-research/big_vision: Official codebase used to develop Vision Transformer, SigLIP, MLP-Mixer, LiT and more. (github.com)](https://github.com/google-research/big_vision?tab=readme-ov-file)
+
+PaLI-3，这是 PaLI 系列的第三代模型。通过一个仅有 5B 参数的预训练基线模型，他们优化了训练方法，并在多个 VLM 基准上实现了有竞争力以及新的 SOTA 结果。
+
+新的方法主要由三个步骤：
+
+1. **单模态预训练**：预训练图像编码器和文本编码器，使它们能够单独处理各自的输入。
+
+   - **图像编码器预训练**：使用网页规模的图像-文本对数据集（如 WebLI）。采用 SigLIP 训练方法，对图像和文本进行对比预训练
+
+     >1. **嵌入**：将图像和文本嵌入到同一高维向量空间中。
+     >2. **对比损失**：使用 Sigmoid Cross-Entropy 损失函数，使正确的图像-文本对的点积较高，而不正确的对较低。
+
+   - **文本编码器预训练**：使用 UL2 模型，采用“去噪器混合”（mixture of denoisers）的方法进行训练。
+
+2. **多模态训练**
+
+   - 将预训练的图像编码器（ViT-G/142）与一个 3B 参数的 UL2 编码器-解码器语言模型结合。图像编码器将图像转换为视觉令牌，这些令牌与文本令牌一起输入到语言模型中。
+   - 在这个阶段，**图像编码器保持冻结状态，只训练语言模型部分**，以确保图像编码器的嵌入质量。
+   - **高分辨率训练**:开始时使用较低分辨率的图像，逐步提高分辨率，以提高模型对图像细节的感知能力。中间会在 812×812 和 1064×1064 分辨率上保存检查点。
+
+3. **分辨率增加和任务专用微调**:
+
+   - 进一步提高模型的输入分辨率，进行短期微调，解冻图像编码器，确保模型能够在高分辨率下处理图像。
+   - **任务专用微调**：在微调过程中，通常使用 812×812 分辨率检查点，但对于某些需要更高分辨率的任务（如文档理解任务），会使用 1064×1064 分辨率进行微调。
+
+##### Architecture
+
+<div align="center">
+  <img src="./image/paligemma.png"  width="600" />
+</div>
+
+
+
+
+
+### PaliGemma
+
+[PaliGemma  | Google for Developers](https://ai.google.dev/gemma/docs/paligemma?hl=zh-cn)
+
+[PaliGemma – Google's Cutting-Edge Open Vision Language Model (huggingface.co)](https://huggingface.co/blog/paligemma)
+
+[PaliGemma](https://github.com/google-research/big_vision)
+
+PaliGemma 由 [Transformer 解码器](https://arxiv.org/abs/1706.03762)和 [Vision Transformer 图像编码器](https://arxiv.org/abs/2010.11929)组成，共计有 30 亿个参数。文本解码器从 [Gemma-2B](https://www.kaggle.com/models/google/gemma) 初始化。图片编码器使用 [SigLIP-So400m/14](https://colab.research.google.com/github/google-research/big_vision/blob/main/big_vision/configs/proj/image_text/SigLIP_demo.ipynb?hl=zh-cn) 进行初始化。PaliGemma 是按照 PaLI-3 方法训练的。
+
+PaliGemma 共开源了三类模型：
+（1）预训练的多模态基座模型（模型在huggingface上标注为pt）；
+（2）在单个任务上（如：DocVQA，AI2D 等）Finetune 得到的模型（模型在huggingface上标注为ft）；
+（3）混合数据集上 Finetune 的模型（模型在huggingface上标注为mix）。
+
+这些模型有三种不同的分辨率（224x224、448x448）、896x896和三种不同的精度 （bf16、f16和f32）。每个存储库都包含给定分辨率和任务的检查点，每个可用精度都有三个修订版。每个存储库的main分支都包含float32检查点，其中bf16as 和f16revisions 包含相应的精度。对于与 Transformer 和原始 JAX 实现兼容的模型，有单独的存储库，高分辨率模型需要更大的内存来运行，因为输入序列要长得多。它们可能有助于处理颗粒度较为精细的任务（如 OCR），但对于大多数任务来说，质量提升很小。
+
+##### Architecture
+
+same as [PaLI-3](#palI-3)
+
+<div align="center">
+  <img src="./image/paligemma.png"  width="600" />
+</div>
+
+
 
