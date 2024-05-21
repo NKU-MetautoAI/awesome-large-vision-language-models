@@ -13,12 +13,12 @@ Here is list of **VLMs**, to reach list of LLMs. Click [here](https://github.com
 | :--------: | :---------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :-----: |
 | MiniGemini<br />(MGM) |       2B/7B/13B/34B       | [MGM](https://huggingface.co/spaces/jiaqianjing/Mini-Gemini) | [MGM  Family](https://huggingface.co/collections/YanweiLi/mgm-6603c50b9b43d044171d0854) |    [MiniGemini](#minigemini)     |
 |   Bunny    |         2B/3B/4B/8B         | [Bunny](http://bunny.dataoptim.org/) | [BAAI](https://huggingface.co/BAAI) |     [Bunny](#bunny)    |
-|   Llava    |               |                                                              |                           |    [Llava](#llava)     |
+|   Llava    | 7B/13B | [Llava v1.6](https://huggingface.co/spaces/liuhaotian/LLaVA-1.6) | [Llava v1.5](https://huggingface.co/collections/liuhaotian/llava-16-65b9e40155f60fd046a5ccf2)<br />[Lava v1.6](https://huggingface.co/collections/liuhaotian/llava-15-653aac15d994e992e2677a7e) |    [Llava](#llava)     |
 | Cog Series |    17B/18B    | [CogVLM & CogAgent](https://huggingface.co/spaces/THUDM/CogVLM-CogAgent) |            [THUDM ](https://huggingface.co/THUDM)            |    [Cog Series](#cog-series)      |
 |    HPT     |       3-8B/6B | NONE |            [HPT](https://huggingface.co/HyperGAI)            |    [HPT](#hpt)    |
 | MiniGPT4 Series | 7B/13B | Invalid Now | [Vision-CAIR ](https://huggingface.co/Vision-CAIR) | [MiniGPT4 Series](#minigpt4-series) |
-| TinyLLaVA |  | |  | [TinyLLaVA](#tinyllava) |
-| TinyGPT-V |  | |  | [TinyGPT-V](#tinygpt-v) |
+| TinyLLaVA | 1.4B/2.4B/3.1B | NONE | [TinyLLaVA](https://huggingface.co/tinyllava) | [TinyLLaVA](#tinyllava) |
+| TinyGPT-V |  | | [TinyGPT-V]() | [TinyGPT-V](#tinygpt-v) |
 | PaliGemma | 3B | [PaliGemma](https://huggingface.co/spaces/big-vision/paligemma) | [PaliGemma Family](https://huggingface.co/collections/google/paligemma-ft-models-6643b03efb769dad650d2dda) | [PaliGemma](#paligemma) |
 | PaLI-3 | 5B |  |  | [PaLI-3](#palI-3) |
 
@@ -101,8 +101,40 @@ For more information on the Bunny model checkpoints, please refer to the GitHub 
 </div>
 
 
-
 ### Llava
+
+[![arXiv](https://img.shields.io/badge/arXiv-2304.08485-b31b1b.svg)](https://arxiv.org/abs/2304.08485) 
+
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/haotian-liu/LLaVA)
+
+作为VLMs领域较为早起的工作，Llava结合了预训练的 CLIP ViT-L/14 视觉编码器和 Vicuna 语言模型，并且通过一个简单的投影矩阵连接两者来实现多模态能力。
+
+创新点
+
+1. Llava使用的也是经典的预训练+微调的训练步骤
+2. 创新性地提出了**新的数据集组织方式**，就是利用GPT-4 生成与图像相关的指令问题，例如使用包含了大量的图像及其对应的文本描述的COCO数据集，将图文对儿传输给GPT-4并且组织新的问题，**利用AI产出训练数据来训练AI**。
+>为了确保生成的数据具有多样性和深度，研究人员设计了三种不同类型的指令-响应对：
+>- 对话式数据（Conversation）： 模拟人与助手之间的对话，涉及关于图像内容的多轮问答。这种类型的数据可以帮助模型学习如何进行连贯的多轮对话。
+>- 详细描述（Detailed Description）： 生成详细的图像描述，帮助模型理解和生成详细的视觉内容描述。
+> - 复杂推理（Complex Reasoning）： 生成需要复杂推理的问题和答案，涉及多步逻辑推理。这种类型的数据能够提升模型的推理能力。
+3. 架构上使用了Flash Attention 2 和 LoRA（低秩自适应）等技术优化，提高效率并减少内存资源的使用
+
+##### Architecture
+
+<div align="center">
+  <img src="./image/llava.png"  width="600" />
+</div>
+
+##### Llava的改进
+
+The LLaVa model was proposed in [Visual Instruction Tuning](https://arxiv.org/abs/2304.08485) and improved in [Improved Baselines with Visual Instruction Tuning](https://arxiv.org/pdf/2310.03744) by Haotian Liu, Chunyuan Li, Yuheng Li and Yong Jae Lee.这里就是Llava1.5的诞生地
+
+1. **Llava1.5**
+   - Llava1.5依旧使用Vicuna 作为基础语言模型，使用了**两层 MLP** 替代了原来的线性投影，同时还支持更高分辨率的图像（336x336 像素）的交互。使用的是划分图像网格的方式，实现了高分辨率输入的处理，这样的方式也巧妙地减少了“幻觉现象”的产生。
+   - 引入了面向学术任务的数据集，如VQA（Visual Question Answering）、OCR（Optical Character Recognition）和区域级理解数据
+2. **Llava1.6** 🔥
+   - 支持更高的像素数（如 672x672, 336x1344, 1344x336 分辨率）图片的交互
+   - 添加了视觉推理和 OCR（光学字符识别）能力
 
 
 
@@ -243,6 +275,12 @@ LLM是在Vicuna-7B的基础上训练得来的，保证其NLP能力的前提下�
 
 ### TinyLLaVA
 
+[![arXiv](https://img.shields.io/badge/arXiv-2402.14289-b31b1b.svg)](https://arxiv.org/abs/2402.14289) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/DLCV-BUAA/TinyLLaVABench)
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/tinyllava)
+
+
+
 
 
 
@@ -318,3 +356,7 @@ same as [PaLI-3](#palI-3)
 
 
 
+
+## Response time
+
+The GitHub project [fastestAI]([fastai/fastai: The fastai deep learning library (github.com)](https://github.com/fastai/fastai)) has compiled response time data for recently released LLMs (Large Language Models) and VLMs (Vision Language Models). For detailed statistics, please refer to the table available at this [link](https://thefastest.ai).
