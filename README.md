@@ -71,10 +71,9 @@ Llama 2预训练模型相较于 Llama 1 模型有显著提升，增加了 40% �
 
 
 ### Orca2
+[![arXiv](https://img.shields.io/badge/arXiv-2311.11045-b31b1b.svg)](https://arxiv.org/pdf/2311.11045.pdf) 
+[![Hugging Face collection](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/collections/microsoft/orca-65bbeef1980f5719cccc89a3)
 
-https://arxiv.org/pdf/2311.11045.pdf
-
-[Orca Family](https://huggingface.co/collections/microsoft/orca-65bbeef1980f5719cccc89a3)
 
 Orca 2 is a finetuned version of LLAMA-2. Orca 2’s training data is a synthetic dataset that was created to enhance the small model’s reasoning abilities. All synthetic training data was moderated using the Microsoft Azure content filters.
 
