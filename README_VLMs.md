@@ -15,18 +15,20 @@ Here is list of **VLMs**, to reach list of LLMs. Click [here](https://github.com
 |   Bunny    |         2B/3B/4B/8B         | [Bunny](http://bunny.dataoptim.org/) | [BAAI](https://huggingface.co/BAAI) |     [Bunny](#bunny)    |
 |   Llava    | 7B/13B | [Llava v1.6](https://huggingface.co/spaces/liuhaotian/LLaVA-1.6) | [Llava v1.5](https://huggingface.co/collections/liuhaotian/llava-16-65b9e40155f60fd046a5ccf2)<br />[Lava v1.6](https://huggingface.co/collections/liuhaotian/llava-15-653aac15d994e992e2677a7e) |    [Llava](#llava)     |
 | Cog Series |    17B/18B    | [CogVLM & CogAgent](https://huggingface.co/spaces/THUDM/CogVLM-CogAgent) |            [THUDM ](https://huggingface.co/THUDM)            |    [Cog Series](#cog-series)      |
-|    HPT     |       3-8B/6B | NONE |            [HPT](https://huggingface.co/HyperGAI)            |    [HPT](#hpt)    |
+|    HPT     |       3-8B/6B | None |            [HPT](https://huggingface.co/HyperGAI)            |    [HPT](#hpt)    |
 | MiniGPT4 Series | 7B/13B | Invalid Now | [Vision-CAIR ](https://huggingface.co/Vision-CAIR) | [MiniGPT4 Series](#minigpt4-series) |
-| TinyLLaVA | 1.4B/2.4B/3.1B | NONE | [TinyLLaVA](https://huggingface.co/tinyllava) | [TinyLLaVA](#tinyllava) |
-| TinyGPT-V |  | | [TinyGPT-V]() | [TinyGPT-V](#tinygpt-v) |
+| TinyLLaVA | 1.4B/2.4B/3.1B | None | [TinyLLaVA](https://huggingface.co/tinyllava) | [TinyLLaVA](#tinyllava) |
+| TinyGPT-V | --- | [TinyGPT-V](https://huggingface.co/spaces/llizhx/TinyGPT-V) | [TinyGPT-V]([Tyrannosaurus/TinyGPT-V · Hugging Face](https://huggingface.co/Tyrannosaurus/TinyGPT-V)) | [TinyGPT-V](#tinygptv) |
 | PaliGemma | 3B | [PaliGemma](https://huggingface.co/spaces/big-vision/paligemma) | [PaliGemma Family](https://huggingface.co/collections/google/paligemma-ft-models-6643b03efb769dad650d2dda) | [PaliGemma](#paligemma) |
-| PaLI-3 | 5B |  |  | [PaLI-3](#palI-3) |
+| PaLI-3 | 5B | None | None(PaliGemma is based on PaLI-3) | [PaLI-3](#palI3) |
+| MobileVLM | 3B | Invalid Now |  | [MobileVLM](#mobilevlm) |
+|  |  | | |  |
 
 ## Details Regarding Models Above📊
 
 ### MiniGemini
 
-[![arXiv](https://img.shields.io/badge/arXiv-2403.18814-b31b1b.svg)](https://arxiv.org/pdf/2403.18814) 
+[![arXiv](https://img.shields.io/badge/arXiv-2403.18814-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2403.18814) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/dvlab-research/MGM)
 [![Hugging Face Collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Collections-blue)](https://huggingface.co/collections/YanweiLi/mgm-6603c50b9b43d044171d0854)
 
@@ -50,11 +52,11 @@ Mini-Gemini supports a series of dense and MoE Large Language Models (LLMs) from
 ##### Architecture
 
 <div align="center">
-  <img src="./image/minigemini1.png" alt="image-20240510165317066" width="600" />
+  <img src="./image/minigemini1.png" alt="image-20240510165317066" width="800" />
 </div>
 
 <div align="center">
-  <img src="./image/minigemini2.png" alt="image-20240510165317066" width="600" />
+  <img src="./image/minigemini2.png" alt="image-20240510165317066" width="800" />
 </div>
 
 In conclusion, dual vision encoders are utilized to provide low-resolution visual embedding and high-resolution candidates; patch info mining is proposed to conduct patch-level mining between high-resolution regions and low-resolution visual queries; LLM is utilized to marry text with images for both comprehension and generation at the same time.
@@ -65,7 +67,7 @@ The enhancements are further supported by employing an end-to-end workflow, a du
 
 ### Bunny
 
-[![arXiv](https://img.shields.io/badge/arXiv-2402.11530-b31b1b.svg)](https://arxiv.org/pdf/2402.11530) 
+[![arXiv](https://img.shields.io/badge/arXiv-2402.11530-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2402.11530) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/BAAI-DCAI/Bunny)
 
 For more information on the Bunny model checkpoints, please refer to the GitHub link above or click [here](https://github.com/BAAI-DCAI/Bunny). This includes the fully trained checkpoints (for evaluation), the pre-trained checkpoints, and more.
@@ -97,13 +99,13 @@ For more information on the Bunny model checkpoints, please refer to the GitHub 
 ##### Architecture
 
 <div align="center">
-  <img src="./image/bunny.png"  width="600" />
+  <img src="./image/bunny.png"  width="800" />
 </div>
 
 
 ### Llava
 
-[![arXiv](https://img.shields.io/badge/arXiv-2304.08485-b31b1b.svg)](https://arxiv.org/abs/2304.08485) 
+[![arXiv](https://img.shields.io/badge/arXiv-2304.08485-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2304.08485) 
 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/haotian-liu/LLaVA)
 
@@ -122,7 +124,7 @@ For more information on the Bunny model checkpoints, please refer to the GitHub 
 ##### Architecture
 
 <div align="center">
-  <img src="./image/llava.png"  width="600" />
+  <img src="./image/llava.png"  width="800" />
 </div>
 
 ##### Llava的改进
@@ -142,7 +144,7 @@ The LLaVa model was proposed in [Visual Instruction Tuning](https://arxiv.org/ab
 
 #### CogVLM
 
-[![arXiv](https://img.shields.io/badge/arXiv-2311.03079-b31b1b.svg)](https://arxiv.org/abs/2311.03079) 
+[![arXiv](https://img.shields.io/badge/arXiv-2311.03079-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2311.03079) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/THUDM/CogVLM)
 
 CogVLM is an innovative open-source visual language model (VLM) designed to bridge the gap between traditional language models and visual data processing. It introduces a "visual expert module" within its architecture to enhance the integration of visual and language features without increasing computational demands. This module is embedded in both the attention and feedforward neural network (FFN) layers of a pre-trained language model, allowing for a deep fusion of visual and linguistic data.
@@ -178,7 +180,7 @@ CogVLM在语言模型中增加了一个可训练的视觉专家（visual expert�
 ##### Architecture
 
 <div align="center">
-  <img src="./image/cogVLM.png" alt="image-20240510165317066" width="600" />
+  <img src="./image/cogVLM.png" alt="image-20240510165317066" width="800" />
 </div>
 
 
@@ -201,7 +203,7 @@ LLM是在Vicuna-7B的基础上训练得来的，保证其NLP能力的前提下�
 
 #### CogAgent
 
-[![arXiv](https://img.shields.io/badge/arXiv-2312.08914-b31b1b.svg)](https://arxiv.org/abs/2312.08914) 
+[![arXiv](https://img.shields.io/badge/arXiv-2312.08914-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2312.08914) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/THUDM/CogVLM)
 
 **CogAgent** 是一个基于CogVLM改进的开源视觉语言模型，在CogVLM的基础上主要侧重提升了GUI理解和导航能力，能够识别微小的页面元素和文本，在处理屏幕截图相关的任务上优于基于 LLM 的方法。
@@ -231,7 +233,7 @@ LLM是在Vicuna-7B的基础上训练得来的，保证其NLP能力的前提下�
 ##### Architecture
 
 <div align="center">
-  <img src="./image/cogAgent.png" alt="image-20240510171107123" width="600" />
+  <img src="./image/cogAgent.png" alt="image-20240510171107123" width="800" />
 </div>
 
 
@@ -250,24 +252,66 @@ LLM是在Vicuna-7B的基础上训练得来的，保证其NLP能力的前提下�
 ##### Architecture
 
 <div align="center">
-  <img src="./image/HPT.png"  width="600" />
+  <img src="./image/HPT.png"  width="800" />
 </div>
 
 
 
 
 
-最新的VLMs survey存储库，包括VLM预训练、迁移学习方法和知识蒸馏方法，还有可以使用的数据集汇总：[github](https://github.com/jingyi0000/VLM_survey)
 
 
 
 ### MiniGPT4 Series
 
+Recently, most of the work is based on MiniGPT4 and MiniGPT4-V2. The architectures of MiniGPT4 & MiniGPT4-V2 lay the foundation for subsequent multimodal large models, with subsequent work either adopting their training methods or fine-tuning their entire code structure.
+
 #### MiniGPT4
+
+[![arXiv](https://img.shields.io/badge/arXiv-2304.10592-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2304.10592) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Vision-CAIR/MiniGPT-4)
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/Vision-CAIR/MiniGPT-4)
+
+MiniGPT4总体也是分为视觉端和语言端，包括视觉编码器（ViT 和 Q-Former）和语言模型 Vicuna。使用的是一个简单的线性投影层对齐视觉特征与语言模型。
+
+使用两步训练的方式：
+
+1. 第一阶段使用大量的图像-文本对进行初步训练，获取视觉-语言知识进行**预训练**；经过这一阶段的模型已经可以初步处理一些VQA问题，但是模型有时候还是会输出和提问不相关的内容。
+   - 视觉端使用的是ViT 和 Q-Former 
+   - 语言端使用的是Vicuna
+2. 第二阶段使用高质量高质量的详细图像描述数据集进行**微调**，这一阶段中涉及一个指令数据集，这个数据集的源头是Conceptual Caption数据集，作者使用一阶段训练后的模型生成图片的描述，并且给予足够的提示保证描述足够长，随后使用chatGPT进行进一步的构建和纠错，最后人工选择了3500个左右的图文对作为最后的数据集。
+
+
+
+##### Architecture
+
+<div align="center">
+  <img src="./image/minigpt4.png"  width="800" />
+</div>
 
 
 
 #### MiniGPT4-V2
+
+[![arXiv](https://img.shields.io/badge/arXiv-2310.09478-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2310.09478) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Vision-CAIR/MiniGPT-4)
+
+Minigpt4-v2在MiniGPT4的基础上进行了扩充，主要的创新点和改进如下
+
+1. 使用**任务标识符**区分多模态任务：引入了如[vqa]、[caption]、[grounding]等任务表示符，分别表示视觉问答、图像描述和视觉定位等任务。在训练的时候使用不同下游任务特定的数据集进行微调，同时将任务标识符融入对话模板送入模型，后续在推理的时候人为选择任务标识符告诉gpt完成什么类型的下游任务。这样可以在保证性能的前提下大幅提高模型对下游任务的适配程度，减少幻觉现象和混淆。
+2. **三阶段训练策略**
+   1. **预训练**：使用弱标注和精细标注的数据集（如LAION、CC3M、SBU、GRIT-20M）训练模型，获取广泛的视觉-语言知识。
+   2. **第二阶段：多任务训练**：仅使用精细标注的数据集（如COCO、RefCOCO等）进行多任务训练，优化模型在各个任务上的性能。
+   3. **第三阶段：多模态指令调优**：使用多模态指令数据集（如LLaVA、Flickr30k等）和语言数据集（如Unnatural Instructions）进行微调，增强模型的对话能力和指令响应能力。
+3. 接受**高分辨率**输入：接受更高分辨率的图像（448x448），并通过将相邻的四个视觉标记拼接成一个标记来减少计算量，提升训练和推理效率。
+
+
+
+##### Architecture
+
+<div align="center">
+  <img src="./image/minigpt4v2.png"  width="800" />
+</div>
 
 
 
@@ -275,25 +319,60 @@ LLM是在Vicuna-7B的基础上训练得来的，保证其NLP能力的前提下�
 
 ### TinyLLaVA
 
-[![arXiv](https://img.shields.io/badge/arXiv-2402.14289-b31b1b.svg)](https://arxiv.org/abs/2402.14289) 
+[![arXiv](https://img.shields.io/badge/arXiv-2402.14289-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.14289) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/DLCV-BUAA/TinyLLaVABench)
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/tinyllava)
+
+TinyLLaVA选择了几个代表性的LLM，包括 TinyLlama（1.1B 参数）、StableLM-2（1.6B 参数）和 Phi-2（2.7B 参数），并且使用 CLIP 和 SigLIP 两种视觉编码器进行最终多模态模型的组装，初步实验发现 SigLIP 与小规模LLM结合效果更好。。
+
+在视觉端和文本端的链接部分，TinyLLaVA使用的是两层多层感知器（MLP）作为视觉编码器和LLM之间的连接器，激活函数为 GELU。
+
+TinyLLaVA参数量虽然比不上一众大模型，但是由于LLM的性能（比如Google的phi-2）足够给力且数据集的质量足够高，使其在多个基准测试中的表现接近甚至超过了一些大规模模型。
+
+##### Architecture 
+
+<div align="center">
+  <img src="./image/tinyllava.png"  width="800" />
+</div>
+
+
+### TinyGPT-V 
+[![arXiv](https://img.shields.io/badge/arXiv-2312.16862-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2312.16862) 
+
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/DLYuanGod/TinyGPT-V)
+
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/Tyrannosaurus/TinyGPT-V)
+
+
+
+
+
+
+
+##### Architecture
+
+<div align="center">
+  <img src="./image/TinyGPT-V.png"  width="800" />
+</div>
+
+
+##### Train process
+<div align="center">
+  <img src="./image/Training_S.png"  width="800" />
+</div>
+
+
+
+
+
+### PaLI-3
+[![arXiv](https://img.shields.io/badge/arXiv-2310.09199-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2310.09199) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/google-research/big_vision)
 [![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/tinyllava)
 
 
 
 
-
-
-
-### TinyGPT-V  
-
-
-
-### PaLI-3
-
-[[2310.09199\] PaLI-3 Vision Language Models: Smaller, Faster, Stronger (arxiv.org)](https://arxiv.org/abs/2310.09199)
-
-[google-research/big_vision: Official codebase used to develop Vision Transformer, SigLIP, MLP-Mixer, LiT and more. (github.com)](https://github.com/google-research/big_vision?tab=readme-ov-file)
 
 PaLI-3，这是 PaLI 系列的第三代模型。通过一个仅有 5B 参数的预训练基线模型，他们优化了训练方法，并在多个 VLM 基准上实现了有竞争力以及新的 SOTA 结果。
 
@@ -322,20 +401,20 @@ PaLI-3，这是 PaLI 系列的第三代模型。通过一个仅有 5B 参数的�
 ##### Architecture
 
 <div align="center">
-  <img src="./image/paligemma.png"  width="600" />
+  <img src="./image/paligemma.png"  width="800" />
 </div>
-
 
 
 
 
 ### PaliGemma
 
-[PaliGemma  | Google for Developers](https://ai.google.dev/gemma/docs/paligemma?hl=zh-cn)
+[![AI Blog](https://img.shields.io/badge/AI%20Blog-PaliGemma%20AI-orange.svg)](https://ai.google.dev/gemma/docs/paligemma) 
 
-[PaliGemma – Google's Cutting-Edge Open Vision Language Model (huggingface.co)](https://huggingface.co/blog/paligemma)
+[![AI Blog](https://img.shields.io/badge/AI%20Blog-paligemma%20AI-orange.svg)](https://huggingface.co/blog/paligemma) 
 
-[PaliGemma](https://github.com/google-research/big_vision)
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/google-research/big_vision)
+
 
 PaliGemma 由 [Transformer 解码器](https://arxiv.org/abs/1706.03762)和 [Vision Transformer 图像编码器](https://arxiv.org/abs/2010.11929)组成，共计有 30 亿个参数。文本解码器从 [Gemma-2B](https://www.kaggle.com/models/google/gemma) 初始化。图片编码器使用 [SigLIP-So400m/14](https://colab.research.google.com/github/google-research/big_vision/blob/main/big_vision/configs/proj/image_text/SigLIP_demo.ipynb?hl=zh-cn) 进行初始化。PaliGemma 是按照 PaLI-3 方法训练的。
 
@@ -351,11 +430,27 @@ PaliGemma 共开源了三类模型：
 same as [PaLI-3](#palI-3)
 
 <div align="center">
-  <img src="./image/paligemma.png"  width="600" />
+  <img src="./image/paligemma.png"  width="800" />
 </div>
+### MobileVLM
+
+#### MobileVLM(base)
+
+[![arXiv](https://img.shields.io/badge/Arxiv-2312.16886-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2312.16886) 
 
 
 
+#### MobileVLM V2
+
+[![arXiv](https://img.shields.io/badge/Arxiv-2402.03766-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.03766)
+
+
+
+
+
+## something else
+
+最新的VLMs survey存储库，包括VLM预训练、迁移学习方法和知识蒸馏方法，还有可以使用的数据集汇总：[github](https://github.com/jingyi0000/VLM_survey)
 
 ## Response time
 
