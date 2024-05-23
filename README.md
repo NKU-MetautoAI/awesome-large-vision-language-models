@@ -4,15 +4,18 @@
 
 <div align="center">
 <strong>github awesome list of recent LLMs and VLMs.🌐✨</strong><br>
-<strong>中文🚀</a></strong> | <strong><a href="./README.md">English</strong><br>
-<strong>LLMs🚀</a></strong> | <strong><a href="./README_VLMs.md">VLMs</strong>
+<strong>中文</strong> | <strong><a href="./README.md">English🚀</a></strong><br>
+<strong>LLMs</strong> | <strong><a href="./README_VLMs.md">VLMs🚀</a></strong>
 </div>
-
-
 
 ## OverView
 
-
+<div align="center">
+  <img src="./image/LLM2023.png"  width="800" />
+</div>
+<div align="center">
+  <img src="./image/LLM2024.png"  width="800" />
+</div>
 
 ## Quick Start🏁
 

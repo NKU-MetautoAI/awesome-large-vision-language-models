@@ -31,10 +31,8 @@
 | SPHINX-Tiny |  |  |  |  |
 | ALLaVA-Longer | 3B | [ALLaVA-Longer](https://allava.freedomai.cn/#/) | [ALLaVA-3B-Longer ](https://huggingface.co/FreedomIntelligence/ALLaVA-3B-Longer) | [ALLaVA-Longer](#allava-longer) |
 | MM1 | --- | None | None | [MM1](#mm1) |
-| MiniCPM-V | 2B/8B | [MiniCPM-Llama3-V-2 5 ](https://huggingface.co/spaces/openbmb/MiniCPM-Llama3-V-2_5)<br />[MiniCPM V 2 ](https://huggingface.co/spaces/openbmb/MiniCPM-V-2) | [MiniCPM-2B Family](https://huggingface.co/collections/openbmb/minicpm-2b-65d48bf958302b9fd25b698f) | [MiniCPM-V](#minicpm-v) |
-| DeepSeek-VL |  |  |  |  |
-| KarmaVLM |  |  |  |  |
-| moondream2 |  |  |  |  |
+| MiniCPM-V Series | 2B/8B | [MiniCPM-Llama3-V-2 5 ](https://huggingface.co/spaces/openbmb/MiniCPM-Llama3-V-2_5)<br />[MiniCPM V 2 ](https://huggingface.co/spaces/openbmb/MiniCPM-V-2) | [MiniCPM-2B Family](https://huggingface.co/collections/openbmb/minicpm-2b-65d48bf958302b9fd25b698f) | [MiniCPM-V](#minicpm-v-2.0) |
+| DeepSeek-VL | 1.3B/7B | [Chat with DeepSeek VL 7B ](https://huggingface.co/spaces/deepseek-ai/DeepSeek-VL-7B) | [DeepSeek-VL Family](https://huggingface.co/collections/deepseek-ai/deepseek-vl-65f295948133d9cf92b706d3) | [DeepSeek-VL](#deepseek-vl) |
 
 ## Details Regarding Models Above📊
 
@@ -862,11 +860,65 @@ MM1这项工作的**一大亮点在于其进行了大量而全面的消融实验
 
    
 
-### MiniCPM-V
+### MiniCPM-V 2.0
+[![AI Blog](https://img.shields.io/badge/AI%20Blog-paligemma%20AI-orange.svg)](https://openbmb.vercel.app/minicpm-v-2) 
 
-[OpenBMB/MiniCPM-V: MiniCPM-Llama3-V 2.5: A GPT-4V Level Multimodal LLM on Your Phone (github.com)](https://github.com/OpenBMB/MiniCPM-V)
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/OpenBMB/MiniCPM-V)
+[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/openbmb/minicpm-2b-65d48bf958302b9fd25b698f)
 
-[OpenBMB/MiniCPM-V: MiniCPM-Llama3-V 2.5: A GPT-4V Level Multimodal LLM on Your Phone (github.com)](https://github.com/OpenBMB/MiniCPM-V)
+MiniCPM-V主要是在**OCR能力**方面有明显特色，其技术报告称“该模型在综合性 OCR 能力评测基准 OCRBench 上达到开源社区的最佳水平，甚至在场景文字理解方面实现接近 Gemini Pro 的性能。”
+
+##### MiniCPM-V 2.0特性小结（摘自技术报告）：
+
+1. **领先的 OCR 和多模态理解能力。**MiniCPM-V 2.0 显著提升了 OCR 和多模态理解能力，场景文字理解能力接近 Gemini Pro，在多个主流评测基准上性能超过了更大参数规模（例如 17-34B）的主流模型。
+2. **可信行为。**MiniCPM-V 2.0 是第一个通过多模态 RLHF 对齐的端侧多模态大模型（借助 [RLHF-V](https://rlhf-v.github.io/) [CVPR'24] 系列技术**。**该模型在 Object HalBench 达到和 GPT-4V 相仿的性能。
+3. **任意长宽比高清图像高效编码。** MiniCPM-V 2.0 可以接受 180 万像素的任意长宽比图像输入（基于最新的 [LLaVA-UHD](https://arxiv.org/pdf/2403.11703.pdf) 技术），这使得模型可以感知到小物体、密集文字等更加细粒度的视觉信息。
+4. **高效部署。**MiniCPM-V 2.0 可以高效部署在大多数消费级显卡、个人电脑以及移动手机等终端设备。
+5. **双语支持。**MiniCPM-V 2.0 提供领先的中英双语多模态能力支持。 该能力通过过 [VisCPM](https://arxiv.org/abs/2308.12038) [ICLR'24] 论文中提出的多模态能力的跨语言泛化技术实现。
+
+
+
+##### MiniCPM-Llama3-V 2.5🔥
+
+MiniCPM系列最新的模型，有如下新特性：
+
+1. **强大**的端侧多模态模型：只有8B的激活参数，在一众bench mark中超越很多大参数的多模态模型——比如Gemini Pro 、GPT-4V
+   - 视觉编码器使用的是SigLIP-400M；压缩层使用的是perceiver resampler结构；语言模型使用的是Llama-3 8B。
+   - **应对输入图片的高分辨率和变长宽比问题**：MiniCPM-Llama3-V 2.5 采用了 LLaVA-UHD 论文提出的自适应视觉编码方法。每张输入图片会首先根据其大小和长宽比计算最优切片方式，然后每个切片会根据 ViT 的预训练分辨率进行适配。最后，MiniCPM-Llama3-V 2.5 将每个处理后切片送入视觉编码器。
+2. **OCR能力进一步提升**：OCRBench 得分达到 725，超越 GPT-4o、GPT-4V、Gemini Pro、Qwen-VL-Max 等商用闭源模型，达到最佳水平。
+3. **对低计算资源用户十分友好**：有量化版本，部署仅需8G显存，消费级显卡可以顺利跑推理，在移动端也可以实现6-8Tokens/s 的推理速度
+4. 支持 **30+ 多种语言**。
+5. **可信行为**：在 Object HalBench 的幻觉率降低到了 10.3%，显著低于 GPT-4V-1106 (13.6%)，达到开源社区最佳水平。
+6. **移动端优化**：MiniCPM-Llama3-V 2.5 较为系统地通过模型量化、CPU、NPU、编译优化等高效加速技术，通过 4 比特量化和 llama.cpp 框架的配合，可以**实现每秒 8-9 tokens 的语言模型编码速度和每秒 3-4 tokens 的解码速度**
+
+
+
+### DeepSeek-VL
+
+[![arXiv](https://img.shields.io/badge/arXiv-2403.05525-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2403.05525) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/deepseek-ai/DeepSeek-VL)
+[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/deepseek-ai/deepseek-vl-65f295948133d9cf92b706d3)
+
+DeepSeek-VL设计的初衷的在不影响NLP能力的前提下拓展多模态能力，使得输出的文字更加接近于人且可以完成很多计算机视觉领域的下游任务。DeepSeek-VL具有以下几个创新点和特性：
+
+1. **数据构建**
+
+   - **多样性和可扩展性**：DeepSeek-VL的数据集覆盖了包括网页截图、PDF、OCR、图表以及基于知识的内容（如专家知识、教科书）在内的实际场景，确保了数据的多样性和广泛性。
+
+   - **实际应用场景**：根据真实用户场景创建了使用案例分类，并构建了相应的指令调优数据集，通过这些数据集的微调大幅提升了模型在实际应用中的用户体验。
+
+2. **模型架构**
+
+   - **混合视觉编码器**：DeepSeek-VL采用了混合视觉编码器，能够在较低计算开销的情况下有效处理高分辨率图像（1024 x 1024），从而捕捉关键语义和细节信息。这种设计在保证视觉信息丰富性的同时也提高了推理效率。
+
+   - **高分辨率与低分辨率结合**：结合了低分辨率（384 x 384）和高分辨率（1024 x 1024）的图像处理能力，确保了模型在处理复杂视觉任务时能够捕捉到足够的细节和语义信息。
+
+3. **训练策略**
+
+   - **语言能力优先**：在多模态预训练过程中，DeepSeek-VL保留了大部分语言数据（至少70%），确保了语言模型能力的保持和提升，同时逐步增加视觉-语言数据的比例，平衡多模态能力和语言能力的发展。
+
+   - **模态预热策略**：引入了“模态预热”策略，通过逐步调整训练过程中不同模态数据的比例，确保了视觉和语言能力的均衡发展，避免了单一模态的过度训练导致的能力退化问题。
+
 
 
 
