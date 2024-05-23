@@ -1,7 +1,12 @@
-# awesome-list-of-LLM_VLMs🌐✨
-github awesome list of recent LLMs and VLMs.
+<div align="center">
+  <img src="./image/title.png" width="800" />
+</div>
 
-Here is list of **LLMs**, to reach list of VLMs. Click [here](https://github.com/HuBocheng/awesome-list-of-LLM_VLMs/blob/master/README_VLMs.md)🚀
+<div align="center">
+<strong>github awesome list of recent LLMs and VLMs.🌐✨</strong><br>
+<strong>中文🚀</a></strong> | <strong><a href="./README.md">English</strong><br>
+<strong>LLMs🚀</a></strong> | <strong><a href="./README_VLMs.md">VLMs</strong>
+</div>
 
 
 

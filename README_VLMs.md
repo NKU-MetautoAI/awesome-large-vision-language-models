@@ -1,13 +1,13 @@
-# awesome-list-of-LLM_VLMs🌐✨
-github awesome list of recent LLMs and VLMs.
+<div align="center">
+  <img src="./image/title.png" width="800" />
+</div>
 
-Here is list of **VLMs**, to reach list of LLMs. Click [here](https://github.com/HuBocheng/awesome-list-of-LLM_VLMs/blob/master/README.md)🚀
-
-
-
+<div align="center">
+<strong>github awesome list of recent LLMs and VLMs.🌐✨</strong><br>
+<strong><a href="./README_VLMs_zh.md">中文🚀</a></strong> | <strong>English</strong><br>
+<strong><a href="./README.md">LLMs🚀</a></strong> | <strong>VLMs</strong>
+</div>
 ## Quick Start🏁
-
-按发布时间排序
 
 |   Model    |       Parameters        |                             Demo                             |                          CheckPoint                          | Details |
 | :--------: | :---------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :-----: |
@@ -26,12 +26,12 @@ Here is list of **VLMs**, to reach list of LLMs. Click [here](https://github.com
 | LLaVA-Phi-3-mini | --- | None | [LLaVA-Phi-3-mini](https://huggingface.co/collections/xtuner/llava-phi-3-mini-662a5f7b9416630a1ad91102) | [LLaVA-Phi-3-mini](#llavaphi3mini) |
 | IMP | 3B | [xmbot.net](https://xmbot.net/imp/) | [imp-v1-3b ](https://huggingface.co/MILVLG/imp-v1-3b) | [IMP](#imp) |
 | MoE-LLaVA | 3B | [MoE LLaVA](https://huggingface.co/spaces/LanguageBind/MoE-LLaVA) | [MoE-LLaVA Family](https://huggingface.co/collections/LanguageBind/moe-llava-model-65b607bf2524ac36e733874c) | [MoE-LLaVA](#moe-llava) |
-| Cobra | 3.5B | [Cobra]([Cobra - a Hugging Face Space by han1997](https://huggingface.co/spaces/han1997/cobra)) | [Cobra Family]([Cobra - a han1997 Collection (huggingface.co)](https://huggingface.co/collections/han1997/cobra-6615c3242851ba108027105d)) | [Cobra](#cobra) |
-| Vary-toy |  |  |  |  |
+| Cobra | 3.5B | [Cobra](https://huggingface.co/spaces/han1997/cobra) | [Cobra Family](https://huggingface.co/collections/han1997/cobra-6615c3242851ba108027105d) | [Cobra](#cobra) |
+| Vary-toy | --- | [Vary Family ](https://vary.xiaomy.net/) | [Vary-toy](https://huggingface.co/HaoranWei/Vary-toy) | [Vary-toy](#vary-toy) |
 | SPHINX-Tiny |  |  |  |  |
-| ALLaVA-Longer |  |  |  |  |
-| MM1 |  |  |  |  |
-| MiniCPM-V |  |  |  |  |
+| ALLaVA-Longer | 3B | [ALLaVA-Longer](https://allava.freedomai.cn/#/) | [ALLaVA-3B-Longer ](https://huggingface.co/FreedomIntelligence/ALLaVA-3B-Longer) | [ALLaVA-Longer](#allava-longer) |
+| MM1 | --- | None | None | [MM1](#mm1) |
+| MiniCPM-V | 2B/8B | [MiniCPM-Llama3-V-2 5 ](https://huggingface.co/spaces/openbmb/MiniCPM-Llama3-V-2_5)<br />[MiniCPM V 2 ](https://huggingface.co/spaces/openbmb/MiniCPM-V-2) | [MiniCPM-2B Family](https://huggingface.co/collections/openbmb/minicpm-2b-65d48bf958302b9fd25b698f) | [MiniCPM-V](#minicpm-v) |
 | DeepSeek-VL |  |  |  |  |
 | KarmaVLM |  |  |  |  |
 | moondream2 |  |  |  |  |
@@ -700,8 +700,173 @@ MoE-LLaVA也是基于MoE（混合专家模型）的VLM，该VLM结合多个专�
 
 [![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/han1997/cobra-6615c3242851ba108027105d)
 
-Cobra多模态大模型是由西湖大学和浙江大学联合推出的一个研究项目，结合了[Mamba](https://github.com/HuBocheng/awesome-list-of-LLM_VLMs/?tab=readme-ov-file#mamba)语言模型
+Cobra多模态大模型是由西湖大学和浙江大学联合推出的一个研究项目，结合了[Mamba](https://github.com/HuBocheng/awesome-list-of-LLM_VLMs/?tab=readme-ov-file#mamba)语言模型和
 
+DINOv2、SigLIP等视觉编码器，直接采用。尽管Cobra的参数数量只有LLaVA的约43%，它在多个基准测试中的表现却非常接近甚至优于LLaVA等先进模型
+
+##### 创新点
+
+1. **状态空间模型（SSM）替换Transformer**：直接使用Mamba作为语言端的backbone，将二次方的计算复杂度优化为线性，Cobra在处理速度上比MobileVLM v2和TinyLLaVA等模型快3至4倍，且参数数量只有LLaVA的约43% 。
+2. **视觉编码器组合**：Cobra结合了DINOv2和SigLIP两个视觉编码器，分别捕捉低级的图像空间特性和高层的语义特性，最后将两个结果融合起来当作图像编码器的输出。这样的方式可以在准确地捕捉图像的低级空间特性（比如边缘和形状）的同时，还可以准确理解图像的语义内容（例如物体的类别和场景）。
+   - **DINOv2**：DINOv2可以捕捉图像中的低级空间特性，使用的是**自监督学习方法**，能够从未标注的数据中提取出稳健的视觉特征。
+   - **SigLIP**：SigLIP则是一种能够提供丰富语义信息的视觉编码器。它**结合了语言监督的信息**，可以对图像进行更深层次的语义理解。
+   - **融合方法**：在Cobra中，这两个视觉编码器并行处理输入图像，分别提取其特征。具体来说，输入图像被分割成相同大小的补丁，每个编码器将这些补丁作为输入令牌序列进行处理，然后将两个编码器的输出特征进行拼接，形成紧凑的视觉表示 。
+3. **独特的训练方案**：在流行的VLM所使用的训练方案的基础上，Cobra做了一些改进和创新。
+   - **丢弃预对齐阶段**：Cobra的训练方案中舍弃了传统的预对齐阶段（LLaVA的训练方案），直接对整个LLM骨干和投影层进行微调。这种方法基于最近的研究，表明单独训练预对齐阶段可能是不必要的，而直接微调整个模型能避免模型处于欠拟合状态 。
+   - **混合数据集训练**：Cobra在训练过程中使用了一个由多个数据集组合而成的混合数据集。这些数据集包括了学术VQA数据、LLaVA-Instruct数据以及纯文本对话数据等，共计约120万张图像和相应的多轮对话数据 。
+   - **高效的数据并行处理**：训练过程中，Cobra使用了Pytorch Fully Sharded Data Parallel框架，并启用了FP32和BF16的自动混合精度，以提高分布式训练的效率 。
+
+
+
+##### Architecture
+
+<div align="center">
+  <img src="./image/cobra.png"  width="800" />
+</div>
+
+
+
+
+
+### Vary-toy
+
+[![arXiv](https://img.shields.io/badge/arXiv-2401.12503-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2401.12503) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Ucas-HaoranWei/Vary-toy)
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/HaoranWei/Vary-toy)
+
+Vary-toy是在 **[Vary](https://varybase.github.io/)** 的基础上优化改进的多模态大模型，为了解决原始Vary模型所需计算资源过多的问题，Vary的开发组进而推出了小模型——Vary-toy，这个小模型不仅参数数目少，还使用了优化后视觉词表，减少了原先Vary模型进行pdf OCR任务时候的网络容量浪费，Vary-toy可以在消费级显卡训练、在8G显存的老显卡运行推理，而且**支持中英文**。
+
+Vary-toy以其开源、轻量、易部署和高性能被称作**“年轻人的第一个多模大模型”**。
+
+##### 创新点
+
+1. **惊人的小型化设计**： 相较于当前流行的大型视觉语言模型（LVLMs），Vary-toy参数量更小，LLM backbone仅有1.8B参数（如 Qwen-1.8B），可以在消费级GPU（如 GTX1080ti）上训练和部署，极大地降低了训练和使用的门槛。
+2. **改进的视觉词汇网络**： Vary-toy 引入了改进的视觉词汇网络，不仅继承了 Vary 模型的所有特性，还增加了对自然对象的感知能力。具体来说，它在生成视觉词汇的过程中，用正样本数据（基于目标检测任务）替代了自然图像的负样本数据，从而更充分地利用了词汇网络的容量，提升了视觉信息的编码效率。
+   - **改进前**：传统的视觉语言模型（如Vary）中，视觉词汇网络通常采用自然图像的负样本数据来生成视觉词汇。这种方法会导致网络容量的浪费，因为负样本数据在某种程度上并没有充分利用网络的能力来编码视觉信息。
+   - **改进后**：Vary-toy 引入了一种新的方法，在生成视觉词汇时用正样本数据替代负样本数据。
+3. **多任务训练且涵盖范围广**： Vary-toy 在预训练阶段引入了多种数据格式，包括弱监督图像描述数据、PDF 文档 OCR 数据、目标检测数据、纯文本对话数据和 VQA 数据。这些数据通过对话格式进行组织，使得模型在不同任务中表现优异。所以Vary-toy这个“小”VLM几乎涵盖了目前LVLM主流研究中的所有能力：Document OCR、Visual Grounding、Image Caption、VQA……
+
+##### Architecture
+
+1. **小型自回归模型 (OPT-125M)**
+   - Vary-toy 使用了一个小型的自回归模型 OPT-125M 来生成视觉词汇。输入包括PDF文档和自然图像。针对不同的输入，提供不同的提示，如“提供OCR结果”和“检测泰迪熊”。
+2. **视觉词汇生成**
+   - 生成视觉词汇的过程中，Vary-toy 采用了改进的方法，使用正样本数据替代负样本数据。
+   - 视觉词汇网络利用目标检测任务的数据来更充分地利用网络容量，从而增强了视觉信息的编码效率。
+3. **整合视觉词汇与CLIP**
+   - Vary-toy 将生成的视觉词汇与 CLIP 进行整合。
+   - CLIP 负责处理224×224尺寸的图像，而视觉词汇网络负责处理1024×1024尺寸的图像。
+   - 两者输出的256个tokens被拼接作为输入图像tokens传递给语言模型。
+4. **1.8B “大型”语言模型 (Qwen-1.8B)**
+   - Vary-toy 使用了Qwen-1.8B作为基础语言模型。
+   - 通过结合改进的视觉词汇和CLIP的输出，Qwen-1.8B 能够更有效地处理多模态任务。
+5. **多任务输入和输出**
+   - 输入格式采用了对话模板，如：`USER: <img>"<image>"</img> "texts input" ASSISTANT: "texts output" </s>`
+   - 任务包括OCR、目标检测、图像描述和常规对话等。
+
+<div align="center">
+  <img src="./image/Vary_toy.png"  width="800" />
+</div>
+
+
+
+
+### ALLaVA-Longer
+
+[![arXiv](https://img.shields.io/badge/arXiv-2402.11684-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.11684) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/FreedomIntelligence/ALLaVA)
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/FreedomIntelligence/ALLaVA-3B-Longer)
+
+ALLaVA-Longer港中文深圳推出的开源VLM，研究团队使用GPT-4V 生成的高质量数据进行训练，数据包括详细的图像描述、复杂的问题指令和详细的答案，**这是该工作的侧重点所在**。利用这些数据训练出了ALLaVA-Longer。ALLaVA-Longer的设计源自“输入决定输出原则”，主要尝试在数据端完善“多模态对齐”和“视觉指令微调”的细节（前者主要致力于帮助语言模型识别视觉对象并增强其视觉推理能力，后者着重于使 LVLMs 能够跨更广泛的指令泛化）
+
+
+
+##### 数据集构建的细节
+
+1. **多模态对齐数据集的构建**：
+
+   - **现存的多模态对齐数据集的弊端**：现有工作通常使用caption数据来对齐图像和文本，但这些数据集的caption通常是简短且粗粒度的。这些简短的caption引入了噪声信号，阻碍了视觉-语言对齐过程的效果。例如，常用的COCO数据集（Microsoft Common Objects in Context）包含了许多简短的图像描述，这些描述可能缺乏足够的细节来有效地帮助模型理解和关联图像与文本。
+
+   - **新的数据集构造方式**：通过使用GPT-4V生成高质量的caption数据。GPT-4V能够生成详细的图像描述、复杂的指令和详细的答案，这些都比传统数据集中的简短描述更具信息量和精确性。
+
+     > 其实就是[MiniGPT4/MiniGPT-v2](#minigpt4-series)的数据集构建方式的PLUS版本，方法可以参考一下。
+
+2. **视觉指令微调数据集的构建**：
+
+   - **现存的视觉指令微调数据集的弊端**：主要是**问题的相对简单**的问题和**答案简短且信息量少**的弊端。如 Vision-FLAN，其包含的问题相对简单，更多是基础性的任务，而非复杂的推理问题。此外，尽管答案是由人类注释的，但往往很简短，并且缺乏详细的背景和推理过程。
+   - 新的数据集构造方式：首先，GPT-4V会为每张图像生成详细的描述，包括主要对象、背景元素、颜色和显著特征等，随后GPT-4V会基于图像描述提出多个复杂的问题，这些问题需要仔细观察图像和较强的推理能力来回答。为保证多样性，GPT-4V会生成多个候选问题，然后随机选择一个进行回答。最后，GPT-4V会为选择的问题生成详细的答案，不仅包含问题的直接回答，还包括解决问题的过程和相关的背景信息。
+
+   >**示例**：对于一个包含一只松鼠和一只鸟的图像，模型会生成如下描述、问题和答案：
+   >**描述**：图像展示了一只松鼠站在相机前，看起来像是在拍摄鸟的照片，背景是一个蘑菇形状的物体。
+   >**问题**：这幅图像中的幽默感来源于什么？
+   >**答案**：幽默感来自于角色的反转和拟人化。通常是人类拍摄野生动物照片，而这里松鼠看起来像是在操作相机拍摄鸟。这种反常的情景以及对动物的拟人化行为创造了一种奇妙和有趣的场景。
+
+
+
+
+
+### MM1
+[![arXiv](https://img.shields.io/badge/arXiv-2402.11684-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2403.09611) 
+
+MM1这项工作的**一大亮点在于其进行了大量而全面的消融实验**，以确定**模型设计和数据选择的最佳组合**。总体而言，MM1对下面几个方面做了消融实验，随后提出了MM1整体的VLM结构。
+
+1. **模型架构决策**
+   - 不同图像编码器和视觉-语言连接器的影响：比较不同图像编码器（如ViT-L和ViT-H）和图像分辨率（224px vs 336px）对模型性能的影响。
+   - 图像分辨率和图像token数量的影响：比较不同的视觉-语言连接器设计（如平均池化、注意力池化、卷积映射）和不同图像token数量（64个和144个）。
+2. **预训练数据选择**：
+   - 不同类型的预训练数据（图像-文本对、交错图像-文本文档和纯文本数据）的组合：比较不同预训练数据类型（图像-文本对、交错图像-文本文档、纯文本数据）和不同混合比例对模型性能的影响。
+   - 数据混合比例的影响。
+3. **训练过程**：
+   - 超参数选择对模型训练的影响：通过不同规模的模型进行学习率和权重衰减的网格搜索，确定最优的训练超参数。
+
+最终得出了下面的结论
+
+1. **高图像分辨率和适量的图像token数量对提升模型性能至关重要**。
+2. **C-Abstractor作为视觉-语言连接器在高分辨率设置下表现最佳**。
+3. **预训练数据的合理混合比例能够在多模态和文本理解任务中取得良好的平衡**。
+4. **通过网格搜索确定的学习率和权重衰减参数能够显著提升模型的训练效果**。
+
+进而MM1的总体架构就确定下来了：
+
+- **图像编码器（Image Encoder）**：ViT-H。
+- **语言模型（Language Model）**：从3B到30B参数的Transformer解码器模型，支持更大规模的MoE（Mixture-of-Experts）模型。
+- **视觉-语言连接器（Vision-Language Connector）**：C-Abstractor，采用卷积映射保留图像的局部信息，并通过自适应池化调整图像token的数量。使用144个图像token。
+- **预训练数据选择和混合比例**：45%的图像-文本对，45%的交错图像-文本文档，10%的纯文本数据。
+- MoE策略：详情见[link](#创新点-9)。
+
+##### 创新点
+
+1. **可扩展的专家模型**：
+
+   - MM1模型通过增加语言模型中的专家数量来扩展模型的总体参数。具体而言，MM1设计了两个MoE模型：
+     - 一个是具有64个专家的3B-MoE模型，每隔两个标准的密集层（dense layer），就会替换为一个稀疏层（MoE层），有着64B的参数。
+     - 另一个是具有32个专家的7B-MoE模型，每隔四个标准的密集层（dense layer），就会替换为一个稀疏层（MoE层），包含47B个参数。
+   - **专家选择和负载均衡**：MoE模型采用了顶级专家门控（top-2 gating）策略，这意味着在每次前向传播中，只有两个专家被激活。此外还引入了负载均衡损失（load balance loss）项，系数为0.01，以鼓励各个专家的负载均匀分布。
+
+2. **灵活的视觉-语言连接器设计**：视觉-语言连接器的主要功能是将视觉表示转换到语言模型可以处理的空间，MM1团队实验了几种不同的视觉-语言连接器设计（包括**平均池化（Average Pooling）**、**注意力池化（Attention Pooling）**、**卷积映射（Convolutional Mapping）**）不过最后实现发现视觉-语言连接器的设计对模型的最终性能影响不大，但图像分辨率和图像token的数量对性能影响显著。
+
+   - 为了能够灵活地处理图像token数量，并且通过卷积操作保留了更多的图像细节信息，MM1选择了C-Abstractor作为主要的视觉-语言连接器。
+
+3. **精细的预训练数据选择**
+
+   - MM1团队通过上面提及的消融实验确定了不同数据类型的最佳混合比例：45%的图像-文本对，45%的交错图像-文本文档，10%的纯文本数据
+   - 具体而言，实验是通过调整图像-文本对和交错文档数据的比例，观察模型在零样本和少样本任务中的表现，再加入或移除纯文本数据，观察其对少样本和文本理解任务的影响；最后使用不同的图像-文本对、交错文档和纯文本数据的混合比例进行训练，观察其对各种任务的综合影响。
+
+4. **高分辨率图像支持**：MM1使用了一系列技术手段来处理高分辨率图像，包括图像缩放、位置嵌入插值和子图像分解：
+
+   - **图像缩放**：首先，将输入图像缩小到672×672作为高层次表示。同时，将输入图像调整到1344×1344的分辨率，并将调整后的图像分解成4个672×672的子图像。
+   - **子图像分解**：对于高分辨率输入图像（例如1344×1344），将其分解为5个672×672的子图像，分别作为独立图像输入到视觉编码器中。这种方法在实验中证明能够支持高达1792×1792的图像分辨率。
+   - **位置嵌入插值**：在高分辨率图像处理中，为了适应新的分辨率，MM1采用了位置嵌入插值的方法。这一方法能够使视觉Transformer骨干网在微调过程中适应新的图像分辨率。
+
+   > 研究表明，支持1344×1344图像分辨率可以在SFT（Supervised Fine-Tuning）评估指标上实现15%的相对提升。然而，对于1792×1792的最大图像分辨率，平均性能略有下降，这可能是由于许多评估图像小于这一分辨率，并且调整尺寸时产生的伪影可能会影响模型性能。
+
+   
+
+### MiniCPM-V
+
+[OpenBMB/MiniCPM-V: MiniCPM-Llama3-V 2.5: A GPT-4V Level Multimodal LLM on Your Phone (github.com)](https://github.com/OpenBMB/MiniCPM-V)
+
+[OpenBMB/MiniCPM-V: MiniCPM-Llama3-V 2.5: A GPT-4V Level Multimodal LLM on Your Phone (github.com)](https://github.com/OpenBMB/MiniCPM-V)
 
 
 
