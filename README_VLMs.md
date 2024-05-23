@@ -29,7 +29,6 @@
 | MoE-LLaVA | 3B | [MoE LLaVA](https://huggingface.co/spaces/LanguageBind/MoE-LLaVA) | [MoE-LLaVA Family](https://huggingface.co/collections/LanguageBind/moe-llava-model-65b607bf2524ac36e733874c) | [MoE-LLaVA](#moe-llava) |
 | Cobra | 3.5B | [Cobra](https://huggingface.co/spaces/han1997/cobra) | [Cobra Family](https://huggingface.co/collections/han1997/cobra-6615c3242851ba108027105d) | [Cobra](#cobra) |
 | Vary-toy | --- | [Vary Family ](https://vary.xiaomy.net/) | [Vary-toy](https://huggingface.co/HaoranWei/Vary-toy) | [Vary-toy](#vary-toy) |
-| SPHINX-Tiny |  |  |  |  |
 | ALLaVA-Longer | 3B | [ALLaVA-Longer](https://allava.freedomai.cn/#/) | [ALLaVA-3B-Longer ](https://huggingface.co/FreedomIntelligence/ALLaVA-3B-Longer) | [ALLaVA-Longer](#allava-longer) |
 | MM1 | --- | None | None | [MM1](#mm1) |
 | MiniCPM-V Series | 2B/8B | [MiniCPM-Llama3-V-2 5 ](https://huggingface.co/spaces/openbmb/MiniCPM-Llama3-V-2_5)<br />[MiniCPM V 2 ](https://huggingface.co/spaces/openbmb/MiniCPM-V-2) | [MiniCPM-2B Family](https://huggingface.co/collections/openbmb/minicpm-2b-65d48bf958302b9fd25b698f) | [MiniCPM-V](#minicpm-v-2.0) |
