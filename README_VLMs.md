@@ -700,7 +700,7 @@ MoE-LLaVA也是基于MoE（混合专家模型）的VLM，该VLM结合多个专�
 
 [![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/han1997/cobra-6615c3242851ba108027105d)
 
-Cobra多模态大模型是由西湖大学和浙江大学联合推出的一个研究项目，结合了[Mamba](./README.md#mamba)语言模型
+Cobra多模态大模型是由西湖大学和浙江大学联合推出的一个研究项目，结合了[Mamba](https://github.com/HuBocheng/awesome-list-of-LLM_VLMs/blob/master/README.md#mamba)语言模型
 
 
 
