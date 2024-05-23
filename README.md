@@ -30,7 +30,7 @@ Here is list of **LLMs**, to reach list of VLMs. Click [here](https://github.com
 |    Pythia    |      EleutherAI       |         14M～12B         | [Pythia Family](https://huggingface.co/collections/EleutherAI/pythia-scaling-suite-64fb5dfa8c21ebb3db7ad2e1) |       [Pythia](pythia)        |
 |   Mistral    |      Mistral AI       |            7B            |         [Mistral](https://huggingface.co/mistralai)          |      [Mistral](#Mistral)      |
 |      YI      |         01-ai         |        6B/9B/34B         | [Yi Family](https://huggingface.co/collections/01-ai/yi-2023-11-663f3f19119ff712e176720f) |           [Yi](#yi)           |
-|    YI-1.5    |         01-ai         |        6B/9B/34B         | [Yi-1.5 Family](https://huggingface.co/collections/01-ai/yi-15-2024-05-663f3ecab5f815a3eaca7ca8) |        [Yi-1.5](#yi15)        |
+|    YI-1.5    |         01-ai         |        6B/9B/34B         | [Yi-1.5 Family](https://huggingface.co/collections/01-ai/yi-15-2024-05-663f3ecab5f815a3eaca7ca8) |       [Yi-1.5](#yi-15)        |
 |    Zephyr    |     Hugging Face      |            7B            |    [HuggingFaceH4 ](https://huggingface.co/HuggingFaceH4)    |       [Zephyr](#zephyr)       |
 | StripedHyena |      Together AI      |            7B            | [StripedHyena Family](https://huggingface.co/collections/togethercomputer/stripedhyena-65d8e6e77540dd1da932dbe1) | [StripedHyena](#stripedHyena) |
 |  Persimmon   |     Adept AI Labs     |            8B            | [persimmon-8b-chat ](https://huggingface.co/adept/persimmon-8b-chat) |    [Persimmon](#persimmon)    |
