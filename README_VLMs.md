@@ -26,7 +26,7 @@ Here is list of **VLMs**, to reach list of LLMs. Click [here](https://github.com
 | LLaVA-Phi-3-mini | --- | None | [LLaVA-Phi-3-mini](https://huggingface.co/collections/xtuner/llava-phi-3-mini-662a5f7b9416630a1ad91102) | [LLaVA-Phi-3-mini](#llavaphi3mini) |
 | IMP | 3B | [xmbot.net](https://xmbot.net/imp/) | [imp-v1-3b ](https://huggingface.co/MILVLG/imp-v1-3b) | [IMP](#imp) |
 | MoE-LLaVA | 3B | [MoE LLaVA](https://huggingface.co/spaces/LanguageBind/MoE-LLaVA) | [MoE-LLaVA Family](https://huggingface.co/collections/LanguageBind/moe-llava-model-65b607bf2524ac36e733874c) | [MoE-LLaVA](#moe-llava) |
-| Cobra |  |  |  |  |
+| Cobra | 3.5B | [Cobra]([Cobra - a Hugging Face Space by han1997](https://huggingface.co/spaces/han1997/cobra)) | [Cobra Family]([Cobra - a han1997 Collection (huggingface.co)](https://huggingface.co/collections/han1997/cobra-6615c3242851ba108027105d)) | [Cobra](#cobra) |
 | Vary-toy |  |  |  |  |
 | SPHINX-Tiny |  |  |  |  |
 | ALLaVA-Longer |  |  |  |  |
@@ -625,8 +625,82 @@ IMP is build upon a small yet powerful SLM [Phi-2](https://huggingface.co/micros
 
 
 
+MoE-LLaVA也是基于MoE（混合专家模型）的VLM，该VLM结合多个专家模型（专家网络）以增强其多模态能力和泛化性能。但是对于大型的VLM，参数的提升虽然可以带来性能的增强，但是训练和推理所需的计算资源也迅速增加，该工作就解决了这个方面的问题。
+
+##### 动机
+
+为了在有限的计算资源上训练高性能的VLM，来自北京大学、中山大学等机构发布的MoE-LLaVA提出了一种巧妙而新颖的叫做MoE-Tuning的训练策略，可以实现参数量大的同时保证其所需的计算资源恒定。
+
+##### 创新点
+
+1. **三阶段的基于MoE-Tuning的训练策略**（图示参见[link](#train process-2)）
+
+   - **阶段 I: 适应视觉输入**：主要目标是将图像token适应LLM，使得LLM能够理解图像中的实例
+     - 使用一个多层感知机（MLP）将图像token投影到LLM的输入域中，将图像块视为伪文本token。
+     - 在这个阶段，仅训练MLP层，而不训练LLM的其他参数。
+   - **阶段 II——增强多模态理解能力**：目标是通过多模态指令数据的调优，使LLM具备多模态理解能力。
+     - 解冻并训练LLM的所有参数，增强其处理多模态数据的能力。
+     - 使用包含复杂任务的多模态指令数据进行训练，如图像逻辑推理和文本识别，这些任务要求模型具备更强的多模态理解能力。
+     - 在这个阶段完成后，LVLM已具备初步的多模态理解能力，为下一阶段的稀疏化打下基础。
+   - **阶段 III——引入MoE层的稀疏化**：目标是通过引入稀疏化机制，使模型在保持高性能的同时降低计算成本，具体来说有以下几个步骤：
+     - **初始化专家权重**：将阶段II中的FFN权重复制为每个专家的初始化权重。
+     - **训练MoE层**：仅训练MoE层，确保每个token由前k个概率最高的专家处理，其余专家保持不活动状态。
+     - **路由器计算权重**：使用线性层路由器预测每个token分配给每个专家的概率，并根据软最大值函数进行归一化。每个token由前k个专家处理，并基于路由器权重进行加权求和。
+
+2. **基于MoE的稀疏LVLM架构**
+
+   - 起初，图像通过视觉编码器处理得到视觉token序列Z，文本通过词嵌入层处理得到文本token序列T，视觉token和文本token拼接成一个序列，并作为LLM的输入。
+   - 随后，在模型的前向传播过程中，在每个MoE层中，路由器计算每个token被分配到每个专家的概率，选择前k个专家进行处理，并通过加权求和得到最终输出。
+   - 实现了在保持计算成本不变的情况下显著扩展模型参数数量
+
+3. **MoE层工作机制和FFN细节**：MoE层引入多个专家（每个专家都是一个独立的FFN）并动态选择最适合处理当前输入的专家，以此提升模型性能
+
+   - **初始化**：在第三阶段训练策略中，FFN的权重被复制并初始化为多个专家的权重。这些专家组成一个集合E = [e1, e2, ..., eE]
+   - **路由器计算权重**：路由器是一个线性层，它接收输入token并生成每个专家的权重logits，进随后权重经过softmax归一化后得到选择每个专家的概率
+   - **选择专家**：选择前k个概率最高的专家进行处理，这些被选择的专家称为“激活专家”。
+   - **专家处理**：每个激活专家对输入token进行处理，计算得到输出，激活专家的输出通过加权求和得到最终的MoE层输出
+
+   > 未被选中的专家保持不活动状态，不参与计算，从而减少了计算开销。
+
+   
 
 
+
+##### Architecture
+
+<div align="center">
+  <img src="./image/moe-llava.png"  width="800" />
+</div>
+
+架构总体包含以下组件
+
+1. **视觉编码器（Vision Encoder）**：
+   - 输入RGB图像，将其处理为视觉token序列。图像的原始分辨率为H×W，视觉编码器将其转化为P个视觉token，每个token的维度为C。
+2. **视觉投影层（Visual Projection Layer, MLP）**：
+   - 将视觉token序列从维度C映射到LLM的隐藏尺寸D。
+3. **词嵌入层（Word Embedding Layer）**：
+   - 将文本token投影到LLM的隐藏尺寸D。
+4. **大语言模型（LLM）**：
+   - 由多个堆叠的多头自注意力（MSA）层和前馈神经网络（FFN）层组成，层归一化（LN）和残差连接应用于每个块。
+5. **MoE层**：
+   - 由多个FFN专家组成，每个token通过可学习的路由器分配给前k个专家，未被激活的专家保持不活动状态。
+
+##### Train process
+
+<div align="center">
+  <img src="./image/moe-llava-train.png"  width="800" />
+</div>
+
+
+### Cobra
+
+[![arXiv](https://img.shields.io/badge/arXiv-2403.14520-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2403.14520) 
+
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/h-zhao1997/cobra)
+
+[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/han1997/cobra-6615c3242851ba108027105d)
+
+Cobra多模态大模型是由西湖大学和浙江大学联合推出的一个研究项目，结合了[Mamba](./README.md#mamba)语言模型
 
 
 
