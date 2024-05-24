@@ -2,13 +2,13 @@
   <img src="./image/title.png" width="800" />
 </div>
 <div align="center">
-<strong>汇总最新的LLM和VLM！帮助您便捷、快速地挑选和使用大模型！😄</strong><br>
+<strong>汇总最新的LLM和VLM🌐✨！帮助您便捷、快速地挑选和使用大模型！😄</strong><br>
 <strong>支持语言：中文</strong> | <strong><a href="./README.md">English🚀</a></strong><br>
 <strong>当前为仓库导航页面，Awesome List正文：<a href="./README_LLM.md">LLMs🚀</a></strong> | <strong><a href="./README_VLMs.md">VLMs🚀</a></strong>
 </div>
 
 
-关于近期最新的LLMs和VLM的github awesome list🌐✨您可以使用下面的链接跳转至您感兴趣的页面，当前为仓库导航页面，此外，**在本导航页面还链接了其他相关的汇总平台**。包括[大语言模型的推理速度基准测试](#大语言模型（LLM）推理速度基准测试)、[大语言模型（LLM）的综合分析和比较](#大语言模型（LLM）的综合分析和比较)、[大语言模型（LLM）响应时间的可靠测量](#大语言模型（LLM）响应时间的可靠测量)、[VLM综合调研](#VLM综合调研)。
+您可以使用下面的链接跳转至您感兴趣的页面，当前为仓库导航页面，此外，**在本导航页面还链接了其他相关的汇总平台**。包括[大语言模型的推理速度基准测试](#大语言模型（LLM）推理速度基准测试)、[大语言模型（LLM）的综合分析和比较](#大语言模型（LLM）的综合分析和比较)、[大语言模型（LLM）响应时间的可靠测量](#大语言模型（LLM）响应时间的可靠测量)、[VLM综合调研](#VLM综合调研)。
 
 
 
