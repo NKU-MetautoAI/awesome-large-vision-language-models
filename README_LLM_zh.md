@@ -16,7 +16,7 @@
 <div align="center">
   <img src="./image/LLM2024.png"  width="800" />
 </div>
-*Image source: [LifeArchitect.ai/models](https://lifearchitect.ai/models)* 
+*<em>图片来源: <a href="https://lifearchitect.ai/models">LifeArchitect.ai/models</a></em>*
 
 ## 快速开始🏁
 
