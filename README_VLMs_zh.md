@@ -12,27 +12,27 @@
 
 |   Model    |       Parameters        |                             Demo                             |                          CheckPoint                          | Details |
 | :--------: | :---------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :-----: |
-| MiniGemini<br />(MGM) |       2B/7B/13B/34B       | [MGM](https://huggingface.co/spaces/jiaqianjing/Mini-Gemini) | [MGM  Family](https://huggingface.co/collections/YanweiLi/mgm-6603c50b9b43d044171d0854) |    [MiniGemini](#minigemini)     |
-|   Bunny    |         2B/3B/4B/8B         | [Bunny](http://bunny.dataoptim.org/) | [BAAI](https://huggingface.co/BAAI) |     [Bunny](#bunny)    |
-|   Llava    | 7B/13B | [Llava v1.6](https://huggingface.co/spaces/liuhaotian/LLaVA-1.6) | [Llava v1.5](https://huggingface.co/collections/liuhaotian/llava-16-65b9e40155f60fd046a5ccf2)<br />[Lava v1.6](https://huggingface.co/collections/liuhaotian/llava-15-653aac15d994e992e2677a7e) |    [Llava](#llava)     |
-| Cog Series |    17B/18B    | [CogVLM & CogAgent](https://huggingface.co/spaces/THUDM/CogVLM-CogAgent) |            [THUDM ](https://huggingface.co/THUDM)            |    [Cog Series](#cog-series)      |
-|    HPT     |       3-8B/6B | None |            [HPT](https://huggingface.co/HyperGAI)            |    [HPT](#hpt)    |
-| MiniGPT4 Series | 7B/13B | Invalid Now | [Vision-CAIR ](https://huggingface.co/Vision-CAIR) | [MiniGPT4 Series](#minigpt4-series) |
-| TinyLLaVA | 1.4B/2.4B/3.1B | None | [TinyLLaVA](https://huggingface.co/tinyllava) | [TinyLLaVA](#tinyllava) |
-| TinyGPT-V | --- | [TinyGPT-V](https://huggingface.co/spaces/llizhx/TinyGPT-V) | [TinyGPT-V](https://huggingface.co/Tyrannosaurus/TinyGPT-V) | [TinyGPT-V](#tinygptv) |
-| PaliGemma | 3B | [PaliGemma](https://huggingface.co/spaces/big-vision/paligemma) | [PaliGemma Family](https://huggingface.co/collections/google/paligemma-ft-models-6643b03efb769dad650d2dda) | [PaliGemma](#paligemma) |
-| PaLI-3 | 5B | None | None(PaliGemma is based on PaLI-3) | [PaLI-3](#palI3) |
-| MobileVLM Series | 1.4B/1.7B/2.7B/7B | Invalid Now | [mtgv](https://huggingface.co/mtgv) | [MobileVLM](#mobilevlm) |
-| LLaVA-Phi | 3B | None | None | [LLaVA-Phi](#llavaphi) |
-| LLaVA-Phi-3-mini | --- | None | [LLaVA-Phi-3-mini](https://huggingface.co/collections/xtuner/llava-phi-3-mini-662a5f7b9416630a1ad91102) | [LLaVA-Phi-3-mini](#llavaphi3mini) |
-| IMP | 3B | [xmbot.net](https://xmbot.net/imp/) | [imp-v1-3b ](https://huggingface.co/MILVLG/imp-v1-3b) | [IMP](#imp) |
-| MoE-LLaVA | 3B | [MoE LLaVA](https://huggingface.co/spaces/LanguageBind/MoE-LLaVA) | [MoE-LLaVA Family](https://huggingface.co/collections/LanguageBind/moe-llava-model-65b607bf2524ac36e733874c) | [MoE-LLaVA](#moe-llava) |
-| Cobra | 3.5B | [Cobra](https://huggingface.co/spaces/han1997/cobra) | [Cobra Family](https://huggingface.co/collections/han1997/cobra-6615c3242851ba108027105d) | [Cobra](#cobra) |
-| Vary-toy | --- | [Vary Family ](https://vary.xiaomy.net/) | [Vary-toy](https://huggingface.co/HaoranWei/Vary-toy) | [Vary-toy](#vary-toy) |
-| ALLaVA-Longer | 3B | [ALLaVA-Longer](https://allava.freedomai.cn/#/) | [ALLaVA-3B-Longer ](https://huggingface.co/FreedomIntelligence/ALLaVA-3B-Longer) | [ALLaVA-Longer](#allava-longer) |
-| MM1 | --- | None | None | [MM1](#mm1) |
-| MiniCPM-V Series | 2B/8B | [MiniCPM-Llama3-V-2 5 ](https://huggingface.co/spaces/openbmb/MiniCPM-Llama3-V-2_5)<br />[MiniCPM V 2 ](https://huggingface.co/spaces/openbmb/MiniCPM-V-2) | [MiniCPM-2B Family](https://huggingface.co/collections/openbmb/minicpm-2b-65d48bf958302b9fd25b698f) | [MiniCPM-V](#minicpm-v-2.0) |
-| DeepSeek-VL | 1.3B/7B | [Chat with DeepSeek VL 7B ](https://huggingface.co/spaces/deepseek-ai/DeepSeek-VL-7B) | [DeepSeek-VL Family](https://huggingface.co/collections/deepseek-ai/deepseek-vl-65f295948133d9cf92b706d3) | [DeepSeek-VL](#deepseek-vl) |
+| MiniGemini<br />(MGM) |       2B/7B/13B/34B       | [MGM](https://huggingface.co/spaces/jiaqianjing/Mini-Gemini) | [MGM  Family](https://huggingface.co/collections/YanweiLi/mgm-6603c50b9b43d044171d0854) |    [Hyperlink](#minigemini)     |
+|   Bunny    |         2B/3B/4B/8B         | [Bunny](http://bunny.dataoptim.org/) | [BAAI](https://huggingface.co/BAAI) |     [Hyperlink](#bunny)    |
+|   Llava    | 7B/13B | [Llava v1.6](https://huggingface.co/spaces/liuhaotian/LLaVA-1.6) | [Llava v1.5](https://huggingface.co/collections/liuhaotian/llava-16-65b9e40155f60fd046a5ccf2)<br />[Lava v1.6](https://huggingface.co/collections/liuhaotian/llava-15-653aac15d994e992e2677a7e) |    [Hyperlink](#llava)     |
+| Cog Series |    17B/18B    | [CogVLM & CogAgent](https://huggingface.co/spaces/THUDM/CogVLM-CogAgent) |            [THUDM ](https://huggingface.co/THUDM)            |    [Hyperlink](#cog-series)      |
+|    HPT     |       3-8B/6B | None |            [HPT](https://huggingface.co/HyperGAI)            |    [Hyperlink](#hpt)    |
+| MiniGPT4 Series | 7B/13B | Invalid Now | [Vision-CAIR ](https://huggingface.co/Vision-CAIR) | [Hyperlink](#minigpt4-series) |
+| TinyLLaVA | 1.4B/2.4B/3.1B | None | [TinyLLaVA](https://huggingface.co/tinyllava) | [Hyperlink](#tinyllava) |
+| TinyGPT-V | --- | [TinyGPT-V](https://huggingface.co/spaces/llizhx/TinyGPT-V) | [TinyGPT-V](https://huggingface.co/Tyrannosaurus/TinyGPT-V) | [Hyperlink](#tinygptv) |
+| PaliGemma | 3B | [PaliGemma](https://huggingface.co/spaces/big-vision/paligemma) | [PaliGemma Family](https://huggingface.co/collections/google/paligemma-ft-models-6643b03efb769dad650d2dda) | [Hyperlink](#paligemma) |
+| PaLI-3 | 5B | None | None([PaliGemma](#paligemma) is based on PaLI-3) | [PaLI-3](#palI3) |
+| MobileVLM Series | 1.4B/1.7B/2.7B/7B | Invalid Now | [mtgv](https://huggingface.co/mtgv) | [Hyperlink](#mobilevlm) |
+| LLaVA-Phi | 3B | None | None | [Hyperlink](#llavaphi) |
+| LLaVA-Phi-3-mini | --- | None | [LLaVA-Phi-3-mini](https://huggingface.co/collections/xtuner/llava-phi-3-mini-662a5f7b9416630a1ad91102) | [Hyperlink](#llavaphi3mini) |
+| IMP | 3B | [xmbot.net](https://xmbot.net/imp/) | [imp-v1-3b ](https://huggingface.co/MILVLG/imp-v1-3b) | [Hyperlink](#imp) |
+| MoE-LLaVA | 3B | [MoE LLaVA](https://huggingface.co/spaces/LanguageBind/MoE-LLaVA) | [MoE-LLaVA Family](https://huggingface.co/collections/LanguageBind/moe-llava-model-65b607bf2524ac36e733874c) | [Hyperlink](#moe-llava) |
+| Cobra | 3.5B | [Cobra](https://huggingface.co/spaces/han1997/cobra) | [Cobra Family](https://huggingface.co/collections/han1997/cobra-6615c3242851ba108027105d) | [Hyperlink](#cobra) |
+| Vary-toy | --- | [Vary Family ](https://vary.xiaomy.net/) | [Vary-toy](https://huggingface.co/HaoranWei/Vary-toy) | [Hyperlink](#vary-toy) |
+| ALLaVA-Longer | 3B | [ALLaVA-Longer](https://allava.freedomai.cn/#/) | [ALLaVA-3B-Longer ](https://huggingface.co/FreedomIntelligence/ALLaVA-3B-Longer) | [Hyperlink](#allava-longer) |
+| MM1 | --- | None | None | [Hyperlink](#mm1) |
+| MiniCPM-V Series | 2B/8B | [MiniCPM-Llama3-V-2 5 ](https://huggingface.co/spaces/openbmb/MiniCPM-Llama3-V-2_5)<br />[MiniCPM V 2 ](https://huggingface.co/spaces/openbmb/MiniCPM-V-2) | [MiniCPM-2B Family](https://huggingface.co/collections/openbmb/minicpm-2b-65d48bf958302b9fd25b698f) | [Hyperlink](#minicpm-v-2.0) |
+| DeepSeek-VL | 1.3B/7B | [Chat with DeepSeek VL 7B ](https://huggingface.co/spaces/deepseek-ai/DeepSeek-VL-7B) | [DeepSeek-VL Family](https://huggingface.co/collections/deepseek-ai/deepseek-vl-65f295948133d9cf92b706d3) | [Hyperlink](#deepseek-vl) |
 
 ## Details Regarding Models Above📊
 
@@ -919,13 +919,3 @@ DeepSeek-VL设计的初衷的在不影响NLP能力的前提下拓展多模态能
 
    - **模态预热策略**：引入了“模态预热”策略，通过逐步调整训练过程中不同模态数据的比例，确保了视觉和语言能力的均衡发展，避免了单一模态的过度训练导致的能力退化问题。
 
-
-
-
-## something else
-
-最新的VLMs survey存储库，包括VLM预训练、迁移学习方法和知识蒸馏方法，还有可以使用的数据集汇总：[github](https://github.com/jingyi0000/VLM_survey)
-
-## Response time
-
-The GitHub project [fastestAI]([fastai/fastai: The fastai deep learning library (github.com)](https://github.com/fastai/fastai)) has compiled response time data for recently released LLMs (Large Language Models) and VLMs (Vision Language Models). For detailed statistics, please refer to the table available at this [link](https://thefastest.ai).
