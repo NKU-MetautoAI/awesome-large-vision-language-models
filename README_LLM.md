@@ -16,7 +16,8 @@
 <div align="center">
   <img src="./image/LLM2024.png"  width="800" />
 </div>
-*Image source: [LifeArchitect.ai/models](https://lifearchitect.ai/models)* 
+*<em>Image source: <a href="https://lifearchitect.ai/models">LifeArchitect.ai/models</a></em>*
+
 
 ## Quick Start🏁
 
@@ -559,10 +560,4 @@ This type of question requires the model to understand not just the literal mean
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/openai/grade-school-math) 
 
 The GSM8K (Grade School Math 8K) dataset, developed by OpenAI, is designed to evaluate the performance of large language models on solving elementary school-level math problems. The benchmark consists of 8,500 high-quality, linguistically diverse math word problems that require basic arithmetic operations such as addition, subtraction, multiplication, and division. These problems typically take between two to eight steps to solve. The dataset is divided into 7,500 training problems and 1,000 test problems, aimed at testing the models' capabilities in multi-step mathematical reasoning. GSM8K is particularly useful for assessing how well models handle problems that involve sequential logic and computational steps.
-
-
-
-## Quantitative metrics for large model inference
-
-Quantitative metrics for large model inference using NVIDIA GPUs and Apple Silicon chips, please reach [here](https://github.com/XiongjieDai/GPU-Benchmarks-on-LLM-Inference)
 
