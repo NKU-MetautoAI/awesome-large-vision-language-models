@@ -21,7 +21,7 @@
 | TinyLLaVA | 1.4B/2.4B/3.1B | None | [TinyLLaVA](https://huggingface.co/tinyllava) | [Hyperlink](#tinyllava) |
 | TinyGPT-V | --- | [TinyGPT-V](https://huggingface.co/spaces/llizhx/TinyGPT-V) | [TinyGPT-V](https://huggingface.co/Tyrannosaurus/TinyGPT-V) | [Hyperlink](#tinygptv) |
 | PaliGemma | 3B | [PaliGemma](https://huggingface.co/spaces/big-vision/paligemma) | [PaliGemma Family](https://huggingface.co/collections/google/paligemma-ft-models-6643b03efb769dad650d2dda) | [Hyperlink](#paligemma) |
-| PaLI-3 | 5B | None | None([PaliGemma](#paligemma) is based on PaLI-3) | [PaLI-3](#palI3) |
+| PaLI-3 | 5B | None | None ([PaliGemma](#paligemma) is based on PaLI-3) | [Hyperlink](#palI3) |
 | MobileVLM Series | 1.4B/1.7B/2.7B/7B | Invalid Now | [mtgv](https://huggingface.co/mtgv) | [Hyperlink](#mobilevlm) |
 | LLaVA-Phi | 3B | None | None | [Hyperlink](#llavaphi) |
 | LLaVA-Phi-3-mini | --- | None | [LLaVA-Phi-3-mini](https://huggingface.co/collections/xtuner/llava-phi-3-mini-662a5f7b9416630a1ad91102) | [Hyperlink](#llavaphi3mini) |
@@ -919,3 +919,6 @@ DeepSeek-VL设计的初衷的在不影响NLP能力的前提下拓展多模态能
 
    - **模态预热策略**：引入了“模态预热”策略，通过逐步调整训练过程中不同模态数据的比例，确保了视觉和语言能力的均衡发展，避免了单一模态的过度训练导致的能力退化问题。
 
+
+
+## 基准测试结果汇总

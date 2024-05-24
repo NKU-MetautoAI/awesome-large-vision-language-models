@@ -2,42 +2,43 @@
   <img src="./image/title.png" width="800" />
 </div>
 <div align="center">
-<strong>汇总最新的LLM和VLM🌐✨！帮助您便捷、快速地挑选和使用大模型！😄</strong><br>
-<strong>支持语言：中文</strong> | <strong><a href="./README.md">English🚀</a></strong><br>
-<strong>当前为仓库导航页面，Awesome List正文：<a href="./README_LLM.md">LLMs🚀</a></strong> | <strong><a href="./README_VLMs.md">VLMs🚀</a></strong>
+<strong>Summarizing the latest LLMs and VLMs! Helping you quickly and easily choose and use large models! 😄</strong><br>
+<strong>Supported languages: <a href="./README_zh.md">Chinese🚀</a></strong> | <strong>English</strong><br>
+<strong>This is the repository navigation page, the main Awesome List: <a href="./README_LLM.md">LLMs🚀</a></strong> | <strong><a href="./README_VLMs.md">VLMs🚀</a></strong>
 </div>
-
 <br>
 
-您可以使用下面的链接跳转至您感兴趣的页面，当前为仓库导航页面，此外，**在本导航页面还链接了其他相关的汇总平台**。包括[大语言模型的推理速度基准测试](#大语言模型llm推理速度基准测试)、[大语言模型（LLM）的综合分析和比较](#大语言模型llm的综合分析和比较)、[大语言模型（LLM）响应时间的可靠测量](#大语言模型llm响应时间的可靠测量)、[VLM综合调研](#vlm综合调研)。
+You can use the links below to navigate to the pages you're interested in. This is the repository navigation page. Additionally, **this navigation page also links to other relevant summary platforms**. Including
 
+ [Benchmarking Inference Speed of Large Language Models](#benchmarking-inference-speed-of-large-language-models-llms), 
 
-## 大语言模型（LLM）推理速度基准测试
+[Comprehensive Analysis and Comparison of Large Language Models (LLMs)](#comprehensive-analysis-and-comparison-of-large-language-models-llms), 
 
-[GPU-Benchmarks-on-LLM-Inference](https://github.com/XiongjieDai/GPU-Benchmarks-on-LLM-Inference)使用多种NVIDIA GPU和Apple Silicon设备，通过llama.cpp工具测试LLaMA 3等模型，在不同硬件配置下测量性能（通过每秒生成的tokens数量展示性能）。涵盖NVIDIA 3000、4000和A100系列，以及Apple的M1、M2和M3芯片。
+[Reliable Measurement of Large Language Model (LLM) Response Times](#reliable-measurement-of-large-language-model-llm-response-times),
 
-
-
-## 大语言模型（LLM）的综合分析和比较
-
-网站 [LifeArchitect.ai/models](https://lifearchitect.ai/models) 提供对大型语言模型（LLM）的综合分析和比较，包括GPT-3、GPT-4、PaLM等多个模型，具体涉及这些模型的规模、能力和训练数据。
+ [VLM Comprehensive Survey](#comprehensive-survey-of-vision-language-models-vlms).
 
 
 
-## 大语言模型（LLM）响应时间的可靠测量
 
-[TheFastest.ai](https://thefastest.ai/) 提供流行大型语言模型（LLMs）性能的可靠测量数据（基于响应时间）。它比较了不同模型在多个数据中心（如美国西部、西东和欧洲）的响应速度，主要指标包括首次响应时间（TTFT）和每秒生成的tokens数量（TPS）。网站评估的重点是模型的推理速度，并**每日更新统计数据**。
+## Benchmarking Inference Speed of Large Language Models (LLMs)
 
+[GPU-Benchmarks-on-LLM-Inference](https://github.com/XiongjieDai/GPU-Benchmarks-on-LLM-Inference) uses various NVIDIA GPUs and Apple Silicon devices to test models like LLaMA 3 with the llama.cpp tool, measuring performance by tokens generated per second. It covers NVIDIA 3000, 4000, and A100 series, as well as Apple's M1, M2, and M3 chips.
 
+## Comprehensive Analysis and Comparison of Large Language Models (LLMs)
 
-## VLM综合调研
+The website [LifeArchitect.ai/models](https://lifearchitect.ai/models) provides a comprehensive analysis and comparison of large language models (LLMs) such as GPT-3, GPT-4, and PaLM, detailing their sizes, capabilities, and training data.
 
-[VLM_survey](https://github.com/jingyi0000/VLM_survey)是由最新的VLMs的汇总和调查组织而成的存储库，汇总了以下几个方面的内容，并给出相应的论文链接。
+## Reliable Measurement of Large Language Model (LLM) Response Times
 
-1. **视觉语言模型综述**：回顾了在图像分类、目标检测、语义分割等视觉识别任务中，VLMs的研究。
+[TheFastest.ai](https://thefastest.ai/) offers reliable performance measurements for popular large language models (LLMs) based on response times. It compares models across multiple data centers (e.g., US West, East, and Europe), focusing on metrics like Time to First Token (TTFT) and Tokens Per Second (TPS), with daily updated statistics.
 
-2. **预训练方法**：总结了VLM的网络架构、预训练目标和下游任务。
+## Comprehensive Survey of Vision-Language Models (VLMs)
 
-3. **迁移学习方法**：介绍了VLM在不同任务中的迁移学习策略。
+[VLM_survey](https://github.com/jingyi0000/VLM_survey) is a repository summarizing and surveying the latest vision-language models (VLMs), including links to relevant papers. It covers:
 
-4. **知识蒸馏方法**：讨论了VLM在目标检测、语义分割等任务中的知识蒸馏技术。
+1. **Overview of Vision-Language Models**: Reviews VLM research in image classification, object detection, and semantic segmentation.
+2. **Pre-training Methods**: Summarizes network architectures, pre-training objectives, and downstream tasks for VLMs.
+3. **Transfer Learning Methods**: Discusses transfer learning strategies for VLMs in different tasks.
+4. **Knowledge Distillation Methods**: Examines knowledge distillation techniques in tasks like object detection and semantic segmentation.
+

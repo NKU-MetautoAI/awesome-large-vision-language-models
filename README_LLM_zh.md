@@ -1,14 +1,14 @@
 <div align="center">
   <img src="./image/title.png" width="800" />
 </div>
-
 <div align="center">
 <strong>github awesome list of recent LLMs and VLMs.🌐✨</strong><br>
-<strong>中文</strong> | <strong><a href="./README.md">English🚀</a></strong><br>
+<strong>中文</strong> | <strong><a href="./README_LLM.md">English🚀</a></strong><br>
 <strong>LLMs</strong> | <strong><a href="./README_VLMs.md">VLMs🚀</a></strong>
 </div>
 
-## OverView
+
+## 近期LLM概览
 
 <div align="center">
   <img src="./image/LLM2023.png"  width="800" />
@@ -18,9 +18,7 @@
 </div>
 *Image source: [LifeArchitect.ai/models](https://lifearchitect.ai/models)* 
 
-## Quick Start🏁
-
-按发布时间排序，
+## 快速开始🏁
 
 |    Model     |     Organization      |        Parameters        |                          CheckPoint                          |            Details            |
 | :----------: | :-------------------: | :----------------------: | :----------------------------------------------------------: | :---------------------------: |
@@ -46,7 +44,7 @@
 
 
 
-## Details Regarding Models Above📊
+## 模型细节📊
 
 ### Llama2
 
@@ -462,7 +460,7 @@ Chatbot Arena的主要功能介绍：
 
 
 
-## Benchmarks
+## 基准测试
 
 ### ARC (AI2 Reasoning Challenge)
 
@@ -471,13 +469,13 @@ Chatbot Arena的主要功能介绍：
 [![arXiv](https://img.shields.io/badge/arXiv-2305.18354-b31b1b.svg)](https://arxiv.org/pdf/2305.18354) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/fchollet/ARC) 
 
-The ARC (Abstraction and Reasoning Corpus) benchmark is a challenging framework used to evaluate the performance of large language models, particularly in their ability to perform tasks that require both abstraction and reasoning. This benchmark is part of an effort to push the boundaries of what AI models can achieve beyond standard pattern recognition tasks that are common in many benchmarks today.
+ARC（Abstraction and Reasoning Corpus）基准是一个用于评估大型语言模型性能的挑战性框架，特别是在执行需要抽象和推理任务的能力方面。这个基准测试是推动AI模型超越当前许多基准中常见的标准模式识别任务的一部分。
 
-##### Key Features of ARC
+##### ARC的主要特点
 
-- **Task Design**: The tasks in ARC are designed to be straightforward for humans but challenging for AI. Each task involves an input and a correct output, with the goal being to predict the output from the input by discerning the underlying pattern or rule. The tasks cover various types of cognitive functions, including pattern recognition, spatial reasoning, and logical deduction.
-- **Dataset**: The ARC dataset is publicly available and consists of a training set and a test set, where the test set contains completely novel tasks that require generalizing beyond the training data. This setup is intended to simulate real-world learning scenarios where direct answers are not always available, and reasoning must be applied.
-- **Evaluation**: Success in ARC requires developing models that can truly understand and manipulate abstract concepts, making it a stringent test of an AI’s reasoning abilities rather than just its data processing capabilities.
+- **任务设计**：ARC中的任务设计对人类来说很简单，但对AI来说却很有挑战性。每个任务包括一个输入和一个正确的输出，目标是通过辨别底层模式或规则，从输入中预测输出。任务涵盖各种认知功能，包括模式识别、空间推理和逻辑推理。
+- **数据集**：ARC数据集是公开的，包括训练集和测试集，其中测试集包含完全新颖的任务，需要超越训练数据进行泛化。这种设置旨在模拟现实世界的学习场景，在这些场景中并非总能直接获得答案，必须应用推理。
+- **评估**：在ARC中取得成功需要开发能够真正理解和操作抽象概念的模型，这使其成为测试AI推理能力的严格标准，而不仅仅是其数据处理能力的测试。
 
 
 
@@ -487,11 +485,11 @@ The ARC (Abstraction and Reasoning Corpus) benchmark is a challenging framework 
 [![arXiv](https://img.shields.io/badge/arXiv-1905.07830-b31b1b.svg)](https://arxiv.org/abs/1905.07830) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/rowanz/hellaswag) 
 
-**HellaSwag** is a benchmark designed to evaluate the performance of language models on commonsense natural language inference. It specifically tests the model's ability to predict the continuation of straightforward descriptions of everyday activities, which are obvious to humans but potentially challenging for algorithms. The benchmark consists of numerous multiple-choice questions, each providing a scenario and four possible continuations, from which the model must select the most appropriate one.
+**HellaSwag**是一个用于评估语言模型在常识自然语言推理方面表现的基准。它特别测试模型预测日常活动简单描述的延续部分的能力，这些描述对人类来说显而易见，但对算法来说可能具有挑战性。该基准包含大量选择题，每题提供一个场景和四个可能的延续，模型必须从中选择最合适的一个。
 
-The questions in HellaSwag primarily derive from two domains: ActivityNet and WikiHow, enriching the dataset with practical relevance and diversity. The correct answer describes the actual next event, while the other three incorrect options are adversarially generated and human-verified to mislead models but not humans.
+HellaSwag中的问题主要来自两个领域：ActivityNet和WikiHow，丰富了数据集的实际相关性和多样性。正确答案描述了实际的下一个事件，而其他三个错误选项是对抗性生成并经人工验证，旨在误导模型但不误导人类。
 
-The construction of HellaSwag includes an "Adversarial Filtering" technique, where a series of discriminators iteratively select machine-generated wrong answers that effectively deceive models. This method has proven its effectiveness in challenging models to recognize real-world scenarios and has highlighted the limitations of even state-of-the-art models.
+HellaSwag的构建包括一种“对抗性过滤”技术，一系列判别器反复选择机器生成的错误答案，这些答案能够有效地欺骗模型。这种方法在挑战模型识别现实场景方面已被证明有效，并且突出了即使是最先进模型的局限性。
 
 
 
@@ -501,7 +499,7 @@ The construction of HellaSwag includes an "Adversarial Filtering" technique, whe
 [![arXiv](https://img.shields.io/badge/arXiv-2009.03300-b31b1b.svg)](https://arxiv.org/abs/2009.03300) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/hendrycks/test) 
 
-This is a broad and diverse benchmark that evaluates a model's understanding across a wide range of subjects, from humanities to science. It's designed to test the model's general knowledge and understanding capabilities on various topics.
+这是一个广泛而多样的基准，用于评估模型在从人文学科到科学等广泛主题上的理解能力。它旨在测试模型在各种主题上的一般知识和理解能力。
 
 > 注意：MMLU的评估包含三种形式，分别是MMLU (HELM)、MMLU (Harness)和MMLU (Original)。曾经，在Hugging Face的OpenLLM排行榜上，[**LLaMA model 🦙**](https://ai.facebook.com/blog/large-language-model-llama-meta-ai/)被爆出MMLU评估结果明显低于[已发表的 LLaMa 论文](https://arxiv.org/abs/2302.13971)中的数字。最终[Blog](https://huggingface.co/blog/open-llm-leaderboard-mmlu)上的声明将这个现象归结为用于测试的MMLU benchmark的细节不同导致了结果不同，详情可参见[Blog](https://huggingface.co/blog/open-llm-leaderboard-mmlu)
 
@@ -513,23 +511,23 @@ This is a broad and diverse benchmark that evaluates a model's understanding acr
 [![arXiv](https://img.shields.io/badge/arXiv-2109.07958-b31b1b.svg)](https://arxiv.org/abs/2109.07958) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/sylinrl/TruthfulQA) 
 
-This benchmark evaluates a model's ability to provide truthful answers. It focuses on minimizing the spread of misinformation by testing how models handle questions that might typically lead to untruthful or misleading answers.
+该基准评估模型提供真实答案的能力。它通过测试模型如何处理可能通常会导致不真实或误导性答案的问题来减少错误信息的传播。
 
-**TruthfulQA** is a benchmark designed to assess the truthfulness of answers generated by large language models. It consists of 817 questions across 38 categories, including sectors like health, law, finance, and politics. The questions are designed to probe models on their ability to handle scenarios where humans might respond incorrectly due to misconceptions or false beliefs. The main goal of TruthfulQA is to measure how accurately models can generate truthful responses. The benchmark employs various tasks and modes, including single and multiple-choice questions as well as generative tasks, to evaluate a model's capacity to identify and generate truthful answers.
+**TruthfulQA**是一个评估大型语言模型生成真实答案能力的基准。它包含38个类别中的817个问题，包括健康、法律、金融和政治等领域。问题旨在考察模型处理人类可能因误解或错误信念而回答错误的场景的能力。TruthfulQA的主要目标是衡量模型生成真实响应的准确性。基准使用各种任务和模式，包括单选和多选题以及生成任务，以评估模型识别和生成真实答案的能力。
 
-##### Tasks and Evaluation Methods
+##### 任务和评估方法
 
-TruthfulQA includes two primary tasks:
+TruthfulQA包括两个主要任务：
 
-1. **Generation Task**: Models are given a question and must generate a one to two-sentence answer. The primary metric for this task is the overall truthfulness of the model’s answers, assessed against a standard where the truth must describe the literal truth about the real world. Secondary metrics include informativeness, assessed by whether the model provides meaningful information rather than evasive responses.
-2. **Multiple-Choice Task**: This task comes in two forms:
-   - **MC1 (Single-true)**: Models are provided with a question and several answer choices, and they must select the single correct answer.
-   - **MC2 (Multi-true)**: Models are given multiple true and false reference answers and must identify all correct answers.
+1. **生成任务**：模型接收一个问题并生成一到两句话的答案。此任务的主要指标是模型答案的整体真实性，评估标准是描述现实世界中的字面真实情况。次要指标包括信息量，通过评估模型提供有意义的信息而不是模棱两可的响应。
+2. **多选任务**：此任务有两种形式：
+   - **MC1（单一真实）**：模型接收一个问题和若干答案选项，必须选择唯一正确的答案。
+   - **MC2（多重真实）**：模型接收多个真实和虚假的参考答案，必须识别所有正确答案。
 
-##### Important Points
+##### 重要点
 
-- **Adversarial Nature**: The questions in TruthfulQA are adversarially designed to test models on potential weaknesses in generating truthful answers. This includes crafting questions that leverage common misconceptions or that models might commonly answer falsely due to their training on biased data distributions.
-- **Validation and Benchmarks**: The benchmark includes validation mechanisms where external researchers assess the truthfulness and accuracy of the reference answers, ensuring the robustness of the benchmark's evaluations.
+- **对抗性**：TruthfulQA中的问题是对抗性设计的，测试模型生成真实答案的潜在弱点。这包括设计利用常见误解的问题，或者由于模型训练数据的偏差可能会错误回答的问题。
+- **验证和基准**：该基准包括验证机制，外部研究人员评估参考答案的真实性和准确性，确保基准评估的稳健性。
 
 
 
@@ -539,30 +537,25 @@ TruthfulQA includes two primary tasks:
 [![arXiv](https://img.shields.io/badge/arXiv-1907.10641-b31b1b.svg)](https://arxiv.org/pdf/1907.10641) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/allenai/winogrande) 
 
-WINOGRANDE is a language understanding benchmark based on the Winograd Schema Challenge (WSC) designed to evaluate the performance of large language models (LLMs) in solving pronoun resolution problems that require common sense and reasoning abilities. By offering a larger and more challenging dataset than the original WSC, WINOGRANDE is better suited for assessing the capabilities of modern artificial intelligence language models.
+WINOGRANDE是一个基于Winograd Schema Challenge（WSC）的语言理解基准，旨在评估大型语言模型在解决需要常识和推理能力的代词解析问题上的表现。通过提供比原始WSC更大和更具挑战性的数据集，WINOGRANDE更适合评估现代人工智能语言模型的能力。
 
-Developed by the Allen Institute for AI, the purpose of the WINOGRANDE benchmark is to test models' reasoning abilities through pronoun resolution tasks. These tasks typically involve a sentence with a pronoun and multiple potential referents, and the model needs to determine the correct referent for the pronoun. For example:
+由艾伦人工智能研究所开发，WINOGRANDE基准的目的是通过代词解析任务测试模型的推理能力。这些任务通常涉及一个带有代词和多个潜在指代的句子，模型需要确定代词的正确指代。例如：
 
 ```less
 Sentence: The elephant put the apple there because it was ______.
 Options: A) empty B) heavy
 Correct Answer: A) empty
+
+Sentence: The trophy doesn’t fit into the suitcase because it is too small.“It” refers ______.
+Options: A) the trophy B) the suitcase
+Correct Answer: B) the suitcase
 ```
 
-This type of question requires the model to understand not just the literal meaning of the language but also to reason about implicit relationships within the context.
-
-
+这种类型的问题要求模型不仅理解语言的字面意思，还需要推理出上下文中的隐含关系。	
 
 ### GSM8K (Grade School Math 8K)
 
 [![Paper with Code](https://img.shields.io/badge/Paper%20with%20Code-GSM8K-blue.svg)](https://paperswithcode.com/dataset/gsm8k)
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/openai/grade-school-math) 
 
-The GSM8K (Grade School Math 8K) dataset, developed by OpenAI, is designed to evaluate the performance of large language models on solving elementary school-level math problems. The benchmark consists of 8,500 high-quality, linguistically diverse math word problems that require basic arithmetic operations such as addition, subtraction, multiplication, and division. These problems typically take between two to eight steps to solve. The dataset is divided into 7,500 training problems and 1,000 test problems, aimed at testing the models' capabilities in multi-step mathematical reasoning. GSM8K is particularly useful for assessing how well models handle problems that involve sequential logic and computational steps.
-
-
-
-## Quantitative metrics for large model inference
-
-Quantitative metrics for large model inference using NVIDIA GPUs and Apple Silicon chips, please reach [here](https://github.com/XiongjieDai/GPU-Benchmarks-on-LLM-Inference)
-
+GSM8K（Grade School Math 8K）数据集由OpenAI开发，旨在评估大型语言模型解决小学水平数学问题的能力。该基准包含8500个高质量、语言多样的数学文字问题，需要进行基本的算术运算如加法、减法、乘法和除法。这些问题通常需要两到八步解决。数据集分为7500个训练问题和1000个测试问题，旨在测试模型在多步骤数学推理中的能力。GSM8K对于评估模型处理涉及顺序逻辑和计算步骤的问题非常有用。
