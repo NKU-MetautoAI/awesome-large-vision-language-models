@@ -3,7 +3,7 @@
 </div>
 <div align="center">
 <strong>Summarizing the latest LLMs and VLMs! Helping you quickly and easily choose and use large models! 😄</strong><br>
-<strong>Supported languages: <a href="./README_zh.md">Chinese🚀</a></strong> | <strong>English</strong><br>
+<strong>Supported languages: <a href="./README_zh.md">中文🚀</a></strong> | <strong>English</strong><br>
 <strong>This is the repository navigation page, the main Awesome List: <a href="./README_LLM.md">LLMs🚀</a></strong> | <strong><a href="./README_VLMs.md">VLMs🚀</a></strong>
 </div>
 <br>
