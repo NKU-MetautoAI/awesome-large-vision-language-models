@@ -10,15 +10,13 @@
 
 Welcome to our repository, a comprehensive navigation page that connects you to the most relevant resources and summary platforms for the latest large models(including <a href="./README_LLM.md">LLMs🚀</a> and <a href="./README_VLMs.md">VLMs🚀</a>). Whether you're looking for benchmarks, comparisons, or surveys, we've got you covered. **this navigation page also links to other relevant summary platforms**. Explore the sections below to find the information you need:
 
-- [Benchmarking Inference Speed of Large Language Models🚀](#benchmarking-inference-speed-of-large-language-models), 
+- [Benchmarking Inference Speed of Large Language Models🚀](#benchmarking-inference-speed-of-large-language-models)
 
-- [Comprehensive Analysis and Comparison of Large Language Models🔍](#comprehensive-analysis-and-comparison-of-large-language-models), 
+- [Comprehensive Analysis and Comparison of Large Language Models🔍](#comprehensive-analysis-and-comparison-of-large-language-models)
 
-- [Reliable Measurement of LLM Response Times⏱️](#reliable-measurement-of-large-language-model-response-times),
+- [Reliable Measurement of LLM Response Times⏱️](#reliable-measurement-of-large-language-model-response-times%EF%B8%8F)
 
-- [VLM Comprehensive Survey📊](#comprehensive-survey-of-vision-language-models).
-
-
+- [VLM Comprehensive Survey📊](#comprehensive-survey-of-vision-language-models)
 
 
 ## Benchmarking Inference Speed of Large Language Models🚀
