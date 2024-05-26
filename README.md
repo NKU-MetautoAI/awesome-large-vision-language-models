@@ -2,13 +2,13 @@
   <img src="./image/title.png" width="800" />
 </div>
 <div align="center">
-<strong>Summarizing the latest LLMs and VLMs! Helping you quickly and easily choose and use large models! 😄</strong><br>
+<strong>🌐✨Summarizing the latest LLMs and VLMs! Helping you quickly and easily choose and use large models! 😄</strong><br>
 <strong>This is the repository navigation page, the main Awesome List: <a href="./README_LLM.md">LLMs🚀</a></strong> | <strong><a href="./README_VLMs.md">VLMs🚀</a></strong><br>
 <strong>Supported languages: <a href="./README_zh.md">中文🚀</a></strong> | <strong>English</strong>
 </div>
 <br>
 
-Welcome to our repository, a comprehensive navigation page that connects you to the most relevant resources and summary platforms for the latest large models(including <a href="./README_LLM.md">LLMs🚀</a> and <a href="./README_VLMs.md">VLMs🚀</a>). Whether you're looking for benchmarks, comparisons, or surveys, we've got you covered. **this navigation page also links to other relevant summary platforms**. Explore the sections below to find the information you need:
+Welcome to our repository🥰, a comprehensive navigation page that connects you to the most relevant resources and summary platforms for the latest large models(including <a href="./README_LLM.md">LLMs🚀</a> and <a href="./README_VLMs.md">VLMs🚀</a>). Whether you're looking for benchmarks💯, comparisons⚖️, or surveys📖, we've got you covered. **this navigation page also links to other relevant summary platforms**. Explore the sections below to find the information you need:
 
 - [Benchmarking Inference Speed of Large Language Models🚀](#benchmarking-inference-speed-of-large-language-models)
 
