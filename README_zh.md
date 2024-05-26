@@ -2,12 +2,12 @@
   <img src="./image/title.png" width="800" />
 </div>
 <div align="center">
-<strong>汇总最新的LLM和VLM！帮助您便捷、快速地挑选和使用大模型！😄</strong><br>
+<strong>🌐✨汇总最新的LLM和VLM！帮助您便捷、快速地挑选和使用大模型！😄</strong><br>
 <strong>当前为仓库导航页面，Awesome List正文：<a href="./README_LLM.md">LLMs🚀</a></strong> | <strong><a href="./README_VLMs.md">VLMs🚀</a></strong><br>
 <strong>支持语言：中文</strong> | <strong><a href="./README.md">English🚀</a></strong>
 </div>
 
-欢迎来到我们的仓库🌐✨，这是一个全面的导航页面，连接您到最新的大模型（包括大型语言模型 <a href="./README_LLM.md">LLMs🚀</a> 和视觉语言模型 <a href="./README_VLMs.md">VLMs🚀</a>）的最相关资源和总结平台。无论您是在寻找基准测试、比较还是调查，我们都能满足您的需求。**这个导航页面还链接到其他相关的总结平台**。请探索以下各部分，找到您需要的信息：
+欢迎来到我们的仓库🥰，这是一个全面的导航页面，连接您到最新的大模型（包括大型语言模型 <a href="./README_LLM.md">LLMs🚀</a> 和视觉语言模型 <a href="./README_VLMs.md">VLMs🚀</a>）的最相关资源和总结平台。无论您是在寻找基准测试💯、模型比较⚖️还是调研调查📖，我们都能满足您的需求。**这个导航页面还链接到其他相关的总结平台**。请探索以下各部分，找到您需要的信息：
 
 - [大语言模型（LLM）的推理速度基准测试🚀](#大语言模型llm推理速度基准测试)
 - [大语言模型（LLM）的综合分析和比较🔍](#大语言模型llm的综合分析和比较)
