@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-<strong>🌐✨github awesome list of recent 🔥VLMs🔥.</strong><br>
+<strong>🌐✨github awesome list of recent 🔥VLMs🔥</strong><br>
 <strong><a href="./README_VLMs_zh.md">中文🚀</a></strong> | <strong>English</strong><br>
 <strong><a href="./README_LLM.md">LLMs🚀</a></strong> | <strong>VLMs</strong>
 </div>
