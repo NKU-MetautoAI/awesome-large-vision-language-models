@@ -803,7 +803,7 @@ ALLaVA-Longer港中文深圳推出的开源VLM，研究团队使用GPT-4V 生成
 ### MM1
 [![arXiv](https://img.shields.io/badge/arXiv-2402.11684-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2403.09611) 
 
-MM1这项工作的**一大亮点在于其进行了大量而全面的消融实验**，以确定**模型设计和数据选择的最佳组合**。总体而言，MM1对下面几个方面做了消融实验，随后提出了MM1整体的VLM结构。
+来自Apple的MM1这项工作的**一大亮点在于其进行了大量而全面的消融实验**，以确定**模型设计和数据选择的最佳组合**。总体而言，MM1对下面几个方面做了消融实验，随后提出了MM1整体的VLM结构。
 
 1. **模型架构决策**
    - 不同图像编码器和视觉-语言连接器的影响：比较不同图像编码器（如ViT-L和ViT-H）和图像分辨率（224px vs 336px）对模型性能的影响。
@@ -920,9 +920,9 @@ DeepSeek-VL设计的初衷的在不影响NLP能力的前提下拓展多模态能
 
 ## 基准测试结果汇总
 
-结果汇总精简版如下：
+Benchmark结果**精简版**汇总如下：
 
-|                   Model                    |                           Base LLM                           |                        Vision Encoder                        |                             Link                             | TextVQA | VQA-v2 | ScienceQA | ScienceQA-IMG | GQA   | VizWiz | VizWiz-VQA | POPE                                            | LLaVA-Bench-Wild | MMB   | MMB_ZH | MMB(T/D)  | MMB_ZH(T/D) | MME（P/C）   | MM-Vet | MMMU_val | MMMU_test | MMMU      | MathVista | SEED      | SEED-IMG  |
+|                   模型                   |                          语言骨干网                          |                        视觉编码器                        |                             模型链接                             | TextVQA | VQA-v2 | ScienceQA | ScienceQA-IMG | GQA   | VizWiz | VizWiz-VQA | POPE                                            | LLaVA-Bench-Wild | MMB   | MMB_ZH | MMB(T/D)  | MMB_ZH(T/D) | MME（P/C）   | MM-Vet | MMMU_val | MMMU_test | MMMU      | MathVista | SEED      | SEED-IMG  |
 | :----------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :-----: | :----: | :---------: | :-------------: | :-----: | :------: | :----------: | :-----------------------------------------------: | :----------------: | :-----: | :------: | :---------: | :-----------: | :------------: | :------: | :--------: | :---------: | :---------: | :---------: | :---------: | :---------: |
 |                   MGM-2B                   |                           Gemma-2B                           |                            CLIP-L                            |            [Link](https://huggingface.co/YanweiLi/MGM-2B)            |  56.2   |        |           |               |       |        |            |                                                 |                  | 59.8  |        |           |             | 1341/312     | 31.1   | 31.7     | 29.1      |           | 29.4      |           |           |
 |                   MGM-7B                   |                        Vicuna-7B-v1.5                        |                            CLIP-L                            |            [Link](https://huggingface.co/YanweiLi/MGM-7B)            |  65.2   |        |           |               |       |        |            |                                                 |                  | 69.3  |        |           |             | 1523/316     | 40.8   | 36.1     | 32.8      |           | 31.4      |           |           |
@@ -1003,4 +1003,4 @@ DeepSeek-VL设计的初衷的在不影响NLP能力的前提下拓展多模态能
 |              DeepSeek-VL 1.3B              |                       DeekSeek-LLM-1B                        |                            SigLIP                            |   [Link](https://huggingface.co/deepseek-ai/deepseek-vl-1.3b-chat)   |         |        |           |               |       |        |            | 87.6                                            |                  | 64.6  | 61.3   |           |             |              | 34.8   |          |           | 32.2      |           | 66.7      |           |
 |               DeepSeek-VL-7B               |                       DeekSeek-LLM-1B                        |                            SigLIP                            |   [Link](https://huggingface.co/deepseek-ai/deepseek-vl-1.3b-chat)   |         |        |           |               |       |        |            | 88.1                                            |                  | 73.2  | 72.8   |           |             |              | 41.5   |          |           | 36.6      |           | 70.4      |           |
 
-完整统计：[link](./benchmark.xlsx)
+**完整统计**：[link](./benchmark.xlsx)

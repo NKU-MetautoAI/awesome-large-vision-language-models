@@ -42,22 +42,19 @@
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/dvlab-research/MGM)
 [![Hugging Face Collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Collections-blue)](https://huggingface.co/collections/YanweiLi/mgm-6603c50b9b43d044171d0854)
 
+##### Motivation
 
-##### 动机
+To bridge the performance gap between current Visual Language Models (VLMs) and advanced models such as GPT-4 and Gemini, efforts have been made to enhance VLMs' capabilities in visual understanding, reasoning, and generation. This motivation arises from exploring the potential of VLMs in high-resolution visual tagging, high-quality data utilization, and VLM-guided generation, with the goal of improving their performance and expanding their application scope.
 
-为了缩小当前视觉语言模型（VLMs）与先进模型（如GPT-4和Gemini）之间的性能差距，通过挖掘VLMs的潜力，提高其在视觉理解、推理和生成方面的表现。这个动机来源于对VLMs在高分辨率视觉标记、高质量数据和VLM引导生成方面的潜力的探索，以期提升其性能和拓展应用范围。
+##### Innovations
 
-##### 创新点
-
-主要从下面三个方面挖掘VLM的潜能
+This work explore the potential of VLMs primarily from the following three aspects:
 
 1. **High-Resolution Visual Tokens**: Initially, ConvNets are used to generate high-resolution images to enhance image detail. To minimize computational resource expenditure, the author further proposes optimizing for high-resolution without increasing the number of visual tokens, by employing an additional visual encoder.
 2. **High-Quality Data**: To bolster data quality, the author amalgamates high-quality datasets from diverse public sources, ensuring a rich and varied foundational dataset.
 3. **VLM Guided Generation**: By integrating with a text-to-image model, the capability for image generation is enhanced.
 
 Mini-Gemini supports a series of dense and MoE Large Language Models (LLMs) from 2B to 34B. It is demonstrated to achieve leading performance in several zero-shot benchmarks and even surpasses the developed private models
-
-
 
 ##### Architecture
 
@@ -82,27 +79,27 @@ The enhancements are further supported by employing an end-to-end workflow, a du
 
 For more information on the Bunny model checkpoints, please refer to the GitHub link above or click [here](https://github.com/BAAI-DCAI/Bunny). This includes the fully trained checkpoints (for evaluation), the pre-trained checkpoints, and more.
 
-##### 动机
+##### Motivation
 
-想要beat the scaling law，解决大型MLLM的计算成本问题，通过构建更具信息性的训练数据来训练出性能优越的较小MLLM，从而提高模型的效率和性能。
+Bunny aims to beat the scaling law and address the computational cost issues of large Multimodal Large Language Models (MLLMs) by constructing more informative training data. The goal is to train smaller, yet highly efficient and performant MLLMs, thereby enhancing model efficiency and performance.
 
-##### 创新点
+##### Innovations
 
-该工作 focus on data optimization to compensate for the reduction in model size，并且通过数据集压缩构建了信息量更大的训练数据，即从更广泛的来源中精选数据。
+Bunny focuses on data optimization to compensate for the reduction in model size, constructing more informative training data through dataset compression by selectively curating data from a broader range of sources.
 
-1. **预训练数据集的构建**：整个过程涉及一个精细的三步核心选择方案，基于CLIP嵌入
+1. **Construction of Pre-training Dataset**: The entire process involves a meticulous three-step core selection scheme based on CLIP embeddings:
 
-   - **聚类和图构建**：受SemDeDup方法的启发，他们首先使用k-means算法对所有20亿个图像嵌入进行聚类。在每个簇中，他们创建一个无向图，其中的节点（图像嵌入）在余弦相似度超过预定义阈值（本例中为0.86）时相连。这一步有助于识别相似的图像并减少冗余。
-   - **子图过滤**：对于簇中形成的每个连通子图，只保留一个样本 —— 即其到簇质心的欧几里得距离处于中位数的样本。此方法有效地将样本量减少到9.52亿张图像，同时确保每个簇中最具代表性的样本被保留。
-   - **基于文本-图像相似度的质量过滤**：然后，他们通过对样本基于每个样本的文本嵌入和对应图像嵌入的余弦相似度进行排序，继续精炼这个子集。通过选择排名在40%到60%之间的样本，他们消除了较低质量的图像-文本对，将数据集规模进一步缩减到1.9亿。
-   - **捕捉多样性和本质**：剩余的样本按照每个图像嵌入与其簇质心的余弦相似度进行排序。这里，他们保留排名在15%到35%之间的样本。这一步确保了最终的子集，现在减少到3800万，捕获了原始LAION-2B数据集的本质和多样性。
-   - **最终抽样以提高训练效率**：从这个精炼的3800万核心集中，随机抽取200万个样本，形成最终的数据集，命名为Bunny-pretrain-LAION-2M。选择这个规模是为了平衡数据的丰富性与训练的成本和效率。
+   - **Clustering and Graph Construction**: Inspired by the SemDeDup method, k-means clustering is first applied to all 2 billion image embeddings. Within each cluster, an undirected graph is created where nodes (image embeddings) are connected if their cosine similarity exceeds a predefined threshold (0.86 in this case). This step helps identify similar images and reduce redundancy.
+   - **Subgraph Filtering**: For each connected subgraph formed within the clusters, only one sample is retained—the one whose Euclidean distance to the cluster centroid is at the median. This effectively reduces the sample size to 952 million images while ensuring the most representative samples in each cluster are preserved.
+   - **Quality Filtering Based on Text-Image Similarity**: The subset is further refined by ranking samples based on the cosine similarity between their text embeddings and corresponding image embeddings. By selecting samples ranked between the 40th and 60th percentiles, lower quality image-text pairs are eliminated, further reducing the dataset size to 190 million.
+   - **Capturing Diversity and Essence**: The remaining samples are ranked by the cosine similarity of each image embedding to its cluster centroid. Samples ranked between the 15th and 35th percentiles are retained, ensuring the final subset, now reduced to 38 million, captures the essence and diversity of the original LAION-2B dataset.
+   - **Final Sampling for Training Efficiency**: From this refined core set of 38 million, 2 million samples are randomly selected to form the final dataset, named Bunny-pretrain-LAION-2M. This size is chosen to balance data richness with training cost and efficiency.
 
-2. 该工作收集了一组视觉指令微调数据集 — DataOptim1。基于此数据集，他们探索了更好的微调数据集组合。具体而言，他们利用了SVIT-mix-665K [17] 并在其中用WizardLM-evol-instruct-70K [33] 替换了ShareGPT-40K [26]，从而形成了Bunny-695K数据集。
+2. This work also collects a set of visual instruction fine-tuning datasets—DataOptim1. Based on this dataset, they explore better fine-tuning dataset combinations. Specifically, they utilize SVIT-mix-665K and replace ShareGPT-40K with WizardLM-evol-instruct-70K to form the Bunny-695K dataset.
 
-   >他们发现，将多模态学习语言模型（MLLM）在多模态数据上进行微调可能会损害其从预训练语言模型（LLM）继承的认知能力。这可能是由于多模态训练数据中文本信息较少且多样性较低所致。在微调数据集中保留一定量的高质量纯文本数据可以缓解这个问题。
+   > They discovered that fine-tuning Multimodal Large Language Models (MLLMs) on multimodal data might impair the cognitive abilities inherited from pre-trained language models (LLMs). This could be due to the lower amount and diversity of textual information in multimodal training data. Retaining a certain amount of high-quality pure text data in the fine-tuning dataset can mitigate this issue.
 
-3. 一个即插即用的VLM框架，设计EVA-CLIP 和 SigLIP等视觉编码器和Phi-1.5、StableLM-2 和、Phi-2等大语言模型.
+3. A plug-and-play VLM framework is designed, incorporating visual encoders like EVA-CLIP and SigLIP, as well as large language models such as Phi-1.5, StableLM-2, and Phi-2.
 
 ##### Architecture
 
@@ -111,12 +108,12 @@ For more information on the Bunny model checkpoints, please refer to the GitHub 
 </div>
 ##### Bunny-v1.1🔥
 
-最近推出的Bunny模型！
+The recently launched Bunny model!
 
-以SigLIP作为视觉编码器，Phi-3-Mini-4K作为语言编码器。相较于Bunny，其v1.1版本有如下新意：
+Using SigLIP as the visual encoder and Phi-3-Mini-4K as the language encoder. Compared to its predecessor, Bunny, the v1.1 version introduces the following innovations:
 
-1. **任务特定标识符**：Bunny-v1.1使用了来自 MiniGPT-v2 的任务特定标识符，这些标识符帮助模型在处理不同类型的任务时进行明确区分。模型使用六个不同的任务标识符，每个标识符对应一个特定的任务，例如视觉问答、图像字幕生成等。
-2. **多任务指令模板**：也仿照LLaMA-2 的对话模板设计，包括通用输入格式，如图像特征、任务标识符和指令输入。这种模板设计减少了任务处理过程中的歧义，提高了模型的任务区分能力和执行效率。
+1. **Task-Specific Identifiers**: Bunny-v1.1 employs task-specific identifiers from MiniGPT-v2, which assist the model in clearly distinguishing between different types of tasks. The model utilizes six distinct task identifiers, each corresponding to a specific task, such as visual question answering, image captioning, and more.
+2. **Multi-task Instruction Templates**: Inspired by the dialogue template design of LLaMA-2, Bunny-v1.1 includes a general input format encompassing image features, task identifiers, and instruction inputs. This template design reduces ambiguity during task processing, enhancing the model's task differentiation capability and execution efficiency.
 
 ### Llava
 
@@ -124,34 +121,37 @@ For more information on the Bunny model checkpoints, please refer to the GitHub 
 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/haotian-liu/LLaVA)
 
-作为VLMs领域较为早起的工作，Llava结合了预训练的 CLIP ViT-L/14 视觉编码器和 Vicuna 语言模型，并且通过一个简单的投影矩阵连接两者来实现多模态能力。
+As one of the early works in the field of Visual Language Models (VLMs), Llava combines the pre-trained CLIP ViT-L/14 visual encoder with the Vicuna language model, achieving multimodal capability through a simple projection matrix connecting the two.
 
-创新点
+##### Innovations
 
-1. Llava使用的也是经典的预训练+微调的训练步骤
-2. 创新性地提出了**新的数据集组织方式**，就是利用GPT-4 生成与图像相关的指令问题，例如使用包含了大量的图像及其对应的文本描述的COCO数据集，将图文对儿传输给GPT-4并且组织新的问题，**利用AI产出训练数据来训练AI**。
->为了确保生成的数据具有多样性和深度，研究人员设计了三种不同类型的指令-响应对：
->- 对话式数据（Conversation）： 模拟人与助手之间的对话，涉及关于图像内容的多轮问答。这种类型的数据可以帮助模型学习如何进行连贯的多轮对话。
->- 详细描述（Detailed Description）： 生成详细的图像描述，帮助模型理解和生成详细的视觉内容描述。
-> - 复杂推理（Complex Reasoning）： 生成需要复杂推理的问题和答案，涉及多步逻辑推理。这种类型的数据能够提升模型的推理能力。
-3. 架构上使用了Flash Attention 2 和 LoRA（低秩自适应）等技术优化，提高效率并减少内存资源的使用
+1. Llava employs the classic pre-training + fine-tuning training steps.
+2. Innovatively, it proposes a **new data organization method** by utilizing GPT-4 to generate instruction questions related to images. For example, using the COCO dataset, which contains a large number of images and their corresponding textual descriptions, the image-text pairs are fed to GPT-4 to organize new questions, thus **leveraging AI-generated training data to train AI**.
+
+> To ensure the generated data is diverse and deep, the researchers designed three different types of instruction-response pairs:
+>
+> - **Conversation**: Simulating a dialogue between a person and an assistant, involving multiple rounds of questions and answers about the image content. This type of data helps the model learn how to conduct coherent multi-turn conversations.
+> - **Detailed Description**: Generating detailed image descriptions to help the model understand and generate comprehensive visual content descriptions.
+> - **Complex Reasoning**: Generating questions and answers that require complex reasoning, involving multi-step logical deduction. This type of data enhances the model's reasoning capabilities.
+
+3. Architecturally, Llava uses techniques such as Flash Attention 2 and LoRA (Low-Rank Adaptation) to optimize performance, improve efficiency, and reduce memory usage.
 
 ##### Architecture
 
 <div align="center">
   <img src="./image/llava.png"  width="800" />
 </div>
+##### Llava's Improvements
 
-##### Llava的改进
-
-The LLaVa model was proposed in [Visual Instruction Tuning](https://arxiv.org/abs/2304.08485) and improved in [Improved Baselines with Visual Instruction Tuning](https://arxiv.org/pdf/2310.03744) by Haotian Liu, Chunyuan Li, Yuheng Li and Yong Jae Lee.这里就是Llava1.5的诞生地
+The LLaVa model was proposed in [Visual Instruction Tuning](https://arxiv.org/abs/2304.08485) and improved in [Improved Baselines with Visual Instruction Tuning](https://arxiv.org/pdf/2310.03744) by Haotian Liu, Chunyuan Li, Yuheng Li, and Yong Jae Lee. This marks the inception of Llava1.5.
 
 1. **Llava1.5**
-   - Llava1.5依旧使用Vicuna 作为基础语言模型，使用了**两层 MLP** 替代了原来的线性投影，同时还支持更高分辨率的图像（336x336 像素）的交互。使用的是划分图像网格的方式，实现了高分辨率输入的处理，这样的方式也巧妙地减少了“幻觉现象”的产生。
-   - 引入了面向学术任务的数据集，如VQA（Visual Question Answering）、OCR（Optical Character Recognition）和区域级理解数据
+   - Llava1.5 continues to use Vicuna as the base language model, replacing the original linear projection with a **two-layer MLP**. It also supports interaction with higher-resolution images (336x336 pixels). The method of dividing images into grids allows for the processing of high-resolution inputs, which also cleverly reduces the occurrence of "hallucinations."
+   - It introduces datasets for academic tasks such as Visual Question Answering (VQA), Optical Character Recognition (OCR), and region-level understanding data.
+   
 2. **Llava1.6** 🔥
-   - 支持更高的像素数（如 672x672, 336x1344, 1344x336 分辨率）图片的交互
-   - 添加了视觉推理和 OCR（光学字符识别）能力
+   - Supports interaction with images of even higher pixel counts (e.g., 672x672, 336x1344, 1344x336 resolutions).
+   - Adds capabilities for visual reasoning and Optical Character Recognition (OCR).
 
 
 
@@ -166,53 +166,41 @@ CogVLM is an innovative open-source visual language model (VLM) designed to brid
 
 Unlike previous methods that often used a shallow alignment strategy, CogVLM achieves a more profound integration by allowing direct interactions between visual and textual representations within the model's layers. This approach enables the model to maintain high performance on natural language processing tasks while also excelling in tasks that require understanding of visual content
 
-  |          模型名称           | 输入分辨率 |                             介绍                             |                      Huggingface model                       |                       SAT model                       |
-  | :-------------------------: | :--------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :---------------------------------------------------: |
-  |      cogvlm-chat-v1.1       |    490     |      支持同时进行多轮聊天和视觉问答，支持自由的提示词。      |     [link](https://huggingface.co/THUDM/cogvlm-chat-hf)      | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
-  |       cogvlm-base-224       |    224     |               文本-图像预训练后的原始检查点。                |   [link](https://huggingface.co/THUDM/cogvlm-base-224-hf)    | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
-  |       cogvlm-base-490       |    490     | 通过从 cogvlm-base-224 进行位置编码插值，将分辨率提升到490。 |   [link](https://huggingface.co/THUDM/cogvlm-base-490-hf)    | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
-  | cogvlm-grounding-generalist |    490     |    此检查点支持不同的视觉定位任务，例如REC，定位字幕等。     | [link](https://huggingface.co/THUDM/cogvlm-grounding-generalist-hf) | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
+|            Model            | Resolution |                         Introduction                         |                      Huggingface model                       |                       SAT model                       |
+| :-------------------------: | :--------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :---------------------------------------------------: |
+|      cogvlm-chat-v1.1       |    490     |      支持同时进行多轮聊天和视觉问答，支持自由的提示词。      |     [link](https://huggingface.co/THUDM/cogvlm-chat-hf)      | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
+|       cogvlm-base-224       |    224     |               文本-图像预训练后的原始检查点。                |   [link](https://huggingface.co/THUDM/cogvlm-base-224-hf)    | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
+|       cogvlm-base-490       |    490     | 通过从 cogvlm-base-224 进行位置编码插值，将分辨率提升到490。 |   [link](https://huggingface.co/THUDM/cogvlm-base-490-hf)    | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
+| cogvlm-grounding-generalist |    490     |    此检查点支持不同的视觉定位任务，例如REC，定位字幕等。     | [link](https://huggingface.co/THUDM/cogvlm-grounding-generalist-hf) | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
 
 
 
-##### 动机
+##### Motivation
 
-CogVLM的作者认为浅层对齐方法之所以性能较差，是因为它们依赖于“冻结”的语言模型权重，这些权重经过内在训练以处理文本标记，存在严重的不匹配。
+The authors of CogVLM believe that the poor performance of shallow alignment methods is due to their reliance on "frozen" language model weights, which are inherently trained to process textual tokens and exhibit significant mismatches.
 
+##### Innovations
 
+1. To prevent the forgetting problem caused by directly training LLMs on new datasets and to maintain familiarity with the original datasets, the aim is to enhance visual understanding capabilities while preserving existing NLP performance.
+2. CogVLM introduces a trainable visual expert within the language model. When processing visual and linguistic information, visual information is handled through a dedicated mechanism rather than simply integrating image features into the existing text processing workflow.
+   - In each layer, image features are processed independently of text features using new QKV (Query-Key-Value) matrices and MLP (Multi-Layer Perceptron) layers.
+3. It utilizes RoPE (Rotary Positional Embedding) instead of traditional positional encoding (in traditional Transformer models, positional encoding is typically added to the input sequence's word embeddings to provide positional information for each element in the sequence).
 
-##### 创新点
-
-1. 为了防止直接在新数据集上训练LLM导致的遗忘问题和对原数据集的不熟悉，想要在保证原有NLP性能的前提下增加设觉理解能力
-2. CogVLM在语言模型中增加了一个可训练的视觉专家（visual expert）。在处理视觉和语言信息时，视觉信息会通过一个专门的机制来处理，而不是简单地将图像特征融入原有的文本处理流程。
-   - 在每一层中，图像特征使用新的QKV（Query-Key-Value）矩阵和MLP（多层感知机）层，独立于文本特征进行处理。
-3. 使用RoPE（Rotary Positional Embedding），而不是传统位置编码（在传统的Transformer模型中，位置编码通常是与输入序列的词嵌入相加的方式来提供序列中每个元素的位置信息。）
-
-CogVLM在语言模型中增加了一个可训练的视觉专家（visual expert）。这意味着在处理视觉和语言信息时，视觉信息会通过一个专门的机制来处理，而不是简单地将图像特征融入原有的文本处理流程。
-
-
+CogVLM introduces a trainable visual expert within the language model. This means that when processing visual and linguistic information, visual information is handled through a dedicated mechanism rather than simply integrating image features into the existing text processing workflow.
 
 ##### Architecture
 
 <div align="center">
   <img src="./image/cogVLM.png" alt="image-20240510165317066" width="800" />
 </div>
+##### Model Subdivision
 
+- **CogVLM-Chat**: This model accepts natural language inputs and outputs, primarily handling pure text inputs and outputs. It is suitable for various VQA (Visual Question Answering) and multi-turn dialogue datasets.
+- **CogVLM-Grounding**: This model focuses on handling inputs and outputs that include bounding boxes, supporting a variety of tasks related to visual benchmarks.
 
+##### Some Tips
 
-
-##### 细分
-
-- **CogVLM-Chat**: 模型接受自然语言输入和输出，主要处理纯文本输入和输出，适用于多种VQA和多轮对话数据集
-- **CogVLM-Grounding**：侧重于处理包含边界框的输入和输出，支持视觉基准相关的多种任务
-
-
-
-##### some tips
-
-LLM是在Vicuna-7B的基础上训练得来的，保证其NLP能力的前提下加上了视觉理解
-
-用到了P-Tuning和LoRA两种高效微调方法
+The LLM is trained based on Vicuna-7B, ensuring its NLP capabilities while incorporating visual understanding. Efficient fine-tuning methods such as P-Tuning and LoRA have been utilized.
 
 
 
@@ -221,29 +209,27 @@ LLM是在Vicuna-7B的基础上训练得来的，保证其NLP能力的前提下�
 [![arXiv](https://img.shields.io/badge/arXiv-2312.08914-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2312.08914) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/THUDM/CogVLM)
 
-**CogAgent** 是一个基于CogVLM改进的开源视觉语言模型，在CogVLM的基础上主要侧重提升了GUI理解和导航能力，能够识别微小的页面元素和文本，在处理屏幕截图相关的任务上优于基于 LLM 的方法。
+**CogAgent** is an improved open-source visual language model based on CogVLM. It primarily focuses on enhancing GUI understanding and navigation capabilities, allowing it to recognize minute page elements and text. This model outperforms traditional LLM-based methods in tasks involving screen shots.
 
-> 可以好好看一下github和论文中的示例，可以对Agent的概念有一个直观感受和了解。
-
-
-  |   模型名称    | 输入分辨率 |                             介绍                             |                   Huggingface model                   |                        SAT model                        |
-  | :-----------: | :--------: | :----------------------------------------------------------: | :---------------------------------------------------: | :-----------------------------------------------------: |
-  | cogagent-chat |    1120    |    CogAgent的聊天版本。支持GUI代理，多轮聊天和视觉定位。     | [link](https://huggingface.co/THUDM/cogagent-chat-hf) | [link](https://huggingface.co/THUDM/CogAgent/tree/main) |
-  | cogagent-vqa  |    1120    | CogAgent的VQA版本。在单轮视觉对话中具有更强的能力。推荐用于VQA基准测试。 | [link](https://huggingface.co/THUDM/cogagent-vqa-hf)  | [link](https://huggingface.co/THUDM/CogAgent/tree/main) |
-
-##### 动机
-
-- 完成一个智能体的构建，改智能体在面向GUI的领域中有着非常好的性能。
+> Reviewing the examples provided on GitHub and in the paper can offer an intuitive understanding of the concept of CogAgent.
 
 
+|     Model     | Resolution |                         Introduction                         |                   Huggingface model                   |                        SAT model                        |
+| :-----------: | :--------: | :----------------------------------------------------------: | :---------------------------------------------------: | :-----------------------------------------------------: |
+| cogagent-chat |    1120    |    CogAgent的聊天版本。支持GUI代理，多轮聊天和视觉定位。     | [link](https://huggingface.co/THUDM/cogagent-chat-hf) | [link](https://huggingface.co/THUDM/CogAgent/tree/main) |
+| cogagent-vqa  |    1120    | CogAgent的VQA版本。在单轮视觉对话中具有更强的能力。推荐用于VQA基准测试。 | [link](https://huggingface.co/THUDM/cogagent-vqa-hf)  | [link](https://huggingface.co/THUDM/CogAgent/tree/main) |
 
-##### 创新点
+##### Motivation
 
-- **可以处理高分辨率图像**：该工作设计了一个交叉注意力分支，允许在适当的计算预算内在分辨率和隐藏大小之间进行权衡，缓解高分辨率图像需要大量资源推理和计算的问题。
-  - **高分辨率交叉模块**充当更高分辨率输入的新分支，采用了更小的预训练视觉编码器，并使用小隐藏尺寸的交叉注意力将高分辨率图像特征与VLLM解码器的每一层融合在一起，从而降低计算成本。
-  - **与低分辨率输入分支的对比**：不同于原始的低分辨率输入分支，高分辨率交叉模块采用了一个更小的预训练视觉编码器（在这里是 EVA2-CLIP-L 的视觉编码器，有 0.30B 参数）。这个模块使用较小的隐藏层尺寸的交叉注意力（cross-attention）来融合高分辨率图像特征与视觉语言长期记忆模型（VLLM）解码器的每一层。
-  - 对于一个输入图像，模型会将其重新调整尺寸到 1120 × 1120 和 224 × 224，分别送入高分辨率交叉模块和低分辨率分支。这两个分支并行工作，将图像编码为特征序列 Xhi（高分辨率图像特征）和 Xlo（低分辨率图像特征）
-- 私人构建的数据集：They notice that the GUI images share a different distribution from natural images. They thus construct a large-scale annotated dataset about GUIs and OCR for continual pre-training.
+- To develop an agent that exhibits exceptional performance in GUI-oriented tasks.
+
+##### Innovations
+
+- **Capability to Handle High-Resolution Images**: This work designs a cross-attention branch that allows for a trade-off between resolution and hidden size within an appropriate computational budget, addressing the issue of high-resolution images requiring substantial resources for inference and computation.
+  - **High-Resolution Cross Module**: This new branch for higher-resolution inputs adopts a smaller pre-trained visual encoder and uses cross-attention with a smaller hidden size to integrate high-resolution image features into each layer of the VLLM decoder, thereby reducing computational costs.
+  - **Contrast with Low-Resolution Input Branch**: Unlike the original low-resolution input branch, the high-resolution cross module employs a smaller pre-trained visual encoder (in this case, the EVA2-CLIP-L visual encoder with 0.30B parameters). This module uses cross-attention with a smaller hidden size to merge high-resolution image features with the VLLM decoder at each layer.
+  - For an input image, the model resizes it to 1120 × 1120 and 224 × 224, feeding these into the high-resolution cross module and the low-resolution branch, respectively. These two branches work in parallel, encoding the image into feature sequences Xhi (high-resolution image features) and Xlo (low-resolution image features).
+- Privately Constructed Dataset: They observe that GUI images have a different distribution from natural images. Consequently, they construct a large-scale annotated dataset focused on GUIs and OCR for continual pre-training.
 
 ##### Architecture
 
@@ -257,22 +243,18 @@ LLM是在Vicuna-7B的基础上训练得来的，保证其NLP能力的前提下�
 [![AI Blog](https://img.shields.io/badge/AI%20Blog-hypergai%20AI-orange.svg)](https://hypergai.com/blog/) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/HyperGAI/HPT/) 
 
-提出的Hyper-Pretrained Transformers（HPT）框架，是一种全新的多模态LLM预训练框架。它能够以高效和可扩展的方式训练出一个大型的多模态基础模型，这个模型能够理解多种模态的输入。有HPT Pro与HPT Air两个版本。
+The proposed Hyper-Pretrained Transformers (HPT) framework represents a novel multimodal LLM pre-training framework. It efficiently and scalably trains a large multimodal foundational model capable of understanding various modalities of input. There are two versions: HPT Pro and HPT Air.
 
-##### 创新点
+##### Innovations
 
-- 创新特性H-Former作为视觉与语言模态之间的桥梁，是Q-Former的变种
-- H-Former 集成了双网络设计，以学习局部和全局特征，以实现视觉语言对齐，使 HPT 能够理解细粒度细节和抽象的高级信息
+- **Innovative Feature H-Former**: Serving as a bridge between visual and language modalities, it is a variant of Q-Former.
+- **H-Former**: Integrates a dual-network design to learn both local and global features for achieving visual-language alignment, enabling HPT to understand fine-grained details as well as abstract high-level information.
 
 ##### Architecture
 
 <div align="center">
   <img src="./image/HPT.png"  width="800" />
 </div>
-
-
-
-
 
 
 
@@ -287,14 +269,14 @@ Recently, most of the work is based on MiniGPT4 and MiniGPT4-V2. The architectur
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Vision-CAIR/MiniGPT-4)
 [![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/Vision-CAIR/MiniGPT-4)
 
-MiniGPT4总体也是分为视觉端和语言端，包括视觉编码器（ViT 和 Q-Former）和语言模型 Vicuna。使用的是一个简单的线性投影层对齐视觉特征与语言模型。
+MiniGPT-4 is generally divided into a visual end and a language end, comprising a visual encoder (ViT and Q-Former) and the Vicuna language model. A simple linear projection layer is used to align the visual features with the language model.
 
-使用两步训练的方式：
+Training is conducted in two stages:
 
-1. 第一阶段使用大量的图像-文本对进行初步训练，获取视觉-语言知识进行**预训练**；经过这一阶段的模型已经可以初步处理一些VQA问题，但是模型有时候还是会输出和提问不相关的内容。
-   - 视觉端使用的是ViT 和 Q-Former 
-   - 语言端使用的是Vicuna
-2. 第二阶段使用高质量高质量的详细图像描述数据集进行**微调**，这一阶段中涉及一个指令数据集，这个数据集的源头是Conceptual Caption数据集，作者使用一阶段训练后的模型生成图片的描述，并且给予足够的提示保证描述足够长，随后使用chatGPT进行进一步的构建和纠错，最后人工选择了3500个左右的图文对作为最后的数据集。
+1. **Pre-training Stage**: Initially trained using a large number of image-text pairs to acquire visual-language knowledge. After this stage, the model can handle some VQA problems but may still output content unrelated to the queries.
+   - The visual end uses ViT and Q-Former.
+   - The language end uses Vicuna.
+2. **Fine-tuning Stage**: Involves fine-tuning with a high-quality, detailed image description dataset. This stage includes an instruction dataset sourced from the Conceptual Caption dataset. The authors used the model trained in the first stage to generate image descriptions, providing sufficient prompts to ensure the descriptions were detailed. Subsequently, ChatGPT was used for further construction and error correction. Finally, around 3,500 image-text pairs were manually selected to form the final dataset.
 
 
 
@@ -311,14 +293,16 @@ MiniGPT4总体也是分为视觉端和语言端，包括视觉编码器（ViT �
 [![arXiv](https://img.shields.io/badge/arXiv-2310.09478-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2310.09478) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Vision-CAIR/MiniGPT-4)
 
-Minigpt4-v2在MiniGPT4的基础上进行了扩充，主要的创新点和改进如下
+MiniGPT-4 v2 builds upon MiniGPT-4 with several significant innovations and improvements:
 
-1. 使用**任务标识符**区分多模态任务：引入了如[vqa]、[caption]、[grounding]等任务表示符，分别表示视觉问答、图像描述和视觉定位等任务。在训练的时候使用不同下游任务特定的数据集进行微调，同时将任务标识符融入对话模板送入模型，后续在推理的时候人为选择任务标识符告诉gpt完成什么类型的下游任务。这样可以在保证性能的前提下大幅提高模型对下游任务的适配程度，减少幻觉现象和混淆。
-2. **三阶段训练策略**
-   1. **预训练**：使用弱标注和精细标注的数据集（如LAION、CC3M、SBU、GRIT-20M）训练模型，获取广泛的视觉-语言知识。
-   2. **第二阶段：多任务训练**：仅使用精细标注的数据集（如COCO、RefCOCO等）进行多任务训练，优化模型在各个任务上的性能。
-   3. **第三阶段：多模态指令调优**：使用多模态指令数据集（如LLaVA、Flickr30k等）和语言数据集（如Unnatural Instructions）进行微调，增强模型的对话能力和指令响应能力。
-3. 接受**高分辨率**输入：接受更高分辨率的图像（448x448），并通过将相邻的四个视觉标记拼接成一个标记来减少计算量，提升训练和推理效率。
+1. **Task Identifiers for Multimodal Tasks**: Introduces task identifiers such as [vqa], [caption], [grounding] to distinguish between tasks like visual question answering, image captioning, and visual grounding. During training, different datasets specific to downstream tasks are used for fine-tuning, with task identifiers integrated into the dialogue templates and fed into the model. In inference, users manually select task identifiers to inform GPT about the type of downstream task to perform. This approach significantly improves the model's adaptation to downstream tasks, reducing hallucinations and confusion while maintaining performance.
+
+2. **Three-Stage Training Strategy**
+   1. **Pre-training**: Utilizes weakly annotated and finely annotated datasets (e.g., LAION, CC3M, SBU, GRIT-20M) to train the model, acquiring broad visual-language knowledge.
+   2. **Second Stage: Multi-task Training**: Employs only finely annotated datasets (e.g., COCO, RefCOCO) for multi-task training, optimizing the model's performance across various tasks.
+   3. **Third Stage: Multimodal Instruction Tuning**: Fine-tunes the model using multimodal instruction datasets (e.g., LLaVA, Flickr30k) and language datasets (e.g., Unnatural Instructions), enhancing its conversational and instruction-following capabilities.
+
+3. **High-Resolution Input**: Supports higher resolution images (448x448) and reduces computational load by merging adjacent visual tokens into a single token, improving training and inference efficiency.
 
 
 
@@ -338,11 +322,11 @@ Minigpt4-v2在MiniGPT4的基础上进行了扩充，主要的创新点和改进�
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/DLCV-BUAA/TinyLLaVABench)
 [![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/tinyllava)
 
-TinyLLaVA选择了几个代表性的LLM，包括 TinyLlama（1.1B 参数）、StableLM-2（1.6B 参数）和 Phi-2（2.7B 参数），并且使用 CLIP 和 SigLIP 两种视觉编码器进行最终多模态模型的组装，初步实验发现 SigLIP 与小规模LLM结合效果更好。。
+TinyLLaVA selects several representative LLMs, including TinyLlama (1.1B parameters), StableLM-2 (1.6B parameters), and Phi-2 (2.7B parameters), and uses CLIP and SigLIP as visual encoders to assemble the final multimodal model. Preliminary experiments have shown that SigLIP performs better when combined with smaller-scale LLMs.
 
-在视觉端和文本端的链接部分，TinyLLaVA使用的是两层多层感知器（MLP）作为视觉编码器和LLM之间的连接器，激活函数为 GELU。
+In the linking part between the visual and textual ends, TinyLLaVA uses a two-layer Multi-Layer Perceptron (MLP) as the connector between the visual encoder and the LLM, with the GELU activation function.
 
-TinyLLaVA参数量虽然比不上一众大模型，但是由于LLM的性能（比如Google的phi-2）足够给力且数据集的质量足够高，使其在多个基准测试中的表现接近甚至超过了一些大规模模型。
+Although TinyLLaVA has fewer parameters compared to many large models, the performance of the LLMs (such as Google's Phi-2) and the high quality of the dataset enable it to achieve performance in various benchmarks that is comparable to or even surpasses some large-scale models.
 
 ##### Architecture 
 
@@ -358,41 +342,41 @@ TinyLLaVA参数量虽然比不上一众大模型，但是由于LLM的性能（�
 
 [![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/Tyrannosaurus/TinyGPT-V)
 
-TinyGPT-V 也是在探究如何使用小型Backbone实现多模态大型语言模型，模型总体依旧是分为视觉端、语言端和映射层，语言端使用的是Phi-2，视觉端使用的是预训练的EVA（Enhanced Vision Attention）ViT（Vision Transformer）模型，映射层采用BLIP-2架构中的Q-Former层作为初始映射层，利用BLIP系统的预训练优势。总体来说可以将TinyGPT-V 的创新与亮点归纳为以下几点：
+TinyGPT-V is also exploring how to use small backbones to implement a multimodal large language model. The model is generally divided into a visual end, a language end, and a mapping layer. The language end uses Phi-2, the visual end uses the pre-trained EVA (Enhanced Vision Attention) ViT (Vision Transformer) model, and the mapping layer employs the Q-Former layer from the BLIP-2 architecture as the initial mapping layer, leveraging the pre-training advantages of the BLIP system. The innovations and highlights of TinyGPT-V can be summarized as follows:
 
-1. **视觉-语言映射层的结构**：TinyGPT-V 的视觉-语言映射层组合了多个小模块，这些模块来自不同模型（包括视觉模型、其他VLM等），可以分成三个主要层次（详细设计见[下图](#train process)）：
+1. **Structure of the Visual-Language Mapping Layer**: TinyGPT-V's visual-language mapping layer combines several small modules from different models (including visual models and other VLMs) and can be divided into three main levels (detailed design in the [figure below](#train process)):
 
-   - **Q-Former层（初始映射层）**：来自BLIP-2架构的Q-Former层作为初始映射层，希望使用这样一个预训练得当且表现很好的结构作为视觉-语言对齐的初始结构，有效地将视觉编码器（EVA ViT）提取的高维度视觉特征转换为适合语言模型处理的表示。
-   - **第一层线性投影**：采用来自MiniGPT-4的预训练线性投影层，这样可以适当加快训练过程，因为MiniGPT-4的预训练线性投影层已经包含了丰富的模式和特征，可以直接使用不用重头训练。
-   - **第二层线性投影**：通过高斯分布初始化的新线性投影层，确保特征最终整合到Phi-2模型的隐藏空间中。
+   - **Q-Former Layer (Initial Mapping Layer)**: The Q-Former layer from the BLIP-2 architecture serves as the initial mapping layer. This well-pretrained structure effectively aligns the high-dimensional visual features extracted by the EVA ViT visual encoder with the language model, transforming them into representations suitable for the language model.
+   - **First Linear Projection Layer**: Uses a pretrained linear projection layer from MiniGPT-4, which accelerates the training process as it already contains rich patterns and features that can be directly used without retraining from scratch.
+   - **Second Linear Projection Layer**: A new linear projection layer initialized with a Gaussian distribution ensures that features are finally integrated into the hidden space of the Phi-2 model.
 
-2. **四阶段训练策略**：
+2. **Four-Stage Training Strategy**:
 
-   - **阶段1：热身训练**： 使用大规模图像-文本对数据集（如LAION、Conceptual Captions、SBU）进行初始预训练。用上述数据集进行初步训练，模型识别投影层的输出作为软提示（soft prompt），指导其生成相关文本。（使用共计约500万对图像-文本对）。
-   - **阶段2：再预训练**： 专门训练LoRA模块，进一步减少图像-文本对的损失。此阶段的训练目的是使LoRA模块在处理多模态数据时发挥作用，提高模型的学习能力和性能。
-   - **阶段3：指令微调**： 使用MiniGPT-4或LLaVA的数据集进行指令微调，提高模型生成一致且自然响应的能力。
-   - **阶段4：多任务学习**： 通过多模态指令数据集（如LLaVA、Flickr30k）进行多任务学习，提高模型在多轮对话中的任务处理能力。
+   - **Stage 1: Warm-Up Training**: Uses large-scale image-text pair datasets (e.g., LAION, Conceptual Captions, SBU) for initial pre-training. The model recognizes the output of the projection layer as soft prompts, guiding it to generate relevant text (using approximately 5 million image-text pairs in total).
+   - **Stage 2: Re-pretraining**: Specifically trains the LoRA module to further reduce the loss of image-text pairs. The goal of this stage is to enhance the LoRA module's effectiveness in handling multimodal data, improving the model's learning ability and performance.
+   - **Stage 3: Instruction Fine-Tuning**: Uses datasets from MiniGPT-4 or LLaVA for instruction fine-tuning, enhancing the model's ability to generate coherent and natural responses.
+   - **Stage 4: Multitask Learning**: Performs multitask learning with multimodal instruction datasets (e.g., LLaVA, Flickr30k), improving the model's task handling capabilities in multi-turn dialogues.
 
-3. **规范化与LoRA**：作者还发现小型大规模语言模型在进行迁移的时候有很多弊端需要克服。small VLM由于参数较少，在数据计算中对NaN或INF值比较敏感，这将导致初始批前向传播失败。TinyGPT-V使用了多样的归一化技巧解决这些问题：
+3. **Normalization and LoRA**: The authors found that small-scale large language models face many challenges during transfer learning. Small VLMs, due to fewer parameters, are sensitive to NaN or INF values during data computation, which can cause initial batch forward propagation to fail. TinyGPT-V uses various normalization techniques to address these issues:
 
-   - **RMSNorm（RMS归一化）**：RMSNorm用于解决梯度消失或爆炸的问题，确保模型在训练过程中的稳定性。具体而言，RMSNorm在每个多头注意力层（MHA）之后应用，以规范化数据。【下面公式中，x~post~是MHA后的输入，N是 ~post~ 的维度。】
+   - **RMSNorm (Root Mean Square Normalization)**: RMSNorm is used to address gradient vanishing or exploding issues, ensuring model stability during training. Specifically, RMSNorm is applied after each multi-head attention layer (MHA) to normalize the data.
      $$
      \text{RMSNorm}(x_{\text{post}}) = \frac{x_{\text{post}}}{\sqrt{\frac{1}{N} \sum_{i=1}^{N} x_i^2 + \epsilon}}
      $$
-
-   - **Query-Key Normalization（查询-键归一化）**：Query-Key Normalization在低资源学习场景中特别有效，帮助模型在处理多模态数据时保持计算的稳定性。【下面公式中，d~k~ 表示Q或K的维度。】
+     
+   - **Query-Key Normalization**: Particularly effective in low-resource learning scenarios, helping maintain computational stability when handling multimodal data.
      $$
      \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{\text{LayerNorm}(Q) \cdot \text{LayerNorm}(K)^T}{\sqrt{d_k}}\right) V
      $$
-
-   - **Layer Normalization（层归一化）**：在每一层中应用Layer Normalization，通过标准化输入来防止NaN值的产生。【下面公式中，其中，x~hidden~ 是该层的输入，*μ* 和 *σ*^2^ 分别是输入的均值和方差，*γ* 和 *β* 是可训练的参数。】
+     
+   - **Layer Normalization**: Applied in each layer to prevent the occurrence of NaN values by standardizing the input.
      $$
      \text{LayerNorm}_{\text{input}}(x_{\text{hidden}}) = \gamma \frac{x_{\text{hidden}} - \mu}{\sqrt{\sigma^2 + \epsilon}} + \beta
      $$
+     
+   - **LoRA (Low-Rank Adaptation)**: LoRA introduces low-rank matrices for parameter-efficient fine-tuning while freezing pre-trained weights, reducing the amount of parameter adjustment during training and preventing gradient vanishing.
 
-   -  **LoRA（Low-Rank Adaptation）**：LoRA通过在冻结预训练权重的情况下引入低秩矩阵进行参数高效微调，减少训练时的参数调整量，避免梯度消失。
-
-4. **任务特定标识符与指令模板**：类似于MiniGPT4和MiniGPT-v2，TinyGPT-V 也在指令模板中融入了任务特定标识符，这样可以提高模型在多任务和多轮对话中的表现。TinyGPT-V利用从MiniGPT-v2中借鉴的多任务指令模板，总体而言的修改并不多，**在空间位置识别方面有一些改进**。具体来说，对于需要识别引用对象空间位置的任务，TinyGPT-V使用文本表示的边界框，并将坐标归一化到0到100之间。除了这个改进以外其他的没有提及。
+4. **Task-Specific Identifiers and Instruction Templates**: Similar to MiniGPT-4 and MiniGPT-v2, TinyGPT-V integrates task-specific identifiers into instruction templates to enhance performance in multitask and multi-turn dialogues. It adopts the multitask instruction templates from MiniGPT-v2 with some modifications, particularly in spatial location recognition. For tasks requiring spatial location recognition of referenced objects, TinyGPT-V uses text-based bounding boxes with coordinates normalized between 0 and 100. Other than this improvement, no additional changes were mentioned.
 
    
 
@@ -415,29 +399,29 @@ TinyGPT-V 也是在探究如何使用小型Backbone实现多模态大型语言�
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/google-research/big_vision)
 [![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/tinyllava)
 
-PaLI-3，这是 PaLI 系列的第三代模型。通过一个仅有 5B 参数的预训练基线模型，他们优化了训练方法，并在多个 VLM 基准上实现了有竞争力以及新的 SOTA 结果。
+PaLI-3 is the third-generation model in the PaLI series. By leveraging a pre-trained baseline model with only 5B parameters, they optimized the training methodology and achieved competitive and new state-of-the-art results on various VLM benchmarks.
 
-新的方法主要由三个步骤：
+The new approach consists of three main steps:
 
-1. **单模态预训练**：预训练图像编码器和文本编码器，使它们能够单独处理各自的输入。
+1. **Unimodal Pre-training**: Pre-train the image encoder and text encoder to handle their respective inputs independently.
 
-   - **图像编码器预训练**：使用网页规模的图像-文本对数据集（如 WebLI）。采用 SigLIP 训练方法，对图像和文本进行对比预训练
+   - **Image Encoder Pre-training**: Uses web-scale image-text pair datasets (e.g., WebLI). The SigLIP training method is employed for contrastive pre-training on images and texts.
 
-     >1. **嵌入**：将图像和文本嵌入到同一高维向量空间中。
-     >2. **对比损失**：使用 Sigmoid Cross-Entropy 损失函数，使正确的图像-文本对的点积较高，而不正确的对较低。
+     >1. **Embedding**: Embed images and texts into the same high-dimensional vector space.
+     >2. **Contrastive Loss**: Use the Sigmoid Cross-Entropy loss function to ensure that the dot product of the correct image-text pairs is higher than that of incorrect pairs.
 
-   - **文本编码器预训练**：使用 UL2 模型，采用“去噪器混合”（mixture of denoisers）的方法进行训练。
+   - **Text Encoder Pre-training**: Utilizes the UL2 model and trains it using the "mixture of denoisers" approach.
 
-2. **多模态训练**
+2. **Multimodal Training**:
 
-   - 将预训练的图像编码器（ViT-G/142）与一个 3B 参数的 UL2 编码器-解码器语言模型结合。图像编码器将图像转换为视觉令牌，这些令牌与文本令牌一起输入到语言模型中。
-   - 在这个阶段，**图像编码器保持冻结状态，只训练语言模型部分**，以确保图像编码器的嵌入质量。
-   - **高分辨率训练**:开始时使用较低分辨率的图像，逐步提高分辨率，以提高模型对图像细节的感知能力。中间会在 812×812 和 1064×1064 分辨率上保存检查点。
+   - Combine the pre-trained image encoder (ViT-G/142) with a 3B parameter UL2 encoder-decoder language model. The image encoder converts images into visual tokens, which are input into the language model along with text tokens.
+   - During this stage, **the image encoder remains frozen, and only the language model is trained** to ensure the quality of the image encoder's embeddings.
+   - **High-Resolution Training**: Begin with lower resolution images and gradually increase the resolution to enhance the model's ability to perceive image details. Checkpoints are saved at resolutions of 812×812 and 1064×1064 during intermediate stages.
 
-3. **分辨率增加和任务专用微调**:
+3. **Resolution Increase and Task-Specific Fine-Tuning**:
 
-   - 进一步提高模型的输入分辨率，进行短期微调，解冻图像编码器，确保模型能够在高分辨率下处理图像。
-   - **任务专用微调**：在微调过程中，通常使用 812×812 分辨率检查点，但对于某些需要更高分辨率的任务（如文档理解任务），会使用 1064×1064 分辨率进行微调。
+   - Further increase the input resolution of the model for short-term fine-tuning, unfreezing the image encoder to ensure the model can handle high-resolution images.
+   - **Task-Specific Fine-Tuning**: Typically, fine-tuning is done using checkpoints at 812×812 resolution, but for tasks requiring higher resolution (e.g., document understanding tasks), fine-tuning is conducted at 1064×1064 resolution.
 
 ##### Architecture
 
@@ -454,19 +438,18 @@ PaLI-3，这是 PaLI 系列的第三代模型。通过一个仅有 5B 参数的�
 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/google-research/big_vision)
 
+PaliGemma is composed of a [Transformer decoder](https://arxiv.org/abs/1706.03762) and a [Vision Transformer image encoder](https://arxiv.org/abs/2010.11929), with a total of 3 billion parameters. The text decoder is initialized from [Gemma-2B](https://www.kaggle.com/models/google/gemma), and the image encoder is initialized using [SigLIP-So400m/14](https://colab.research.google.com/github/google-research/big_vision/blob/main/big_vision/configs/proj/image_text/SigLIP_demo.ipynb?hl=zh-cn). PaliGemma is trained following the PaLI-3 methodology.
 
-PaliGemma 由 [Transformer 解码器](https://arxiv.org/abs/1706.03762)和 [Vision Transformer 图像编码器](https://arxiv.org/abs/2010.11929)组成，共计有 30 亿个参数。文本解码器从 [Gemma-2B](https://www.kaggle.com/models/google/gemma) 初始化。图片编码器使用 [SigLIP-So400m/14](https://colab.research.google.com/github/google-research/big_vision/blob/main/big_vision/configs/proj/image_text/SigLIP_demo.ipynb?hl=zh-cn) 进行初始化。PaliGemma 是按照 PaLI-3 方法训练的。
+PaliGemma has released three types of models:
+1. **Pre-trained multimodal base models** (labeled as `pt` on Huggingface);
+2. **Fine-tuned models on individual tasks** (e.g., DocVQA, AI2D) (labeled as `ft` on Huggingface);
+3. **Models fine-tuned on mixed datasets** (labeled as `mix` on Huggingface).
 
-PaliGemma 共开源了三类模型：
-（1）预训练的多模态基座模型（模型在huggingface上标注为pt）；
-（2）在单个任务上（如：DocVQA，AI2D 等）Finetune 得到的模型（模型在huggingface上标注为ft）；
-（3）混合数据集上 Finetune 的模型（模型在huggingface上标注为mix）。
-
-这些模型有三种不同的分辨率（224x224、448x448）、896x896和三种不同的精度 （bf16、f16和f32）。每个存储库都包含给定分辨率和任务的检查点，每个可用精度都有三个修订版。每个存储库的main分支都包含float32检查点，其中bf16as 和f16revisions 包含相应的精度。对于与 Transformer 和原始 JAX 实现兼容的模型，有单独的存储库，高分辨率模型需要更大的内存来运行，因为输入序列要长得多。它们可能有助于处理颗粒度较为精细的任务（如 OCR），但对于大多数任务来说，质量提升很小。
+These models are available in three different resolutions (224x224, 448x448, 896x896) and three different precisions (bf16, f16, and f32). Each repository includes checkpoints for the given resolution and task, with three revisions available for each precision. The `main` branch of each repository contains float32 checkpoints, while `bf16` and `f16` revisions contain the corresponding precisions. Separate repositories are available for models compatible with Transformer and the original JAX implementation. High-resolution models require larger memory to run due to significantly longer input sequences. They can be beneficial for tasks requiring fine granularity (such as OCR), but for most tasks, the quality improvement is minimal.
 
 ##### Architecture
 
-same as [PaLI-3](#palI-3)
+Same as [PaLI-3](#palI-3).
 
 <div align="center">
   <img src="./image/paligemma.png"  width="800" />
@@ -479,22 +462,23 @@ same as [PaLI-3](#palI-3)
 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Meituan-AutoML/MobileVLM)
 
-MobileVLM是首个专门为移动和物联网设备设计的多模态视觉语言模型，视觉端使用的是CLIP ViT-L/14@336 ，语言端使用的是MobileLLaMA ，连接视觉与语言的投影层是一个有着独特设计的网络结构。MobileVLM主要的特点有以下几个方面
+MobileVLM is the first multimodal vision-language model specifically designed for mobile and IoT devices. The visual end uses CLIP ViT-L/14@336, and the language end uses MobileLLaMA. The projection layer connecting vision and language is a uniquely designed network structure. The main features of MobileVLM include the following:
 
-1. **轻量化下采样投影器（LDP）**：通过减少视觉tokens的数量，提高多模态特征的对齐效率，同时降低计算开销。（详细设计见[下图](#architecture-13)）
-   - 使用**深度卷积**（Depthwise Convolution）和**逐点卷积**（Pointwise Convolution）相结合的方式。用深度卷积用于捕获局部空间特征，而逐点卷积用于特征压缩和特征对齐。
-   - **高效的下采样策略**：采用步长为2的卷积操作来实现视觉特征的下采样，将视觉tokens数量减少75%。有效地保留了关键视觉信息，同时大幅减少了需要处理的tokens数量
-   - **使用层归一化**（Layer Normalization）代替批归一化（Batch Normalization），以确保训练稳定且不受批量大小的影响。
-   - **多层次的特征交互**：在卷积层前后添加逐点卷积层，实现了特征空间和token之间的多层次交互。
-2. **全栈重制多模态视觉语言模型**：MobileVLM是一个从头开始构建的专门针对移动设备优化的多模态模型，详细的训练流程如下
-   - **基础语言模型的预训练**：使用RedPajama v1数据集（包含1.3万亿个token）训练LLM，LLM选择的是基于LLaMA的24层和32层的变体，分别具有1.4B和2.7B参数。
-   - **监督微调（Supervised Fine-Tuning, SFT）**：使用的是基于Vicuna的多轮对话数据集（包括用户与ChatGPT的对话记录）
-   - **多模态模型训练（Training of Multimodal Models）**：使用CC-595K和LLaVA-Instruct-158K数据集进行预训练和指令微调。
-     - **预训练（Pre-training）**：冻结视觉编码器和语言模型，仅训练轻量化下采样投影器（LDP）。
-     - **指令微调（Instruction Tuning）**：微调投影器和语言模型，增强视觉理解和表达能力。
+1. **Lightweight Down-sampling Projector (LDP)**: Enhances the alignment efficiency of multimodal features while reducing computational overhead by decreasing the number of visual tokens (detailed design in the [figure below](#architecture-13)).
+   - Combines **Depthwise Convolution** and **Pointwise Convolution**. Depthwise convolution captures local spatial features, while pointwise convolution is used for feature compression and alignment.
+   - **Efficient Down-sampling Strategy**: Uses convolution operations with a stride of 2 to downsample visual features, reducing the number of visual tokens by 75%. This effectively retains key visual information while significantly reducing the number of tokens that need to be processed.
+   - **Layer Normalization** replaces Batch Normalization to ensure stable training unaffected by batch size.
+   - **Multilevel Feature Interaction**: Adds pointwise convolution layers before and after the convolution layers to achieve multilevel interaction between feature spaces and tokens.
+   
+2. **Full-Stack Reconstructed Multimodal Vision-Language Model**: MobileVLM is a multimodal model optimized for mobile devices from the ground up. The detailed training process is as follows:
+   - **Pre-training of the Base Language Model**: Trains the LLM using the RedPajama v1 dataset (containing 1.3 trillion tokens). The LLM is a variant of LLaMA with 24 and 32 layers, having 1.4B and 2.7B parameters, respectively.
+   - **Supervised Fine-Tuning (SFT)**: Uses a multi-turn dialogue dataset based on Vicuna, including user and ChatGPT conversation records.
+   - **Training of Multimodal Models**: Pre-trains and fine-tunes with instruction using the CC-595K and LLaVA-Instruct-158K datasets.
+     - **Pre-training**: Freezes the visual encoder and language model, training only the Lightweight Down-sampling Projector (LDP).
+     - **Instruction Tuning**: Fine-tunes the projector and language model to enhance visual understanding and expression capabilities.
 
-3. **低秩适应（LoRA）**：视觉指令微调阶段应用LoRA，仅更新8.87%和7.41%的LLM参数，就能实现与完全微调相媲美的性能
-4. **消融实验**：针对新提出的LDP还进行了相关消融实验，对比了传统的减少分辨率的方法和轻量化下采样投影器（LDP）方法，结果显示LDP）能够减少75%的视觉tokens数量（从576减少到144），并最终实现与基线相当甚至更好的性能，这表明在减少tokens数量的同时，视觉tokens的质量得到了进一步提升。
+3. **Low-Rank Adaptation (LoRA)**: During the visual instruction fine-tuning phase, LoRA is applied, updating only 8.87% and 7.41% of the LLM parameters to achieve performance comparable to full fine-tuning.
+4. **Ablation Study**: Conducted ablation studies on the newly proposed LDP, comparing traditional resolution reduction methods and the Lightweight Down-sampling Projector (LDP) method. The results showed that LDP could reduce the number of visual tokens by 75% (from 576 to 144) and achieve performance comparable to or better than the baseline. This indicates that while reducing the number of tokens, the quality of visual tokens was further improved.
 
 
 
@@ -513,38 +497,38 @@ MobileVLM是首个专门为移动和物联网设备设计的多模态视觉语�
 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Meituan-AutoML/MobileVLM)
 
-MobileVLM V2继续在低资源的VLM领域探索方向，相比MobileVLM，v2版本有以下几方面的改进：
+MobileVLM V2 continues to explore the direction of low-resource VLMs, with the following improvements over MobileVLM:
 
-1. **增强的训练数据**：
+1. **Enhanced Training Data**:
 
-   - MobileVLMv2在预训练阶段使用了来自ShareGPT4V的120万高质量图文对齐数据，数据质量的提升提高了训练效率和模型性能
+   - MobileVLM V2 uses 1.2 million high-quality image-text aligned data pairs from ShareGPT4V during the pre-training stage. The improved data quality enhances training efficiency and model performance.
 
-     > ShareGPT4V数据集是从GPT-4V（Vision）生成的，这些模型本身已经经过大量高质量数据的训练，能够生成准确且详细的图文对齐数据。而且ShareGPT4V数据集涵盖了多个领域和场景，**还经过细致的标注**，这种广泛的覆盖和标注的准确性有助于模型在不同任务中表现良好。
+     > The ShareGPT4V dataset is generated from GPT-4V (Vision), which has been trained on extensive high-quality data, capable of producing accurate and detailed image-text aligned data. The ShareGPT4V dataset covers multiple domains and scenarios and is meticulously annotated. This broad coverage and annotation accuracy help the model perform well across different tasks.
 
-   - 还引入了多个学术任务数据集，如ScienceQA、TextVQA和SBU，增加了数据的多样性和指令跟随能力。
+   - Additional academic task datasets, such as ScienceQA, TextVQA, and SBU, were introduced to increase data diversity and instruction-following capabilities.
 
-2. **优化了投影器的结构**：新的投影器包含三个组件——特征转换、token 减少和位置信息增强。
+2. **Optimized Projector Structure**: The new projector includes three components—feature transformation, token reduction, and position information enhancement.
 
-   - **特征转换**：使用两个逐点卷积层（Pointwise Convolution）对图像tokens进行特征转换，使其特征维度与大语言模型（LLM）匹配。
-   - **token 减少**：引入平均池化层（Average Pooling）对图像tokens进行大幅压缩。具体操作为使用2×2的平均池化层，将图像tokens数量减少到原来的1/4。
-   - **位置信息增强**：应用了一个简单但有效的模块 PEG（Position Encoding Generator），并使用skip connection（跳跃连接）增强位置信息。这种方法显著减少了参数数量，同时略微提升了运行速度。
+   - **Feature Transformation**: Uses two pointwise convolution layers to transform the image tokens so that their feature dimensions match those of the large language model (LLM).
+   - **Token Reduction**: Introduces an average pooling layer to significantly compress the image tokens. Specifically, a 2×2 average pooling layer is used to reduce the number of image tokens to one-quarter of the original.
+   - **Position Information Enhancement**: Applies a simple yet effective module, PEG (Position Encoding Generator), and uses skip connections to enhance positional information. This method significantly reduces the number of parameters while slightly improving runtime speed.
 
-3. **新的训练策略**：
+3. **New Training Strategy**:
 
-   - **预训练**：
-     - **初始化**：视觉端使用预训练的CLIP ViT-L/14模型权重。语言端使用预训练的MobileLLaMA模型权重。投影器参数为随机初始化
-     - **活动与冻结**：冻结视觉编码器，仅训练投影器和语言模型，使得模型的训练目标集中在预测下一个token上。
-   - **多任务训练和微调**：本工作引入了多个视觉-语言相关的下游任务，**解冻并训练所有组件，包括投影器和语言模型**。
-     - Visual Dialog：123K 样本
-     - Text-VQA：35K 样本
-     - VSR：13K 样本
-     - VIGC：37K 样本
-     - IConQA：107K 样本
-     - SQA：13K 样本
-     - COCO：592K 样本
-     - SBU：844K 样本
-     - ShareGPT4V：665K 样本
-     - **总样本数**：360万个样本
+   - **Pre-training**:
+     - **Initialization**: The visual end uses the pre-trained CLIP ViT-L/14 model weights. The language end uses the pre-trained MobileLLaMA model weights. The projector parameters are randomly initialized.
+     - **Activation and Freezing**: Freezes the visual encoder and trains only the projector and the language model, focusing the training objective on predicting the next token.
+   - **Multitask Training and Fine-Tuning**: Introduces several visual-language related downstream tasks, **unfreezing and training all components, including the projector and the language model**.
+     - Visual Dialog: 123K samples
+     - Text-VQA: 35K samples
+     - VSR: 13K samples
+     - VIGC: 37K samples
+     - IConQA: 107K samples
+     - SQA: 13K samples
+     - COCO: 592K samples
+     - SBU: 844K samples
+     - ShareGPT4V: 665K samples
+     - **Total Samples**: 3.6 million samples
 
 
 
@@ -560,14 +544,14 @@ MobileVLM V2继续在低资源的VLM领域探索方向，相比MobileVLM，v2版
 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/zhuyiche/llava-phi)
 
-LLaVA-Phi（也称作LLaVA-φ）是组合了两个视觉端和语言端的小模型组成的多模态小模型，将LLava中的vicuna换成了phi实现了很多benchmark的SOTA。LLaVA-Phi接受336x336尺寸的图片（用的是分辨率为336*336的预训练CLIP ViT-L/14），以两层MLP作为视觉端和语言端的链接部分。
+LLaVA-Phi (also known as LLaVA-φ) is a multimodal small model composed of smaller models for both the visual and language ends. It replaces Vicuna in LLaVA with Phi, achieving SOTA results on many benchmarks. LLaVA-Phi accepts images sized 336x336 (using a pre-trained CLIP ViT-L/14 with a resolution of 336x336) and employs a two-layer MLP as the linking component between the visual and language ends.
 
-LLaVA-Phi还真对phi-2进行了微调，使用类似Vicuna 格式组织指令模板进行微调。
+LLaVA-Phi also fine-tunes phi-2, using instruction templates organized similarly to the Vicuna format.
 
-**具体的两阶段训练策略**：
+**Detailed Two-Stage Training Strategy**:
 
-- **预训练阶段**：使用 CC-595K 数据集的过滤子集进行一轮预训练，学习率为 1e-3，批次大小为 256。
-- **指令微调阶段**：在 LLaVA-Instruct-150K 数据集上进行一轮微调，学习率为 2e-5，批次大小为 256。微调过程中使用 Adam 优化器，权重衰减为 0.1，动量参数为 0.9 和 0.98，epsilon 值为 1e-7。
+- **Pre-training Stage**: One round of pre-training using a filtered subset of the CC-595K dataset with a learning rate of 1e-3 and a batch size of 256.
+- **Instruction Fine-Tuning Stage**: One round of fine-tuning on the LLaVA-Instruct-150K dataset with a learning rate of 2e-5 and a batch size of 256. The fine-tuning process uses the Adam optimizer, with a weight decay of 0.1, momentum parameters of 0.9 and 0.98, and an epsilon value of 1e-7.
 
 
 
@@ -577,9 +561,7 @@ LLaVA-Phi还真对phi-2进行了微调，使用类似Vicuna 格式组织指令�
 
 [![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/xtuner/llava-phi-3-mini-662a5f7b9416630a1ad91102)
 
-LLaVA-Phi-3-Mini系列模型是在 LLaVA-Phi 基础上进一步微调的，使用了 Phi-3-mini 和 CLIP-ViT-Large-patch14-336，结合了 ShareGPT4V-PT 和 InternVL-SFT 数据集进行训练，还支持多种量化。
-
-
+LLaVA-Phi-3-Mini series models are further fine-tuned versions of LLaVA-Phi, utilizing Phi-3-mini and CLIP-ViT-Large-patch14-336. These models are trained using the ShareGPT4V-PT and InternVL-SFT datasets and support various quantization methods.
 
 ### IMP
 
@@ -591,26 +573,26 @@ LLaVA-Phi-3-Mini系列模型是在 LLaVA-Phi 基础上进一步微调的，使�
 
 IMP is build upon a small yet powerful SLM [Phi-2](https://huggingface.co/microsoft/phi-2) (2.7B) and a powerful visual encoder [SigLIP](https://huggingface.co/google/siglip-so400m-patch14-384) (0.4B), and trained on the [LLaVA-v1.5](https://github.com/haotian-liu/LLaVA) training set.`imp-v1-3b`
 
-在 Qualcomm Snapdragon 8Gen3 移动芯片上实现了每秒约 13 个 tokens 的高推理速度，使得模型在移动设备上高效运行。
+The implementation on the Qualcomm Snapdragon 8Gen3 mobile chip achieves a high inference speed of approximately 13 tokens per second, enabling the efficient operation of the model on mobile devices.
 
-**两阶段训练策略**：
+**Two-Stage Training Strategy**:
 
-- **第一阶段：多模态对齐预训练**。仅训练多模态连接器，同时冻结视觉编码器和语言模型。
-- **第二阶段：多模态指令微调**。同时优化语言模型和多模态连接器，增强模型的指令跟随能力。
+- **First Stage: Multimodal Alignment Pre-training**. This stage involves training only the multimodal connector while freezing both the vision encoder and the language model.
+- **Second Stage: Multimodal Instruction Fine-tuning**. This stage optimizes both the language model and the multimodal connector concurrently, enhancing the model's ability to follow instructions.
 
-**模型架构优化**：
+**Model Architecture Optimization**:
 
-- 通过选择合适的语言模型和视觉编码器，并进行优化，提升了模型的整体性能和效率。
+- By selecting and optimizing appropriate language models and vision encoders, the overall performance and efficiency of the model are improved.
 
-**训练策略改进**：
+**Training Strategy Improvements**:
 
-- 采用 LoRA（低秩适应）微调机制和优化的训练轮数，确保模型在有限资源下达到最佳性能。
+- Utilizing the LoRA (Low-Rank Adaptation) fine-tuning mechanism and optimized training iterations, the model achieves optimal performance with limited resources.
 
-**数据增强**：
+**Data Augmentation**:
 
-- 引入 OCR 和图表数据、GPT4V 注释数据等，丰富了训练数据的多样性和质量，提升了模型的泛化能力。
+- Incorporating OCR and chart data, GPT4V annotated data, and more, enriches the diversity and quality of the training data, thereby enhancing the model's generalization capability.
 
-🔥IMP最近推出了[Imp-v1.5](https://huggingface.co/collections/MILVLG/imp-v15-664c07c27a71afa504f69cec)系列模型。包括 Imp-v1.5-2B、Imp-v1.5-3B 和 Imp-v1.5-4B，进一步扩展了 Imp 模型的能力范围。
+🔥IMP has recently launched the [Imp-v1.5](https://huggingface.co/collections/MILVLG/imp-v15-664c07c27a71afa504f69cec) series models. This includes Imp-v1.5-2B, Imp-v1.5-3B, and Imp-v1.5-4B, further extending the capabilities of the Imp model range.
 
 
 
@@ -623,65 +605,66 @@ IMP is build upon a small yet powerful SLM [Phi-2](https://huggingface.co/micros
 
 
 
-MoE-LLaVA也是基于MoE（混合专家模型）的VLM，该VLM结合多个专家模型（专家网络）以增强其多模态能力和泛化性能。但是对于大型的VLM，参数的提升虽然可以带来性能的增强，但是训练和推理所需的计算资源也迅速增加，该工作就解决了这个方面的问题。
+MoE-LLaVA is a VLM based on MoE (Mixture of Experts), which integrates multiple expert models (expert networks) to enhance its multimodal capabilities and generalization performance. However, for large VLMs, while an increase in parameters can lead to performance improvements, the computational resources required for training and inference also increase rapidly. This work addresses this issue.
 
-##### 动机
+##### Motivation
 
-为了在有限的计算资源上训练高性能的VLM，来自北京大学、中山大学等机构发布的MoE-LLaVA提出了一种巧妙而新颖的叫做MoE-Tuning的训练策略，可以实现参数量大的同时保证其所需的计算资源恒定。
+To train a high-performance VLM with limited computational resources, MoE-LLaVA, developed by institutions such as Peking University and Sun Yat-sen University, proposes an ingenious and novel training strategy called MoE-Tuning. This strategy achieves a large parameter size while maintaining constant computational resource requirements.
 
-##### 创新点
+##### Innovations
 
-1. **三阶段的基于MoE-Tuning的训练策略**（图示参见[link](#train process-2)）
+1. **Three-Stage MoE-Tuning Training Strategy** (Refer to the illustration [link](#train process-2))
 
-   - **阶段 I: 适应视觉输入**：主要目标是将图像token适应LLM，使得LLM能够理解图像中的实例
-     - 使用一个多层感知机（MLP）将图像token投影到LLM的输入域中，将图像块视为伪文本token。
-     - 在这个阶段，仅训练MLP层，而不训练LLM的其他参数。
-   - **阶段 II——增强多模态理解能力**：目标是通过多模态指令数据的调优，使LLM具备多模态理解能力。
-     - 解冻并训练LLM的所有参数，增强其处理多模态数据的能力。
-     - 使用包含复杂任务的多模态指令数据进行训练，如图像逻辑推理和文本识别，这些任务要求模型具备更强的多模态理解能力。
-     - 在这个阶段完成后，LVLM已具备初步的多模态理解能力，为下一阶段的稀疏化打下基础。
-   - **阶段 III——引入MoE层的稀疏化**：目标是通过引入稀疏化机制，使模型在保持高性能的同时降低计算成本，具体来说有以下几个步骤：
-     - **初始化专家权重**：将阶段II中的FFN权重复制为每个专家的初始化权重。
-     - **训练MoE层**：仅训练MoE层，确保每个token由前k个概率最高的专家处理，其余专家保持不活动状态。
-     - **路由器计算权重**：使用线性层路由器预测每个token分配给每个专家的概率，并根据软最大值函数进行归一化。每个token由前k个专家处理，并基于路由器权重进行加权求和。
+   - **Stage I: Adapting to Visual Input**: The main goal is to adapt image tokens to the LLM so that the LLM can understand instances within images.
+     - A multilayer perceptron (MLP) is used to project image tokens into the input domain of the LLM, treating image patches as pseudo-text tokens.
+     - In this stage, only the MLP layer is trained, and other parameters of the LLM are not trained.
+   - **Stage II: Enhancing Multimodal Understanding**: The goal is to fine-tune the LLM with multimodal instruction data to endow it with multimodal understanding capabilities.
+     - All parameters of the LLM are unfrozen and trained to enhance its ability to process multimodal data.
+     - Training is conducted using multimodal instruction data involving complex tasks such as image logical reasoning and text recognition, which require stronger multimodal understanding.
+     - Upon completion of this stage, the LVLM possesses preliminary multimodal understanding capabilities, laying the groundwork for sparsification in the next stage.
+   - **Stage III: Introducing Sparsification with MoE Layers**: The goal is to reduce computational costs while maintaining high performance by introducing sparsification mechanisms, which involve the following steps:
+     - **Initializing Expert Weights**: Copying the FFN weights from Stage II as the initialization weights for each expert.
+     - **Training MoE Layers**: Only the MoE layers are trained, ensuring each token is processed by the top-k experts with the highest probabilities, while the remaining experts remain inactive.
+     - **Router Weight Calculation**: A linear layer router predicts the probability of each token being assigned to each expert, normalized using the softmax function. Each token is processed by the top-k experts, with outputs weighted by the router's weights.
 
-2. **基于MoE的稀疏LVLM架构**
+2. **Sparse LVLM Architecture Based on MoE**
 
-   - 起初，图像通过视觉编码器处理得到视觉token序列Z，文本通过词嵌入层处理得到文本token序列T，视觉token和文本token拼接成一个序列，并作为LLM的输入。
-   - 随后，在模型的前向传播过程中，在每个MoE层中，路由器计算每个token被分配到每个专家的概率，选择前k个专家进行处理，并通过加权求和得到最终输出。
-   - 实现了在保持计算成本不变的情况下显著扩展模型参数数量
+   - Initially, images are processed by the vision encoder to obtain a sequence of visual tokens Z, and text is processed by the word embedding layer to obtain a sequence of text tokens T. The visual and text tokens are concatenated into a single sequence and input into the LLM.
+   - Subsequently, during the forward propagation of the model, in each MoE layer, the router calculates the probability of each token being assigned to each expert, selects the top-k experts for processing, and obtains the final output through weighted summation.
+   - This approach significantly expands the number of model parameters while keeping computational costs constant.
 
-3. **MoE层工作机制和FFN细节**：MoE层引入多个专家（每个专家都是一个独立的FFN）并动态选择最适合处理当前输入的专家，以此提升模型性能
+3. **Mechanism of MoE Layers and Details of FFN**: The MoE layer introduces multiple experts (each being an independent FFN) and dynamically selects the most suitable experts to process the current input, thereby enhancing model performance.
 
-   - **初始化**：在第三阶段训练策略中，FFN的权重被复制并初始化为多个专家的权重。这些专家组成一个集合E = [e1, e2, ..., eE]
-   - **路由器计算权重**：路由器是一个线性层，它接收输入token并生成每个专家的权重logits，进随后权重经过softmax归一化后得到选择每个专家的概率
-   - **选择专家**：选择前k个概率最高的专家进行处理，这些被选择的专家称为“激活专家”。
-   - **专家处理**：每个激活专家对输入token进行处理，计算得到输出，激活专家的输出通过加权求和得到最终的MoE层输出
+   - **Initialization**: In the third stage of the training strategy, the FFN weights are copied and initialized as the weights for multiple experts. These experts form a set E = [e1, e2, ..., eE].
+   - **Router Weight Calculation**: The router, a linear layer, receives input tokens and generates weight logits for each expert. These weights are then normalized using softmax to obtain the probability of selecting each expert.
+   - **Expert Selection**: The top-k experts with the highest probabilities are selected for processing, known as "active experts."
+   - **Expert Processing**: Each active expert processes the input tokens and calculates the output. The outputs of the active experts are combined through weighted summation to obtain the final output of the MoE layer.
 
-   > 未被选中的专家保持不活动状态，不参与计算，从而减少了计算开销。
+   > Experts not selected remain inactive and do not participate in computation, thereby reducing computational overhead.
 
    
-
-
 
 ##### Architecture
 
 <div align="center">
   <img src="./image/moe-llava.png"  width="800" />
 </div>
+The overall architecture consists of the following components:
 
-架构总体包含以下组件
+1. **Vision Encoder**:
+   - Takes RGB images as input and processes them into a sequence of visual tokens. The original image resolution is H×W, and the vision encoder converts it into P visual tokens, each with a dimension of C.
 
-1. **视觉编码器（Vision Encoder）**：
-   - 输入RGB图像，将其处理为视觉token序列。图像的原始分辨率为H×W，视觉编码器将其转化为P个视觉token，每个token的维度为C。
-2. **视觉投影层（Visual Projection Layer, MLP）**：
-   - 将视觉token序列从维度C映射到LLM的隐藏尺寸D。
-3. **词嵌入层（Word Embedding Layer）**：
-   - 将文本token投影到LLM的隐藏尺寸D。
-4. **大语言模型（LLM）**：
-   - 由多个堆叠的多头自注意力（MSA）层和前馈神经网络（FFN）层组成，层归一化（LN）和残差连接应用于每个块。
-5. **MoE层**：
-   - 由多个FFN专家组成，每个token通过可学习的路由器分配给前k个专家，未被激活的专家保持不活动状态。
+2. **Visual Projection Layer (MLP)**:
+   - Maps the sequence of visual tokens from dimension C to the hidden size D of the LLM.
+
+3. **Word Embedding Layer**:
+   - Projects text tokens into the hidden size D of the LLM.
+
+4. **Large Language Model (LLM)**:
+   - Composed of multiple stacked multi-head self-attention (MSA) layers and feedforward neural network (FFN) layers, with layer normalization (LN) and residual connections applied to each block.
+
+5. **MoE Layer**:
+   - Consists of multiple FFN experts, with each token assigned to the top-k experts via a learnable router. The inactive experts remain inactivated.
 
 ##### Train process
 
@@ -698,21 +681,21 @@ MoE-LLaVA也是基于MoE（混合专家模型）的VLM，该VLM结合多个专�
 
 [![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/han1997/cobra-6615c3242851ba108027105d)
 
-Cobra多模态大模型是由西湖大学和浙江大学联合推出的一个研究项目，结合了[Mamba](https://github.com/HuBocheng/awesome-list-of-LLM_VLMs/?tab=readme-ov-file#mamba)语言模型和
+Cobra, a multimodal large model, is a collaborative research project developed by Westlake University and Zhejiang University. It integrates the [Mamba](https://github.com/HuBocheng/awesome-list-of-LLM_VLMs/?tab=readme-ov-file#mamba) language model with vision encoders such as DINOv2 and SigLIP. Despite Cobra's parameter count being approximately 43% of LLaVA's, its performance on various benchmarks is very close to, and sometimes exceeds, that of advanced models like LLaVA.
 
-DINOv2、SigLIP等视觉编码器，直接采用。尽管Cobra的参数数量只有LLaVA的约43%，它在多个基准测试中的表现却非常接近甚至优于LLaVA等先进模型
+##### Innovations
 
-##### 创新点
+1. **State Space Model (SSM) Replacing Transformer**: By directly using Mamba as the language backbone, Cobra optimizes the quadratic computational complexity to linear. This enhancement results in Cobra being 3 to 4 times faster than models like MobileVLM v2 and TinyLLaVA, with only about 43% of the parameters of LLaVA.
 
-1. **状态空间模型（SSM）替换Transformer**：直接使用Mamba作为语言端的backbone，将二次方的计算复杂度优化为线性，Cobra在处理速度上比MobileVLM v2和TinyLLaVA等模型快3至4倍，且参数数量只有LLaVA的约43% 。
-2. **视觉编码器组合**：Cobra结合了DINOv2和SigLIP两个视觉编码器，分别捕捉低级的图像空间特性和高层的语义特性，最后将两个结果融合起来当作图像编码器的输出。这样的方式可以在准确地捕捉图像的低级空间特性（比如边缘和形状）的同时，还可以准确理解图像的语义内容（例如物体的类别和场景）。
-   - **DINOv2**：DINOv2可以捕捉图像中的低级空间特性，使用的是**自监督学习方法**，能够从未标注的数据中提取出稳健的视觉特征。
-   - **SigLIP**：SigLIP则是一种能够提供丰富语义信息的视觉编码器。它**结合了语言监督的信息**，可以对图像进行更深层次的语义理解。
-   - **融合方法**：在Cobra中，这两个视觉编码器并行处理输入图像，分别提取其特征。具体来说，输入图像被分割成相同大小的补丁，每个编码器将这些补丁作为输入令牌序列进行处理，然后将两个编码器的输出特征进行拼接，形成紧凑的视觉表示 。
-3. **独特的训练方案**：在流行的VLM所使用的训练方案的基础上，Cobra做了一些改进和创新。
-   - **丢弃预对齐阶段**：Cobra的训练方案中舍弃了传统的预对齐阶段（LLaVA的训练方案），直接对整个LLM骨干和投影层进行微调。这种方法基于最近的研究，表明单独训练预对齐阶段可能是不必要的，而直接微调整个模型能避免模型处于欠拟合状态 。
-   - **混合数据集训练**：Cobra在训练过程中使用了一个由多个数据集组合而成的混合数据集。这些数据集包括了学术VQA数据、LLaVA-Instruct数据以及纯文本对话数据等，共计约120万张图像和相应的多轮对话数据 。
-   - **高效的数据并行处理**：训练过程中，Cobra使用了Pytorch Fully Sharded Data Parallel框架，并启用了FP32和BF16的自动混合精度，以提高分布式训练的效率 。
+2. **Combination of Vision Encoders**: Cobra integrates DINOv2 and SigLIP vision encoders to capture both low-level spatial features and high-level semantic features of images, merging the results to form the output of the image encoder. This approach allows Cobra to accurately capture low-level spatial features (such as edges and shapes) while also understanding the semantic content of images (such as object classes and scenes).
+   - **DINOv2**: DINOv2 captures low-level spatial features in images using a **self-supervised learning method**, extracting robust visual features from unlabelled data.
+   - **SigLIP**: SigLIP provides rich semantic information as a vision encoder. It **combines language-supervised information**, enabling deeper semantic understanding of images.
+   - **Fusion Method**: In Cobra, these two vision encoders process the input image in parallel, each extracting its features. Specifically, the input image is divided into equal-sized patches, which are processed as input token sequences by each encoder. The output features of both encoders are then concatenated to form a compact visual representation.
+
+3. **Unique Training Scheme**: Cobra introduces improvements and innovations to the commonly used training schemes of popular VLMs.
+   - **Discarding the Pre-Alignment Stage**: Cobra's training scheme abandons the traditional pre-alignment stage (used in LLaVA's training scheme), directly fine-tuning the entire LLM backbone and projection layer. This method is based on recent research indicating that training a pre-alignment stage separately may be unnecessary, and directly fine-tuning the entire model can prevent it from being underfitted.
+   - **Mixed Dataset Training**: Cobra utilizes a mixed dataset composed of multiple datasets during training. These datasets include academic VQA data, LLaVA-Instruct data, and pure text dialogue data, totaling approximately 1.2 million images and corresponding multi-turn dialogue data.
+   - **Efficient Data Parallel Processing**: During training, Cobra employs the Pytorch Fully Sharded Data Parallel framework, enabling FP32 and BF16 automatic mixed precision to enhance the efficiency of distributed training.
 
 
 
@@ -732,35 +715,41 @@ DINOv2、SigLIP等视觉编码器，直接采用。尽管Cobra的参数数量只
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Ucas-HaoranWei/Vary-toy)
 [![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/HaoranWei/Vary-toy)
 
-Vary-toy是在 **[Vary](https://varybase.github.io/)** 的基础上优化改进的多模态大模型，为了解决原始Vary模型所需计算资源过多的问题，Vary的开发组进而推出了小模型——Vary-toy，这个小模型不仅参数数目少，还使用了优化后视觉词表，减少了原先Vary模型进行pdf OCR任务时候的网络容量浪费，Vary-toy可以在消费级显卡训练、在8G显存的老显卡运行推理，而且**支持中英文**。
+Vary-toy is an optimized and improved multimodal large model based on **[Vary](https://varybase.github.io/)**, developed to address the excessive computational resource requirements of the original Vary model. The Vary development team introduced the smaller model, Vary-toy, which not only has fewer parameters but also utilizes an optimized visual vocabulary network, reducing network capacity wastage during PDF OCR tasks. Vary-toy can be trained on consumer-grade GPUs and run inference on older GPUs with 8GB VRAM, and **supports both Chinese and English**.
 
-Vary-toy以其开源、轻量、易部署和高性能被称作**“年轻人的第一个多模大模型”**。
+Vary-toy is lauded as **"the first multimodal large model for young people"** for its open-source nature, lightweight design, ease of deployment, and high performance.
 
-##### 创新点
+##### Innovations
 
-1. **惊人的小型化设计**： 相较于当前流行的大型视觉语言模型（LVLMs），Vary-toy参数量更小，LLM backbone仅有1.8B参数（如 Qwen-1.8B），可以在消费级GPU（如 GTX1080ti）上训练和部署，极大地降低了训练和使用的门槛。
-2. **改进的视觉词汇网络**： Vary-toy 引入了改进的视觉词汇网络，不仅继承了 Vary 模型的所有特性，还增加了对自然对象的感知能力。具体来说，它在生成视觉词汇的过程中，用正样本数据（基于目标检测任务）替代了自然图像的负样本数据，从而更充分地利用了词汇网络的容量，提升了视觉信息的编码效率。
-   - **改进前**：传统的视觉语言模型（如Vary）中，视觉词汇网络通常采用自然图像的负样本数据来生成视觉词汇。这种方法会导致网络容量的浪费，因为负样本数据在某种程度上并没有充分利用网络的能力来编码视觉信息。
-   - **改进后**：Vary-toy 引入了一种新的方法，在生成视觉词汇时用正样本数据替代负样本数据。
-3. **多任务训练且涵盖范围广**： Vary-toy 在预训练阶段引入了多种数据格式，包括弱监督图像描述数据、PDF 文档 OCR 数据、目标检测数据、纯文本对话数据和 VQA 数据。这些数据通过对话格式进行组织，使得模型在不同任务中表现优异。所以Vary-toy这个“小”VLM几乎涵盖了目前LVLM主流研究中的所有能力：Document OCR、Visual Grounding、Image Caption、VQA……
+1. **Remarkable Miniaturization**: Compared to current popular large vision-language models (LVLMs), Vary-toy has significantly fewer parameters, with an LLM backbone of only 1.8B parameters (e.g., Qwen-1.8B). It can be trained and deployed on consumer-grade GPUs (such as the GTX1080ti), drastically lowering the barrier to training and usage.
+
+2. **Improved Visual Vocabulary Network**: Vary-toy introduces an improved visual vocabulary network that not only retains all the features of the Vary model but also enhances the perception of natural objects. Specifically, it replaces negative sample data from natural images with positive sample data (based on object detection tasks) when generating visual vocabulary, thus more fully utilizing the network's capacity and improving the efficiency of visual information encoding.
+   - **Before Improvement**: In traditional visual language models (such as Vary), the visual vocabulary network typically uses negative sample data from natural images to generate visual vocabulary. This approach can lead to network capacity wastage, as negative sample data does not fully leverage the network's ability to encode visual information.
+   - **After Improvement**: Vary-toy introduces a new method, replacing negative sample data with positive sample data when generating visual vocabulary.
+
+3. **Multitask Training with Broad Coverage**: During the pre-training phase, Vary-toy incorporates various data formats, including weakly supervised image caption data, PDF document OCR data, object detection data, pure text dialogue data, and VQA data. These data are organized in a dialogue format, enabling the model to excel in different tasks. Consequently, Vary-toy, despite being a "small" VLM, encompasses all the capabilities of mainstream LVLM research: Document OCR, Visual Grounding, Image Captioning, VQA, etc.
 
 ##### Architecture
 
-1. **小型自回归模型 (OPT-125M)**
-   - Vary-toy 使用了一个小型的自回归模型 OPT-125M 来生成视觉词汇。输入包括PDF文档和自然图像。针对不同的输入，提供不同的提示，如“提供OCR结果”和“检测泰迪熊”。
-2. **视觉词汇生成**
-   - 生成视觉词汇的过程中，Vary-toy 采用了改进的方法，使用正样本数据替代负样本数据。
-   - 视觉词汇网络利用目标检测任务的数据来更充分地利用网络容量，从而增强了视觉信息的编码效率。
-3. **整合视觉词汇与CLIP**
-   - Vary-toy 将生成的视觉词汇与 CLIP 进行整合。
-   - CLIP 负责处理224×224尺寸的图像，而视觉词汇网络负责处理1024×1024尺寸的图像。
-   - 两者输出的256个tokens被拼接作为输入图像tokens传递给语言模型。
-4. **1.8B “大型”语言模型 (Qwen-1.8B)**
-   - Vary-toy 使用了Qwen-1.8B作为基础语言模型。
-   - 通过结合改进的视觉词汇和CLIP的输出，Qwen-1.8B 能够更有效地处理多模态任务。
-5. **多任务输入和输出**
-   - 输入格式采用了对话模板，如：`USER: <img>"<image>"</img> "texts input" ASSISTANT: "texts output" </s>`
-   - 任务包括OCR、目标检测、图像描述和常规对话等。
+1. **Small Autoregressive Model (OPT-125M)**
+   - Vary-toy employs a small autoregressive model, OPT-125M, to generate visual vocabulary. Inputs include PDF documents and natural images. Different prompts are provided for different inputs, such as "provide OCR results" and "detect teddy bear."
+
+2. **Visual Vocabulary Generation**
+   - In the process of generating visual vocabulary, Vary-toy adopts an improved method using positive sample data instead of negative sample data.
+   - The visual vocabulary network leverages data from object detection tasks to fully utilize network capacity, enhancing the efficiency of visual information encoding.
+
+3. **Integration of Visual Vocabulary and CLIP**
+   - Vary-toy integrates the generated visual vocabulary with CLIP.
+   - CLIP processes images of 224×224 resolution, while the visual vocabulary network handles images of 1024×1024 resolution.
+   - The outputs of both (256 tokens each) are concatenated to form the input image tokens for the language model.
+
+4. **1.8B "Large" Language Model (Qwen-1.8B)**
+   - Vary-toy uses Qwen-1.8B as the base language model.
+   - By combining the outputs of the improved visual vocabulary network and CLIP, Qwen-1.8B can more effectively handle multimodal tasks.
+
+5. **Multitask Input and Output**
+   - The input format follows a dialogue template, such as: `USER: <img>"<image>"</img> "texts input" ASSISTANT: "texts output" </s>`
+   - Tasks include OCR, object detection, image description, and general dialogue.
 
 <div align="center">
   <img src="./image/Vary_toy.png"  width="800" />
@@ -775,29 +764,28 @@ Vary-toy以其开源、轻量、易部署和高性能被称作**“年轻人的�
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/FreedomIntelligence/ALLaVA)
 [![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/FreedomIntelligence/ALLaVA-3B-Longer)
 
-ALLaVA-Longer港中文深圳推出的开源VLM，研究团队使用GPT-4V 生成的高质量数据进行训练，数据包括详细的图像描述、复杂的问题指令和详细的答案，**这是该工作的侧重点所在**。利用这些数据训练出了ALLaVA-Longer。ALLaVA-Longer的设计源自“输入决定输出原则”，主要尝试在数据端完善“多模态对齐”和“视觉指令微调”的细节（前者主要致力于帮助语言模型识别视觉对象并增强其视觉推理能力，后者着重于使 LVLMs 能够跨更广泛的指令泛化）
+ALLaVA-Longer is an open-source VLM launched by the Chinese University of Hong Kong, Shenzhen. The research team trained it using high-quality data generated by GPT-4V, which includes detailed image descriptions, complex question instructions, and comprehensive answers. **This focus on data quality is a key aspect of this work**. Leveraging this data, ALLaVA-Longer was developed. The design of ALLaVA-Longer is based on the "input determines output principle," mainly attempting to refine the details of "multimodal alignment" and "visual instruction fine-tuning" at the data level (the former primarily aims to help the language model recognize visual objects and enhance its visual reasoning ability, while the latter focuses on enabling LVLMs to generalize across a wider range of instructions).
 
+##### Details of Dataset Construction
 
+1. **Construction of Multimodal Alignment Dataset**:
 
-##### 数据集构建的细节
+   - **Drawbacks of Existing Multimodal Alignment Datasets**: Existing work typically uses caption data to align images and text, but these datasets often contain short and coarse-grained captions. These brief captions introduce noisy signals, hindering the effectiveness of the visual-language alignment process. For example, the commonly used COCO dataset (Microsoft Common Objects in Context) includes many short image descriptions that may lack sufficient detail to effectively help the model understand and associate images with text.
 
-1. **多模态对齐数据集的构建**：
+   - **New Dataset Construction Method**: By using GPT-4V to generate high-quality caption data. GPT-4V can produce detailed image descriptions, complex instructions, and comprehensive answers, which are more informative and precise than the brief descriptions found in traditional datasets.
 
-   - **现存的多模态对齐数据集的弊端**：现有工作通常使用caption数据来对齐图像和文本，但这些数据集的caption通常是简短且粗粒度的。这些简短的caption引入了噪声信号，阻碍了视觉-语言对齐过程的效果。例如，常用的COCO数据集（Microsoft Common Objects in Context）包含了许多简短的图像描述，这些描述可能缺乏足够的细节来有效地帮助模型理解和关联图像与文本。
+     > Essentially, this is a PLUS version of the dataset construction method used by [MiniGPT4/MiniGPT-v2](#minigpt4-series). The method can be referenced accordingly.
 
-   - **新的数据集构造方式**：通过使用GPT-4V生成高质量的caption数据。GPT-4V能够生成详细的图像描述、复杂的指令和详细的答案，这些都比传统数据集中的简短描述更具信息量和精确性。
+2. **Construction of Visual Instruction Fine-Tuning Dataset**:
 
-     > 其实就是[MiniGPT4/MiniGPT-v2](#minigpt4-series)的数据集构建方式的PLUS版本，方法可以参考一下。
+   - **Drawbacks of Existing Visual Instruction Fine-Tuning Datasets**: The main issues are the relative simplicity of the questions and the brief and less informative answers. For instance, Vision-FLAN contains relatively simple questions, focusing more on basic tasks rather than complex reasoning problems. Additionally, although the answers are human-annotated, they are often very brief and lack detailed background and reasoning processes.
+   
+   - **New Dataset Construction Method**: First, GPT-4V generates detailed descriptions for each image, including primary objects, background elements, colors, and prominent features. Subsequently, GPT-4V formulates multiple complex questions based on the image descriptions, which require careful observation and strong reasoning abilities to answer. To ensure diversity, GPT-4V generates multiple candidate questions and then randomly selects one for answering. Finally, GPT-4V provides detailed answers to the selected questions, including not only the direct response but also the process of solving the problem and relevant background information.
 
-2. **视觉指令微调数据集的构建**：
-
-   - **现存的视觉指令微调数据集的弊端**：主要是**问题的相对简单**的问题和**答案简短且信息量少**的弊端。如 Vision-FLAN，其包含的问题相对简单，更多是基础性的任务，而非复杂的推理问题。此外，尽管答案是由人类注释的，但往往很简短，并且缺乏详细的背景和推理过程。
-   - 新的数据集构造方式：首先，GPT-4V会为每张图像生成详细的描述，包括主要对象、背景元素、颜色和显著特征等，随后GPT-4V会基于图像描述提出多个复杂的问题，这些问题需要仔细观察图像和较强的推理能力来回答。为保证多样性，GPT-4V会生成多个候选问题，然后随机选择一个进行回答。最后，GPT-4V会为选择的问题生成详细的答案，不仅包含问题的直接回答，还包括解决问题的过程和相关的背景信息。
-
-   >**示例**：对于一个包含一只松鼠和一只鸟的图像，模型会生成如下描述、问题和答案：
-   >**描述**：图像展示了一只松鼠站在相机前，看起来像是在拍摄鸟的照片，背景是一个蘑菇形状的物体。
-   >**问题**：这幅图像中的幽默感来源于什么？
-   >**答案**：幽默感来自于角色的反转和拟人化。通常是人类拍摄野生动物照片，而这里松鼠看起来像是在操作相机拍摄鸟。这种反常的情景以及对动物的拟人化行为创造了一种奇妙和有趣的场景。
+   > **Example**: For an image containing a squirrel and a bird, the model would generate the following description, question, and answer:
+   > **Description**: The image shows a squirrel standing in front of the camera, appearing to take a photo of the bird, with a mushroom-shaped object in the background.
+   > **Question**: What is the source of humor in this image?
+   > **Answer**: The humor comes from the role reversal and anthropomorphism. Usually, humans take photos of wildlife, but here the squirrel appears to be operating the camera to photograph the bird. This unusual scenario and the anthropomorphic behavior of the animals create a whimsical and amusing scene.
 
 
 
@@ -806,59 +794,61 @@ ALLaVA-Longer港中文深圳推出的开源VLM，研究团队使用GPT-4V 生成
 ### MM1
 [![arXiv](https://img.shields.io/badge/arXiv-2402.11684-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2403.09611) 
 
-MM1这项工作的**一大亮点在于其进行了大量而全面的消融实验**，以确定**模型设计和数据选择的最佳组合**。总体而言，MM1对下面几个方面做了消融实验，随后提出了MM1整体的VLM结构。
+A significant highlight of Apple's MM1 is its extensive and comprehensive ablation experiments conducted to determine the optimal combination of model design and data selection. Overall, MM1 conducted ablation experiments on the following aspects, subsequently proposing the overall VLM structure of MM1.
 
-1. **模型架构决策**
-   - 不同图像编码器和视觉-语言连接器的影响：比较不同图像编码器（如ViT-L和ViT-H）和图像分辨率（224px vs 336px）对模型性能的影响。
-   - 图像分辨率和图像token数量的影响：比较不同的视觉-语言连接器设计（如平均池化、注意力池化、卷积映射）和不同图像token数量（64个和144个）。
-2. **预训练数据选择**：
-   - 不同类型的预训练数据（图像-文本对、交错图像-文本文档和纯文本数据）的组合：比较不同预训练数据类型（图像-文本对、交错图像-文本文档、纯文本数据）和不同混合比例对模型性能的影响。
-   - 数据混合比例的影响。
-3. **训练过程**：
-   - 超参数选择对模型训练的影响：通过不同规模的模型进行学习率和权重衰减的网格搜索，确定最优的训练超参数。
+1. **Model Architecture Decisions**
+   - Impact of Different Image Encoders and Vision-Language Connectors: Comparing different image encoders (e.g., ViT-L and ViT-H) and image resolutions (224px vs. 336px) on model performance.
+   - Impact of Image Resolution and Image Token Count: Comparing different vision-language connector designs (e.g., average pooling, attention pooling, convolutional mapping) and different image token counts (64 and 144).
 
-最终得出了下面的结论
+2. **Pre-Training Data Selection**:
+   - Combination of Different Types of Pre-Training Data (image-text pairs, interleaved image-text documents, and pure text data): Comparing different pre-training data types (image-text pairs, interleaved image-text documents, pure text data) and different mixing ratios on model performance.
+   - Impact of Data Mixing Ratios.
 
-1. **高图像分辨率和适量的图像token数量对提升模型性能至关重要**。
-2. **C-Abstractor作为视觉-语言连接器在高分辨率设置下表现最佳**。
-3. **预训练数据的合理混合比例能够在多模态和文本理解任务中取得良好的平衡**。
-4. **通过网格搜索确定的学习率和权重衰减参数能够显著提升模型的训练效果**。
+3. **Training Process**:
+   - Impact of Hyperparameter Selection on Model Training: Performing grid searches for learning rates and weight decay on models of different scales to determine the optimal training hyperparameters.
 
-进而MM1的总体架构就确定下来了：
+The following conclusions were drawn:
 
-- **图像编码器（Image Encoder）**：ViT-H。
-- **语言模型（Language Model）**：从3B到30B参数的Transformer解码器模型，支持更大规模的MoE（Mixture-of-Experts）模型。
-- **视觉-语言连接器（Vision-Language Connector）**：C-Abstractor，采用卷积映射保留图像的局部信息，并通过自适应池化调整图像token的数量。使用144个图像token。
-- **预训练数据选择和混合比例**：45%的图像-文本对，45%的交错图像-文本文档，10%的纯文本数据。
-- MoE策略：详情见[link](#创新点-9)。
+1. **High image resolution and an appropriate number of image tokens are crucial for improving model performance**.
+2. **C-Abstractor performs best as the vision-language connector under high-resolution settings**.
+3. **A reasonable mixture ratio of pre-training data can achieve a good balance in multimodal and text understanding tasks**.
+4. **Learning rate and weight decay parameters determined through grid search can significantly enhance model training effectiveness**.
 
-##### 创新点
+Subsequently, the overall architecture of MM1 was determined:
 
-1. **可扩展的专家模型**：
+- **Image Encoder**: ViT-H.
+- **Language Model**: Transformer decoder models with parameters ranging from 3B to 30B, supporting larger-scale MoE (Mixture-of-Experts) models.
+- **Vision-Language Connector**: C-Abstractor, using convolutional mapping to preserve local information of images and adaptive pooling to adjust the number of image tokens. Utilizing 144 image tokens.
+- **Pre-Training Data Selection and Mixing Ratio**: 45% image-text pairs, 45% interleaved image-text documents, 10% pure text data.
+- MoE Strategy: Details can be found at [link](#创新点-9).
 
-   - MM1模型通过增加语言模型中的专家数量来扩展模型的总体参数。具体而言，MM1设计了两个MoE模型：
-     - 一个是具有64个专家的3B-MoE模型，每隔两个标准的密集层（dense layer），就会替换为一个稀疏层（MoE层），有着64B的参数。
-     - 另一个是具有32个专家的7B-MoE模型，每隔四个标准的密集层（dense layer），就会替换为一个稀疏层（MoE层），包含47B个参数。
-   - **专家选择和负载均衡**：MoE模型采用了顶级专家门控（top-2 gating）策略，这意味着在每次前向传播中，只有两个专家被激活。此外还引入了负载均衡损失（load balance loss）项，系数为0.01，以鼓励各个专家的负载均匀分布。
+##### Innovations
 
-2. **灵活的视觉-语言连接器设计**：视觉-语言连接器的主要功能是将视觉表示转换到语言模型可以处理的空间，MM1团队实验了几种不同的视觉-语言连接器设计（包括**平均池化（Average Pooling）**、**注意力池化（Attention Pooling）**、**卷积映射（Convolutional Mapping）**）不过最后实现发现视觉-语言连接器的设计对模型的最终性能影响不大，但图像分辨率和图像token的数量对性能影响显著。
+1. **Scalable Expert Model**:
 
-   - 为了能够灵活地处理图像token数量，并且通过卷积操作保留了更多的图像细节信息，MM1选择了C-Abstractor作为主要的视觉-语言连接器。
+   - The MM1 model expands the total parameters by increasing the number of experts in the language model. Specifically, MM1 designed two MoE models:
+     - A 3B-MoE model with 64 experts, replacing every two standard dense layers with a sparse layer (MoE layer), totaling 64B parameters.
+     - A 7B-MoE model with 32 experts, replacing every four standard dense layers with a sparse layer (MoE layer), totaling 47B parameters.
+   - **Expert Selection and Load Balancing**: The MoE model employs a top-2 gating strategy, meaning only two experts are activated in each forward pass. Additionally, a load balance loss term with a coefficient of 0.01 is introduced to encourage an even distribution of load among the experts.
 
-3. **精细的预训练数据选择**
+2. **Flexible Vision-Language Connector Design**: The primary function of the vision-language connector is to convert visual representations into a space that the language model can process. The MM1 team experimented with several different vision-language connector designs (including **average pooling**, **attention pooling**, **convolutional mapping**). However, it was found that while the connector design had a minor impact on the final performance, the image resolution and the number of image tokens had a significant impact.
 
-   - MM1团队通过上面提及的消融实验确定了不同数据类型的最佳混合比例：45%的图像-文本对，45%的交错图像-文本文档，10%的纯文本数据
-   - 具体而言，实验是通过调整图像-文本对和交错文档数据的比例，观察模型在零样本和少样本任务中的表现，再加入或移除纯文本数据，观察其对少样本和文本理解任务的影响；最后使用不同的图像-文本对、交错文档和纯文本数据的混合比例进行训练，观察其对各种任务的综合影响。
+   - To flexibly handle the number of image tokens and retain more detailed image information through convolution operations, MM1 chose C-Abstractor as the main vision-language connector.
 
-4. **高分辨率图像支持**：MM1使用了一系列技术手段来处理高分辨率图像，包括图像缩放、位置嵌入插值和子图像分解：
+3. **Refined Pre-Training Data Selection**
 
-   - **图像缩放**：首先，将输入图像缩小到672×672作为高层次表示。同时，将输入图像调整到1344×1344的分辨率，并将调整后的图像分解成4个672×672的子图像。
-   - **子图像分解**：对于高分辨率输入图像（例如1344×1344），将其分解为5个672×672的子图像，分别作为独立图像输入到视觉编码器中。这种方法在实验中证明能够支持高达1792×1792的图像分辨率。
-   - **位置嵌入插值**：在高分辨率图像处理中，为了适应新的分辨率，MM1采用了位置嵌入插值的方法。这一方法能够使视觉Transformer骨干网在微调过程中适应新的图像分辨率。
+   - The MM1 team determined the optimal mixture ratio of different data types through the aforementioned ablation experiments: 45% image-text pairs, 45% interleaved image-text documents, 10% pure text data.
+   - Specifically, the experiments adjusted the ratio of image-text pairs and interleaved document data, observing the model's performance in zero-shot and few-shot tasks, and then added or removed pure text data to observe its impact on few-shot and text understanding tasks. Finally, various combinations of image-text pairs, interleaved documents, and pure text data were used for training, observing their overall impact on various tasks.
 
-   > 研究表明，支持1344×1344图像分辨率可以在SFT（Supervised Fine-Tuning）评估指标上实现15%的相对提升。然而，对于1792×1792的最大图像分辨率，平均性能略有下降，这可能是由于许多评估图像小于这一分辨率，并且调整尺寸时产生的伪影可能会影响模型性能。
+4. **Support for High-Resolution Images**: MM1 employed a series of techniques to handle high-resolution images, including image scaling, positional embedding interpolation, and sub-image decomposition:
 
-   
+   - **Image Scaling**: First, the input image is scaled down to 672×672 for high-level representation. Simultaneously, the input image is adjusted to a resolution of 1344×1344 and then decomposed into four 672×672 sub-images.
+   - **Sub-Image Decomposition**: For high-resolution input images (e.g., 1344×1344), they are decomposed into five 672×672 sub-images, each input independently into the vision encoder. This method has been shown in experiments to support image resolutions up to 1792×1792.
+   - **Positional Embedding Interpolation**: In high-resolution image processing, MM1 adopts positional embedding interpolation to accommodate the new resolution. This method allows the visual Transformer backbone to adapt to new image resolutions during fine-tuning.
+
+   > Research indicates that supporting a 1344×1344 image resolution can achieve a 15% relative improvement in SFT (Supervised Fine-Tuning) evaluation metrics. However, for the maximum image resolution of 1792×1792, the average performance slightly decreases, which may be due to many evaluation images being smaller than this resolution, and artifacts generated during resizing potentially affecting model performance.
+
+
 
 ### MiniCPM-V 2.0
 [![AI Blog](https://img.shields.io/badge/AI%20Blog-paligemma%20AI-orange.svg)](https://openbmb.vercel.app/minicpm-v-2) 
@@ -866,30 +856,28 @@ MM1这项工作的**一大亮点在于其进行了大量而全面的消融实验
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/OpenBMB/MiniCPM-V)
 [![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/openbmb/minicpm-2b-65d48bf958302b9fd25b698f)
 
-MiniCPM-V主要是在**OCR能力**方面有明显特色，其技术报告称“该模型在综合性 OCR 能力评测基准 OCRBench 上达到开源社区的最佳水平，甚至在场景文字理解方面实现接近 Gemini Pro 的性能。”
+MiniCPM-V is notably distinguished by its **OCR capabilities**, with the technical report claiming, "the model achieves the best performance in the open-source community on the comprehensive OCR ability evaluation benchmark OCRBench, and even approaches Gemini Pro in scene text understanding."
 
-##### MiniCPM-V 2.0特性小结（摘自技术报告）：
+##### Summary of MiniCPM-V 2.0 Features (excerpted from the technical report):
 
-1. **领先的 OCR 和多模态理解能力**MiniCPM-V 2.0 显著提升了 OCR 和多模态理解能力，场景文字理解能力接近 Gemini Pro，在多个主流评测基准上性能超过了更大参数规模（例如 17-34B）的主流模型。
-2. **可信行为**MiniCPM-V 2.0 是第一个通过多模态 RLHF 对齐的端侧多模态大模型（借助 [RLHF-V](https://rlhf-v.github.io/) [CVPR'24] 系列技术**。**该模型在 Object HalBench 达到和 GPT-4V 相仿的性能。
-3. **任意长宽比高清图像高效编码。** MiniCPM-V 2.0 可以接受 180 万像素的任意长宽比图像输入（基于最新的 [LLaVA-UHD](https://arxiv.org/pdf/2403.11703.pdf) 技术），这使得模型可以感知到小物体、密集文字等更加细粒度的视觉信息。
-4. **高效部署**MiniCPM-V 2.0 可以高效部署在大多数消费级显卡、个人电脑以及移动手机等终端设备。
-5. **双语支持**MiniCPM-V 2.0 提供领先的中英双语多模态能力支持。 该能力通过过 [VisCPM](https://arxiv.org/abs/2308.12038) [ICLR'24] 论文中提出的多模态能力的跨语言泛化技术实现。
-
-
+1. **Leading OCR and Multimodal Understanding Capabilities**: MiniCPM-V 2.0 significantly enhances OCR and multimodal understanding capabilities, achieving scene text understanding performance close to Gemini Pro. It outperforms larger parameter models (e.g., 17-34B) on several mainstream evaluation benchmarks.
+2. **Trustworthy Behavior**: MiniCPM-V 2.0 is the first edge multimodal large model aligned through multimodal RLHF, leveraging [RLHF-V](https://rlhf-v.github.io/) [CVPR'24] technologies. The model achieves performance comparable to GPT-4V on Object HalBench.
+3. **Efficient Encoding of High-Resolution Images with Arbitrary Aspect Ratios**: MiniCPM-V 2.0 can process images up to 1.8 million pixels with any aspect ratio (based on the latest [LLaVA-UHD](https://arxiv.org/pdf/2403.11703.pdf) technology), allowing the model to perceive finer visual details such as small objects and dense text.
+4. **Efficient Deployment**: MiniCPM-V 2.0 can be efficiently deployed on most consumer-grade graphics cards, personal computers, and mobile devices.
+5. **Bilingual Support**: MiniCPM-V 2.0 offers leading bilingual multimodal capability support in Chinese and English. This capability is achieved through cross-lingual generalization techniques in multimodal capabilities proposed in the [VisCPM](https://arxiv.org/abs/2308.12038) [ICLR'24] paper.
 
 ##### MiniCPM-Llama3-V 2.5🔥
 
-MiniCPM系列最新的模型，有如下新特性：
+The latest model in the MiniCPM series, featuring the following new characteristics:
 
-1. **强大**的端侧多模态模型：只有8B的激活参数，在一众bench mark中超越很多大参数的多模态模型——比如Gemini Pro 、GPT-4V
-   - 视觉编码器使用的是SigLIP-400M；压缩层使用的是perceiver resampler结构；语言模型使用的是Llama-3 8B。
-   - **应对输入图片的高分辨率和变长宽比问题**：MiniCPM-Llama3-V 2.5 采用了 LLaVA-UHD 论文提出的自适应视觉编码方法。每张输入图片会首先根据其大小和长宽比计算最优切片方式，然后每个切片会根据 ViT 的预训练分辨率进行适配。最后，MiniCPM-Llama3-V 2.5 将每个处理后切片送入视觉编码器。
-2. **OCR能力进一步提升**：OCRBench 得分达到 725，超越 GPT-4o、GPT-4V、Gemini Pro、Qwen-VL-Max 等商用闭源模型，达到最佳水平。
-3. **对低计算资源用户十分友好**：有量化版本，部署仅需8G显存，消费级显卡可以顺利跑推理，在移动端也可以实现6-8Tokens/s 的推理速度
-4. 支持 **30+ 多种语言**。
-5. **可信行为**：在 Object HalBench 的幻觉率降低到了 10.3%，显著低于 GPT-4V-1106 (13.6%)，达到开源社区最佳水平。
-6. **移动端优化**：MiniCPM-Llama3-V 2.5 较为系统地通过模型量化、CPU、NPU、编译优化等高效加速技术，通过 4 比特量化和 llama.cpp 框架的配合，可以**实现每秒 8-9 tokens 的语言模型编码速度和每秒 3-4 tokens 的解码速度**
+1. **Powerful Edge Multimodal Model**: With only 8B active parameters, it surpasses many larger parameter multimodal models—such as Gemini Pro and GPT-4V—in various benchmarks.
+   - The visual encoder uses SigLIP-400M; the compression layer uses the perceiver resampler structure; the language model uses Llama-3 8B.
+   - **Handling High-Resolution and Variable Aspect Ratio Images**: MiniCPM-Llama3-V 2.5 employs the adaptive visual encoding method proposed in the LLaVA-UHD paper. Each input image is first optimally sliced based on its size and aspect ratio, then each slice is adapted according to the ViT's pre-training resolution. Finally, MiniCPM-Llama3-V 2.5 processes each slice through the visual encoder.
+2. **Further Enhanced OCR Capabilities**: Achieving an OCRBench score of 725, it surpasses GPT-4o, GPT-4V, Gemini Pro, Qwen-VL-Max, and other commercial closed-source models, reaching the highest level.
+3. **Friendly to Low Computational Resource Users**: With a quantized version, it requires only 8GB VRAM for deployment. It can run inference smoothly on consumer-grade graphics cards and achieve 6-8 tokens/s inference speed on mobile devices.
+4. **Supports 30+ Languages**.
+5. **Trustworthy Behavior**: The hallucination rate on Object HalBench is reduced to 10.3%, significantly lower than GPT-4V-1106 (13.6%), achieving the best level in the open-source community.
+6. **Mobile Optimization**: MiniCPM-Llama3-V 2.5 systematically employs model quantization, CPU, NPU, and compilation optimization techniques for efficient acceleration. Through 4-bit quantization and cooperation with the llama.cpp framework, it can **achieve a language model encoding speed of 8-9 tokens per second and a decoding speed of 3-4 tokens per second**.
 
 
 
@@ -899,23 +887,111 @@ MiniCPM系列最新的模型，有如下新特性：
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/deepseek-ai/DeepSeek-VL)
 [![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/deepseek-ai/deepseek-vl-65f295948133d9cf92b706d3)
 
-DeepSeek-VL设计的初衷的在不影响NLP能力的前提下拓展多模态能力，使得输出的文字更加接近于人且可以完成很多计算机视觉领域的下游任务。DeepSeek-VL具有以下几个创新点和特性：
+The primary design goal of DeepSeek-VL is to extend multimodal capabilities without compromising NLP performance, ensuring that the generated text is more human-like and capable of completing various downstream tasks in the field of computer vision. DeepSeek-VL possesses the following innovations and features:
 
-1. **数据构建**
+1. **Data Construction**
 
-   - **多样性和可扩展性**：DeepSeek-VL的数据集覆盖了包括网页截图、PDF、OCR、图表以及基于知识的内容（如专家知识、教科书）在内的实际场景，确保了数据的多样性和广泛性。
+   - **Diversity and Scalability**: The dataset for DeepSeek-VL encompasses real-world scenarios, including web page screenshots, PDFs, OCR, charts, and knowledge-based content (such as expert knowledge and textbooks), ensuring diversity and comprehensiveness in the data.
+   
+   - **Practical Application Scenarios**: Use case categories were created based on real user scenarios, and corresponding instruction tuning datasets were constructed. Fine-tuning with these datasets significantly enhances the model's user experience in practical applications.
 
-   - **实际应用场景**：根据真实用户场景创建了使用案例分类，并构建了相应的指令调优数据集，通过这些数据集的微调大幅提升了模型在实际应用中的用户体验。
+2. **Model Architecture**
 
-2. **模型架构**
+   - **Hybrid Vision Encoder**: DeepSeek-VL employs a hybrid vision encoder capable of efficiently processing high-resolution images (1024 x 1024) with low computational overhead, capturing key semantic and detailed information. This design enhances inference efficiency while maintaining rich visual information.
+   
+   - **Combination of High and Low Resolution**: The model integrates the capabilities to process both low-resolution (384 x 384) and high-resolution (1024 x 1024) images, ensuring that it can capture sufficient detail and semantic information when handling complex visual tasks.
 
-   - **混合视觉编码器**：DeepSeek-VL采用了混合视觉编码器，能够在较低计算开销的情况下有效处理高分辨率图像（1024 x 1024），从而捕捉关键语义和细节信息。这种设计在保证视觉信息丰富性的同时也提高了推理效率。
+3. **Training Strategy**
 
-   - **高分辨率与低分辨率结合**：结合了低分辨率（384 x 384）和高分辨率（1024 x 1024）的图像处理能力，确保了模型在处理复杂视觉任务时能够捕捉到足够的细节和语义信息。
+   - **Priority on Language Capability**: During multimodal pre-training, DeepSeek-VL retains a majority of language data (at least 70%), ensuring the preservation and enhancement of language model capabilities. Gradually increasing the proportion of vision-language data balances the development of multimodal and language capabilities.
+   
+   - **Modality Warm-up Strategy**: A "modality warm-up" strategy is introduced, which gradually adjusts the ratio of different modality data during training. This ensures balanced development of visual and language capabilities, avoiding the degradation of abilities due to the overtraining of a single modality.
 
-3. **训练策略**
 
-   - **语言能力优先**：在多模态预训练过程中，DeepSeek-VL保留了大部分语言数据（至少70%），确保了语言模型能力的保持和提升，同时逐步增加视觉-语言数据的比例，平衡多模态能力和语言能力的发展。
 
-   - **模态预热策略**：引入了“模态预热”策略，通过逐步调整训练过程中不同模态数据的比例，确保了视觉和语言能力的均衡发展，避免了单一模态的过度训练导致的能力退化问题。
+## Summary of Benchmark Results
 
+The **summarized results** are as follows:
+
+|                   Model                    |                           Base LLM                           |                        Vision Encoder                        |                             Link                             | TextVQA | VQA-v2 | ScienceQA | ScienceQA-IMG |  GQA  | VizWiz | VizWiz-VQA |                      POPE                       | LLaVA-Bench-Wild |  MMB  | MMB_ZH | MMB(T/D)  | MMB_ZH(T/D) |  MME（P/C）  | MM-Vet | MMMU_val | MMMU_test |   MMMU    | MathVista |   SEED    | SEED-IMG  |
+| :----------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :-----: | :----: | :-------: | :-----------: | :---: | :----: | :--------: | :---------------------------------------------: | :--------------: | :---: | :----: | :-------: | :---------: | :----------: | :----: | :------: | :-------: | :-------: | :-------: | :-------: | :-------: |
+|                   MGM-2B                   |                           Gemma-2B                           |                            CLIP-L                            |        [Link](https://huggingface.co/YanweiLi/MGM-2B)        |  56.2   |        |           |               |       |        |            |                                                 |                  | 59.8  |        |           |             |   1341/312   |  31.1  |   31.7   |   29.1    |           |   29.4    |           |           |
+|                   MGM-7B                   |                        Vicuna-7B-v1.5                        |                            CLIP-L                            |        [Link](https://huggingface.co/YanweiLi/MGM-7B)        |  65.2   |        |           |               |       |        |            |                                                 |                  | 69.3  |        |           |             |   1523/316   |  40.8  |   36.1   |   32.8    |           |   31.4    |           |           |
+|                  MGM-13B                   |                       Vicuna-13B-v1.5                        |                            CLIP-L                            |       [Link](https://huggingface.co/YanweiLi/MGM-13B)        |  65.9   |        |           |               |       |        |            |                                                 |                  | 68.5  |        |           |             |   1565/322   |   46   |   38.1   |   33.5    |           |    37     |           |           |
+|                   MGM-8B                   |                     LLaMA-3-8B-Instruct                      |                            CLIP-L                            |        [Link](https://huggingface.co/YanweiLi/MGM-8B)        |  67.6   |        |           |               |       |        |            |                                                 |                  | 72.7  |        |           |             |   1606/341   |  47.3  |   38.2   |   36.3    |           |           |           |           |
+|                  MGM-8x7B                  |                  Mixtral-8x7B-Instruct-v0.1                  |                            CLIP-L                            |       [Link](https://huggingface.co/YanweiLi/MGM-8x7B)       |  69.2   |        |           |               |       |        |            |                                                 |                  | 75.6  |        |           |             |   1639/379   |  45.8  |   41.8   |   37.1    |           |   41.8    |           |           |
+|                  MGM-34B                   |                     Nous-Hermes-2-Yi-34B                     |                            CLIP-L                            |       [Link](https://huggingface.co/YanweiLi/MGM-34B)        |  70.1   |        |           |               |       |        |            |                                                 |                  | 79.6  |        |           |             |   1666/439   |   53   |   48.7   |   43.6    |           |   38.9    |           |           |
+|                 MGM-7B-HD                  |                        Vicuna-7B-v1.5                        |                            CLIP-L                            |      [Link](https://huggingface.co/YanweiLi/MGM-7B-HD)       |  68.4   |        |           |               |       |        |            |                                                 |                  | 65.8  |        |           |             |   1546/319   |  41.3  |   36.8   |   32.9    |           |   32.2    |           |           |
+|                 MGM-13B-HD                 |                       Vicuna-13B-v1.5                        |                            CLIP-L                            |      [Link](https://huggingface.co/YanweiLi/MGM-13B-HD)      |  70.2   |        |           |               |       |        |            |                                                 |                  | 68.6  |        |           |             |   1597/320   |  50.5  |   37.3   |   35.1    |           |    37     |           |           |
+|                 MGM-8B-HD                  |                     LLaMA-3-8B-Instruct                      |                            CLIP-L                            |      [Link](https://huggingface.co/YanweiLi/MGM-8B-HD)       |  71.6   |        |           |               |       |        |            |                                                 |                  |       |        |           |             |   1532/357   |        |    37    |           |           |           |           |           |
+|                MGM-8x7B-HD                 |                  Mixtral-8x7B-Instruct-v0.1                  |                            CLIP-L                            |     [Link](https://huggingface.co/YanweiLi/MGM-8x7B-HD)      |  71.9   |        |           |               |       |        |            |                                                 |                  | 74.7  |        |           |             |   1633/356   |  53.5  |    40    |    37     |           |   43.1    |           |           |
+|                 MGM-34B-HD                 |                     Nous-Hermes-2-Yi-34B                     |                            CLIP-L                            |      [Link](https://huggingface.co/YanweiLi/MGM-34B-HD)      |  74.1   |        |           |               |       |        |            |                                                 |                  | 80.6  |        |           |             |   1659/482   |  59.3  |    48    |   44.9    |           |   43.3    |           |           |
+|           bunny-phi-1.5-eva-lora           |                           phi-1.5                            |                           EVA-CLIP                           | [Link](https://huggingface.co/BoyaWu10/bunny-phi-1.5-eva-lora) |         |  76.5  |           |     58.2      | 60.4  |        |            |                      86.1                       |                  |       |        | 60.9/56.8 |             | 1213.7/278.9 |        |    30    |   28.4    |           |           |           |  56.4/-   |
+|         bunny-stablelm-2-eva-lora          |                          stablelm-2                          |                           EVA-CLIP                           | [Link](https://huggingface.co/BoyaWu10/bunny-stablelm-2-eva-lora) |         |  74.6  |           |      60       | 56.7  |        |            |                      84.8                       |                  |       |        | 58.4/56.4 |             |   1301/235   |        |   29.8   |   29.4    |           |           |           |  55.3/-   |
+|            bunny-phi-2-eva-lora            |                            phi-2                             |                           EVA-CLIP                           | [Link](https://huggingface.co/BoyaWu10/bunny-phi-2-eva-lora) |         |  78.9  |           |     69.1      | 62.3  |        |            |                      87.1                       |                  |       |        | 68.6/67.4 |             |  1421/285.4  |        |   35.9   |   32.6    |           |           |           |  62.2/-   |
+|         bunny-phi-1.5-siglip-lora          |                           phi-1.5                            |                            SigLIP                            | [Link](https://huggingface.co/BoyaWu10/bunny-phi-1.5-siglip-lora) |         |   78   |           |     61.3      | 61.1  |        |            |                      85.8                       |                  |       |        | 61.2/59.7 |             |  1230/237.5  |        |    30    |   29.1    |           |           |           |  57.7/-   |
+|        bunny-stablelm-2-siglip-lora        |                          stablelm-2                          |                            SigLIP                            | [Link](https://huggingface.co/BoyaWu10/bunny-stablelm-2-siglip-lora) |         |  78.9  |           |     61.1      | 60.9  |        |            |                      85.9                       |                  |       |        | 65.1/62.8 |             | 1366.8/236.1 |        |   29.9   |   29.8    |           |           |           |  58.8/-   |
+| Bunny-v1.0-2B-zh/bunny-qwen1.5-1.8b-siglip |                           qwen1.5                            |                            SigLIP                            |     [Link](https://huggingface.co/BAAI/Bunny-v1_0-2B-zh)     |         |  76.6  |           |     64.6      | 59.6  |        |            |                      85.8                       |                  |       |        | 59.8/59.1 |  59.5/58.5  | 1300.8/254.3 |        |   34.4   |   30.4    |           |           |           |  55.4/-   |
+|   Bunny-v1.0-3B-zh/bunny-minicpm-siglip    |                           minicpm                            |                            SigLIP                            |     [Link](https://huggingface.co/BAAI/Bunny-v1_0-3B-zh)     |         |  78.6  |           |     68.7      | 60.8  |        |            |                      86.5                       |                  |       |        | 66.1/65.5 |  64.9/63.6  | 1410.4/281.4 |        |   35.4   |   32.4    |           |           |           |  59.6/-   |
+|      Bunny-v1.0-3B/bunny-phi-2-siglip      |                            phi-2                             |                            SigLIP                            |      [Link](https://huggingface.co/BAAI/Bunny-v1_0-3B)       |         |  79.8  |           |     70.9      | 62.5  |        |            |                      86.8                       |                  |       |        | 69.2/68.6 |             | 1488.8/289.3 |        |   38.2   |    33     |           |           |           |  62.5/-   |
+|               Bunny-v1.0-4B                |                    Phi-3-mini-4k-instruct                    |                            SigLIP                            |          https://huggingface.co/BAAI/Bunny-v1_0-4B           |         |  81.5  |           |     75.1      | 63.5  |        |            |                      86.7                       |                  |       |        | 74.0/73.5 |             | 1495.2/338.9 |        |   40.1   |   39.1    |           |           |           | 64.5/72.1 |
+|               Bunny-v1.1-4B                |                    Phi-3-mini-5k-instruct                    |                            SigLIP                            |          https://huggingface.co/BAAI/Bunny-v1_1-4B           |         |  81.7  |           |     76.3      | 63.4  |        |            |                       87                        |                  |       |        | 74.1/74.1 |  66.3/64.8  | 1503.9/362.9 |        |   40.2   |   38.8    |           |           |           | 64.6/71.7 |
+|             Bunny-Llama-3-8B-V             |                     Llama-3-8B-Instruct.                     |                            SigLIP                            |    [Link](https://huggingface.co/BAAI/Bunny-Llama-3-8B-V)    |         |  82.6  |           |     80.4      | 64.8  |        |            |                      86.9                       |                  |       |        | 77.2/76.7 |  73.8/72.3  | 1588.9/321.1 |        |   42.8   |    39     |           |           |           | 65.9/73.3 |
+|            LLaVA-1.6-vicuna-7b             |                          Vicuna-7B                           |                            CLIP-L                            | [Link](https://huggingface.co/liuhaotian/llava-v1.6-vicuna-7b) |  64.9   |  81.8  |   70.1    |               | 64.2  |  57.6  |            |                      86.5                       |       81.6       | 67.4  |  60.6  |           |             |   1519/332   |  43.9  |          |           |   35.8    |   34.6    |           |   70.2    |
+|            LLaVA-1.6-vicuna-13b            |                          Vicuna-13B                          |                            CLIP-L                            | [Link](https://huggingface.co/liuhaotian/llava-v1.6-vicuna-13b) |  67.1   |  82.8  |   73.6    |               | 65.4  |  60.5  |            |                      86.2                       |       87.3       |  70   |  64.4  |           |             |   1575/326   |  48.4  |          |           |   36.2    |   35.3    |           |   71.9    |
+|            LLaVA-1.6-mistral-7b            |                          Mistral-7B                          |                            CLIP-L                            | [Link](https://huggingface.co/liuhaotian/llava-v1.6-mistral-7b) |  65.7   |  82.2  |   72.8    |               | 64.8  |   60   |            |                      86.7                       |       83.2       | 68.7  |  61.2  |           |             |   1498/321   |  47.3  |          |           |   35.3    |   37.7    |           |   72.2    |
+|               LLaVA-1.6-34b                |                        Hermes-Yi-34B                         |                            CLIP-L                            |   [Link](https://huggingface.co/liuhaotian/llava-v1.6-34b)   |  69.5   |  83.7  |   81.8    |               | 67.1  |  63.8  |            |                      87.7                       |       89.6       | 79.3  |   79   |           |             |   1631/397   |  57.4  |          |           |   51.1    |   46.5    |           |   75.9    |
+|                LLaVA-1.5-7b                |                          Vicuna-7B                           |                       CLIP-ViT-L-336px                       |   [Link](https://huggingface.co/liuhaotian/llava-v1.5-7b)    |  58.2   |  78.5  |   66.8    |               |  62   |   50   |            |                      85.9                       |       65.4       | 64.3  |  58.3  |           |             |  1510.7/---  |  31.1  |          |           |           |           |   58.6    |           |
+|               LLaVA-1.5-13b                |                          Vicuna-13B                          |                       CLIP-ViT-L-336px                       |   [Link](https://huggingface.co/liuhaotian/llava-v1.5-13b)   |  61.3   |   80   |   71.6    |               | 63.3  |  53.6  |            |                      85.9                       |       72.5       | 67.7  |  63.6  |           |             |  1531.3/---  |  36.1  |          |           |           |           |   61.6    |           |
+|             LLaVA-1.5-7b-lora              |                          Vicuna-7B                           |                       CLIP-ViT-L-336px                       | [Link](https://huggingface.co/liuhaotian/llava-v1.5-7b-lora) |  58.2   |  79.1  |   68.4    |               |  63   |  47.8  |            |                      86.4                       |       67.9       | 66.1  |  58.9  |           |             |  1476.9/---  |  30.2  |          |           |           |           |   60.1    |           |
+|             LLaVA-1.5-13b-lora             |                          Vicuna-13B                          |                       CLIP-ViT-L-336px                       | [Link](https://huggingface.co/liuhaotian/llava-v1.5-13b-lora) |  60.2   |   80   |   71.2    |               | 63.3  |  58.9  |            |                      86.7                       |       69.5       | 68.5  |  61.5  |           |             |  1541.7/---  |  38.3  |          |           |           |           |   61.3    |           |
+|                CogVLM-Chat                 |                        Vicuna-7B-v1.5                        |                         EVA2-CLIP-E                          |     [Link](https://huggingface.co/THUDM/cogvlm-chat-hf)      |  70.4   |  82.3  |   91.2    |     92.72     | 64.87 |        |    75.7    |                      87.9                       |                  | 77.6  |        |           |             |              |  51.1  |          |           |   41.1    |   34.5    |   72.5    |           |
+|                  CogAgent                  |                          Vicuna-7B                           |                        CLIP-ViT-L/14                         |     [Link](https://huggingface.co/THUDM/cogagent-vqa-hf)     |  76.1   |  83.7  |           |               |       |        |            |                      85.9                       |                  |       |        |           |             |              |        |          |           |           |           |           |           |
+|          HPT 1.5 Air(Llama-3-8B)           |                          Llama-3-8B                          | [siglip-so400m-patch14-384](https://huggingface.co/google/siglip-so400m-patch14-384) | [Link](https://huggingface.co/HyperGAI/HPT1_5-Air-Llama-3-8B-Instruct-multimodal) |         |        |   82.7    |               |       |        |            |                      90.1                       |                  | 75.2  |        |           |             |              |        |          |           |   43.2    |   45.7    |           |   72.5    |
+|                MiniGPT4-V2                 |                       LLaMA2-chat (7B)                       |                             EVA                              |                                                              |         |        |           |               | 60.3  |  32.9  |            |                                                 |                  |       |        |           |             |              |        |          |           |           |           |           |           |
+|              MiniGPT4-V2-chat              |                       LLaMA2-chat (7B)                       |                             EVA                              |                                                              |         |        |           |               | 60.1  |  53.6  |            |                                                 |                  |       |        |           |             |              |        |          |           |           |           |           |           |
+|             TinyGPT-V (Phi-2)              |                            Phi-2                             |                             EVA                              | [Link](https://huggingface.co/HyperGAI/HPT1_5-Air-Llama-3-8B-Instruct-multimodal) |         |        |           |               | 38.9  |  37.8  |            |                                                 |                  |       |        |           |             |              |        |          |           |           |           |           |           |
+|            TinyGPT-V (Phi-1.5)             |                           Phi-1.5                            |                             EVA                              |                                                              |         |        |           |               | 34.3  |  28.4  |            |                                                 |                  |       |        |           |             |              |        |          |           |           |           |           |           |
+|              PaliGemma-PT-224              |                           Gemma-2B                           |                       SigLIP-So400m/14                       |  [Link](https://huggingface.co/google/paligemma-3b-pt-224)   |  55.47  | 83.19  |   95.39   |               | 65.61 |        |    73.7    | 87.80、85.87、84.27(random/popular/adversarial) |                  |       |        |           |             |              |        |          |           |           |           |           |           |
+|              PaliGemma-PT-448              |                           Gemma-2B                           |                       SigLIP-So400m/14                       |  [Link](https://huggingface.co/google/paligemma-3b-pt-448)   |  73.15  | 85.64  |   95.93   |               | 67.03 |        |   75.52    | 88.23、86.77、85.90(random/popular/adversarial) |                  |       |        |           |             |              |        |          |           |           |           |           |           |
+|              PaliGemma-PT-896              |                           Gemma-2B                           |                       SigLIP-So400m/14                       |  [Link](https://huggingface.co/google/paligemma-3b-pt-896)   |  76.48  |        |           |               |       |        |            |                                                 |                  |       |        |           |             |              |        |          |           |           |           |           |           |
+|             PaliGemma-mix-224              |                           Gemma-2B                           |                       SigLIP-So400m/14                       |  [Link](https://huggingface.co/google/paligemma-3b-mix-224)  |         |        |           |               |       |        |            | 88.00、86.63、85.67(random/popular/adversarial) |                  |       |        |           |             |              |        |          |           |           |           |           |           |
+|             PaliGemma-mix-448              |                           Gemma-2B                           |                       SigLIP-So400m/14                       |  [Link](https://huggingface.co/google/paligemma-3b-mix-448)  |         |        |           |               |       |        |            | 89.37、88.40、87.47(random/popular/adversarial) |                  |       |        |           |             |              |        |          |           |           |           |           |           |
+|               MobileVLM-1.7B               |                       MobileLLaMA 1.4B                       |                        CLIP ViT-L/14                         |      [Link](https://huggingface.co/mtgv/MobileVLM-1.7B)      |  41.5   |        |           |     57.3      | 56.1  |        |            |                      84.5                       |                  | 53.2  |        |           |             |  ---/1196.2  |        |          |           |           |           |           |           |
+|             MobileVLM V2 1.7B              |                       MobileLLaMA 1.4B                       |                        CLIP ViT-L/14                         |    [Link](https://huggingface.co/mtgv/MobileVLM_V2-1.7B)     |  52.1   |        |           |     66.7      | 59.3  |        |            |                      84.3                       |                  | 57.7  |        |           |             |  ---/1302.8  |        |          |           |           |           |           |           |
+|                MobileVLM-3B                |                       MobileLLaMA 2.7B                       |                        CLIP ViT-L/14                         |       [Link](https://huggingface.co/mtgv/MobileVLM-3B)       |  47.5   |        |           |     61.2      | 59.0  |        |            |                      84.9                       |                  | 59.6  |        |           |             |  ---/1288.9  |        |          |           |           |           |           |           |
+|              MobileVLM V2 3B               |                       MobileLLaMA 2.7B                       |                        CLIP ViT-L/14                         |     [Link](https://huggingface.co/mtgv/MobileVLM_V2-3B)      |  57.5   |        |           |     70.0      | 61.1  |        |            |                      84.7                       |                  | 63.2  |        |           |             |  ---/1440.5  |        |          |           |           |           |           |           |
+|              MobileVLM V2 7B               |                          Vicuna-7B                           |                        CLIP ViT-L/14                         |     [Link](https://huggingface.co/mtgv/MobileVLM_V2-7B)      |  62.3   |        |           |     74.8      | 62.6  |        |            |                      85.3                       |                  | 69.2  |        |           |             |  ---/1560.7  |        |          |           |           |           |           |           |
+|                LLaVA-Phi-3B                |                          Phi-2-2.7B                          |                            SigLIP                            |                                                              |  48.6   |  71.4  |           |               |       |        |            |                      85.0                       |                  | 59.8  |        |           |             |  ---/1335.1  |  28.9  |          |           |           |           |           |           |
+|                 Mipha-1.6B                 |                         Phi-1.5-1.3B                         |                       SigLIP-SO (0.4B)                       |   [Link](https://huggingface.co/zhumj34/Mipha-phi1_5-1.6B)   |  45.6   |  77.5  |           |     68.4      | 62.7  |        |            |                      86.9                       |                  | 57.7  |        |           |             | 247.9/1203.1 |  23.5  |          |           |           |           |           |           |
+|                 Mipha-2.4B                 |                           Gemma-2B                           |                            SigLIP                            |                                                              |  52.4   |  79.5  |           |     58.3      | 63.3  |        |            |                      86.6                       |                  | 59.4  |        |           |             | 265.7/1397.1 |  29.9  |          |           |           |           |           |           |
+|                  Mipha-3B                  |                          Phi-2-2.7B                          |                          SigLIP-SO                           |       [Link](https://huggingface.co/zhumj34/Mipha-3B)        |  56.6   |  81.3  |           |     65.3      | 63.9  |        |            |                      86.7                       |                  | 69.7  |        |           |             | 295.0/1488.9 |  32.1  |          |           |           |           |           |           |
+|              LLaVA-Phi-3-mini              |                    Phi-3-mini-4k-instruct                    |                            CLIP-L                            |  [Link](https://huggingface.co/xtuner/llava-phi-3-mini-hf)   |  57.8   |        |   73.7    |               | 61.5  |        |            |                      87.3                       |                  | 69.2  |        |           |             |   313/1477   |        |   41.4   |           |           |           |           |   70.0    |
+|                 Imp-v1-3B                  |                          Phi-2-2.7B                          |                        SigLIP-SO@384                         |           https://huggingface.co/MILVLG/imp-v1-3b            |  59.34  | 81.42  |           |     69.26     | 64.40 |        |            |                      87.85                      |                  | 67.69 |        |           |             |  ---/1502.8  |  33.6  |          |           |           |           |           |           |
+|            Imp-v1.5-2B-Qwen1.5             |                        Qwen-1.5-1.8B                         |                        SigLIP-SO@384                         |  [Link](https://huggingface.co/MILVLG/Imp-v1.5-2B-Qwen1.5)   |  54.5   |  79.2  |           |     66.1      | 61.9  |  39.6  |            |                      86.7                       |                  | 63.8  |  61.3  |           |             |  ---/1304.8  |  33.5  |          |           |           |           |           |           |
+|              Imp-v1.5-3B-phi2              |                          Phi-2-2.7B                          |                        SigLIP-SO@384                         |    [Link](https://huggingface.co/MILVLG/Imp-v1.5-3B-Phi2)    |  59.8   |  81.2  |           |     72.8      | 63.5  |  54.1  |            |                      88.0                       |                  | 72.9  |  46.7  |           |             |  ---/1446.4  |  43.3  |          |           |           |           |           |           |
+|              Imp-v1.5-4B-phi3              |                          Phi-3-3.8B                          |                        SigLIP-SO@384                         |    [Link](https://huggingface.co/MILVLG/Imp-v1.5-4B-Phi3)    |  60.2   |  81.5  |           |     78.0      | 63.5  |  51.2  |            |                      86.9                       |                  | 73.3  |  61.1  |           |             |  ---/1507.7  |  44.6  |          |           |           |           |           |           |
+|           MoE-LLaVA-1.6B×4-Top2            |                        StableLM-1.6B                         |                                                              | [Link](https://huggingface.co/LanguageBind/MoE-LLaVA-StableLM-1.6B-4e)<br />[Link](https://modelscope.cn/models/PKU-YuanLab/MoE-LLaVA-StableLM-1.6B-4e) |  50.1   |  76.7  |           |     62.6      | 60.3  |  36.2  |            |                      85.7                       |                  | 60.2  |        |           |             |  ---/1318.1  |  26.9  |          |           |           |           |           |           |
+|           MoE-LLaVA-1.8B×4-Top2            |                          Qwen-1.8B                           |                                                              | [Link](https://huggingface.co/LanguageBind/MoE-LLaVA-Qwen-1.8B-4e)<br />[Link]( https://modelscope.cn/models/PKU-YuanLab/MoE-LLaVA-Qwen-1.8B-4e) |  48.0   |  76.2  |           |     63.1      | 61.5  |  32.6  |            |                      87.0                       |                  | 59.6  |        |           |             |  ---/1291.6  |  25.3  |          |           |           |           |           |           |
+|           MoE-LLaVA-2.7B×4-Top2            |                          Phi2-2.7B                           |                                                              | [Link](https://huggingface.co/LanguageBind/MoE-LLaVA-Phi2-2.7B-4e)<br />[Link]( https://modelscope.cn/models/PKU-YuanLab/MoE-LLaVA-Phi2-2.7B-4e) |  51.4   |  77.6  |           |     68.5      | 61.4  |  43.9  |            |                      86.3                       |                  | 65.2  |        |           |             |  ---/1423.0  |  34.3  |          |           |           |           |           |           |
+|         MoE-LLaVA-1.6B×4-Top2-384          |                        StableLM-1.6B                         |                                                              | [Link](https://huggingface.co/LanguageBind/MoE-LLaVA-StableLM-1.6B-4e-384)<br />[Link]( https://modelscope.cn/models/PKU-YuanLab/MoE-LLaVA-StableLM-1.6B-4e-384) |  54.3   |  78.6  |           |     63.9      | 61.5  |  40.5  |            |                      85.9                       |                  | 63.3  |        |           |             |  ---/1335.7  |  32.3  |          |           |           |           |           |           |
+|         MoE-LLaVA-2.7B×4-Top2-384          |                          Phi2-2.7B                           |                                                              | [Link](https://huggingface.co/LanguageBind/MoE-LLaVA-Phi2-2.7B-4e-384)<br />[Link]( https://modelscope.cn/models/PKU-YuanLab/MoE-LLaVA-Phi2-2.7B-4e-384) |  57.0   |  79.9  |           |     70.3      | 62.6  |  43.7  |            |                      85.7                       |                  | 68.0  |        |           |             |  ---/1431.3  |  35.9  |          |           |           |           |           |           |
+|                   Cobra                    |                          Mamba-2.8B                          |                        DINOv2、SigLIP                        |         [Link](https://huggingface.co/han1997/cobra)         |         |        |           |               | 58.5  |  52.0  |            |                      88.0                       |                  |       |        |           |             |              |        |          |           |           |           |           |           |
+|                  Vary-toy                  |                          Qwen-1.8B                           |                             CLIP                             |      [Link](https://huggingface.co/HaoranWei/Vary-toy)       |         |        |           |               |       |        |            |                                                 |                  |       |        |           |             |              |  29.0  |          |           |           |           |           |           |
+|                   ALLaVA                   |                          Phi2-2.7B                           |                      CLIP-ViT-L/14@336                       | [Link](https://huggingface.co/FreedomIntelligence/ALLaVA-3B) |  49.5   |        |           |               | 48.8  |        |            |                                                 |       69.4       | 64.0  |        |           |             |  ---/1623.2  |  32.2  |   35.3   |           |           |           |           |   65.2    |
+|               ALLaVA-Longer                |                          Phi2-2.7B                           |                      CLIP-ViT-L/14@336                       | [Link](https://huggingface.co/FreedomIntelligence/ALLaVA-3B-Longer) |  50.3   |        |           |               | 50.0  |        |            |                                                 |       71.7       | 64.6  |        |           |             |  ---/1564.6  |  35.5  |   33.2   |           |           |           |           |   65.6    |
+|                   MM1-3B                   |          3B transformer decoder-only language model          |                       ViT-L/14@378x378                       |                                                              |  44.6   |  63.6  |           |               |       |  46.4  |            |                                                 |                  |       |        |           |             |              |        |          |           |           |           |           |           |
+|                MM1-3B-Chat                 |          3B transformer decoder-only language model          |                       ViT-L/14@378x378                       |                                                              |  71.9   |  82.0  |           |     69.4      |       |        |            |                      87.4                       |       72.1       | 67.8  |        |           |             | 279.3/1482.5 |  43.7  |          |           | 33.9/33.7 |           | 63.0/68.8 |           |
+|              MM1-3B-MoE-Chat               | 3B-MoE using 64 experts, transformer decoder with sparse layers |                       ViT-L/14@378x378                       |                                                              |  72.9   |  82.5  |           |     76.1      |       |        |            |                      87.6                       |       76.8       | 70.8  |        |           |             | 303.1/1469.4 |  42.2  |          |           | 38.6/35.7 |           | 63.9/69.4 |           |
+|                   MM1-7B                   |          7B transformer decoder-only language model          |                       ViT-L/14@378x378                       |                                                              |  46.3   |  63.6  |           |               |       |  45.3  |            |                                                 |                  |       |        |           |             |              |        |          |           |           |           |           |           |
+|                MM1-7B-Chat                 |          7B transformer decoder-only language model          |                       ViT-L/14@378x378                       |                                                              |  72.8   |  82.8  |           |     72.6      |       |        |            |                      86.6                       |       81.5       | 72.3  |        |           |             | 328.9/1529.3 |  42.1  |          |           | 37.0/35.6 |           | 64.0/69.9 |           |
+|              MM1-7B-MoE-Chat               | 7B-MoE using 32 experts, transformer decoder with sparse layers |                       ViT-L/14@378x378                       |                                                              |  73.8   |  83.4  |           |     74.4      |       |        |            |                      87.8                       |       84.7       | 72.7  |        |           |             | 394.6/1597.4 |  45.2  |          |           | 40.9/37.9 |           | 65.5/70.9 |           |
+|                  MM1-30B                   |         30B transformer decoder-only language model          |                       ViT-L/14@378x378                       |                                                              |  50.6   |  71.9  |           |               |       |  57.9  |            |                                                 |                  |       |        |           |             |              |        |          |           |           |           |           |           |
+|                MM1-30B-Chat                |         30B transformer decoder-only language model          |                       ViT-L/14@378x378                       |                                                              |  73.5   |  83.7  |           |     81.0      |       |        |            |                      87.6                       |       89.3       | 75.1  |        |           |             | 431.4/1637.6 |  48.7  |          |           | 44.7/40.3 |           | 65.9/72.1 |           |
+|               MiniCPM-V 1.0                |                                                              |                                                              |       [Link](https://huggingface.co/openbmb/MiniCPM-V)       |  60.6   |        |           |               |       |        |            |                                                 |                  | 64.1  |  62.6  |           |             |  ---/1650.2  |        |   38.3   |           |           |   28.9    |           |           |
+|               MiniCPM-V 2.0                |                                                              |                                                              |      [Link](https://huggingface.co/openbmb/MiniCPM-V-2)      |  74.1   |        |           |               |       |        |            |                                                 |                  | 69.1  |  66.5  |           |             |  ---/1808.6  |        |   38.2   |           |           |   38.7    |           |           |
+|            MiniCPM-Llama3-V 2.5            |                                                              |                                                              | [Link](https://huggingface.co/openbmb/MiniCPM-Llama3-V-2_5)  |  76.6   |        |           |               |       |        |            |                                                 |                  | 77.2  |  74.2  |           |             |  ---/2024.6  |        |   45.8   |           |           |   54.3    |           |           |
+|              DeepSeek-VL 1.3B              |                       DeekSeek-LLM-1B                        |                            SigLIP                            | [Link](https://huggingface.co/deepseek-ai/deepseek-vl-1.3b-chat) |         |        |           |               |       |        |            |                      87.6                       |                  | 64.6  |  61.3  |           |             |              |  34.8  |          |           |   32.2    |           |   66.7    |           |
+|               DeepSeek-VL-7B               |                       DeekSeek-LLM-1B                        |                            SigLIP                            | [Link](https://huggingface.co/deepseek-ai/deepseek-vl-1.3b-chat) |         |        |           |               |       |        |            |                      88.1                       |                  | 73.2  |  72.8  |           |             |              |  41.5  |          |           |   36.6    |           |   70.4    |           |
+
+For **complete statistics**, please refer to [link](https://chatgpt.com/c/benchmark.xlsx).
