@@ -19,19 +19,19 @@
 |    HPT     |       3-8B/6B | None |            [HPT](https://huggingface.co/HyperGAI)            |    [Hyperlink](#hpt)    |
 | MiniGPT4 Series | 7B/13B | Invalid Now | [Vision-CAIR ](https://huggingface.co/Vision-CAIR) | [Hyperlink](#minigpt4-series) |
 | TinyLLaVA | 1.4B/2.4B/3.1B | None | [TinyLLaVA](https://huggingface.co/tinyllava) | [Hyperlink](#tinyllava) |
-| TinyGPT-V | --- | [TinyGPT-V](https://huggingface.co/spaces/llizhx/TinyGPT-V) | [TinyGPT-V](https://huggingface.co/Tyrannosaurus/TinyGPT-V) | [Hyperlink](#tinygptv) |
+| TinyGPT-V | --- | [TinyGPT-V](https://huggingface.co/spaces/llizhx/TinyGPT-V) | [TinyGPT-V](https://huggingface.co/Tyrannosaurus/TinyGPT-V) | [Hyperlink](#tinygpt-v) |
 | PaliGemma | 3B | [PaliGemma](https://huggingface.co/spaces/big-vision/paligemma) | [PaliGemma Family](https://huggingface.co/collections/google/paligemma-ft-models-6643b03efb769dad650d2dda) | [Hyperlink](#paligemma) |
 | PaLI-3 | 5B | None | None([PaliGemma](#paligemma) is based on PaLI-3) | [PaLI-3](#palI3) |
 | MobileVLM Series | 1.4B/1.7B/2.7B/7B | Invalid Now | [mtgv](https://huggingface.co/mtgv) | [Hyperlink](#mobilevlm) |
-| LLaVA-Phi | 3B | None | None | [Hyperlink](#llavaphi) |
-| LLaVA-Phi-3-mini | --- | None | [LLaVA-Phi-3-mini](https://huggingface.co/collections/xtuner/llava-phi-3-mini-662a5f7b9416630a1ad91102) | [Hyperlink](#llavaphi3mini) |
+| LLaVA-Phi | 3B | None | None | [Hyperlink](#llava-phi) |
+| LLaVA-Phi-3-mini | --- | None | [LLaVA-Phi-3-mini](https://huggingface.co/collections/xtuner/llava-phi-3-mini-662a5f7b9416630a1ad91102) | [Hyperlink](#llava-phi-3-mini) |
 | IMP | 3B | [xmbot.net](https://xmbot.net/imp/) | [imp-v1-3b ](https://huggingface.co/MILVLG/imp-v1-3b) | [Hyperlink](#imp) |
 | MoE-LLaVA | 3B | [MoE LLaVA](https://huggingface.co/spaces/LanguageBind/MoE-LLaVA) | [MoE-LLaVA Family](https://huggingface.co/collections/LanguageBind/moe-llava-model-65b607bf2524ac36e733874c) | [Hyperlink](#moe-llava) |
 | Cobra | 3.5B | [Cobra](https://huggingface.co/spaces/han1997/cobra) | [Cobra Family](https://huggingface.co/collections/han1997/cobra-6615c3242851ba108027105d) | [Hyperlink](#cobra) |
 | Vary-toy | --- | [Vary Family ](https://vary.xiaomy.net/) | [Vary-toy](https://huggingface.co/HaoranWei/Vary-toy) | [Hyperlink](#vary-toy) |
 | ALLaVA-Longer | 3B | [ALLaVA-Longer](https://allava.freedomai.cn/#/) | [ALLaVA-3B-Longer ](https://huggingface.co/FreedomIntelligence/ALLaVA-3B-Longer) | [Hyperlink](#allava-longer) |
 | MM1 | --- | None | None | [Hyperlink](#mm1) |
-| MiniCPM-V Series | 2B/8B | [MiniCPM-Llama3-V-2 5 ](https://huggingface.co/spaces/openbmb/MiniCPM-Llama3-V-2_5)<br />[MiniCPM V 2 ](https://huggingface.co/spaces/openbmb/MiniCPM-V-2) | [MiniCPM-2B Family](https://huggingface.co/collections/openbmb/minicpm-2b-65d48bf958302b9fd25b698f) | [Hyperlink](#minicpm-v-2.0) |
+| MiniCPM-V Series | 2B/8B | [MiniCPM-Llama3-V-2 5 ](https://huggingface.co/spaces/openbmb/MiniCPM-Llama3-V-2_5)<br />[MiniCPM V 2 ](https://huggingface.co/spaces/openbmb/MiniCPM-V-2) | [MiniCPM-2B Family](https://huggingface.co/collections/openbmb/minicpm-2b-65d48bf958302b9fd25b698f) | [Hyperlink](#minicpm-v-20) |
 | DeepSeek-VL | 1.3B/7B | [Chat with DeepSeek VL 7B ](https://huggingface.co/spaces/deepseek-ai/DeepSeek-VL-7B) | [DeepSeek-VL Family](https://huggingface.co/collections/deepseek-ai/deepseek-vl-65f295948133d9cf92b706d3) | [Hyperlink](#deepseek-vl) |
 
 ## Details Regarding Models Above📊
