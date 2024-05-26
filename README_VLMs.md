@@ -21,7 +21,7 @@
 | TinyLLaVA | 1.4B/2.4B/3.1B | None | [TinyLLaVA](https://huggingface.co/tinyllava) | [Hyperlink](#tinyllava) |
 | TinyGPT-V | --- | [TinyGPT-V](https://huggingface.co/spaces/llizhx/TinyGPT-V) | [TinyGPT-V](https://huggingface.co/Tyrannosaurus/TinyGPT-V) | [Hyperlink](#tinygpt-v) |
 | PaliGemma | 3B | [PaliGemma](https://huggingface.co/spaces/big-vision/paligemma) | [PaliGemma Family](https://huggingface.co/collections/google/paligemma-ft-models-6643b03efb769dad650d2dda) | [Hyperlink](#paligemma) |
-| PaLI-3 | 5B | None | None([PaliGemma](#paligemma) is based on PaLI-3) | [PaLI-3](#palI3) |
+| PaLI-3 | 5B | None | None([PaliGemma](#paligemma) is based on PaLI-3) | [Hyperlink](#pali-3) |
 | MobileVLM Series | 1.4B/1.7B/2.7B/7B | Invalid Now | [mtgv](https://huggingface.co/mtgv) | [Hyperlink](#mobilevlm) |
 | LLaVA-Phi | 3B | None | None | [Hyperlink](#llava-phi) |
 | LLaVA-Phi-3-mini | --- | None | [LLaVA-Phi-3-mini](https://huggingface.co/collections/xtuner/llava-phi-3-mini-662a5f7b9416630a1ad91102) | [Hyperlink](#llava-phi-3-mini) |
