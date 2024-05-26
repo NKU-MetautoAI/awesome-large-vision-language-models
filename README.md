@@ -3,20 +3,20 @@
 </div>
 <div align="center">
 <strong>Summarizing the latest LLMs and VLMs! Helping you quickly and easily choose and use large models! 😄</strong><br>
-<strong>Supported languages: <a href="./README_zh.md">中文🚀</a></strong> | <strong>English</strong><br>
-<strong>This is the repository navigation page, the main Awesome List: <a href="./README_LLM.md">LLMs🚀</a></strong> | <strong><a href="./README_VLMs.md">VLMs🚀</a></strong>
+<strong>This is the repository navigation page, the main Awesome List: <a href="./README_LLM.md">LLMs🚀</a></strong> | <strong><a href="./README_VLMs.md">VLMs🚀</a></strong><br>
+<strong>Supported languages: <a href="./README_zh.md">中文🚀</a></strong> | <strong>English</strong>
 </div>
 <br>
 
-You can use the links below to navigate to the pages you're interested in. This is the repository navigation page. Additionally, **this navigation page also links to other relevant summary platforms**. Including
+Welcome to our repository, a comprehensive navigation page that connects you to the most relevant resources and summary platforms for the latest large models(including <a href="./README_LLM.md">LLMs🚀</a> and <a href="./README_VLMs.md">VLMs🚀</a>). Whether you're looking for benchmarks, comparisons, or surveys, we've got you covered. **this navigation page also links to other relevant summary platforms**. Explore the sections below to find the information you need:
 
- [Benchmarking Inference Speed of Large Language Models](#benchmarking-inference-speed-of-large-language-models-llms), 
+- [Benchmarking Inference Speed of Large Language Models](#benchmarking-inference-speed-of-large-language-models-llms), 
 
-[Comprehensive Analysis and Comparison of Large Language Models (LLMs)](#comprehensive-analysis-and-comparison-of-large-language-models-llms), 
+- [Comprehensive Analysis and Comparison of Large Language Models (LLMs)](#comprehensive-analysis-and-comparison-of-large-language-models-llms), 
 
-[Reliable Measurement of Large Language Model (LLM) Response Times](#reliable-measurement-of-large-language-model-llm-response-times),
+- [Reliable Measurement of Large Language Model (LLM) Response Times](#reliable-measurement-of-large-language-model-llm-response-times),
 
- [VLM Comprehensive Survey](#comprehensive-survey-of-vision-language-models-vlms).
+- [VLM Comprehensive Survey](#comprehensive-survey-of-vision-language-models-vlms).
 
 
 
