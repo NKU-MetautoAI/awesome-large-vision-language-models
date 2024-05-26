@@ -454,6 +454,7 @@ Same as [PaLI-3](#palI-3).
 <div align="center">
   <img src="./image/paligemma.png"  width="800" />
 </div>
+
 ### MobileVLM
 
 #### MobileVLM(base)
