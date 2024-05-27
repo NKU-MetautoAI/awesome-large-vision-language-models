@@ -10,28 +10,19 @@
 
 Welcome to our repository🥰, a comprehensive navigation page that connects you to the most relevant resources and summary platforms for the latest large models(including <a href="./README_LLM.md">LLMs🚀</a> and <a href="./README_VLMs.md">VLMs🚀</a>). Whether you're looking for benchmarks💯, comparisons⚖️, or surveys📖, we've got you covered. **this navigation page also links to other relevant summary platforms**. Explore the sections below to find the information you need:
 
-- [Benchmarking Inference Speed of Large Language Models🚀](#benchmarking-inference-speed-of-large-language-models)
-
-- [Comprehensive Analysis and Comparison of Large Language Models🔍](#comprehensive-analysis-and-comparison-of-large-language-models)
-
-- [Reliable Measurement of LLM Response Times⏱️](#reliable-measurement-of-large-language-model-response-times%EF%B8%8F)
-
-- [VLM Comprehensive Survey📊](#comprehensive-survey-of-vision-language-models)
-
-
-## Benchmarking Inference Speed of Large Language Models🚀
+- **Benchmarking Inference Speed of Large Language Models**🚀
 
 [GPU-Benchmarks-on-LLM-Inference](https://github.com/XiongjieDai/GPU-Benchmarks-on-LLM-Inference) uses various NVIDIA GPUs and Apple Silicon devices to test models like LLaMA 3 with the llama.cpp tool, measuring performance by tokens generated per second. It covers NVIDIA 3000, 4000, and A100 series, as well as Apple's M1, M2, and M3 chips.
 
-## Comprehensive Analysis and Comparison of Large Language Models🔍
+- **Comprehensive Analysis and Comparison of Large Language Models**🔍
 
 The website [LifeArchitect.ai/models](https://lifearchitect.ai/models) provides a comprehensive analysis and comparison of large language models (LLMs) such as GPT-3, GPT-4, and PaLM, detailing their sizes, capabilities, and training data.
 
-## Reliable Measurement of Large Language Model Response Times⏱️
+- **Reliable Measurement of Large Language Model Response Times**⏱️
 
 [TheFastest.ai](https://thefastest.ai/) offers reliable performance measurements for popular large language models (LLMs) based on response times. It compares models across multiple data centers (e.g., US West, East, and Europe), focusing on metrics like Time to First Token (TTFT) and Tokens Per Second (TPS), with daily updated statistics.
 
-## Comprehensive Survey of Vision-Language Models📊
+- **Comprehensive Survey of Vision-Language Models**📊
 
 [VLM_survey](https://github.com/jingyi0000/VLM_survey) is a repository summarizing and surveying the latest vision-language models (VLMs), including links to relevant papers. It covers:
 
