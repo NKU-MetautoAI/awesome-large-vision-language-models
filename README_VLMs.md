@@ -13,6 +13,7 @@
 
 |   Model    | Publication |       Parameters        |                             Demo                             |                             Paper                             |                             Github                             |                          CheckPoint                          | Details |
 | :--------: | :---------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :-----: | ------- | :-----: | :-----: |
+| 🔥new🔥<br />DenseConnector |    arXiv     |     2.7B→70B      |                             ---                              | [![arXiv](https://img.shields.io/badge/Arxiv-2405.13800-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2405.13800) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/HJYao00/DenseConnector) | [DenseConnector](https://huggingface.co/collections/HuanjinYao/denseconnector-66500e173fc8c9f05dc98dea) | [Hyperlink](#denseconnector)   |
 | MiniGemini<br />(MGM) | arXiv |       2B/7B/13B/34B       | [MGM](https://huggingface.co/spaces/jiaqianjing/Mini-Gemini) | [![arXiv](https://img.shields.io/badge/arXiv-2403.18814-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2403.18814) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/dvlab-research/MGM) | [MGM  Family](https://huggingface.co/collections/YanweiLi/mgm-6603c50b9b43d044171d0854) |    [Hyperlink](#minigemini)     |
 |   Bunny    | arXiv |         2B/3B/4B/8B         | [Bunny](http://bunny.dataoptim.org/) | [![arXiv](https://img.shields.io/badge/arXiv-2402.11530-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2402.11530) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/BAAI-DCAI/Bunny) | [BAAI](https://huggingface.co/BAAI) |     [Hyperlink](#bunny)    |
 |   Llava    | NeurIPS 2023 | 7B/13B | [Llava v1.6](https://huggingface.co/spaces/liuhaotian/LLaVA-1.6) | [![arXiv](https://img.shields.io/badge/arXiv-2304.08485-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2304.08485) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/haotian-liu/LLaVA) | [Llava v1.5](https://huggingface.co/collections/liuhaotian/llava-16-65b9e40155f60fd046a5ccf2)<br />[Lava v1.6](https://huggingface.co/collections/liuhaotian/llava-15-653aac15d994e992e2677a7e) |    [Hyperlink](#llava)     |
@@ -125,6 +126,55 @@ For **complete statistics**, please refer to [link](https://chatgpt.com/c/benchm
 
 
 ## Details Regarding Models Above📊
+
+DenseConnector is a novel vision-language connector that enhances the visual performance of existing multimodal large language models (MLLMs) by integrating multi-layer visual features.
+
+##### Motivation
+
+The research group identified that current multimodal large language models mainly focus on the language model part, typically using frozen visual encoders to extract high-level visual features. However, different layers of visual features emphasize different regions of interest. Leveraging these multi-layer features can significantly enhance the model's visual performance.
+
+##### Innovations
+
+1. **Visual Encoder Integration**: The design of DenseConnector includes two components:
+   - A component that integrates multi-layer, multi-dimensional visual features (three intuitive examples of this component will be discussed below).
+   - A learnable MLP: Consisting of two linear layers with a GELU activation function in between.
+
+2. **Three Intuitive Examples of Dense Connector**:
+   - **Sparse Token Integration (STI)**: This method increases the number of visual tokens by selecting visual features from different layers of the visual encoder (previous works only used the highest layer). The specific steps are as follows:
+     - **Layer Selection**: Choose visual features from specified layers of the visual encoder (e.g., 8th, 16th, and final 24th layers).
+     - **Downsampling**: Downsample the selected visual features to reduce the number of visual tokens, thereby reducing computational overhead. For example, using average pooling to reduce the number of visual tokens to 1/α of the original.
+     - **Integration and Mapping**: Concatenate the downsampled visual features with the final layer's visual features along the token dimension, and then map the integrated visual features to the text space of the language model using a learnable MLP.
+
+   - **Sparse Channel Integration (SCI)**: This method connects visual features from different layers along the feature dimension, avoiding an increase in the number of visual tokens. The specific steps are as follows:
+     - **Layer Selection**: Choose visual features from specified layers of the visual encoder (e.g., 8th, 16th, and final 24th layers).
+     - **Feature Concatenation**: Concatenate the selected visual features along the feature dimension instead of increasing the number of visual tokens.
+     - **Mapping to Text Space**: Map the concatenated features to the text space of the language model using a learnable MLP.
+
+   - **Dense Channel Integration (DCI)**: This method integrates all layers of visual features, further reducing redundancy and high-dimensional issues. The specific steps are as follows:
+     - **Layer Grouping**: Divide all layers of the visual encoder into several groups (e.g., divide 24 layers into two groups, each with 12 layers).
+     - **Feature Summation**: Sum the visual features within each group to generate the group's feature representation.
+     - **Feature Concatenation and Mapping**: Concatenate the features from all groups with the final layer's visual features along the feature dimension. Finally, map the concatenated features to the text space of the language model using a learnable MLP.
+
+3. **Plug-and-Play Design**: Can be easily integrated into existing models without significant modifications to the model structure or adding extra parameters.
+
+4. **Zero Additional Computational Overhead**: Cleverly utilizes the offline features of pre-trained visual encoders.
+   - **Frozen Visual Encoders**: The visual encoder remains frozen during training, meaning its parameters are not updated. This avoids the need to calculate new gradients or backpropagation, thereby avoiding additional computational overhead.
+   - **Multi-layer Feature Integration**: Dense Connector extracts features from different layers of the visual encoder, which have already been computed and stored during pre-training. By integrating these multi-layer features, it enriches the visual input without adding computational burden.
+   - **Simple Feature Integration Methods**: Dense Connector provides three feature integration methods (STI, SCI, DCI), each designed to avoid significant computational overhead during feature integration. For example:
+     - **STI** and **SCI** methods reduce the number of features through downsampling (e.g., average pooling), thereby lowering computational complexity.
+     - **DCI** method reduces dimensionality by grouping and summing features, avoiding the computational burden of high-dimensional features.
+
+> DenseConnector is trained using only image data but demonstrates exceptional zero-shot capabilities in video understanding tasks, significantly improving performance on video benchmarks.
+
+##### Overall Architecture
+
+<div align="center">
+  <img src="./image/DenseConnector.png" alt="image-20240510165317066" width="800" />
+</div>
+
+Dense Connector in MLLM: Overview and Three Instantiations.
+
+---
 
 ### MiniGemini
 
@@ -468,22 +518,22 @@ TinyGPT-V is also exploring how to use small backbones to implement a multimodal
 
    - **RMSNorm (Root Mean Square Normalization)**: RMSNorm is used to address gradient vanishing or exploding issues, ensuring model stability during training. Specifically, RMSNorm is applied after each multi-head attention layer (MHA) to normalize the data.
      
- $$
+$$
  \text{RMSNorm}(x_{\text{post}}) = \frac{x_{\text{post}}}{\sqrt{\frac{1}{N} \sum_{i=1}^{N} x_i^2 + \epsilon}}
- $$
-     
+$$
+
    - **Query-Key Normalization**: Particularly effective in low-resource learning scenarios, helping maintain computational stability when handling multimodal data.
 
 $$
 \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{\text{LayerNorm}(Q) \cdot \text{LayerNorm}(K)^T}{\sqrt{d_k}}\right) V
 $$
-     
+
    - **Layer Normalization**: Applied in each layer to prevent the occurrence of NaN values by standardizing the input.
 
 $$
 \text{LayerNorm}(x_{\text{hidden}}) = \gamma \frac{x_{\text{hidden}} - \mu}{\sqrt{\sigma^2 + \epsilon}} + \beta
 $$
-     
+
    - **LoRA (Low-Rank Adaptation)**: LoRA introduces low-rank matrices for parameter-efficient fine-tuning while freezing pre-trained weights, reducing the amount of parameter adjustment during training and preventing gradient vanishing.
 
 4. **Task-Specific Identifiers and Instruction Templates**: Similar to MiniGPT-4 and MiniGPT-v2, TinyGPT-V integrates task-specific identifiers into instruction templates to enhance performance in multitask and multi-turn dialogues. It adopts the multitask instruction templates from MiniGPT-v2 with some modifications, particularly in spatial location recognition. For tasks requiring spatial location recognition of referenced objects, TinyGPT-V uses text-based bounding boxes with coordinates normalized between 0 and 100. Other than this improvement, no additional changes were mentioned.
