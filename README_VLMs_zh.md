@@ -140,7 +140,7 @@ Benchmark结果**精简版**汇总如下：
 
 主要从以下三个方面挖掘视觉语言模型（VLM）的潜力：
 
-1. **高分辨率视觉标记token：最初使用卷积神经网络（ConvNets）生成高分辨率图像，以增强图像细节。为了尽量减少计算资源的消耗，作者进一步提出在不增加视觉标记数量的情况下，通过使用额外的视觉编码器来优化高分辨率图像。
+1. **高分辨率视觉标记token**：最初使用卷积神经网络（ConvNets）生成高分辨率图像，以增强图像细节。为了尽量减少计算资源的消耗，作者进一步提出在不增加视觉标记数量的情况下，通过使用额外的视觉编码器来优化高分辨率图像。
 2. **高质量数据**：作者汇集了来自不同公共来源的高质量数据集，确保数据集丰富而多样。
 3. **VLM引导生成**：通过与文本到图像模型的集成，增强了图像生成的能力。
 
@@ -475,19 +475,22 @@ TinyGPT-V 也是在探究如何使用小型Backbone实现多模态大型语言�
 3. **规范化与LoRA**：作者还发现小型大规模语言模型在进行迁移的时候有很多弊端需要克服。small VLM由于参数较少，在数据计算中对NaN或INF值比较敏感，这将导致初始批前向传播失败。TinyGPT-V使用了多样的归一化技巧解决这些问题：
 
    - **RMSNorm（RMS归一化）**：RMSNorm用于解决梯度消失或爆炸的问题，确保模型在训练过程中的稳定性。具体而言，RMSNorm在每个多头注意力层（MHA）之后应用，以规范化数据。【下面公式中，x~post~是MHA后的输入，N是 ~post~ 的维度。】
-     $$
-     \text{RMSNorm}(x_{\text{post}}) = \frac{x_{\text{post}}}{\sqrt{\frac{1}{N} \sum_{i=1}^{N} x_i^2 + \epsilon}}
-     $$
+
+$$
+\text{RMSNorm}(x_{\text{post}}) = \frac{x_{\text{post}}}{\sqrt{\frac{1}{N} \sum_{i=1}^{N} x_i^2 + \epsilon}}
+$$
 
    - **Query-Key Normalization（查询-键归一化）**：Query-Key Normalization在低资源学习场景中特别有效，帮助模型在处理多模态数据时保持计算的稳定性。【下面公式中，d~k~ 表示Q或K的维度。】
-     $$
-     \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{\text{LayerNorm}(Q) \cdot \text{LayerNorm}(K)^T}{\sqrt{d_k}}\right) V
-     $$
+
+$$
+\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{\text{LayerNorm}(Q) \cdot \text{LayerNorm}(K)^T}{\sqrt{d_k}}\right) V
+$$
 
    - **Layer Normalization（层归一化）**：在每一层中应用Layer Normalization，通过标准化输入来防止NaN值的产生。【下面公式中，其中，x~hidden~ 是该层的输入，*μ* 和 *σ*^2^ 分别是输入的均值和方差，*γ* 和 *β* 是可训练的参数。】
-     $$
-     \text{LayerNorm}_{\text{input}}(x_{\text{hidden}}) = \gamma \frac{x_{\text{hidden}} - \mu}{\sqrt{\sigma^2 + \epsilon}} + \beta
-     $$
+
+$$
+\text{LayerNorm}(x_{\text{hidden}}) = \gamma \frac{x_{\text{hidden}} - \mu}{\sqrt{\sigma^2 + \epsilon}} + \beta
+$$
 
    -  **LoRA（Low-Rank Adaptation）**：LoRA通过在冻结预训练权重的情况下引入低秩矩阵进行参数高效微调，减少训练时的参数调整量，避免梯度消失。
 
@@ -574,6 +577,7 @@ same as [PaLI-3](#palI-3)
 <div align="center">
   <img src="./image/paligemma.png"  width="800" />
 </div>
+
 ---
 
 ### MobileVLM
@@ -658,6 +662,7 @@ MobileVLM V2继续在低资源的VLM领域探索方向，相比MobileVLM，v2版
 <div align="center">
   <img src="./image/MobileVLMV2.png"  width="800" />
 </div>
+
 ---
 
 ### LLaVA-Phi
