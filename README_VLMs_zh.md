@@ -108,6 +108,7 @@ Mini-Gemini 支持从 2B 到 34B 的一系列密集和专家混合（MoE）大�
 <div align="center">
   <img src="./image/bunny.png"  width="800" />
 </div>
+
 ##### Bunny-v1.1🔥
 
 最近推出的Bunny模型！
