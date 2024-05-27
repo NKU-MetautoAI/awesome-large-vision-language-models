@@ -8,6 +8,21 @@
 <strong><a href="./README_LLM.md">LLMs🚀</a></strong> | <strong>VLMs</strong>
 </div>
 
+
+# My Project
+
+This is an example of a mathematical equation:
+
+### Using an image:
+![Equation](https://latex.codecogs.com/png.latex?%5Cinline%20%5Clarge%20a%20%3D%20b%20%2B%20c)
+
+### Using MathJax with GitHub Pages:
+If you are viewing this on GitHub Pages, you should see the equation below rendered by MathJax:
+
+$$
+e^{i \pi} + 1 = 0
+$$
+
 ## Quick Start🏁
 
 |   Model    | Publication |       Parameters        |                             Demo                             |                             Paper                             |                             Github                             |                          CheckPoint                          | Details |
@@ -466,19 +481,22 @@ TinyGPT-V is also exploring how to use small backbones to implement a multimodal
 3. **Normalization and LoRA**: The authors found that small-scale large language models face many challenges during transfer learning. Small VLMs, due to fewer parameters, are sensitive to NaN or INF values during data computation, which can cause initial batch forward propagation to fail. TinyGPT-V uses various normalization techniques to address these issues:
 
    - **RMSNorm (Root Mean Square Normalization)**: RMSNorm is used to address gradient vanishing or exploding issues, ensuring model stability during training. Specifically, RMSNorm is applied after each multi-head attention layer (MHA) to normalize the data.
-     $$
-     \text{RMSNorm}(x_{\text{post}}) = \frac{x_{\text{post}}}{\sqrt{\frac{1}{N} \sum_{i=1}^{N} x_i^2 + \epsilon}}
-     $$
+     
+ $$
+ \text{RMSNorm}(x_{\text{post}}) = \frac{x_{\text{post}}}{\sqrt{\frac{1}{N} \sum_{i=1}^{N} x_i^2 + \epsilon}}
+ $$
      
    - **Query-Key Normalization**: Particularly effective in low-resource learning scenarios, helping maintain computational stability when handling multimodal data.
-     $$
-     \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{\text{LayerNorm}(Q) \cdot \text{LayerNorm}(K)^T}{\sqrt{d_k}}\right) V
-     $$
+
+$$
+\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{\text{LayerNorm}(Q) \cdot \text{LayerNorm}(K)^T}{\sqrt{d_k}}\right) V
+$$
      
    - **Layer Normalization**: Applied in each layer to prevent the occurrence of NaN values by standardizing the input.
-     $$
-     \text{LayerNorm}_{\text{input}}(x_{\text{hidden}}) = \gamma \frac{x_{\text{hidden}} - \mu}{\sqrt{\sigma^2 + \epsilon}} + \beta
-     $$
+
+$$
+\text{LayerNorm}(x_{\text{hidden}}) = \gamma \frac{x_{\text{hidden}} - \mu}{\sqrt{\sigma^2 + \epsilon}} + \beta
+$$
      
    - **LoRA (Low-Rank Adaptation)**: LoRA introduces low-rank matrices for parameter-efficient fine-tuning while freezing pre-trained weights, reducing the amount of parameter adjustment during training and preventing gradient vanishing.
 
