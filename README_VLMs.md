@@ -564,6 +564,7 @@ Same as [PaLI-3](#palI-3).
 <div align="center">
   <img src="./image/paligemma.png"  width="800" />
 </div>
+
 ---
 
 ### MobileVLM
@@ -649,6 +650,7 @@ MobileVLM V2 continues to explore the direction of low-resource VLMs, with the f
 <div align="center">
   <img src="./image/MobileVLMv2.png"  width="800" />
 </div>
+
 ---
 
 ### LLaVA-Phi
