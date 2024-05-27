@@ -9,20 +9,6 @@
 </div>
 
 
-# My Project
-
-This is an example of a mathematical equation:
-
-### Using an image:
-![Equation](https://latex.codecogs.com/png.latex?%5Cinline%20%5Clarge%20a%20%3D%20b%20%2B%20c)
-
-### Using MathJax with GitHub Pages:
-If you are viewing this on GitHub Pages, you should see the equation below rendered by MathJax:
-
-$$
-e^{i \pi} + 1 = 0
-$$
-
 ## Quick Start🏁
 
 |   Model    | Publication |       Parameters        |                             Demo                             |                             Paper                             |                             Github                             |                          CheckPoint                          | Details |
