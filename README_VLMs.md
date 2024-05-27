@@ -125,6 +125,14 @@ For **complete statistics**, please refer to [link](https://chatgpt.com/c/benchm
 
 
 
+### DenseConnector
+
+[![arXiv](https://img.shields.io/badge/Arxiv-2405.13800-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2405.13800)
+
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/HJYao00/DenseConnector)
+
+[![Hugging Face Collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Collections-blue)](https://huggingface.co/collections/HuanjinYao/denseconnector-66500e173fc8c9f05dc98dea)
+
 ## Details Regarding Models Above📊
 
 DenseConnector is a novel vision-language connector that enhances the visual performance of existing multimodal large language models (MLLMs) by integrating multi-layer visual features.
