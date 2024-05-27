@@ -106,6 +106,7 @@ Bunny focuses on data optimization to compensate for the reduction in model size
 <div align="center">
   <img src="./image/bunny.png"  width="800" />
 </div>
+
 ##### Bunny-v1.1🔥
 
 The recently launched Bunny model!
@@ -141,6 +142,7 @@ As one of the early works in the field of Visual Language Models (VLMs), Llava c
 <div align="center">
   <img src="./image/llava.png"  width="800" />
 </div>
+
 ##### Llava's Improvements
 
 The LLaVa model was proposed in [Visual Instruction Tuning](https://arxiv.org/abs/2304.08485) and improved in [Improved Baselines with Visual Instruction Tuning](https://arxiv.org/pdf/2310.03744) by Haotian Liu, Chunyuan Li, Yuheng Li, and Yong Jae Lee. This marks the inception of Llava1.5.
@@ -168,10 +170,10 @@ Unlike previous methods that often used a shallow alignment strategy, CogVLM ach
 
 |            Model            | Resolution |                         Introduction                         |                      Huggingface model                       |                       SAT model                       |
 | :-------------------------: | :--------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :---------------------------------------------------: |
-|      cogvlm-chat-v1.1       |    490     |      支持同时进行多轮聊天和视觉问答，支持自由的提示词。      |     [link](https://huggingface.co/THUDM/cogvlm-chat-hf)      | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
-|       cogvlm-base-224       |    224     |               文本-图像预训练后的原始检查点。                |   [link](https://huggingface.co/THUDM/cogvlm-base-224-hf)    | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
-|       cogvlm-base-490       |    490     | 通过从 cogvlm-base-224 进行位置编码插值，将分辨率提升到490。 |   [link](https://huggingface.co/THUDM/cogvlm-base-490-hf)    | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
-| cogvlm-grounding-generalist |    490     |    此检查点支持不同的视觉定位任务，例如REC，定位字幕等。     | [link](https://huggingface.co/THUDM/cogvlm-grounding-generalist-hf) | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
+|      cogvlm-chat-v1.1       |    490     |      Supports simultaneous multi-turn chat and visual question answering, with the ability to use flexible prompts.      |     [link](https://huggingface.co/THUDM/cogvlm-chat-hf)      | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
+|       cogvlm-base-224       |    224     |               The original checkpoint after text-image pretraining.               |   [link](https://huggingface.co/THUDM/cogvlm-base-224-hf)    | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
+|       cogvlm-base-490       |    490     | The resolution is increased to 490 by performing positional encoding interpolation from cogvlm-base-224. |   [link](https://huggingface.co/THUDM/cogvlm-base-490-hf)    | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
+| cogvlm-grounding-generalist |    490     |    This checkpoint supports various visual localization tasks, such as REC and localization captions.     | [link](https://huggingface.co/THUDM/cogvlm-grounding-generalist-hf) | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
 
 
 
@@ -193,6 +195,7 @@ CogVLM introduces a trainable visual expert within the language model. This mean
 <div align="center">
   <img src="./image/cogVLM.png" alt="image-20240510165317066" width="800" />
 </div>
+  
 ##### Model Subdivision
 
 - **CogVLM-Chat**: This model accepts natural language inputs and outputs, primarily handling pure text inputs and outputs. It is suitable for various VQA (Visual Question Answering) and multi-turn dialogue datasets.
@@ -216,8 +219,8 @@ The LLM is trained based on Vicuna-7B, ensuring its NLP capabilities while incor
 
 |     Model     | Resolution |                         Introduction                         |                   Huggingface model                   |                        SAT model                        |
 | :-----------: | :--------: | :----------------------------------------------------------: | :---------------------------------------------------: | :-----------------------------------------------------: |
-| cogagent-chat |    1120    |    CogAgent的聊天版本。支持GUI代理，多轮聊天和视觉定位。     | [link](https://huggingface.co/THUDM/cogagent-chat-hf) | [link](https://huggingface.co/THUDM/CogAgent/tree/main) |
-| cogagent-vqa  |    1120    | CogAgent的VQA版本。在单轮视觉对话中具有更强的能力。推荐用于VQA基准测试。 | [link](https://huggingface.co/THUDM/cogagent-vqa-hf)  | [link](https://huggingface.co/THUDM/CogAgent/tree/main) |
+| cogagent-chat |    1120    |    The chat version of CogAgent. Supports GUI agents, multi-turn chat, and visual localization.     | [link](https://huggingface.co/THUDM/cogagent-chat-hf) | [link](https://huggingface.co/THUDM/CogAgent/tree/main) |
+| cogagent-vqa  |    1120    | The VQA version of CogAgent. It has enhanced capabilities for single-turn visual dialogue. Recommended for VQA benchmarking. | [link](https://huggingface.co/THUDM/cogagent-vqa-hf)  | [link](https://huggingface.co/THUDM/CogAgent/tree/main) |
 
 ##### Motivation
 
@@ -536,7 +539,7 @@ MobileVLM V2 continues to explore the direction of low-resource VLMs, with the f
 ##### Architecture
 
 <div align="center">
-  <img src="./image/MobileVLMV2.png"  width="800" />
+  <img src="./image/MobileVLMv2.png"  width="800" />
 </div>
 
 ### LLaVA-Phi
