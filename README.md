@@ -3,14 +3,16 @@
 </div>
 <div align="center">
 <strong>🌐✨Summarizing the latest LLMs and VLMs! Helping you quickly and easily choose and use large models! 😄</strong><br>
-<strong>This is the repository navigation page, the main Awesome List: <a href="./README_LLM.md">LLMs🚀</a></strong> | <strong><a href="./README_VLMs.md">VLMs🚀</a></strong><br>
+<strong>This is the repository navigation page, the main Awesome List: <a href="./README_LLM.md">LLMs🚀</a></strong> | <strong><a href="./README_VLMs.md">LVLMs🚀</a></strong><br>
 <strong>Supported languages: <a href="./README_zh.md">中文🚀</a></strong> | <strong>English</strong>
 </div>
 <br>
 
-Welcome to our repository🥰, a comprehensive navigation page that connects you to the most relevant resources and summary platforms for the latest large models(including <a href="./README_LLM.md">LLMs🚀</a> and <a href="./README_VLMs.md">VLMs🚀</a>). Whether you're looking for benchmarks💯, comparisons⚖️, or surveys📖, we've got you covered. 
+Welcome to our repository🥰, a comprehensive navigation page that connects you to the most relevant resources and summary platforms for the latest large models (including <a href="./README_LLM.md">LLMs🚀</a> and <a href="./README_VLMs.md">VLMs🚀</a>). Whether you're looking for benchmarks💯, comparisons⚖️, or surveys📖, we've got you covered. 
 
-## Quick Start——LLM🏁
+Feel free to raise a issue or contact us (gepengai.ji@gmail.com) if you find any related papers that are not included here. 
+
+## Quick Start —— large language models (LLMs) 🏁
 
 |    Model     |     Organization      |        Paper        |                          Parameters                          |                           CheckPoint                  | Details |
 | :----------: | :-------------------: | :----------------------------------------------------------: | :----------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
@@ -37,7 +39,7 @@ Welcome to our repository🥰, a comprehensive navigation page that connects you
 
 
 
-## Quick Start——VLMs🏁
+## Quick Start —— (large vision language models) LVLMs🏁
 
 |           Model           | Publication  |    Parameters     |                             Demo                             |                            Paper                             | Github                                                       |                          CheckPoint                          | Details                                                      |
 | :-----------------------: | :----------: | :---------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | ------------------------------------------------------------ | :----------------------------------------------------------: | ------------------------------------------------------------ |
