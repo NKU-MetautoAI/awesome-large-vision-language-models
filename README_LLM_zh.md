@@ -6,10 +6,6 @@
 <strong>中文</strong> | <strong><a href="./README_LLM.md">English🚀</a></strong><br>
 <strong>LLMs</strong> | <strong><a href="./README_VLMs.md">VLMs🚀</a></strong>
 </div>
-
-
-
-
 ## 近期LLM概览
 
 <div align="center">
@@ -22,7 +18,7 @@
 
 ## 快速开始🏁
 
-|    Model     |     Organization      |        Parameters        |                          CheckPoint                          |            Details            |
+|    模型   |     发行方   |        参数规模        |                          模型检查点                          |            详细介绍            |
 | :----------: | :-------------------: | :----------------------: | :----------------------------------------------------------: | :---------------------------: |
 | ChatGPT | OpenAI | --- | --- | [Hyperlink](#chatgpt) |
 |   Llama 2    |         Meta          |        7B/13B/70B        | [Llama2 Family🤗](https://huggingface.co/collections/meta-llama/llama-2-family-661da1f90a9d678b6f55773b) |     [Hyperlink](#llama2)      |
