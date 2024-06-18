@@ -22,6 +22,7 @@
 
 |    Model     |     Organization      |        Parameters        |                          CheckPoint                          |            Details            |
 | :----------: | :-------------------: | :----------------------: | :----------------------------------------------------------: | :---------------------------: |
+| chatGPT | OpenAI | --- | --- | [Hyperlink](#chatgpt) |
 |   Llama 2    |         Meta          |        7B/13B/70B        | [Llama2 Family🤗](https://huggingface.co/collections/meta-llama/llama-2-family-661da1f90a9d678b6f55773b) |     [Hyperlink](#llama2)      |
 |   Llama 3    |         Meta          |          8B/70B          | [Llama3 Family🤗](https://huggingface.co/collections/meta-llama/meta-llama-3-66214712577ca38149ebb2b6) |     [Hyperlink](#llama3)      |
 |    Orca2     |       Microsoft       |          7B/13B          | [Orca Family🤗](https://huggingface.co/collections/microsoft/orca-65bbeef1980f5719cccc89a3) |      [Hyperlink](#orca2)      |
@@ -45,6 +46,12 @@
 
 
 ## Details Regarding Models Above📊
+
+### ChatGPT
+
+OpenAI recently released a [practical library for LLMs](https://github.com/openai/simple-evals) aimed at ensuring the transparency of the accuracy data they publish for their models, such as GPT-4-turbo. This library includes benchmarks like MMLU, MATH, GPQA, DROP, MGSM, and HumanEval.
+
+
 
 ### Llama2
 
