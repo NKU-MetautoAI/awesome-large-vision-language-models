@@ -12,7 +12,7 @@ Welcome to our repository🥰, a comprehensive navigation page that connects you
 
 ## Quick Start——LLM🏁
 
-|    Model     |     Organization      |        Parameters        |                          CheckPoint                          |                           Details                            |                          |
+|    Model     |     Organization      |        Paper        |                          Parameters                          |                           CheckPoint                  | Details |
 | :----------: | :-------------------: | :----------------------------------------------------------: | :----------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 |   ChatGPT    |        OpenAI         |                             ---                              |           ---            |                             ---                              | [EN](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM.md#chatgpt)/[ZH](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM_zh.md#chatgpt) |
 |   Llama 2    |         Meta          | [![arXiv](https://img.shields.io/badge/arXiv-2307.09288-b31b1b.svg)](https://arxiv.org/abs/2307.09288) |        7B/13B/70B        | [Llama2 Family🤗](https://huggingface.co/collections/meta-llama/llama-2-family-661da1f90a9d678b6f55773b) | [EN](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM.md#llama2)/[ZH](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM_zh.md#llama2) |
