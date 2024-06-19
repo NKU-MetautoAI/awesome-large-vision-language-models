@@ -98,3 +98,14 @@ The website [LifeArchitect.ai/models](https://lifearchitect.ai/models) provides 
 Check out the [repository](https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models) for the **latest papers** on multimodal large language models, covering topics such as multimodal chain-of-thought, LLM-aided visual reasoning, foundation models, and multimodal reinforcement learning from human feedback (RLHF).
 
 It also includes a variety of **datasets** for pre-training, alignment, multimodal instruction tuning, in-context learning, and evaluation, along with **benchmark tests** to assess the performance and capabilities of different multimodal models.
+
+## Reference
+
+
+@misc{hu2024awesome,
+  author       = {Bocheng Hu, Gepeng Ji},
+  title        = {An awesome list of large vision language models},
+  howpublished = {\url{https://github.com/NKU-MetautoAI/awesome-large-vision-language-models}},
+  year         = {2024}
+}
+
