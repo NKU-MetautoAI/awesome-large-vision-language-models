@@ -120,7 +120,7 @@ Benchmark结果**精简版**汇总如下：
 
 3. **训练网络的结构**：Chameleon使用统一的变压器架构处理图像和文本标记序列，语言和图像模态通过一个共享的表示空间来编码。
 
-##### 整体架构
+##### VLM架构
 
 <div align="center">
   <img src="./image/Chameleon.png" alt="image-20240510165317066" width="800" />
