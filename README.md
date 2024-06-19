@@ -10,7 +10,7 @@
 
 Welcome to our repository🥰, a comprehensive navigation page that connects you to the most relevant resources and summary platforms for the latest large models (including <a href="./README_LLM.md">LLMs🚀</a> and <a href="./README_VLMs.md">LVLMs🚀</a>). Whether you're looking for benchmarks💯, comparisons⚖️, or surveys📖, we've got you covered. 
 
-Feel free to raise a issue or contact us (h1355393774@gmail.com & gepengai.ji@gmail.com) if you find any related papers that are not included here. 
+Feel free to raise a issue or contact us if you find any related papers that are not included here. Organizer: (Bocheng Hu, NKU) h1355393774@gmail.com, (Gepeng Ji, ANU) gepengai.ji@gmail.com
 
 ## Quick Start —— large language models (LLMs) 🏁
 
@@ -101,11 +101,10 @@ It also includes a variety of **datasets** for pre-training, alignment, multimod
 
 ## Reference
 
-
-@misc{hu2024awesome,
-  author       = {Bocheng Hu, Gepeng Ji},
-  title        = {An awesome list of large vision language models},
-  howpublished = {\url{https://github.com/NKU-MetautoAI/awesome-large-vision-language-models}},
-  year         = {2024}
-}
+    @misc{hu2024awesome,
+      author       = {Bocheng Hu, Gepeng Ji},
+      title        = {An awesome list of large vision language models},
+      howpublished = {\url{https://github.com/NKU-MetautoAI/awesome-large-vision-language-models}},
+      year         = {2024}
+    }
 
