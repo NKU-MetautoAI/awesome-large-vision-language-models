@@ -4,37 +4,10 @@
 
 <div align="center">
 <strong>🌐✨github awesome list of recent 🔥VLMs🔥</strong><br>
-<strong><a href="./README_VLMs_zh.md">中文🚀</a></strong> | <strong>English</strong><br>
+<strong><a href="./README_LVLMs_zh.md">中文🚀</a></strong> | <strong>English</strong><br>
 <strong><a href="./README_LLM.md">LLMs🚀</a></strong> | <strong>VLMs</strong>
 </div>
 
-
-## Quick Start🏁
-
-|   Model    | Publication |       Parameters        |                             Demo                             |                             Paper                             |                             Github                             |                          CheckPoint                          | Details |
-| :--------: | :---------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :-----: | ------- | :-----: | :-----: |
-| 🔥new🔥<br />DenseConnector |    arXiv     |     2.7B→70B      |                             ---                              | [![arXiv](https://img.shields.io/badge/Arxiv-2405.13800-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2405.13800) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/HJYao00/DenseConnector) | [DenseConnector](https://huggingface.co/collections/HuanjinYao/denseconnector-66500e173fc8c9f05dc98dea) | [Hyperlink](#denseconnector)   |
-| MiniGemini<br />(MGM) | arXiv |       2B/7B/13B/34B       | [MGM](https://huggingface.co/spaces/jiaqianjing/Mini-Gemini) | [![arXiv](https://img.shields.io/badge/arXiv-2403.18814-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2403.18814) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/dvlab-research/MGM) | [MGM  Family](https://huggingface.co/collections/YanweiLi/mgm-6603c50b9b43d044171d0854) |    [Hyperlink](#minigemini)     |
-|   Bunny    | arXiv |         2B/3B/4B/8B         | [Bunny](http://bunny.dataoptim.org/) | [![arXiv](https://img.shields.io/badge/arXiv-2402.11530-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2402.11530) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/BAAI-DCAI/Bunny) | [BAAI](https://huggingface.co/BAAI) |     [Hyperlink](#bunny)    |
-|   Llava    | NeurIPS 2023 | 7B/13B | [Llava v1.6](https://huggingface.co/spaces/liuhaotian/LLaVA-1.6) | [![arXiv](https://img.shields.io/badge/arXiv-2304.08485-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2304.08485) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/haotian-liu/LLaVA) | [Llava v1.5](https://huggingface.co/collections/liuhaotian/llava-16-65b9e40155f60fd046a5ccf2)<br />[Lava v1.6](https://huggingface.co/collections/liuhaotian/llava-15-653aac15d994e992e2677a7e) |    [Hyperlink](#llava)     |
-| Cog Series | CVPR 2024 |    17B/18B    | [CogVLM & CogAgent](https://huggingface.co/spaces/THUDM/CogVLM-CogAgent) | [![arXiv](https://img.shields.io/badge/arXiv-2311.03079-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2311.03079) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/THUDM/CogVLM) |            [THUDM ](https://huggingface.co/THUDM)            |    [Hyperlink](#cog-series)      |
-|    HPT     |    ---    |       3-8B/6B | None | [![AI Blog](https://img.shields.io/badge/AI%20Blog-hypergai%20AI-orange.svg)](https://hypergai.com/blog/) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/HyperGAI/HPT/) |            [HPT](https://huggingface.co/HyperGAI)            |    [Hyperlink](#hpt)    |
-| MiniGPT4 Series | arXiv | 7B/13B | Invalid Now | [![arXiv](https://img.shields.io/badge/arXiv-2304.10592-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2304.10592) <br />[![arXiv](https://img.shields.io/badge/arXiv-2310.09478-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2310.09478) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Vision-CAIR/MiniGPT-4) | [Vision-CAIR ](https://huggingface.co/Vision-CAIR) | [Hyperlink](#minigpt4-series) |
-| TinyLLaVA | arXiv | 1.4B/2.4B/3.1B | None | [![arXiv](https://img.shields.io/badge/arXiv-2402.14289-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.14289) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/DLCV-BUAA/TinyLLaVABench) | [TinyLLaVA](https://huggingface.co/tinyllava) | [Hyperlink](#tinyllava) |
-| TinyGPT-V | arXiv | --- | [TinyGPT-V](https://huggingface.co/spaces/llizhx/TinyGPT-V) | [![arXiv](https://img.shields.io/badge/arXiv-2312.16862-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2312.16862) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/DLYuanGod/TinyGPT-V) | [TinyGPT-V](https://huggingface.co/Tyrannosaurus/TinyGPT-V) | [Hyperlink](#tinygpt-v) |
-| PaliGemma | --- | 3B | [PaliGemma](https://huggingface.co/spaces/big-vision/paligemma) | [![AI Blog](https://img.shields.io/badge/AI%20Blog-PaliGemma%20AI-orange.svg)](https://ai.google.dev/gemma/docs/paligemma) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/google-research/big_vision) | [PaliGemma Family](https://huggingface.co/collections/google/paligemma-ft-models-6643b03efb769dad650d2dda) | [Hyperlink](#paligemma) |
-| PaLI-3 | arXiv | 5B | None | [![arXiv](https://img.shields.io/badge/arXiv-2310.09199-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2310.09199) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/google-research/big_vision) | None([PaliGemma](#paligemma) is based on PaLI-3) | [Hyperlink](#pali-3) |
-| MobileVLM Series | arXiv | 1.4B/1.7B/2.7B/7B | Invalid Now | [![arXiv](https://img.shields.io/badge/Arxiv-2312.16886-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2312.16886) <br />[![arXiv](https://img.shields.io/badge/Arxiv-2402.03766-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.03766) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Meituan-AutoML/MobileVLM) | [mtgv](https://huggingface.co/mtgv) | [Hyperlink](#mobilevlm) |
-| LLaVA-Phi | arXiv | 3B | None | [![arXiv](https://img.shields.io/badge/Arxiv-2401.02330-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2401.02330) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/zhuyiche/llava-phi) | None | [Hyperlink](#llava-phi) |
-| LLaVA-Phi-3-mini | --- | --- | None |  | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/InternLM/xtuner) | [LLaVA-Phi-3-mini](https://huggingface.co/collections/xtuner/llava-phi-3-mini-662a5f7b9416630a1ad91102) | [Hyperlink](#llava-phi-3-mini) |
-| IMP | arXiv | 3B | [xmbot.net](https://xmbot.net/imp/) | [![arXiv](https://img.shields.io/badge/arXiv-2405.12107-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2405.12107) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/MILVLG/imp) | [imp-v1-3b ](https://huggingface.co/MILVLG/imp-v1-3b) | [Hyperlink](#imp) |
-| MoE-LLaVA | arXiv | 3B | [MoE LLaVA](https://huggingface.co/spaces/LanguageBind/MoE-LLaVA) | [![arXiv](https://img.shields.io/badge/arXiv-2401.15947-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2401.15947) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/PKU-YuanGroup/MoE-LLaVA) | [MoE-LLaVA Family](https://huggingface.co/collections/LanguageBind/moe-llava-model-65b607bf2524ac36e733874c) | [Hyperlink](#moe-llava) |
-| Cobra | arXiv | 3.5B | [Cobra](https://huggingface.co/spaces/han1997/cobra) | [![arXiv](https://img.shields.io/badge/arXiv-2403.14520-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2403.14520) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/h-zhao1997/cobra) | [Cobra Family](https://huggingface.co/collections/han1997/cobra-6615c3242851ba108027105d) | [Hyperlink](#cobra) |
-| Vary-toy | arXiv | --- | [Vary Family ](https://vary.xiaomy.net/) | [![arXiv](https://img.shields.io/badge/arXiv-2401.12503-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2401.12503) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Ucas-HaoranWei/Vary-toy) | [Vary-toy](https://huggingface.co/HaoranWei/Vary-toy) | [Hyperlink](#vary-toy) |
-| ALLaVA-Longer | arXiv | 3B | [ALLaVA-Longer](https://allava.freedomai.cn/#/) | [![arXiv](https://img.shields.io/badge/arXiv-2402.11684-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.11684) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/FreedomIntelligence/ALLaVA) | [ALLaVA-3B-Longer ](https://huggingface.co/FreedomIntelligence/ALLaVA-3B-Longer) | [Hyperlink](#allava-longer) |
-| MM1 |  | --- | None | [![arXiv](https://img.shields.io/badge/arXiv-2402.11684-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2403.09611) |  | None | [Hyperlink](#mm1) |
-| MiniCPM-V Series | --- | 2B/8B | [MiniCPM-Llama3-V-2 5 ](https://huggingface.co/spaces/openbmb/MiniCPM-Llama3-V-2_5)<br />[MiniCPM V 2 ](https://huggingface.co/spaces/openbmb/MiniCPM-V-2) | [![AI Blog](https://img.shields.io/badge/AI%20Blog-paligemma%20AI-orange.svg)](https://openbmb.vercel.app/minicpm-v-2) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/OpenBMB/MiniCPM-V) | [MiniCPM-2B Family](https://huggingface.co/collections/openbmb/minicpm-2b-65d48bf958302b9fd25b698f) | [Hyperlink](#minicpm-v-20) |
-| DeepSeek-VL | arXiv | 1.3B/7B | [Chat with DeepSeek VL 7B ](https://huggingface.co/spaces/deepseek-ai/DeepSeek-VL-7B) | [![arXiv](https://img.shields.io/badge/arXiv-2403.05525-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2403.05525) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/deepseek-ai/DeepSeek-VL) | [DeepSeek-VL Family](https://huggingface.co/collections/deepseek-ai/deepseek-vl-65f295948133d9cf92b706d3) | [Hyperlink](#deepseek-vl) |
 
 ## Summary of Benchmark Results
 
@@ -125,6 +98,38 @@ For **complete statistics**, please refer to [link](https://chatgpt.com/c/benchm
 
 
 ## Details Regarding Models Above📊
+
+### Chameleon
+[![arXiv](https://img.shields.io/badge/Arxiv-2405.09818-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2405.09818)
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/facebookresearch/chameleon)
+[![Hugging Face Collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Collections-blue)](https://huggingface.co/facebook)
+
+[Download Checkpoint](https://ai.meta.com/resources/models-and-libraries/chameleon-downloads)
+
+##### Motivation
+
+Existing large multimodal models typically employ separate visual and textual encoders to process features from each modality. The authors contend that this approach may constrain their capacity for cross-modal integration of information and the generation of multimodal documents containing arbitrary sequences of images and text. This work introduces a series of hybrid-modal foundational models capable of generating and reasoning with mixed sequences of text and images in any arbitrary alternation.
+
+##### Innovations
+
+1. **Unified, token-based representation for both image and text modalities**: Throughout the training process, the authors of Chameleon utilize a newly trained BPE tokenizer from the SentencePiece library on the training data subset described below, with a vocabulary size of 65,536, which includes 8,192 image code tokens.
+   - **Overview**: Parsing text into tokens is straightforward. For the visual component, Chameleon employs an image tokenizer based on Gafni et al. (2022) that encodes 512x512 images into 1,024 discrete tokens.
+   - **Specifically**: This process is somewhat analogous to VIT, which segments large images into patches, each then encoded into a series of tokens. Chameleon's image tokenizer searches a codebook to match each patch with one of the codebook's 8,192 possible tokens.
+   - Ultimately, the image tokenizer assigns a token (an integer between 0 and 8,191) to each patch, converting a 512x512 image into a sequence of 1,024 discrete tokens.
+
+2. **Scientific training approach**:
+   - **Training the image tokenizer**: To enhance image generation performance, the authors of Chameleon specifically **consider the significance of faces in image generation**, upsampling the percentage of facial images by two during pre-training.
+   - **Interleaved input of image and text tokens**: This allows information from text and images to influence each other across all layers of the model, facilitating better modality fusion.
+   - Introduction of **Query Key Normalization (QK-Norm)** and **Revised Layer Normalization (Norm Reordering)** among other innovations: These address optimization stability issues in hybrid-modal settings. Especially in the training of large-scale parameter models, normalization techniques effectively manage competition between modalities, preventing divergences during training.
+
+3. **Network architecture**: Chameleon utilizes a unified transformer architecture to handle sequences of image and text tokens, encoding both language and visual modalities through a shared representational space.
+
+##### Architecture
+
+<div align="center">
+  <img src="./image/Chameleon.png" alt="image-20240510165317066" width="800" />
+</div>
+---
 
 ### DenseConnector
 
@@ -636,7 +641,7 @@ Same as [PaLI-3](#palI-3).
 
 MobileVLM is the first multimodal vision-language model specifically designed for mobile and IoT devices. The visual end uses CLIP ViT-L/14@336, and the language end uses MobileLLaMA. The projection layer connecting vision and language is a uniquely designed network structure. The main features of MobileVLM include the following:
 
-1. **Lightweight Down-sampling Projector (LDP)**: Enhances the alignment efficiency of multimodal features while reducing computational overhead by decreasing the number of visual tokens (detailed design in the [figure below](#architecture-13)).
+1. **Lightweight Down-sampling Projector (LDP)**: Enhances the alignment efficiency of multimodal features while reducing computational overhead by decreasing the number of visual tokens (detailed design in the [figure below](#architecture-15)).
    - Combines **Depthwise Convolution** and **Pointwise Convolution**. Depthwise convolution captures local spatial features, while pointwise convolution is used for feature compression and alignment.
    - **Efficient Down-sampling Strategy**: Uses convolution operations with a stride of 2 to downsample visual features, reducing the number of visual tokens by 75%. This effectively retains key visual information while significantly reducing the number of tokens that need to be processed.
    - **Layer Normalization** replaces Batch Normalization to ensure stable training unaffected by batch size.

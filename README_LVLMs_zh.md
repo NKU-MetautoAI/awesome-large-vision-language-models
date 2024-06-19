@@ -4,36 +4,10 @@
 
 <div align="center">
 <strong>🌐✨关于近期的🔥VLMs🔥的github Awesome List</strong><br>
-<strong>中文</strong> | <strong><a href="./README_VLMs.md">English🚀</a></strong><br>
+<strong>中文</strong> | <strong><a href="./README_LVLMs.md">English🚀</a></strong><br>
 <strong><a href="./README_LLM.md">LLMs🚀</a></strong> | <strong>VLMs</strong>
 </div>
 
-## 快速开始🏁
-
-|           模型            |     发刊     |     参数体量      |                           在线项目                           |                             论文                             | Github                                                       |                          模型检查点                          | 相关细节                       |
-| :-----------------------: | :----------: | :---------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | ------------------------------------------------------------ | :----------------------------------------------------------: | ------------------------------ |
-| 🔥new🔥<br />DenseConnector |    arXiv     |     2.7B→70B      |                             ---                              | [![arXiv](https://img.shields.io/badge/Arxiv-2405.13800-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2405.13800) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/HJYao00/DenseConnector) | [DenseConnector](https://huggingface.co/collections/HuanjinYao/denseconnector-66500e173fc8c9f05dc98dea) | [Hyperlink](#denseconnector)   |
-|   MiniGemini<br />(MGM)   |    arXiv     |   2B/7B/13B/34B   | [MGM](https://huggingface.co/spaces/jiaqianjing/Mini-Gemini) | [![arXiv](https://img.shields.io/badge/arXiv-2403.18814-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2403.18814) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/dvlab-research/MGM) | [MGM  Family](https://huggingface.co/collections/YanweiLi/mgm-6603c50b9b43d044171d0854) | [Hyperlink](#minigemini)       |
-|           Bunny           |    arXiv     |    2B/3B/4B/8B    |             [Bunny](http://bunny.dataoptim.org/)             | [![arXiv](https://img.shields.io/badge/arXiv-2402.11530-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2402.11530) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/BAAI-DCAI/Bunny) |             [BAAI](https://huggingface.co/BAAI)              | [Hyperlink](#bunny)            |
-|           Llava           | NeurIPS 2023 |      7B/13B       | [Llava v1.6](https://huggingface.co/spaces/liuhaotian/LLaVA-1.6) | [![arXiv](https://img.shields.io/badge/arXiv-2304.08485-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2304.08485) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/haotian-liu/LLaVA) | [Llava v1.5](https://huggingface.co/collections/liuhaotian/llava-16-65b9e40155f60fd046a5ccf2)<br />[Lava v1.6](https://huggingface.co/collections/liuhaotian/llava-15-653aac15d994e992e2677a7e) | [Hyperlink](#llava)            |
-|        Cog Series         |  CVPR 2024   |      17B/18B      | [CogVLM & CogAgent](https://huggingface.co/spaces/THUDM/CogVLM-CogAgent) | [![arXiv](https://img.shields.io/badge/arXiv-2311.03079-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2311.03079) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/THUDM/CogVLM) |            [THUDM ](https://huggingface.co/THUDM)            | [Hyperlink](#cog-series)       |
-|            HPT            |     ---      |      3-8B/6B      |                             None                             | [![AI Blog](https://img.shields.io/badge/AI%20Blog-hypergai%20AI-orange.svg)](https://hypergai.com/blog/) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/HyperGAI/HPT/) |            [HPT](https://huggingface.co/HyperGAI)            | [Hyperlink](#hpt)              |
-|      MiniGPT4 Series      |    arXiv     |      7B/13B       |                         Invalid Now                          | [![arXiv](https://img.shields.io/badge/arXiv-2304.10592-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2304.10592) <br />[![arXiv](https://img.shields.io/badge/arXiv-2310.09478-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2310.09478) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Vision-CAIR/MiniGPT-4) |      [Vision-CAIR ](https://huggingface.co/Vision-CAIR)      | [Hyperlink](#minigpt4-series)  |
-|         TinyLLaVA         |    arXiv     |  1.4B/2.4B/3.1B   |                             None                             | [![arXiv](https://img.shields.io/badge/arXiv-2402.14289-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.14289) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/DLCV-BUAA/TinyLLaVABench) |        [TinyLLaVA](https://huggingface.co/tinyllava)         | [Hyperlink](#tinyllava)        |
-|         TinyGPT-V         |    arXiv     |        ---        | [TinyGPT-V](https://huggingface.co/spaces/llizhx/TinyGPT-V)  | [![arXiv](https://img.shields.io/badge/arXiv-2312.16862-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2312.16862) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/DLYuanGod/TinyGPT-V) | [TinyGPT-V](https://huggingface.co/Tyrannosaurus/TinyGPT-V)  | [Hyperlink](#tinygpt-v)        |
-|         PaliGemma         |     ---      |        3B         | [PaliGemma](https://huggingface.co/spaces/big-vision/paligemma) | [![AI Blog](https://img.shields.io/badge/AI%20Blog-PaliGemma%20AI-orange.svg)](https://ai.google.dev/gemma/docs/paligemma) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/google-research/big_vision) | [PaliGemma Family](https://huggingface.co/collections/google/paligemma-ft-models-6643b03efb769dad650d2dda) | [Hyperlink](#paligemma)        |
-|          PaLI-3           |    arXiv     |        5B         |                             None                             | [![arXiv](https://img.shields.io/badge/arXiv-2310.09199-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2310.09199) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/google-research/big_vision) |       None([PaliGemma](#paligemma) is based on PaLI-3)       | [Hyperlink](#pali-3)           |
-|     MobileVLM Series      |    arXiv     | 1.4B/1.7B/2.7B/7B |                         Invalid Now                          | [![arXiv](https://img.shields.io/badge/Arxiv-2312.16886-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2312.16886) <br />[![arXiv](https://img.shields.io/badge/Arxiv-2402.03766-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.03766) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Meituan-AutoML/MobileVLM) |             [mtgv](https://huggingface.co/mtgv)              | [Hyperlink](#mobilevlm)        |
-|         LLaVA-Phi         |    arXiv     |        3B         |                             None                             | [![arXiv](https://img.shields.io/badge/Arxiv-2401.02330-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2401.02330) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/zhuyiche/llava-phi) |                             None                             | [Hyperlink](#llava-phi)        |
-|     LLaVA-Phi-3-mini      |     ---      |        ---        |                             None                             |                                                              | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/InternLM/xtuner) | [LLaVA-Phi-3-mini](https://huggingface.co/collections/xtuner/llava-phi-3-mini-662a5f7b9416630a1ad91102) | [Hyperlink](#llava-phi-3-mini) |
-|            IMP            |    arXiv     |        3B         |             [xmbot.net](https://xmbot.net/imp/)              | [![arXiv](https://img.shields.io/badge/arXiv-2405.12107-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2405.12107) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/MILVLG/imp) |    [imp-v1-3b ](https://huggingface.co/MILVLG/imp-v1-3b)     | [Hyperlink](#imp)              |
-|         MoE-LLaVA         |    arXiv     |        3B         | [MoE LLaVA](https://huggingface.co/spaces/LanguageBind/MoE-LLaVA) | [![arXiv](https://img.shields.io/badge/arXiv-2401.15947-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2401.15947) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/PKU-YuanGroup/MoE-LLaVA) | [MoE-LLaVA Family](https://huggingface.co/collections/LanguageBind/moe-llava-model-65b607bf2524ac36e733874c) | [Hyperlink](#moe-llava)        |
-|           Cobra           |    arXiv     |       3.5B        |     [Cobra](https://huggingface.co/spaces/han1997/cobra)     | [![arXiv](https://img.shields.io/badge/arXiv-2403.14520-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2403.14520) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/h-zhao1997/cobra) | [Cobra Family](https://huggingface.co/collections/han1997/cobra-6615c3242851ba108027105d) | [Hyperlink](#cobra)            |
-|         Vary-toy          |    arXiv     |        ---        |           [Vary Family ](https://vary.xiaomy.net/)           | [![arXiv](https://img.shields.io/badge/arXiv-2401.12503-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2401.12503) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Ucas-HaoranWei/Vary-toy) |    [Vary-toy](https://huggingface.co/HaoranWei/Vary-toy)     | [Hyperlink](#vary-toy)         |
-|       ALLaVA-Longer       |    arXiv     |        3B         |       [ALLaVA-Longer](https://allava.freedomai.cn/#/)        | [![arXiv](https://img.shields.io/badge/arXiv-2402.11684-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.11684) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/FreedomIntelligence/ALLaVA) | [ALLaVA-3B-Longer ](https://huggingface.co/FreedomIntelligence/ALLaVA-3B-Longer) | [Hyperlink](#allava-longer)    |
-|            MM1            |              |        ---        |                             None                             | [![arXiv](https://img.shields.io/badge/arXiv-2402.11684-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2403.09611) |                                                              |                             None                             | [Hyperlink](#mm1)              |
-|     MiniCPM-V Series      |     ---      |       2B/8B       | [MiniCPM-Llama3-V-2 5 ](https://huggingface.co/spaces/openbmb/MiniCPM-Llama3-V-2_5)<br />[MiniCPM V 2 ](https://huggingface.co/spaces/openbmb/MiniCPM-V-2) | [![AI Blog](https://img.shields.io/badge/AI%20Blog-paligemma%20AI-orange.svg)](https://openbmb.vercel.app/minicpm-v-2) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/OpenBMB/MiniCPM-V) | [MiniCPM-2B Family](https://huggingface.co/collections/openbmb/minicpm-2b-65d48bf958302b9fd25b698f) | [Hyperlink](#minicpm-v-20)     |
-|        DeepSeek-VL        |    arXiv     |      1.3B/7B      | [Chat with DeepSeek VL 7B ](https://huggingface.co/spaces/deepseek-ai/DeepSeek-VL-7B) | [![arXiv](https://img.shields.io/badge/arXiv-2403.05525-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2403.05525) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/deepseek-ai/DeepSeek-VL) | [DeepSeek-VL Family](https://huggingface.co/collections/deepseek-ai/deepseek-vl-65f295948133d9cf92b706d3) | [Hyperlink](#deepseek-vl)      |
 
 ## 基准测试结果汇总
 
@@ -125,6 +99,34 @@ Benchmark结果**精简版**汇总如下：
 
 
 ## 模型细节📊
+
+### Chameleon
+
+##### 动机
+
+现存大量的多模态大模型都是用视觉编码器和文本编码器分别处理两种模态的特征，作者认为这可能会限制他们跨模态集成信息并生成可包含任意图像和文本序列的多模态文档的能力。这项工作提出了一系列混合模态基础模型，能够生成任意交替的文本和图像内容的混合序列并进行推理。
+
+##### 创新点
+
+1. **对图像和文本模态使用统一的完全基于token的表示**：整个训练过程中，Chameleon的作者们使用sentencepiece库在下面概述的训练数据子集上训练一个新的 BPE tokenizer，词表大小为 65,536，其中包括 8192 个图像code token。
+   - **概述**：将文本解析为Token很容易，对于图像端，Chameleon使用一种基于Gafni等人（2022）的图像标记器将512×512的图像编码为1024个离散标记
+   - **具体而言**：这个过程和VIT有点类似，将大图像分割成一个个patch，然后一个patch编码成一系列token。而Chameleon使用的图像标记器会查找查找码书，将每个小块匹配到一个码书中的标记（每个码书包含8192个可能的标记）
+   - 最后图像标记器将每个小块通过标记器得到一个标记（0到8191之间的一个整数），一个512×512的图像被转换为长度为1024的离散标记序列。
+
+2. **科学的训练方式**
+   - **训练图像标记器**：为了提升图像生成性能，Chameleon的作者们着重**考虑到了图像生成过程中人脸的重要性**，在预训练期间特意将人脸图像的百分比上采样了 2 倍。
+   - **交错的输入图像token和文本token**：使文本和图像的信息在模型的每一层中都能互相影响，从而实现更好的模态融合。
+   - 引入了**查询键规范化**（QK-Norm）和**修订的层规范化**（Norm Reordering）等创新：解决混合模态设置中的优化稳定性问题。特别是在大规模参数模型的训练中，通过规范化技术有效控制了不同模态间的竞争，避免了训练过程中的发散问题。
+
+3. **训练网络的结构**：Chameleon使用统一的变压器架构处理图像和文本标记序列，语言和图像模态通过一个共享的表示空间来编码。
+
+##### 整体架构
+
+<div align="center">
+  <img src="./image/Chameleon.png" alt="image-20240510165317066" width="800" />
+</div>
+
+---
 
 ### DenseConnector
 

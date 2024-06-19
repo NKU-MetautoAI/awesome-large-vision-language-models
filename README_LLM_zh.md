@@ -4,7 +4,7 @@
 <div align="center">
  <strong>🌐✨关于近期的🔥LLMs🔥的github Awesome List</strong><br>
 <strong>中文</strong> | <strong><a href="./README_LLM.md">English🚀</a></strong><br>
-<strong>LLMs</strong> | <strong><a href="./README_VLMs.md">VLMs🚀</a></strong>
+<strong>LLMs</strong> | <strong><a href="./README_LVLMs.md">VLMs🚀</a></strong>
 </div>
 ## 近期LLM概览
 

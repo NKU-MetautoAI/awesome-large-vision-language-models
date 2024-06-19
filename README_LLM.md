@@ -4,7 +4,7 @@
 <div align="center">
 <strong>🌐✨github awesome list of recent 🔥LLMs🔥</strong><br>
 <strong><a href="./README_LLM_zh.md">中文🚀</a></strong> | <strong>English</strong><br>
-<strong>LLMs</strong> | <strong><a href="./README_VLMs.md">VLMs🚀</a></strong>
+<strong>LLMs</strong> | <strong><a href="./README_LVLMs.md">VLMs🚀</a></strong>
 </div>
 
 ## OverView
