@@ -8,7 +8,7 @@
 </div>
 <br>
 
-Welcome to our repository🥰, a comprehensive navigation page that connects you to the most relevant resources and summary platforms for the latest large models (including <a href="./README_LLM.md">LLMs🚀</a> and <a href="./README_VLMs.md">VLMs🚀</a>). Whether you're looking for benchmarks💯, comparisons⚖️, or surveys📖, we've got you covered. 
+Welcome to our repository🥰, a comprehensive navigation page that connects you to the most relevant resources and summary platforms for the latest large models (including <a href="./README_LLM.md">LLMs🚀</a> and <a href="./README_VLMs.md">LVLMs🚀</a>). Whether you're looking for benchmarks💯, comparisons⚖️, or surveys📖, we've got you covered. 
 
 Feel free to raise a issue or contact us (gepengai.ji@gmail.com) if you find any related papers that are not included here. 
 
