@@ -102,7 +102,7 @@ It also includes a variety of **datasets** for pre-training, alignment, multimod
 ## Reference
 
     @misc{hu2024awesome,
-      author       = {Bocheng Hu, Gepeng Ji},
+      author       = {Bocheng Hu, Ge-Peng Ji, Deng-Ping Fan},
       title        = {An awesome list of large vision language models},
       howpublished = {\url{https://github.com/NKU-MetautoAI/awesome-large-vision-language-models}},
       year         = {2024}
