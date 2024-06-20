@@ -228,6 +228,33 @@ The LLaVa model was proposed in [Visual Instruction Tuning](https://arxiv.org/ab
 
 ---
 
+### DeepSeek-VL
+
+[![arXiv](https://img.shields.io/badge/arXiv-2403.05525-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2403.05525) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/deepseek-ai/DeepSeek-VL)
+[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/deepseek-ai/deepseek-vl-65f295948133d9cf92b706d3)
+
+The primary design goal of DeepSeek-VL is to extend multimodal capabilities without compromising NLP performance, ensuring that the generated text is more human-like and capable of completing various downstream tasks in the field of computer vision. DeepSeek-VL possesses the following innovations and features:
+
+1. **Data Construction**
+
+   - **Diversity and Scalability**: The dataset for DeepSeek-VL encompasses real-world scenarios, including web page screenshots, PDFs, OCR, charts, and knowledge-based content (such as expert knowledge and textbooks), ensuring diversity and comprehensiveness in the data.
+
+   - **Practical Application Scenarios**: Use case categories were created based on real user scenarios, and corresponding instruction tuning datasets were constructed. Fine-tuning with these datasets significantly enhances the model's user experience in practical applications.
+
+2. **Model Architecture**
+
+   - **Hybrid Vision Encoder**: DeepSeek-VL employs a hybrid vision encoder capable of efficiently processing high-resolution images (1024 x 1024) with low computational overhead, capturing key semantic and detailed information. This design enhances inference efficiency while maintaining rich visual information.
+
+   - **Combination of High and Low Resolution**: The model integrates the capabilities to process both low-resolution (384 x 384) and high-resolution (1024 x 1024) images, ensuring that it can capture sufficient detail and semantic information when handling complex visual tasks.
+
+3. **Training Strategy**
+
+   - **Priority on Language Capability**: During multimodal pre-training, DeepSeek-VL retains a majority of language data (at least 70%), ensuring the preservation and enhancement of language model capabilities. Gradually increasing the proportion of vision-language data balances the development of multimodal and language capabilities.
+
+   - **Modality Warm-up Strategy**: A "modality warm-up" strategy is introduced, which gradually adjusts the ratio of different modality data during training. This ensures balanced development of visual and language capabilities, avoiding the degradation of abilities due to the overtraining of a single modality.
+
+---
 
 ### PaliGemma
 
@@ -375,157 +402,292 @@ Although TinyLLaVA has fewer parameters compared to many large models, the perfo
 ##### Architecture 
 
 <div align="center">
-  <img src="./image/tinyllava.png"  width="800" />
+  <img src="./image/tinyllava.png"  width="800" />	
 </div>
+
 
 
 ---
 
+### MiniCPM-V 2.0
 
-### Cog Series
+[![AI Blog](https://img.shields.io/badge/AI%20Blog-paligemma%20AI-orange.svg)](https://openbmb.vercel.app/minicpm-v-2) 
 
-#### CogVLM
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/OpenBMB/MiniCPM-V)
+[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/openbmb/minicpm-2b-65d48bf958302b9fd25b698f)
 
-[![arXiv](https://img.shields.io/badge/arXiv-2311.03079-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2311.03079) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/THUDM/CogVLM)
+MiniCPM-V is notably distinguished by its **OCR capabilities**, with the technical report claiming, "the model achieves the best performance in the open-source community on the comprehensive OCR ability evaluation benchmark OCRBench, and even approaches Gemini Pro in scene text understanding."
 
-CogVLM is an innovative open-source visual language model (VLM) designed to bridge the gap between traditional language models and visual data processing. It introduces a "visual expert module" within its architecture to enhance the integration of visual and language features without increasing computational demands. This module is embedded in both the attention and feedforward neural network (FFN) layers of a pre-trained language model, allowing for a deep fusion of visual and linguistic data.
+##### Summary of MiniCPM-V 2.0 Features (excerpted from the technical report):
 
-Unlike previous methods that often used a shallow alignment strategy, CogVLM achieves a more profound integration by allowing direct interactions between visual and textual representations within the model's layers. This approach enables the model to maintain high performance on natural language processing tasks while also excelling in tasks that require understanding of visual content
+1. **Leading OCR and Multimodal Understanding Capabilities**: MiniCPM-V 2.0 significantly enhances OCR and multimodal understanding capabilities, achieving scene text understanding performance close to Gemini Pro. It outperforms larger parameter models (e.g., 17-34B) on several mainstream evaluation benchmarks.
+2. **Trustworthy Behavior**: MiniCPM-V 2.0 is the first edge multimodal large model aligned through multimodal RLHF, leveraging [RLHF-V](https://rlhf-v.github.io/) [CVPR'24] technologies. The model achieves performance comparable to GPT-4V on Object HalBench.
+3. **Efficient Encoding of High-Resolution Images with Arbitrary Aspect Ratios**: MiniCPM-V 2.0 can process images up to 1.8 million pixels with any aspect ratio (based on the latest [LLaVA-UHD](https://arxiv.org/pdf/2403.11703.pdf) technology), allowing the model to perceive finer visual details such as small objects and dense text.
+4. **Efficient Deployment**: MiniCPM-V 2.0 can be efficiently deployed on most consumer-grade graphics cards, personal computers, and mobile devices.
+5. **Bilingual Support**: MiniCPM-V 2.0 offers leading bilingual multimodal capability support in Chinese and English. This capability is achieved through cross-lingual generalization techniques in multimodal capabilities proposed in the [VisCPM](https://arxiv.org/abs/2308.12038) [ICLR'24] paper.
 
-|            Model            | Resolution |                         Introduction                         |                      Huggingface model                       |                       SAT model                       |
-| :-------------------------: | :--------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :---------------------------------------------------: |
-|      cogvlm-chat-v1.1       |    490     |      Supports simultaneous multi-turn chat and visual question answering, with the ability to use flexible prompts.      |     [link](https://huggingface.co/THUDM/cogvlm-chat-hf)      | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
-|       cogvlm-base-224       |    224     |               The original checkpoint after text-image pretraining.               |   [link](https://huggingface.co/THUDM/cogvlm-base-224-hf)    | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
-|       cogvlm-base-490       |    490     | The resolution is increased to 490 by performing positional encoding interpolation from cogvlm-base-224. |   [link](https://huggingface.co/THUDM/cogvlm-base-490-hf)    | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
-| cogvlm-grounding-generalist |    490     |    This checkpoint supports various visual localization tasks, such as REC and localization captions.     | [link](https://huggingface.co/THUDM/cogvlm-grounding-generalist-hf) | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
+##### MiniCPM-Llama3-V 2.5🔥
+
+The latest model in the MiniCPM series, featuring the following new characteristics:
+
+1. **Powerful Edge Multimodal Model**: With only 8B active parameters, it surpasses many larger parameter multimodal models—such as Gemini Pro and GPT-4V—in various benchmarks.
+   - The visual encoder uses SigLIP-400M; the compression layer uses the perceiver resampler structure; the language model uses Llama-3 8B.
+   - **Handling High-Resolution and Variable Aspect Ratio Images**: MiniCPM-Llama3-V 2.5 employs the adaptive visual encoding method proposed in the LLaVA-UHD paper. Each input image is first optimally sliced based on its size and aspect ratio, then each slice is adapted according to the ViT's pre-training resolution. Finally, MiniCPM-Llama3-V 2.5 processes each slice through the visual encoder.
+2. **Further Enhanced OCR Capabilities**: Achieving an OCRBench score of 725, it surpasses GPT-4o, GPT-4V, Gemini Pro, Qwen-VL-Max, and other commercial closed-source models, reaching the highest level.
+3. **Friendly to Low Computational Resource Users**: With a quantized version, it requires only 8GB VRAM for deployment. It can run inference smoothly on consumer-grade graphics cards and achieve 6-8 tokens/s inference speed on mobile devices.
+4. **Supports 30+ Languages**.
+5. **Trustworthy Behavior**: The hallucination rate on Object HalBench is reduced to 10.3%, significantly lower than GPT-4V-1106 (13.6%), achieving the best level in the open-source community.
+6. **Mobile Optimization**: MiniCPM-Llama3-V 2.5 systematically employs model quantization, CPU, NPU, and compilation optimization techniques for efficient acceleration. Through 4-bit quantization and cooperation with the llama.cpp framework, it can **achieve a language model encoding speed of 8-9 tokens per second and a decoding speed of 3-4 tokens per second**.
+
+---
+
+### ALLaVA-Longer
+
+[![arXiv](https://img.shields.io/badge/arXiv-2402.11684-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.11684) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/FreedomIntelligence/ALLaVA)
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/FreedomIntelligence/ALLaVA-3B-Longer)
+
+ALLaVA-Longer is an open-source VLM launched by the Chinese University of Hong Kong, Shenzhen. The research team trained it using high-quality data generated by GPT-4V, which includes detailed image descriptions, complex question instructions, and comprehensive answers. **This focus on data quality is a key aspect of this work**. Leveraging this data, ALLaVA-Longer was developed. The design of ALLaVA-Longer is based on the "input determines output principle," mainly attempting to refine the details of "multimodal alignment" and "visual instruction fine-tuning" at the data level (the former primarily aims to help the language model recognize visual objects and enhance its visual reasoning ability, while the latter focuses on enabling LVLMs to generalize across a wider range of instructions).
+
+##### Details of Dataset Construction
+
+1. **Construction of Multimodal Alignment Dataset**:
+
+   - **Drawbacks of Existing Multimodal Alignment Datasets**: Existing work typically uses caption data to align images and text, but these datasets often contain short and coarse-grained captions. These brief captions introduce noisy signals, hindering the effectiveness of the visual-language alignment process. For example, the commonly used COCO dataset (Microsoft Common Objects in Context) includes many short image descriptions that may lack sufficient detail to effectively help the model understand and associate images with text.
+
+   - **New Dataset Construction Method**: By using GPT-4V to generate high-quality caption data. GPT-4V can produce detailed image descriptions, complex instructions, and comprehensive answers, which are more informative and precise than the brief descriptions found in traditional datasets.
+
+     > Essentially, this is a PLUS version of the dataset construction method used by [MiniGPT4/MiniGPT-v2](#minigpt4-series). The method can be referenced accordingly.
+
+2. **Construction of Visual Instruction Fine-Tuning Dataset**:
+
+   - **Drawbacks of Existing Visual Instruction Fine-Tuning Datasets**: The main issues are the relative simplicity of the questions and the brief and less informative answers. For instance, Vision-FLAN contains relatively simple questions, focusing more on basic tasks rather than complex reasoning problems. Additionally, although the answers are human-annotated, they are often very brief and lack detailed background and reasoning processes.
+
+   - **New Dataset Construction Method**: First, GPT-4V generates detailed descriptions for each image, including primary objects, background elements, colors, and prominent features. Subsequently, GPT-4V formulates multiple complex questions based on the image descriptions, which require careful observation and strong reasoning abilities to answer. To ensure diversity, GPT-4V generates multiple candidate questions and then randomly selects one for answering. Finally, GPT-4V provides detailed answers to the selected questions, including not only the direct response but also the process of solving the problem and relevant background information.
+
+   > **Example**: For an image containing a squirrel and a bird, the model would generate the following description, question, and answer:
+   > **Description**: The image shows a squirrel standing in front of the camera, appearing to take a photo of the bird, with a mushroom-shaped object in the background.
+   > **Question**: What is the source of humor in this image?
+   > **Answer**: The humor comes from the role reversal and anthropomorphism. Usually, humans take photos of wildlife, but here the squirrel appears to be operating the camera to photograph the bird. This unusual scenario and the anthropomorphic behavior of the animals create a whimsical and amusing scene.
 
 
 
-##### Motivation
 
-The authors of CogVLM believe that the poor performance of shallow alignment methods is due to their reliance on "frozen" language model weights, which are inherently trained to process textual tokens and exhibit significant mismatches.
+
+---
+
+### MM1
+
+[![arXiv](https://img.shields.io/badge/arXiv-2402.11684-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2403.09611) 
+
+A significant highlight of Apple's MM1 is its extensive and comprehensive ablation experiments conducted to determine the optimal combination of model design and data selection. Overall, MM1 conducted ablation experiments on the following aspects, subsequently proposing the overall VLM structure of MM1.
+
+1. **Model Architecture Decisions**
+   - Impact of Different Image Encoders and Vision-Language Connectors: Comparing different image encoders (e.g., ViT-L and ViT-H) and image resolutions (224px vs. 336px) on model performance.
+   - Impact of Image Resolution and Image Token Count: Comparing different vision-language connector designs (e.g., average pooling, attention pooling, convolutional mapping) and different image token counts (64 and 144).
+
+2. **Pre-Training Data Selection**:
+   - Combination of Different Types of Pre-Training Data (image-text pairs, interleaved image-text documents, and pure text data): Comparing different pre-training data types (image-text pairs, interleaved image-text documents, pure text data) and different mixing ratios on model performance.
+   - Impact of Data Mixing Ratios.
+
+3. **Training Process**:
+   - Impact of Hyperparameter Selection on Model Training: Performing grid searches for learning rates and weight decay on models of different scales to determine the optimal training hyperparameters.
+
+The following conclusions were drawn:
+
+1. **High image resolution and an appropriate number of image tokens are crucial for improving model performance**.
+2. **C-Abstractor performs best as the vision-language connector under high-resolution settings**.
+3. **A reasonable mixture ratio of pre-training data can achieve a good balance in multimodal and text understanding tasks**.
+4. **Learning rate and weight decay parameters determined through grid search can significantly enhance model training effectiveness**.
+
+Subsequently, the overall architecture of MM1 was determined:
+
+- **Image Encoder**: ViT-H.
+- **Language Model**: Transformer decoder models with parameters ranging from 3B to 30B, supporting larger-scale MoE (Mixture-of-Experts) models.
+- **Vision-Language Connector**: C-Abstractor, using convolutional mapping to preserve local information of images and adaptive pooling to adjust the number of image tokens. Utilizing 144 image tokens.
+- **Pre-Training Data Selection and Mixing Ratio**: 45% image-text pairs, 45% interleaved image-text documents, 10% pure text data.
+- MoE Strategy: Details can be found at [link](#innovations-7).
 
 ##### Innovations
 
-1. To prevent the forgetting problem caused by directly training LLMs on new datasets and to maintain familiarity with the original datasets, the aim is to enhance visual understanding capabilities while preserving existing NLP performance.
-2. CogVLM introduces a trainable visual expert within the language model. When processing visual and linguistic information, visual information is handled through a dedicated mechanism rather than simply integrating image features into the existing text processing workflow.
-   - In each layer, image features are processed independently of text features using new QKV (Query-Key-Value) matrices and MLP (Multi-Layer Perceptron) layers.
-3. It utilizes RoPE (Rotary Positional Embedding) instead of traditional positional encoding (in traditional Transformer models, positional encoding is typically added to the input sequence's word embeddings to provide positional information for each element in the sequence).
+1. **Scalable Expert Model**:
 
-CogVLM introduces a trainable visual expert within the language model. This means that when processing visual and linguistic information, visual information is handled through a dedicated mechanism rather than simply integrating image features into the existing text processing workflow.
+   - The MM1 model expands the total parameters by increasing the number of experts in the language model. Specifically, MM1 designed two MoE models:
+     - A 3B-MoE model with 64 experts, replacing every two standard dense layers with a sparse layer (MoE layer), totaling 64B parameters.
+     - A 7B-MoE model with 32 experts, replacing every four standard dense layers with a sparse layer (MoE layer), totaling 47B parameters.
+   - **Expert Selection and Load Balancing**: The MoE model employs a top-2 gating strategy, meaning only two experts are activated in each forward pass. Additionally, a load balance loss term with a coefficient of 0.01 is introduced to encourage an even distribution of load among the experts.
 
-##### Architecture
+2. **Flexible Vision-Language Connector Design**: The primary function of the vision-language connector is to convert visual representations into a space that the language model can process. The MM1 team experimented with several different vision-language connector designs (including **average pooling**, **attention pooling**, **convolutional mapping**). However, it was found that while the connector design had a minor impact on the final performance, the image resolution and the number of image tokens had a significant impact.
 
-<div align="center">
-  <img src="./image/cogVLM.png" alt="image-20240510165317066" width="800" />
-</div>
+   - To flexibly handle the number of image tokens and retain more detailed image information through convolution operations, MM1 chose C-Abstractor as the main vision-language connector.
 
-##### Model Subdivision
+3. **Refined Pre-Training Data Selection**
 
-- **CogVLM-Chat**: This model accepts natural language inputs and outputs, primarily handling pure text inputs and outputs. It is suitable for various VQA (Visual Question Answering) and multi-turn dialogue datasets.
-- **CogVLM-Grounding**: This model focuses on handling inputs and outputs that include bounding boxes, supporting a variety of tasks related to visual benchmarks.
+   - The MM1 team determined the optimal mixture ratio of different data types through the aforementioned ablation experiments: 45% image-text pairs, 45% interleaved image-text documents, 10% pure text data.
+   - Specifically, the experiments adjusted the ratio of image-text pairs and interleaved document data, observing the model's performance in zero-shot and few-shot tasks, and then added or removed pure text data to observe its impact on few-shot and text understanding tasks. Finally, various combinations of image-text pairs, interleaved documents, and pure text data were used for training, observing their overall impact on various tasks.
 
-##### Some Tips
+4. **Support for High-Resolution Images**: MM1 employed a series of techniques to handle high-resolution images, including image scaling, positional embedding interpolation, and sub-image decomposition:
 
-The LLM is trained based on Vicuna-7B, ensuring its NLP capabilities while incorporating visual understanding. Efficient fine-tuning methods such as P-Tuning and LoRA have been utilized.
+   - **Image Scaling**: First, the input image is scaled down to 672×672 for high-level representation. Simultaneously, the input image is adjusted to a resolution of 1344×1344 and then decomposed into four 672×672 sub-images.
+   - **Sub-Image Decomposition**: For high-resolution input images (e.g., 1344×1344), they are decomposed into five 672×672 sub-images, each input independently into the vision encoder. This method has been shown in experiments to support image resolutions up to 1792×1792.
+   - **Positional Embedding Interpolation**: In high-resolution image processing, MM1 adopts positional embedding interpolation to accommodate the new resolution. This method allows the visual Transformer backbone to adapt to new image resolutions during fine-tuning.
 
-
-
-#### CogAgent
-
-[![arXiv](https://img.shields.io/badge/arXiv-2312.08914-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2312.08914) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/THUDM/CogVLM)
-
-**CogAgent** is an improved open-source visual language model based on CogVLM. It primarily focuses on enhancing GUI understanding and navigation capabilities, allowing it to recognize minute page elements and text. This model outperforms traditional LLM-based methods in tasks involving screen shots.
-
-> Reviewing the examples provided on GitHub and in the paper can offer an intuitive understanding of the concept of CogAgent.
+   > Research indicates that supporting a 1344×1344 image resolution can achieve a 15% relative improvement in SFT (Supervised Fine-Tuning) evaluation metrics. However, for the maximum image resolution of 1792×1792, the average performance slightly decreases, which may be due to many evaluation images being smaller than this resolution, and artifacts generated during resizing potentially affecting model performance.
 
 
-|     Model     | Resolution |                         Introduction                         |                   Huggingface model                   |                        SAT model                        |
-| :-----------: | :--------: | :----------------------------------------------------------: | :---------------------------------------------------: | :-----------------------------------------------------: |
-| cogagent-chat |    1120    |    The chat version of CogAgent. Supports GUI agents, multi-turn chat, and visual localization.     | [link](https://huggingface.co/THUDM/cogagent-chat-hf) | [link](https://huggingface.co/THUDM/CogAgent/tree/main) |
-| cogagent-vqa  |    1120    | The VQA version of CogAgent. It has enhanced capabilities for single-turn visual dialogue. Recommended for VQA benchmarking. | [link](https://huggingface.co/THUDM/cogagent-vqa-hf)  | [link](https://huggingface.co/THUDM/CogAgent/tree/main) |
 
-##### Motivation
+---
 
-- To develop an agent that exhibits exceptional performance in GUI-oriented tasks.
+### Vary-toy
+
+[![arXiv](https://img.shields.io/badge/arXiv-2401.12503-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2401.12503) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Ucas-HaoranWei/Vary-toy)
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/HaoranWei/Vary-toy)
+
+Vary-toy is an optimized and improved multimodal large model based on **[Vary](https://varybase.github.io/)**, developed to address the excessive computational resource requirements of the original Vary model. The Vary development team introduced the smaller model, Vary-toy, which not only has fewer parameters but also utilizes an optimized visual vocabulary network, reducing network capacity wastage during PDF OCR tasks. Vary-toy can be trained on consumer-grade GPUs and run inference on older GPUs with 8GB VRAM, and **supports both Chinese and English**.
+
+Vary-toy is lauded as **"the first multimodal large model for young people"** for its open-source nature, lightweight design, ease of deployment, and high performance.
 
 ##### Innovations
 
-- **Capability to Handle High-Resolution Images**: This work designs a cross-attention branch that allows for a trade-off between resolution and hidden size within an appropriate computational budget, addressing the issue of high-resolution images requiring substantial resources for inference and computation.
-  - **High-Resolution Cross Module**: This new branch for higher-resolution inputs adopts a smaller pre-trained visual encoder and uses cross-attention with a smaller hidden size to integrate high-resolution image features into each layer of the VLLM decoder, thereby reducing computational costs.
-  - **Contrast with Low-Resolution Input Branch**: Unlike the original low-resolution input branch, the high-resolution cross module employs a smaller pre-trained visual encoder (in this case, the EVA2-CLIP-L visual encoder with 0.30B parameters). This module uses cross-attention with a smaller hidden size to merge high-resolution image features with the VLLM decoder at each layer.
-  - For an input image, the model resizes it to 1120 × 1120 and 224 × 224, feeding these into the high-resolution cross module and the low-resolution branch, respectively. These two branches work in parallel, encoding the image into feature sequences Xhi (high-resolution image features) and Xlo (low-resolution image features).
-- Privately Constructed Dataset: They observe that GUI images have a different distribution from natural images. Consequently, they construct a large-scale annotated dataset focused on GUIs and OCR for continual pre-training.
+1. **Remarkable Miniaturization**: Compared to current popular large vision-language models (LVLMs), Vary-toy has significantly fewer parameters, with an LLM backbone of only 1.8B parameters (e.g., Qwen-1.8B). It can be trained and deployed on consumer-grade GPUs (such as the GTX1080ti), drastically lowering the barrier to training and usage.
+
+2. **Improved Visual Vocabulary Network**: Vary-toy introduces an improved visual vocabulary network that not only retains all the features of the Vary model but also enhances the perception of natural objects. Specifically, it replaces negative sample data from natural images with positive sample data (based on object detection tasks) when generating visual vocabulary, thus more fully utilizing the network's capacity and improving the efficiency of visual information encoding.
+   - **Before Improvement**: In traditional visual language models (such as Vary), the visual vocabulary network typically uses negative sample data from natural images to generate visual vocabulary. This approach can lead to network capacity wastage, as negative sample data does not fully leverage the network's ability to encode visual information.
+   - **After Improvement**: Vary-toy introduces a new method, replacing negative sample data with positive sample data when generating visual vocabulary.
+
+3. **Multitask Training with Broad Coverage**: During the pre-training phase, Vary-toy incorporates various data formats, including weakly supervised image caption data, PDF document OCR data, object detection data, pure text dialogue data, and VQA data. These data are organized in a dialogue format, enabling the model to excel in different tasks. Consequently, Vary-toy, despite being a "small" VLM, encompasses all the capabilities of mainstream LVLM research: Document OCR, Visual Grounding, Image Captioning, VQA, etc.
 
 ##### Architecture
 
+1. **Small Autoregressive Model (OPT-125M)**
+   - Vary-toy employs a small autoregressive model, OPT-125M, to generate visual vocabulary. Inputs include PDF documents and natural images. Different prompts are provided for different inputs, such as "provide OCR results" and "detect teddy bear."
+
+2. **Visual Vocabulary Generation**
+   - In the process of generating visual vocabulary, Vary-toy adopts an improved method using positive sample data instead of negative sample data.
+   - The visual vocabulary network leverages data from object detection tasks to fully utilize network capacity, enhancing the efficiency of visual information encoding.
+
+3. **Integration of Visual Vocabulary and CLIP**
+   - Vary-toy integrates the generated visual vocabulary with CLIP.
+   - CLIP processes images of 224×224 resolution, while the visual vocabulary network handles images of 1024×1024 resolution.
+   - The outputs of both (256 tokens each) are concatenated to form the input image tokens for the language model.
+
+4. **1.8B "Large" Language Model (Qwen-1.8B)**
+   - Vary-toy uses Qwen-1.8B as the base language model.
+   - By combining the outputs of the improved visual vocabulary network and CLIP, Qwen-1.8B can more effectively handle multimodal tasks.
+
+5. **Multitask Input and Output**
+   - The input format follows a dialogue template, such as: `USER: <img>"<image>"</img> "texts input" ASSISTANT: "texts output" </s>`
+   - Tasks include OCR, object detection, image description, and general dialogue.
+
 <div align="center">
-  <img src="./image/cogAgent.png" alt="image-20240510171107123" width="800" />
+  <img src="./image/Vary_toy.png"  width="800" />
 </div>
+
 
 
 ---
 
+### MoE-LLaVA
+
+[![arXiv](https://img.shields.io/badge/arXiv-2401.15947-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2401.15947) 
+
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/PKU-YuanGroup/MoE-LLaVA)
+
+[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/LanguageBind/moe-llava-model-65b607bf2524ac36e733874c)
 
 
-### MiniGPT4 Series
 
-Recently, most of the work is based on MiniGPT4 and MiniGPT4-V2. The architectures of MiniGPT4 & MiniGPT4-V2 lay the foundation for subsequent multimodal large models, with subsequent work either adopting their training methods or fine-tuning their entire code structure.
+MoE-LLaVA is a VLM based on MoE (Mixture of Experts), which integrates multiple expert models (expert networks) to enhance its multimodal capabilities and generalization performance. However, for large VLMs, while an increase in parameters can lead to performance improvements, the computational resources required for training and inference also increase rapidly. This work addresses this issue.
 
-#### MiniGPT4
+##### Motivation
 
-[![arXiv](https://img.shields.io/badge/arXiv-2304.10592-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2304.10592) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Vision-CAIR/MiniGPT-4)
-[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/Vision-CAIR/MiniGPT-4)
+To train a high-performance VLM with limited computational resources, MoE-LLaVA, developed by institutions such as Peking University and Sun Yat-sen University, proposes an ingenious and novel training strategy called MoE-Tuning. This strategy achieves a large parameter size while maintaining constant computational resource requirements.
 
-MiniGPT-4 is generally divided into a visual end and a language end, comprising a visual encoder (ViT and Q-Former) and the Vicuna language model. A simple linear projection layer is used to align the visual features with the language model.
+##### Innovations
 
-Training is conducted in two stages:
+1. **Three-Stage MoE-Tuning Training Strategy** (Refer to the illustration [link](#train process-1))
 
-1. **Pre-training Stage**: Initially trained using a large number of image-text pairs to acquire visual-language knowledge. After this stage, the model can handle some VQA problems but may still output content unrelated to the queries.
-   - The visual end uses ViT and Q-Former.
-   - The language end uses Vicuna.
-2. **Fine-tuning Stage**: Involves fine-tuning with a high-quality, detailed image description dataset. This stage includes an instruction dataset sourced from the Conceptual Caption dataset. The authors used the model trained in the first stage to generate image descriptions, providing sufficient prompts to ensure the descriptions were detailed. Subsequently, ChatGPT was used for further construction and error correction. Finally, around 3,500 image-text pairs were manually selected to form the final dataset.
+   - **Stage I: Adapting to Visual Input**: The main goal is to adapt image tokens to the LLM so that the LLM can understand instances within images.
+     - A multilayer perceptron (MLP) is used to project image tokens into the input domain of the LLM, treating image patches as pseudo-text tokens.
+     - In this stage, only the MLP layer is trained, and other parameters of the LLM are not trained.
+   - **Stage II: Enhancing Multimodal Understanding**: The goal is to fine-tune the LLM with multimodal instruction data to endow it with multimodal understanding capabilities.
+     - All parameters of the LLM are unfrozen and trained to enhance its ability to process multimodal data.
+     - Training is conducted using multimodal instruction data involving complex tasks such as image logical reasoning and text recognition, which require stronger multimodal understanding.
+     - Upon completion of this stage, the LVLM possesses preliminary multimodal understanding capabilities, laying the groundwork for sparsification in the next stage.
+   - **Stage III: Introducing Sparsification with MoE Layers**: The goal is to reduce computational costs while maintaining high performance by introducing sparsification mechanisms, which involve the following steps:
+     - **Initializing Expert Weights**: Copying the FFN weights from Stage II as the initialization weights for each expert.
+     - **Training MoE Layers**: Only the MoE layers are trained, ensuring each token is processed by the top-k experts with the highest probabilities, while the remaining experts remain inactive.
+     - **Router Weight Calculation**: A linear layer router predicts the probability of each token being assigned to each expert, normalized using the softmax function. Each token is processed by the top-k experts, with outputs weighted by the router's weights.
 
+2. **Sparse LVLM Architecture Based on MoE**
 
+   - Initially, images are processed by the vision encoder to obtain a sequence of visual tokens Z, and text is processed by the word embedding layer to obtain a sequence of text tokens T. The visual and text tokens are concatenated into a single sequence and input into the LLM.
+   - Subsequently, during the forward propagation of the model, in each MoE layer, the router calculates the probability of each token being assigned to each expert, selects the top-k experts for processing, and obtains the final output through weighted summation.
+   - This approach significantly expands the number of model parameters while keeping computational costs constant.
+
+3. **Mechanism of MoE Layers and Details of FFN**: The MoE layer introduces multiple experts (each being an independent FFN) and dynamically selects the most suitable experts to process the current input, thereby enhancing model performance.
+
+   - **Initialization**: In the third stage of the training strategy, the FFN weights are copied and initialized as the weights for multiple experts. These experts form a set E = [e1, e2, ..., eE].
+   - **Router Weight Calculation**: The router, a linear layer, receives input tokens and generates weight logits for each expert. These weights are then normalized using softmax to obtain the probability of selecting each expert.
+   - **Expert Selection**: The top-k experts with the highest probabilities are selected for processing, known as "active experts."
+   - **Expert Processing**: Each active expert processes the input tokens and calculates the output. The outputs of the active experts are combined through weighted summation to obtain the final output of the MoE layer.
+
+   > Experts not selected remain inactive and do not participate in computation, thereby reducing computational overhead.
+
+   
 
 ##### Architecture
 
 <div align="center">
-  <img src="./image/minigpt4.png"  width="800" />
+  <img src="./image/moe-llava.png"  width="800" />
 </div>
 
+The overall architecture consists of the following components:
 
+1. **Vision Encoder**:
+   - Takes RGB images as input and processes them into a sequence of visual tokens. The original image resolution is H×W, and the vision encoder converts it into P visual tokens, each with a dimension of C.
 
-#### MiniGPT4-V2
+2. **Visual Projection Layer (MLP)**:
+   - Maps the sequence of visual tokens from dimension C to the hidden size D of the LLM.
 
-[![arXiv](https://img.shields.io/badge/arXiv-2310.09478-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2310.09478) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Vision-CAIR/MiniGPT-4)
+3. **Word Embedding Layer**:
+   - Projects text tokens into the hidden size D of the LLM.
 
-MiniGPT-4 v2 builds upon MiniGPT-4 with several significant innovations and improvements:
+4. **Large Language Model (LLM)**:
+   - Composed of multiple stacked multi-head self-attention (MSA) layers and feedforward neural network (FFN) layers, with layer normalization (LN) and residual connections applied to each block.
 
-1. **Task Identifiers for Multimodal Tasks**: Introduces task identifiers such as [vqa], [caption], [grounding] to distinguish between tasks like visual question answering, image captioning, and visual grounding. During training, different datasets specific to downstream tasks are used for fine-tuning, with task identifiers integrated into the dialogue templates and fed into the model. In inference, users manually select task identifiers to inform GPT about the type of downstream task to perform. This approach significantly improves the model's adaptation to downstream tasks, reducing hallucinations and confusion while maintaining performance.
+5. **MoE Layer**:
+   - Consists of multiple FFN experts, with each token assigned to the top-k experts via a learnable router. The inactive experts remain inactivated.
 
-2. **Three-Stage Training Strategy**
-   1. **Pre-training**: Utilizes weakly annotated and finely annotated datasets (e.g., LAION, CC3M, SBU, GRIT-20M) to train the model, acquiring broad visual-language knowledge.
-   2. **Second Stage: Multi-task Training**: Employs only finely annotated datasets (e.g., COCO, RefCOCO) for multi-task training, optimizing the model's performance across various tasks.
-   3. **Third Stage: Multimodal Instruction Tuning**: Fine-tunes the model using multimodal instruction datasets (e.g., LLaVA, Flickr30k) and language datasets (e.g., Unnatural Instructions), enhancing its conversational and instruction-following capabilities.
-
-3. **High-Resolution Input**: Supports higher resolution images (448x448) and reduces computational load by merging adjacent visual tokens into a single token, improving training and inference efficiency.
-
-
-
-##### Architecture
+##### Train process
 
 <div align="center">
-  <img src="./image/minigpt4v2.png"  width="800" />
+  <img src="./image/moe-llava-train.png"  width="800" />
 </div>
+
 
 
 ---
 
+### LLaVA-Phi
+
+[![arXiv](https://img.shields.io/badge/Arxiv-2401.02330-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2401.02330)
+
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/zhuyiche/llava-phi)
+
+LLaVA-Phi (also known as LLaVA-φ) is a multimodal small model composed of smaller models for both the visual and language ends. It replaces Vicuna in LLaVA with Phi, achieving SOTA results on many benchmarks. LLaVA-Phi accepts images sized 336x336 (using a pre-trained CLIP ViT-L/14 with a resolution of 336x336) and employs a two-layer MLP as the linking component between the visual and language ends.
+
+LLaVA-Phi also fine-tunes phi-2, using instruction templates organized similarly to the Vicuna format.
+
+**Detailed Two-Stage Training Strategy**:
+
+- **Pre-training Stage**: One round of pre-training using a filtered subset of the CC-595K dataset with a learning rate of 1e-3 and a batch size of 256.
+- **Instruction Fine-Tuning Stage**: One round of fine-tuning on the LLaVA-Instruct-150K dataset with a learning rate of 2e-5 and a batch size of 256. The fine-tuning process uses the Adam optimizer, with a weight decay of 0.1, momentum parameters of 0.9 and 0.98, and an epsilon value of 1e-7.
+
+
+
+---
 
 ### TinyGPT-V 
 
@@ -537,12 +699,11 @@ MiniGPT-4 v2 builds upon MiniGPT-4 with several significant innovations and impr
 
 TinyGPT-V is also exploring how to use small backbones to implement a multimodal large language model. The model is generally divided into a visual end, a language end, and a mapping layer. The language end uses Phi-2, the visual end uses the pre-trained EVA (Enhanced Vision Attention) ViT (Vision Transformer) model, and the mapping layer employs the Q-Former layer from the BLIP-2 architecture as the initial mapping layer, leveraging the pre-training advantages of the BLIP system. The innovations and highlights of TinyGPT-V can be summarized as follows:
 
-1. **Structure of the Visual-Language Mapping Layer**: TinyGPT-V's visual-language mapping layer combines several small modules from different models (including visual models and other VLMs) and can be divided into three main levels (detailed design in the [figure below](#train process)):
-
+1. **Structure of the Visual-Language Mapping Layer**: TinyGPT-V's visual-language mapping layer combines several small modules from different models (including visual models and other VLMs) and can be divided into three main levels (detailed design in the [figure below](#train process-2)):
    - **Q-Former Layer (Initial Mapping Layer)**: The Q-Former layer from the BLIP-2 architecture serves as the initial mapping layer. This well-pretrained structure effectively aligns the high-dimensional visual features extracted by the EVA ViT visual encoder with the language model, transforming them into representations suitable for the language model.
    - **First Linear Projection Layer**: Uses a pretrained linear projection layer from MiniGPT-4, which accelerates the training process as it already contains rich patterns and features that can be directly used without retraining from scratch.
    - **Second Linear Projection Layer**: A new linear projection layer initialized with a Gaussian distribution ensures that features are finally integrated into the hidden space of the Phi-2 model.
-
+   
 2. **Four-Stage Training Strategy**:
 
    - **Stage 1: Warm-Up Training**: Uses large-scale image-text pair datasets (e.g., LAION, Conceptual Captions, SBU) for initial pre-training. The model recognizes the output of the projection layer as soft prompts, guiding it to generate relevant text (using approximately 5 million image-text pairs in total).
@@ -590,47 +751,6 @@ $$
 
 
 ---
-
-### PaLI-3
-
-[![arXiv](https://img.shields.io/badge/arXiv-2310.09199-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2310.09199) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/google-research/big_vision)
-[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/tinyllava)
-
-PaLI-3 is the third-generation model in the PaLI series. By leveraging a pre-trained baseline model with only 5B parameters, they optimized the training methodology and achieved competitive and new state-of-the-art results on various VLM benchmarks.
-
-The new approach consists of three main steps:
-
-1. **Unimodal Pre-training**: Pre-train the image encoder and text encoder to handle their respective inputs independently.
-
-   - **Image Encoder Pre-training**: Uses web-scale image-text pair datasets (e.g., WebLI). The SigLIP training method is employed for contrastive pre-training on images and texts.
-
-     >1. **Embedding**: Embed images and texts into the same high-dimensional vector space.
-     >2. **Contrastive Loss**: Use the Sigmoid Cross-Entropy loss function to ensure that the dot product of the correct image-text pairs is higher than that of incorrect pairs.
-
-   - **Text Encoder Pre-training**: Utilizes the UL2 model and trains it using the "mixture of denoisers" approach.
-
-2. **Multimodal Training**:
-
-   - Combine the pre-trained image encoder (ViT-G/142) with a 3B parameter UL2 encoder-decoder language model. The image encoder converts images into visual tokens, which are input into the language model along with text tokens.
-   - During this stage, **the image encoder remains frozen, and only the language model is trained** to ensure the quality of the image encoder's embeddings.
-   - **High-Resolution Training**: Begin with lower resolution images and gradually increase the resolution to enhance the model's ability to perceive image details. Checkpoints are saved at resolutions of 812×812 and 1064×1064 during intermediate stages.
-
-3. **Resolution Increase and Task-Specific Fine-Tuning**:
-
-   - Further increase the input resolution of the model for short-term fine-tuning, unfreezing the image encoder to ensure the model can handle high-resolution images.
-   - **Task-Specific Fine-Tuning**: Typically, fine-tuning is done using checkpoints at 812×812 resolution, but for tasks requiring higher resolution (e.g., document understanding tasks), fine-tuning is conducted at 1064×1064 resolution.
-
-##### Architecture
-
-<div align="center">
-  <img src="./image/paligemma.png"  width="800" />
-</div>
-
-
----
-
-
 
 ### MobileVLM
 
@@ -718,32 +838,128 @@ MobileVLM V2 continues to explore the direction of low-resource VLMs, with the f
 
 ---
 
-### LLaVA-Phi
+### Cog Series
 
-[![arXiv](https://img.shields.io/badge/Arxiv-2401.02330-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2401.02330)
+#### CogVLM
 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/zhuyiche/llava-phi)
+[![arXiv](https://img.shields.io/badge/arXiv-2311.03079-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2311.03079) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/THUDM/CogVLM)
 
-LLaVA-Phi (also known as LLaVA-φ) is a multimodal small model composed of smaller models for both the visual and language ends. It replaces Vicuna in LLaVA with Phi, achieving SOTA results on many benchmarks. LLaVA-Phi accepts images sized 336x336 (using a pre-trained CLIP ViT-L/14 with a resolution of 336x336) and employs a two-layer MLP as the linking component between the visual and language ends.
+CogVLM is an innovative open-source visual language model (VLM) designed to bridge the gap between traditional language models and visual data processing. It introduces a "visual expert module" within its architecture to enhance the integration of visual and language features without increasing computational demands. This module is embedded in both the attention and feedforward neural network (FFN) layers of a pre-trained language model, allowing for a deep fusion of visual and linguistic data.
 
-LLaVA-Phi also fine-tunes phi-2, using instruction templates organized similarly to the Vicuna format.
+Unlike previous methods that often used a shallow alignment strategy, CogVLM achieves a more profound integration by allowing direct interactions between visual and textual representations within the model's layers. This approach enables the model to maintain high performance on natural language processing tasks while also excelling in tasks that require understanding of visual content
 
-**Detailed Two-Stage Training Strategy**:
+|            Model            | Resolution |                         Introduction                         |                      Huggingface model                       |                       SAT model                       |
+| :-------------------------: | :--------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :---------------------------------------------------: |
+|      cogvlm-chat-v1.1       |    490     |      Supports simultaneous multi-turn chat and visual question answering, with the ability to use flexible prompts.      |     [link](https://huggingface.co/THUDM/cogvlm-chat-hf)      | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
+|       cogvlm-base-224       |    224     |               The original checkpoint after text-image pretraining.               |   [link](https://huggingface.co/THUDM/cogvlm-base-224-hf)    | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
+|       cogvlm-base-490       |    490     | The resolution is increased to 490 by performing positional encoding interpolation from cogvlm-base-224. |   [link](https://huggingface.co/THUDM/cogvlm-base-490-hf)    | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
+| cogvlm-grounding-generalist |    490     |    This checkpoint supports various visual localization tasks, such as REC and localization captions.     | [link](https://huggingface.co/THUDM/cogvlm-grounding-generalist-hf) | [link](https://huggingface.co/THUDM/CogVLM/tree/main) |
 
-- **Pre-training Stage**: One round of pre-training using a filtered subset of the CC-595K dataset with a learning rate of 1e-3 and a batch size of 256.
-- **Instruction Fine-Tuning Stage**: One round of fine-tuning on the LLaVA-Instruct-150K dataset with a learning rate of 2e-5 and a batch size of 256. The fine-tuning process uses the Adam optimizer, with a weight decay of 0.1, momentum parameters of 0.9 and 0.98, and an epsilon value of 1e-7.
 
+
+##### Motivation
+
+The authors of CogVLM believe that the poor performance of shallow alignment methods is due to their reliance on "frozen" language model weights, which are inherently trained to process textual tokens and exhibit significant mismatches.
+
+##### Innovations
+
+1. To prevent the forgetting problem caused by directly training LLMs on new datasets and to maintain familiarity with the original datasets, the aim is to enhance visual understanding capabilities while preserving existing NLP performance.
+2. CogVLM introduces a trainable visual expert within the language model. When processing visual and linguistic information, visual information is handled through a dedicated mechanism rather than simply integrating image features into the existing text processing workflow.
+   - In each layer, image features are processed independently of text features using new QKV (Query-Key-Value) matrices and MLP (Multi-Layer Perceptron) layers.
+3. It utilizes RoPE (Rotary Positional Embedding) instead of traditional positional encoding (in traditional Transformer models, positional encoding is typically added to the input sequence's word embeddings to provide positional information for each element in the sequence).
+
+CogVLM introduces a trainable visual expert within the language model. This means that when processing visual and linguistic information, visual information is handled through a dedicated mechanism rather than simply integrating image features into the existing text processing workflow.
+
+##### Architecture
+
+<div align="center">
+  <img src="./image/cogVLM.png" alt="image-20240510165317066" width="800" />
+</div>
+
+##### Model Subdivision
+
+- **CogVLM-Chat**: This model accepts natural language inputs and outputs, primarily handling pure text inputs and outputs. It is suitable for various VQA (Visual Question Answering) and multi-turn dialogue datasets.
+- **CogVLM-Grounding**: This model focuses on handling inputs and outputs that include bounding boxes, supporting a variety of tasks related to visual benchmarks.
+
+##### Some Tips
+
+The LLM is trained based on Vicuna-7B, ensuring its NLP capabilities while incorporating visual understanding. Efficient fine-tuning methods such as P-Tuning and LoRA have been utilized.
+
+
+
+#### CogAgent
+
+[![arXiv](https://img.shields.io/badge/arXiv-2312.08914-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2312.08914) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/THUDM/CogVLM)
+
+**CogAgent** is an improved open-source visual language model based on CogVLM. It primarily focuses on enhancing GUI understanding and navigation capabilities, allowing it to recognize minute page elements and text. This model outperforms traditional LLM-based methods in tasks involving screen shots.
+
+> Reviewing the examples provided on GitHub and in the paper can offer an intuitive understanding of the concept of CogAgent.
+
+
+|     Model     | Resolution |                         Introduction                         |                   Huggingface model                   |                        SAT model                        |
+| :-----------: | :--------: | :----------------------------------------------------------: | :---------------------------------------------------: | :-----------------------------------------------------: |
+| cogagent-chat |    1120    |    The chat version of CogAgent. Supports GUI agents, multi-turn chat, and visual localization.     | [link](https://huggingface.co/THUDM/cogagent-chat-hf) | [link](https://huggingface.co/THUDM/CogAgent/tree/main) |
+| cogagent-vqa  |    1120    | The VQA version of CogAgent. It has enhanced capabilities for single-turn visual dialogue. Recommended for VQA benchmarking. | [link](https://huggingface.co/THUDM/cogagent-vqa-hf)  | [link](https://huggingface.co/THUDM/CogAgent/tree/main) |
+
+##### Motivation
+
+- To develop an agent that exhibits exceptional performance in GUI-oriented tasks.
+
+##### Innovations
+
+- **Capability to Handle High-Resolution Images**: This work designs a cross-attention branch that allows for a trade-off between resolution and hidden size within an appropriate computational budget, addressing the issue of high-resolution images requiring substantial resources for inference and computation.
+  - **High-Resolution Cross Module**: This new branch for higher-resolution inputs adopts a smaller pre-trained visual encoder and uses cross-attention with a smaller hidden size to integrate high-resolution image features into each layer of the VLLM decoder, thereby reducing computational costs.
+  - **Contrast with Low-Resolution Input Branch**: Unlike the original low-resolution input branch, the high-resolution cross module employs a smaller pre-trained visual encoder (in this case, the EVA2-CLIP-L visual encoder with 0.30B parameters). This module uses cross-attention with a smaller hidden size to merge high-resolution image features with the VLLM decoder at each layer.
+  - For an input image, the model resizes it to 1120 × 1120 and 224 × 224, feeding these into the high-resolution cross module and the low-resolution branch, respectively. These two branches work in parallel, encoding the image into feature sequences Xhi (high-resolution image features) and Xlo (low-resolution image features).
+- Privately Constructed Dataset: They observe that GUI images have a different distribution from natural images. Consequently, they construct a large-scale annotated dataset focused on GUIs and OCR for continual pre-training.
+
+##### Architecture
+
+<div align="center">
+  <img src="./image/cogAgent.png" alt="image-20240510171107123" width="800" />
+</div>
 
 
 ---
 
-### LLaVA-Phi-3-mini
+### PaLI-3
 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/InternLM/xtuner)
+[![arXiv](https://img.shields.io/badge/arXiv-2310.09199-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2310.09199) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/google-research/big_vision)
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/tinyllava)
 
-[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/xtuner/llava-phi-3-mini-662a5f7b9416630a1ad91102)
+PaLI-3 is the third-generation model in the PaLI series. By leveraging a pre-trained baseline model with only 5B parameters, they optimized the training methodology and achieved competitive and new state-of-the-art results on various VLM benchmarks.
 
-LLaVA-Phi-3-Mini series models are further fine-tuned versions of LLaVA-Phi, utilizing Phi-3-mini and CLIP-ViT-Large-patch14-336. These models are trained using the ShareGPT4V-PT and InternVL-SFT datasets and support various quantization methods.
+The new approach consists of three main steps:
+
+1. **Unimodal Pre-training**: Pre-train the image encoder and text encoder to handle their respective inputs independently.
+
+   - **Image Encoder Pre-training**: Uses web-scale image-text pair datasets (e.g., WebLI). The SigLIP training method is employed for contrastive pre-training on images and texts.
+
+     >1. **Embedding**: Embed images and texts into the same high-dimensional vector space.
+     >2. **Contrastive Loss**: Use the Sigmoid Cross-Entropy loss function to ensure that the dot product of the correct image-text pairs is higher than that of incorrect pairs.
+
+   - **Text Encoder Pre-training**: Utilizes the UL2 model and trains it using the "mixture of denoisers" approach.
+
+2. **Multimodal Training**:
+
+   - Combine the pre-trained image encoder (ViT-G/142) with a 3B parameter UL2 encoder-decoder language model. The image encoder converts images into visual tokens, which are input into the language model along with text tokens.
+   - During this stage, **the image encoder remains frozen, and only the language model is trained** to ensure the quality of the image encoder's embeddings.
+   - **High-Resolution Training**: Begin with lower resolution images and gradually increase the resolution to enhance the model's ability to perceive image details. Checkpoints are saved at resolutions of 812×812 and 1064×1064 during intermediate stages.
+
+3. **Resolution Increase and Task-Specific Fine-Tuning**:
+
+   - Further increase the input resolution of the model for short-term fine-tuning, unfreezing the image encoder to ensure the model can handle high-resolution images.
+   - **Task-Specific Fine-Tuning**: Typically, fine-tuning is done using checkpoints at 812×812 resolution, but for tasks requiring higher resolution (e.g., document understanding tasks), fine-tuning is conducted at 1064×1064 resolution.
+
+##### Architecture
+
+<div align="center">
+  <img src="./image/paligemma.png"  width="800" />
+</div>
+
 
 ---
 
@@ -782,83 +998,69 @@ The implementation on the Qualcomm Snapdragon 8Gen3 mobile chip achieves a high 
 
 ---
 
-### MoE-LLaVA
+### MiniGPT4 Series
 
-[![arXiv](https://img.shields.io/badge/arXiv-2401.15947-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2401.15947) 
+Recently, most of the work is based on MiniGPT4 and MiniGPT4-V2. The architectures of MiniGPT4 & MiniGPT4-V2 lay the foundation for subsequent multimodal large models, with subsequent work either adopting their training methods or fine-tuning their entire code structure.
 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/PKU-YuanGroup/MoE-LLaVA)
+#### MiniGPT4
 
-[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/LanguageBind/moe-llava-model-65b607bf2524ac36e733874c)
+[![arXiv](https://img.shields.io/badge/arXiv-2304.10592-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2304.10592) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Vision-CAIR/MiniGPT-4)
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/Vision-CAIR/MiniGPT-4)
+
+MiniGPT-4 is generally divided into a visual end and a language end, comprising a visual encoder (ViT and Q-Former) and the Vicuna language model. A simple linear projection layer is used to align the visual features with the language model.
+
+Training is conducted in two stages:
+
+1. **Pre-training Stage**: Initially trained using a large number of image-text pairs to acquire visual-language knowledge. After this stage, the model can handle some VQA problems but may still output content unrelated to the queries.
+   - The visual end uses ViT and Q-Former.
+   - The language end uses Vicuna.
+2. **Fine-tuning Stage**: Involves fine-tuning with a high-quality, detailed image description dataset. This stage includes an instruction dataset sourced from the Conceptual Caption dataset. The authors used the model trained in the first stage to generate image descriptions, providing sufficient prompts to ensure the descriptions were detailed. Subsequently, ChatGPT was used for further construction and error correction. Finally, around 3,500 image-text pairs were manually selected to form the final dataset.
 
 
-
-MoE-LLaVA is a VLM based on MoE (Mixture of Experts), which integrates multiple expert models (expert networks) to enhance its multimodal capabilities and generalization performance. However, for large VLMs, while an increase in parameters can lead to performance improvements, the computational resources required for training and inference also increase rapidly. This work addresses this issue.
-
-##### Motivation
-
-To train a high-performance VLM with limited computational resources, MoE-LLaVA, developed by institutions such as Peking University and Sun Yat-sen University, proposes an ingenious and novel training strategy called MoE-Tuning. This strategy achieves a large parameter size while maintaining constant computational resource requirements.
-
-##### Innovations
-
-1. **Three-Stage MoE-Tuning Training Strategy** (Refer to the illustration [link](#train process-2))
-
-   - **Stage I: Adapting to Visual Input**: The main goal is to adapt image tokens to the LLM so that the LLM can understand instances within images.
-     - A multilayer perceptron (MLP) is used to project image tokens into the input domain of the LLM, treating image patches as pseudo-text tokens.
-     - In this stage, only the MLP layer is trained, and other parameters of the LLM are not trained.
-   - **Stage II: Enhancing Multimodal Understanding**: The goal is to fine-tune the LLM with multimodal instruction data to endow it with multimodal understanding capabilities.
-     - All parameters of the LLM are unfrozen and trained to enhance its ability to process multimodal data.
-     - Training is conducted using multimodal instruction data involving complex tasks such as image logical reasoning and text recognition, which require stronger multimodal understanding.
-     - Upon completion of this stage, the LVLM possesses preliminary multimodal understanding capabilities, laying the groundwork for sparsification in the next stage.
-   - **Stage III: Introducing Sparsification with MoE Layers**: The goal is to reduce computational costs while maintaining high performance by introducing sparsification mechanisms, which involve the following steps:
-     - **Initializing Expert Weights**: Copying the FFN weights from Stage II as the initialization weights for each expert.
-     - **Training MoE Layers**: Only the MoE layers are trained, ensuring each token is processed by the top-k experts with the highest probabilities, while the remaining experts remain inactive.
-     - **Router Weight Calculation**: A linear layer router predicts the probability of each token being assigned to each expert, normalized using the softmax function. Each token is processed by the top-k experts, with outputs weighted by the router's weights.
-
-2. **Sparse LVLM Architecture Based on MoE**
-
-   - Initially, images are processed by the vision encoder to obtain a sequence of visual tokens Z, and text is processed by the word embedding layer to obtain a sequence of text tokens T. The visual and text tokens are concatenated into a single sequence and input into the LLM.
-   - Subsequently, during the forward propagation of the model, in each MoE layer, the router calculates the probability of each token being assigned to each expert, selects the top-k experts for processing, and obtains the final output through weighted summation.
-   - This approach significantly expands the number of model parameters while keeping computational costs constant.
-
-3. **Mechanism of MoE Layers and Details of FFN**: The MoE layer introduces multiple experts (each being an independent FFN) and dynamically selects the most suitable experts to process the current input, thereby enhancing model performance.
-
-   - **Initialization**: In the third stage of the training strategy, the FFN weights are copied and initialized as the weights for multiple experts. These experts form a set E = [e1, e2, ..., eE].
-   - **Router Weight Calculation**: The router, a linear layer, receives input tokens and generates weight logits for each expert. These weights are then normalized using softmax to obtain the probability of selecting each expert.
-   - **Expert Selection**: The top-k experts with the highest probabilities are selected for processing, known as "active experts."
-   - **Expert Processing**: Each active expert processes the input tokens and calculates the output. The outputs of the active experts are combined through weighted summation to obtain the final output of the MoE layer.
-
-   > Experts not selected remain inactive and do not participate in computation, thereby reducing computational overhead.
-
-   
 
 ##### Architecture
 
 <div align="center">
-  <img src="./image/moe-llava.png"  width="800" />
+  <img src="./image/minigpt4.png"  width="800" />
 </div>
-The overall architecture consists of the following components:
 
-1. **Vision Encoder**:
-   - Takes RGB images as input and processes them into a sequence of visual tokens. The original image resolution is H×W, and the vision encoder converts it into P visual tokens, each with a dimension of C.
 
-2. **Visual Projection Layer (MLP)**:
-   - Maps the sequence of visual tokens from dimension C to the hidden size D of the LLM.
 
-3. **Word Embedding Layer**:
-   - Projects text tokens into the hidden size D of the LLM.
+#### MiniGPT4-V2
 
-4. **Large Language Model (LLM)**:
-   - Composed of multiple stacked multi-head self-attention (MSA) layers and feedforward neural network (FFN) layers, with layer normalization (LN) and residual connections applied to each block.
+[![arXiv](https://img.shields.io/badge/arXiv-2310.09478-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2310.09478) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Vision-CAIR/MiniGPT-4)
 
-5. **MoE Layer**:
-   - Consists of multiple FFN experts, with each token assigned to the top-k experts via a learnable router. The inactive experts remain inactivated.
+MiniGPT-4 v2 builds upon MiniGPT-4 with several significant innovations and improvements:
 
-##### Train process
+1. **Task Identifiers for Multimodal Tasks**: Introduces task identifiers such as [vqa], [caption], [grounding] to distinguish between tasks like visual question answering, image captioning, and visual grounding. During training, different datasets specific to downstream tasks are used for fine-tuning, with task identifiers integrated into the dialogue templates and fed into the model. In inference, users manually select task identifiers to inform GPT about the type of downstream task to perform. This approach significantly improves the model's adaptation to downstream tasks, reducing hallucinations and confusion while maintaining performance.
+
+2. **Three-Stage Training Strategy**
+   1. **Pre-training**: Utilizes weakly annotated and finely annotated datasets (e.g., LAION, CC3M, SBU, GRIT-20M) to train the model, acquiring broad visual-language knowledge.
+   2. **Second Stage: Multi-task Training**: Employs only finely annotated datasets (e.g., COCO, RefCOCO) for multi-task training, optimizing the model's performance across various tasks.
+   3. **Third Stage: Multimodal Instruction Tuning**: Fine-tunes the model using multimodal instruction datasets (e.g., LLaVA, Flickr30k) and language datasets (e.g., Unnatural Instructions), enhancing its conversational and instruction-following capabilities.
+
+3. **High-Resolution Input**: Supports higher resolution images (448x448) and reduces computational load by merging adjacent visual tokens into a single token, improving training and inference efficiency.
+
+
+
+##### Architecture
 
 <div align="center">
-  <img src="./image/moe-llava-train.png"  width="800" />
+  <img src="./image/minigpt4v2.png"  width="800" />
 </div>
 
+
+---
+
+### LLaVA-Phi-3-mini
+
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/InternLM/xtuner)
+
+[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/xtuner/llava-phi-3-mini-662a5f7b9416630a1ad91102)
+
+LLaVA-Phi-3-Mini series models are further fine-tuned versions of LLaVA-Phi, utilizing Phi-3-mini and CLIP-ViT-Large-patch14-336. These models are trained using the ShareGPT4V-PT and InternVL-SFT datasets and support various quantization methods.
 
 ---
 
@@ -893,219 +1095,4 @@ Cobra, a multimodal large model, is a collaborative research project developed b
 <div align="center">
   <img src="./image/cobra.png"  width="800" />
 </div>
-
-
-
-
----
-
-### Vary-toy
-
-[![arXiv](https://img.shields.io/badge/arXiv-2401.12503-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2401.12503) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/Ucas-HaoranWei/Vary-toy)
-[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/HaoranWei/Vary-toy)
-
-Vary-toy is an optimized and improved multimodal large model based on **[Vary](https://varybase.github.io/)**, developed to address the excessive computational resource requirements of the original Vary model. The Vary development team introduced the smaller model, Vary-toy, which not only has fewer parameters but also utilizes an optimized visual vocabulary network, reducing network capacity wastage during PDF OCR tasks. Vary-toy can be trained on consumer-grade GPUs and run inference on older GPUs with 8GB VRAM, and **supports both Chinese and English**.
-
-Vary-toy is lauded as **"the first multimodal large model for young people"** for its open-source nature, lightweight design, ease of deployment, and high performance.
-
-##### Innovations
-
-1. **Remarkable Miniaturization**: Compared to current popular large vision-language models (LVLMs), Vary-toy has significantly fewer parameters, with an LLM backbone of only 1.8B parameters (e.g., Qwen-1.8B). It can be trained and deployed on consumer-grade GPUs (such as the GTX1080ti), drastically lowering the barrier to training and usage.
-
-2. **Improved Visual Vocabulary Network**: Vary-toy introduces an improved visual vocabulary network that not only retains all the features of the Vary model but also enhances the perception of natural objects. Specifically, it replaces negative sample data from natural images with positive sample data (based on object detection tasks) when generating visual vocabulary, thus more fully utilizing the network's capacity and improving the efficiency of visual information encoding.
-   - **Before Improvement**: In traditional visual language models (such as Vary), the visual vocabulary network typically uses negative sample data from natural images to generate visual vocabulary. This approach can lead to network capacity wastage, as negative sample data does not fully leverage the network's ability to encode visual information.
-   - **After Improvement**: Vary-toy introduces a new method, replacing negative sample data with positive sample data when generating visual vocabulary.
-
-3. **Multitask Training with Broad Coverage**: During the pre-training phase, Vary-toy incorporates various data formats, including weakly supervised image caption data, PDF document OCR data, object detection data, pure text dialogue data, and VQA data. These data are organized in a dialogue format, enabling the model to excel in different tasks. Consequently, Vary-toy, despite being a "small" VLM, encompasses all the capabilities of mainstream LVLM research: Document OCR, Visual Grounding, Image Captioning, VQA, etc.
-
-##### Architecture
-
-1. **Small Autoregressive Model (OPT-125M)**
-   - Vary-toy employs a small autoregressive model, OPT-125M, to generate visual vocabulary. Inputs include PDF documents and natural images. Different prompts are provided for different inputs, such as "provide OCR results" and "detect teddy bear."
-
-2. **Visual Vocabulary Generation**
-   - In the process of generating visual vocabulary, Vary-toy adopts an improved method using positive sample data instead of negative sample data.
-   - The visual vocabulary network leverages data from object detection tasks to fully utilize network capacity, enhancing the efficiency of visual information encoding.
-
-3. **Integration of Visual Vocabulary and CLIP**
-   - Vary-toy integrates the generated visual vocabulary with CLIP.
-   - CLIP processes images of 224×224 resolution, while the visual vocabulary network handles images of 1024×1024 resolution.
-   - The outputs of both (256 tokens each) are concatenated to form the input image tokens for the language model.
-
-4. **1.8B "Large" Language Model (Qwen-1.8B)**
-   - Vary-toy uses Qwen-1.8B as the base language model.
-   - By combining the outputs of the improved visual vocabulary network and CLIP, Qwen-1.8B can more effectively handle multimodal tasks.
-
-5. **Multitask Input and Output**
-   - The input format follows a dialogue template, such as: `USER: <img>"<image>"</img> "texts input" ASSISTANT: "texts output" </s>`
-   - Tasks include OCR, object detection, image description, and general dialogue.
-
-<div align="center">
-  <img src="./image/Vary_toy.png"  width="800" />
-</div>
-
-
-
-
----
-
-### ALLaVA-Longer
-
-[![arXiv](https://img.shields.io/badge/arXiv-2402.11684-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.11684) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/FreedomIntelligence/ALLaVA)
-[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/FreedomIntelligence/ALLaVA-3B-Longer)
-
-ALLaVA-Longer is an open-source VLM launched by the Chinese University of Hong Kong, Shenzhen. The research team trained it using high-quality data generated by GPT-4V, which includes detailed image descriptions, complex question instructions, and comprehensive answers. **This focus on data quality is a key aspect of this work**. Leveraging this data, ALLaVA-Longer was developed. The design of ALLaVA-Longer is based on the "input determines output principle," mainly attempting to refine the details of "multimodal alignment" and "visual instruction fine-tuning" at the data level (the former primarily aims to help the language model recognize visual objects and enhance its visual reasoning ability, while the latter focuses on enabling LVLMs to generalize across a wider range of instructions).
-
-##### Details of Dataset Construction
-
-1. **Construction of Multimodal Alignment Dataset**:
-
-   - **Drawbacks of Existing Multimodal Alignment Datasets**: Existing work typically uses caption data to align images and text, but these datasets often contain short and coarse-grained captions. These brief captions introduce noisy signals, hindering the effectiveness of the visual-language alignment process. For example, the commonly used COCO dataset (Microsoft Common Objects in Context) includes many short image descriptions that may lack sufficient detail to effectively help the model understand and associate images with text.
-
-   - **New Dataset Construction Method**: By using GPT-4V to generate high-quality caption data. GPT-4V can produce detailed image descriptions, complex instructions, and comprehensive answers, which are more informative and precise than the brief descriptions found in traditional datasets.
-
-     > Essentially, this is a PLUS version of the dataset construction method used by [MiniGPT4/MiniGPT-v2](#minigpt4-series). The method can be referenced accordingly.
-
-2. **Construction of Visual Instruction Fine-Tuning Dataset**:
-
-   - **Drawbacks of Existing Visual Instruction Fine-Tuning Datasets**: The main issues are the relative simplicity of the questions and the brief and less informative answers. For instance, Vision-FLAN contains relatively simple questions, focusing more on basic tasks rather than complex reasoning problems. Additionally, although the answers are human-annotated, they are often very brief and lack detailed background and reasoning processes.
-   
-   - **New Dataset Construction Method**: First, GPT-4V generates detailed descriptions for each image, including primary objects, background elements, colors, and prominent features. Subsequently, GPT-4V formulates multiple complex questions based on the image descriptions, which require careful observation and strong reasoning abilities to answer. To ensure diversity, GPT-4V generates multiple candidate questions and then randomly selects one for answering. Finally, GPT-4V provides detailed answers to the selected questions, including not only the direct response but also the process of solving the problem and relevant background information.
-
-   > **Example**: For an image containing a squirrel and a bird, the model would generate the following description, question, and answer:
-   > **Description**: The image shows a squirrel standing in front of the camera, appearing to take a photo of the bird, with a mushroom-shaped object in the background.
-   > **Question**: What is the source of humor in this image?
-   > **Answer**: The humor comes from the role reversal and anthropomorphism. Usually, humans take photos of wildlife, but here the squirrel appears to be operating the camera to photograph the bird. This unusual scenario and the anthropomorphic behavior of the animals create a whimsical and amusing scene.
-
-
-
-
-
----
-
-### MM1
-
-[![arXiv](https://img.shields.io/badge/arXiv-2402.11684-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2403.09611) 
-
-A significant highlight of Apple's MM1 is its extensive and comprehensive ablation experiments conducted to determine the optimal combination of model design and data selection. Overall, MM1 conducted ablation experiments on the following aspects, subsequently proposing the overall VLM structure of MM1.
-
-1. **Model Architecture Decisions**
-   - Impact of Different Image Encoders and Vision-Language Connectors: Comparing different image encoders (e.g., ViT-L and ViT-H) and image resolutions (224px vs. 336px) on model performance.
-   - Impact of Image Resolution and Image Token Count: Comparing different vision-language connector designs (e.g., average pooling, attention pooling, convolutional mapping) and different image token counts (64 and 144).
-
-2. **Pre-Training Data Selection**:
-   - Combination of Different Types of Pre-Training Data (image-text pairs, interleaved image-text documents, and pure text data): Comparing different pre-training data types (image-text pairs, interleaved image-text documents, pure text data) and different mixing ratios on model performance.
-   - Impact of Data Mixing Ratios.
-
-3. **Training Process**:
-   - Impact of Hyperparameter Selection on Model Training: Performing grid searches for learning rates and weight decay on models of different scales to determine the optimal training hyperparameters.
-
-The following conclusions were drawn:
-
-1. **High image resolution and an appropriate number of image tokens are crucial for improving model performance**.
-2. **C-Abstractor performs best as the vision-language connector under high-resolution settings**.
-3. **A reasonable mixture ratio of pre-training data can achieve a good balance in multimodal and text understanding tasks**.
-4. **Learning rate and weight decay parameters determined through grid search can significantly enhance model training effectiveness**.
-
-Subsequently, the overall architecture of MM1 was determined:
-
-- **Image Encoder**: ViT-H.
-- **Language Model**: Transformer decoder models with parameters ranging from 3B to 30B, supporting larger-scale MoE (Mixture-of-Experts) models.
-- **Vision-Language Connector**: C-Abstractor, using convolutional mapping to preserve local information of images and adaptive pooling to adjust the number of image tokens. Utilizing 144 image tokens.
-- **Pre-Training Data Selection and Mixing Ratio**: 45% image-text pairs, 45% interleaved image-text documents, 10% pure text data.
-- MoE Strategy: Details can be found at [link](#创新点-9).
-
-##### Innovations
-
-1. **Scalable Expert Model**:
-
-   - The MM1 model expands the total parameters by increasing the number of experts in the language model. Specifically, MM1 designed two MoE models:
-     - A 3B-MoE model with 64 experts, replacing every two standard dense layers with a sparse layer (MoE layer), totaling 64B parameters.
-     - A 7B-MoE model with 32 experts, replacing every four standard dense layers with a sparse layer (MoE layer), totaling 47B parameters.
-   - **Expert Selection and Load Balancing**: The MoE model employs a top-2 gating strategy, meaning only two experts are activated in each forward pass. Additionally, a load balance loss term with a coefficient of 0.01 is introduced to encourage an even distribution of load among the experts.
-
-2. **Flexible Vision-Language Connector Design**: The primary function of the vision-language connector is to convert visual representations into a space that the language model can process. The MM1 team experimented with several different vision-language connector designs (including **average pooling**, **attention pooling**, **convolutional mapping**). However, it was found that while the connector design had a minor impact on the final performance, the image resolution and the number of image tokens had a significant impact.
-
-   - To flexibly handle the number of image tokens and retain more detailed image information through convolution operations, MM1 chose C-Abstractor as the main vision-language connector.
-
-3. **Refined Pre-Training Data Selection**
-
-   - The MM1 team determined the optimal mixture ratio of different data types through the aforementioned ablation experiments: 45% image-text pairs, 45% interleaved image-text documents, 10% pure text data.
-   - Specifically, the experiments adjusted the ratio of image-text pairs and interleaved document data, observing the model's performance in zero-shot and few-shot tasks, and then added or removed pure text data to observe its impact on few-shot and text understanding tasks. Finally, various combinations of image-text pairs, interleaved documents, and pure text data were used for training, observing their overall impact on various tasks.
-
-4. **Support for High-Resolution Images**: MM1 employed a series of techniques to handle high-resolution images, including image scaling, positional embedding interpolation, and sub-image decomposition:
-
-   - **Image Scaling**: First, the input image is scaled down to 672×672 for high-level representation. Simultaneously, the input image is adjusted to a resolution of 1344×1344 and then decomposed into four 672×672 sub-images.
-   - **Sub-Image Decomposition**: For high-resolution input images (e.g., 1344×1344), they are decomposed into five 672×672 sub-images, each input independently into the vision encoder. This method has been shown in experiments to support image resolutions up to 1792×1792.
-   - **Positional Embedding Interpolation**: In high-resolution image processing, MM1 adopts positional embedding interpolation to accommodate the new resolution. This method allows the visual Transformer backbone to adapt to new image resolutions during fine-tuning.
-
-   > Research indicates that supporting a 1344×1344 image resolution can achieve a 15% relative improvement in SFT (Supervised Fine-Tuning) evaluation metrics. However, for the maximum image resolution of 1792×1792, the average performance slightly decreases, which may be due to many evaluation images being smaller than this resolution, and artifacts generated during resizing potentially affecting model performance.
-
-
-
----
-
-### MiniCPM-V 2.0
-
-[![AI Blog](https://img.shields.io/badge/AI%20Blog-paligemma%20AI-orange.svg)](https://openbmb.vercel.app/minicpm-v-2) 
-
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/OpenBMB/MiniCPM-V)
-[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/openbmb/minicpm-2b-65d48bf958302b9fd25b698f)
-
-MiniCPM-V is notably distinguished by its **OCR capabilities**, with the technical report claiming, "the model achieves the best performance in the open-source community on the comprehensive OCR ability evaluation benchmark OCRBench, and even approaches Gemini Pro in scene text understanding."
-
-##### Summary of MiniCPM-V 2.0 Features (excerpted from the technical report):
-
-1. **Leading OCR and Multimodal Understanding Capabilities**: MiniCPM-V 2.0 significantly enhances OCR and multimodal understanding capabilities, achieving scene text understanding performance close to Gemini Pro. It outperforms larger parameter models (e.g., 17-34B) on several mainstream evaluation benchmarks.
-2. **Trustworthy Behavior**: MiniCPM-V 2.0 is the first edge multimodal large model aligned through multimodal RLHF, leveraging [RLHF-V](https://rlhf-v.github.io/) [CVPR'24] technologies. The model achieves performance comparable to GPT-4V on Object HalBench.
-3. **Efficient Encoding of High-Resolution Images with Arbitrary Aspect Ratios**: MiniCPM-V 2.0 can process images up to 1.8 million pixels with any aspect ratio (based on the latest [LLaVA-UHD](https://arxiv.org/pdf/2403.11703.pdf) technology), allowing the model to perceive finer visual details such as small objects and dense text.
-4. **Efficient Deployment**: MiniCPM-V 2.0 can be efficiently deployed on most consumer-grade graphics cards, personal computers, and mobile devices.
-5. **Bilingual Support**: MiniCPM-V 2.0 offers leading bilingual multimodal capability support in Chinese and English. This capability is achieved through cross-lingual generalization techniques in multimodal capabilities proposed in the [VisCPM](https://arxiv.org/abs/2308.12038) [ICLR'24] paper.
-
-##### MiniCPM-Llama3-V 2.5🔥
-
-The latest model in the MiniCPM series, featuring the following new characteristics:
-
-1. **Powerful Edge Multimodal Model**: With only 8B active parameters, it surpasses many larger parameter multimodal models—such as Gemini Pro and GPT-4V—in various benchmarks.
-   - The visual encoder uses SigLIP-400M; the compression layer uses the perceiver resampler structure; the language model uses Llama-3 8B.
-   - **Handling High-Resolution and Variable Aspect Ratio Images**: MiniCPM-Llama3-V 2.5 employs the adaptive visual encoding method proposed in the LLaVA-UHD paper. Each input image is first optimally sliced based on its size and aspect ratio, then each slice is adapted according to the ViT's pre-training resolution. Finally, MiniCPM-Llama3-V 2.5 processes each slice through the visual encoder.
-2. **Further Enhanced OCR Capabilities**: Achieving an OCRBench score of 725, it surpasses GPT-4o, GPT-4V, Gemini Pro, Qwen-VL-Max, and other commercial closed-source models, reaching the highest level.
-3. **Friendly to Low Computational Resource Users**: With a quantized version, it requires only 8GB VRAM for deployment. It can run inference smoothly on consumer-grade graphics cards and achieve 6-8 tokens/s inference speed on mobile devices.
-4. **Supports 30+ Languages**.
-5. **Trustworthy Behavior**: The hallucination rate on Object HalBench is reduced to 10.3%, significantly lower than GPT-4V-1106 (13.6%), achieving the best level in the open-source community.
-6. **Mobile Optimization**: MiniCPM-Llama3-V 2.5 systematically employs model quantization, CPU, NPU, and compilation optimization techniques for efficient acceleration. Through 4-bit quantization and cooperation with the llama.cpp framework, it can **achieve a language model encoding speed of 8-9 tokens per second and a decoding speed of 3-4 tokens per second**.
-
-
-
----
-
-### DeepSeek-VL
-
-[![arXiv](https://img.shields.io/badge/arXiv-2403.05525-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2403.05525) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/deepseek-ai/DeepSeek-VL)
-[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/deepseek-ai/deepseek-vl-65f295948133d9cf92b706d3)
-
-The primary design goal of DeepSeek-VL is to extend multimodal capabilities without compromising NLP performance, ensuring that the generated text is more human-like and capable of completing various downstream tasks in the field of computer vision. DeepSeek-VL possesses the following innovations and features:
-
-1. **Data Construction**
-
-   - **Diversity and Scalability**: The dataset for DeepSeek-VL encompasses real-world scenarios, including web page screenshots, PDFs, OCR, charts, and knowledge-based content (such as expert knowledge and textbooks), ensuring diversity and comprehensiveness in the data.
-   
-   - **Practical Application Scenarios**: Use case categories were created based on real user scenarios, and corresponding instruction tuning datasets were constructed. Fine-tuning with these datasets significantly enhances the model's user experience in practical applications.
-
-2. **Model Architecture**
-
-   - **Hybrid Vision Encoder**: DeepSeek-VL employs a hybrid vision encoder capable of efficiently processing high-resolution images (1024 x 1024) with low computational overhead, capturing key semantic and detailed information. This design enhances inference efficiency while maintaining rich visual information.
-   
-   - **Combination of High and Low Resolution**: The model integrates the capabilities to process both low-resolution (384 x 384) and high-resolution (1024 x 1024) images, ensuring that it can capture sufficient detail and semantic information when handling complex visual tasks.
-
-3. **Training Strategy**
-
-   - **Priority on Language Capability**: During multimodal pre-training, DeepSeek-VL retains a majority of language data (at least 70%), ensuring the preservation and enhancement of language model capabilities. Gradually increasing the proportion of vision-language data balances the development of multimodal and language capabilities.
-   
-   - **Modality Warm-up Strategy**: A "modality warm-up" strategy is introduced, which gradually adjusts the ratio of different modality data during training. This ensures balanced development of visual and language capabilities, avoiding the degradation of abilities due to the overtraining of a single modality.
-
-
 
