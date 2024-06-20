@@ -121,7 +121,7 @@ Orca 2 is a finetuned version of LLAMA-2. Orca 2’s training data is a syntheti
 
 Qwen1.5的各个模型在训练上使用了更多的Token，并针对特定任务如代码生成进行了指令微调。例如，CodeQwen1.5专门针对编程任务进行了优化，预训练了大约3万亿个与代码相关的数据Token。
 
-- **Date:** 2023-02
+- **Date:** 2024-02
 - **Pretrain Data Scale:** 3T
 - **Language Support:** en,zh
 - **Parameter Size:** 0.5B/1.8B/4B/7B/14B/72B

@@ -186,6 +186,76 @@ Dense Connector in MLLM: Overview and Three Instantiations.
 
 ---
 
+
+### Llava
+
+[![arXiv](https://img.shields.io/badge/arXiv-2304.08485-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2304.08485) 
+
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/haotian-liu/LLaVA)
+
+As one of the early works in the field of Visual Language Models (VLMs), Llava combines the pre-trained CLIP ViT-L/14 visual encoder with the Vicuna language model, achieving multimodal capability through a simple projection matrix connecting the two.
+
+##### Innovations
+
+1. Llava employs the classic pre-training + fine-tuning training steps.
+2. Innovatively, it proposes a **new data organization method** by utilizing GPT-4 to generate instruction questions related to images. For example, using the COCO dataset, which contains a large number of images and their corresponding textual descriptions, the image-text pairs are fed to GPT-4 to organize new questions, thus **leveraging AI-generated training data to train AI**.
+
+> To ensure the generated data is diverse and deep, the researchers designed three different types of instruction-response pairs:
+>
+> - **Conversation**: Simulating a dialogue between a person and an assistant, involving multiple rounds of questions and answers about the image content. This type of data helps the model learn how to conduct coherent multi-turn conversations.
+> - **Detailed Description**: Generating detailed image descriptions to help the model understand and generate comprehensive visual content descriptions.
+> - **Complex Reasoning**: Generating questions and answers that require complex reasoning, involving multi-step logical deduction. This type of data enhances the model's reasoning capabilities.
+
+3. Architecturally, Llava uses techniques such as Flash Attention 2 and LoRA (Low-Rank Adaptation) to optimize performance, improve efficiency, and reduce memory usage.
+
+##### Architecture
+
+<div align="center">
+  <img src="./image/llava.png"  width="800" />
+</div>
+
+##### Llava's Improvements
+
+The LLaVa model was proposed in [Visual Instruction Tuning](https://arxiv.org/abs/2304.08485) and improved in [Improved Baselines with Visual Instruction Tuning](https://arxiv.org/pdf/2310.03744) by Haotian Liu, Chunyuan Li, Yuheng Li, and Yong Jae Lee. This marks the inception of Llava1.5.
+
+1. **Llava1.5**
+   - Llava1.5 continues to use Vicuna as the base language model, replacing the original linear projection with a **two-layer MLP**. It also supports interaction with higher-resolution images (336x336 pixels). The method of dividing images into grids allows for the processing of high-resolution inputs, which also cleverly reduces the occurrence of "hallucinations."
+   - It introduces datasets for academic tasks such as Visual Question Answering (VQA), Optical Character Recognition (OCR), and region-level understanding data.
+   
+2. **Llava1.6** 🔥
+   - Supports interaction with images of even higher pixel counts (e.g., 672x672, 336x1344, 1344x336 resolutions).
+   - Adds capabilities for visual reasoning and Optical Character Recognition (OCR).
+
+---
+
+
+### PaliGemma
+
+[![AI Blog](https://img.shields.io/badge/AI%20Blog-PaliGemma%20AI-orange.svg)](https://ai.google.dev/gemma/docs/paligemma) 
+
+[![AI Blog](https://img.shields.io/badge/AI%20Blog-paligemma%20AI-orange.svg)](https://huggingface.co/blog/paligemma) 
+
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/google-research/big_vision)
+
+PaliGemma is composed of a [Transformer decoder](https://arxiv.org/abs/1706.03762) and a [Vision Transformer image encoder](https://arxiv.org/abs/2010.11929), with a total of 3 billion parameters. The text decoder is initialized from [Gemma-2B](https://www.kaggle.com/models/google/gemma), and the image encoder is initialized using [SigLIP-So400m/14](https://colab.research.google.com/github/google-research/big_vision/blob/main/big_vision/configs/proj/image_text/SigLIP_demo.ipynb?hl=zh-cn). PaliGemma is trained following the PaLI-3 methodology.
+
+PaliGemma has released three types of models:
+1. **Pre-trained multimodal base models** (labeled as `pt` on Huggingface);
+2. **Fine-tuned models on individual tasks** (e.g., DocVQA, AI2D) (labeled as `ft` on Huggingface);
+3. **Models fine-tuned on mixed datasets** (labeled as `mix` on Huggingface).
+
+These models are available in three different resolutions (224x224, 448x448, 896x896) and three different precisions (bf16, f16, and f32). Each repository includes checkpoints for the given resolution and task, with three revisions available for each precision. The `main` branch of each repository contains float32 checkpoints, while `bf16` and `f16` revisions contain the corresponding precisions. Separate repositories are available for models compatible with Transformer and the original JAX implementation. High-resolution models require larger memory to run due to significantly longer input sequences. They can be beneficial for tasks requiring fine granularity (such as OCR), but for most tasks, the quality improvement is minimal.
+
+##### Architecture
+
+Same as [PaLI-3](#palI-3).
+
+<div align="center">
+  <img src="./image/paligemma.png"  width="800" />
+</div>
+
+---
+
 ### MiniGemini
 
 [![arXiv](https://img.shields.io/badge/arXiv-2403.18814-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2403.18814) 
@@ -222,6 +292,26 @@ The enhancements are further supported by employing an end-to-end workflow, a du
 
 
 
+---
+
+
+### HPT
+
+[![AI Blog](https://img.shields.io/badge/AI%20Blog-hypergai%20AI-orange.svg)](https://hypergai.com/blog/) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/HyperGAI/HPT/) 
+
+The proposed Hyper-Pretrained Transformers (HPT) framework represents a novel multimodal LLM pre-training framework. It efficiently and scalably trains a large multimodal foundational model capable of understanding various modalities of input. There are two versions: HPT Pro and HPT Air.
+
+##### Innovations
+
+- **Innovative Feature H-Former**: Serving as a bridge between visual and language modalities, it is a variant of Q-Former.
+- **H-Former**: Integrates a dual-network design to learn both local and global features for achieving visual-language alignment, enabling HPT to understand fine-grained details as well as abstract high-level information.
+
+##### Architecture
+
+<div align="center">
+  <img src="./image/HPT.png"  width="800" />
+</div>
 ---
 
 ### Bunny
@@ -270,48 +360,27 @@ Using SigLIP as the visual encoder and Phi-3-Mini-4K as the language encoder. Co
 
 ---
 
-### Llava
+### TinyLLaVA
 
-[![arXiv](https://img.shields.io/badge/arXiv-2304.08485-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2304.08485) 
+[![arXiv](https://img.shields.io/badge/arXiv-2402.14289-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.14289) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/DLCV-BUAA/TinyLLaVABench)
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/tinyllava)
 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/haotian-liu/LLaVA)
+TinyLLaVA selects several representative LLMs, including TinyLlama (1.1B parameters), StableLM-2 (1.6B parameters), and Phi-2 (2.7B parameters), and uses CLIP and SigLIP as visual encoders to assemble the final multimodal model. Preliminary experiments have shown that SigLIP performs better when combined with smaller-scale LLMs.
 
-As one of the early works in the field of Visual Language Models (VLMs), Llava combines the pre-trained CLIP ViT-L/14 visual encoder with the Vicuna language model, achieving multimodal capability through a simple projection matrix connecting the two.
+In the linking part between the visual and textual ends, TinyLLaVA uses a two-layer Multi-Layer Perceptron (MLP) as the connector between the visual encoder and the LLM, with the GELU activation function.
 
-##### Innovations
+Although TinyLLaVA has fewer parameters compared to many large models, the performance of the LLMs (such as Google's Phi-2) and the high quality of the dataset enable it to achieve performance in various benchmarks that is comparable to or even surpasses some large-scale models.
 
-1. Llava employs the classic pre-training + fine-tuning training steps.
-2. Innovatively, it proposes a **new data organization method** by utilizing GPT-4 to generate instruction questions related to images. For example, using the COCO dataset, which contains a large number of images and their corresponding textual descriptions, the image-text pairs are fed to GPT-4 to organize new questions, thus **leveraging AI-generated training data to train AI**.
-
-> To ensure the generated data is diverse and deep, the researchers designed three different types of instruction-response pairs:
->
-> - **Conversation**: Simulating a dialogue between a person and an assistant, involving multiple rounds of questions and answers about the image content. This type of data helps the model learn how to conduct coherent multi-turn conversations.
-> - **Detailed Description**: Generating detailed image descriptions to help the model understand and generate comprehensive visual content descriptions.
-> - **Complex Reasoning**: Generating questions and answers that require complex reasoning, involving multi-step logical deduction. This type of data enhances the model's reasoning capabilities.
-
-3. Architecturally, Llava uses techniques such as Flash Attention 2 and LoRA (Low-Rank Adaptation) to optimize performance, improve efficiency, and reduce memory usage.
-
-##### Architecture
+##### Architecture 
 
 <div align="center">
-  <img src="./image/llava.png"  width="800" />
+  <img src="./image/tinyllava.png"  width="800" />
 </div>
-
-##### Llava's Improvements
-
-The LLaVa model was proposed in [Visual Instruction Tuning](https://arxiv.org/abs/2304.08485) and improved in [Improved Baselines with Visual Instruction Tuning](https://arxiv.org/pdf/2310.03744) by Haotian Liu, Chunyuan Li, Yuheng Li, and Yong Jae Lee. This marks the inception of Llava1.5.
-
-1. **Llava1.5**
-   - Llava1.5 continues to use Vicuna as the base language model, replacing the original linear projection with a **two-layer MLP**. It also supports interaction with higher-resolution images (336x336 pixels). The method of dividing images into grids allows for the processing of high-resolution inputs, which also cleverly reduces the occurrence of "hallucinations."
-   - It introduces datasets for academic tasks such as Visual Question Answering (VQA), Optical Character Recognition (OCR), and region-level understanding data.
-   
-2. **Llava1.6** 🔥
-   - Supports interaction with images of even higher pixel counts (e.g., 672x672, 336x1344, 1344x336 resolutions).
-   - Adds capabilities for visual reasoning and Optical Character Recognition (OCR).
-
 
 
 ---
+
 
 ### Cog Series
 
@@ -399,28 +468,7 @@ The LLM is trained based on Vicuna-7B, ensuring its NLP capabilities while incor
 
 ---
 
-### HPT
 
-[![AI Blog](https://img.shields.io/badge/AI%20Blog-hypergai%20AI-orange.svg)](https://hypergai.com/blog/) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/HyperGAI/HPT/) 
-
-The proposed Hyper-Pretrained Transformers (HPT) framework represents a novel multimodal LLM pre-training framework. It efficiently and scalably trains a large multimodal foundational model capable of understanding various modalities of input. There are two versions: HPT Pro and HPT Air.
-
-##### Innovations
-
-- **Innovative Feature H-Former**: Serving as a bridge between visual and language modalities, it is a variant of Q-Former.
-- **H-Former**: Integrates a dual-network design to learn both local and global features for achieving visual-language alignment, enabling HPT to understand fine-grained details as well as abstract high-level information.
-
-##### Architecture
-
-<div align="center">
-  <img src="./image/HPT.png"  width="800" />
-</div>
-
-
-
-
----
 
 ### MiniGPT4 Series
 
@@ -476,30 +524,8 @@ MiniGPT-4 v2 builds upon MiniGPT-4 with several significant innovations and impr
 </div>
 
 
-
-
 ---
 
-### TinyLLaVA
-
-[![arXiv](https://img.shields.io/badge/arXiv-2402.14289-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.14289) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/DLCV-BUAA/TinyLLaVABench)
-[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/tinyllava)
-
-TinyLLaVA selects several representative LLMs, including TinyLlama (1.1B parameters), StableLM-2 (1.6B parameters), and Phi-2 (2.7B parameters), and uses CLIP and SigLIP as visual encoders to assemble the final multimodal model. Preliminary experiments have shown that SigLIP performs better when combined with smaller-scale LLMs.
-
-In the linking part between the visual and textual ends, TinyLLaVA uses a two-layer Multi-Layer Perceptron (MLP) as the connector between the visual encoder and the LLM, with the GELU activation function.
-
-Although TinyLLaVA has fewer parameters compared to many large models, the performance of the LLMs (such as Google's Phi-2) and the high quality of the dataset enable it to achieve performance in various benchmarks that is comparable to or even surpasses some large-scale models.
-
-##### Architecture 
-
-<div align="center">
-  <img src="./image/tinyllava.png"  width="800" />
-</div>
-
-
----
 
 ### TinyGPT-V 
 
@@ -604,32 +630,7 @@ The new approach consists of three main steps:
 
 ---
 
-### PaliGemma
 
-[![AI Blog](https://img.shields.io/badge/AI%20Blog-PaliGemma%20AI-orange.svg)](https://ai.google.dev/gemma/docs/paligemma) 
-
-[![AI Blog](https://img.shields.io/badge/AI%20Blog-paligemma%20AI-orange.svg)](https://huggingface.co/blog/paligemma) 
-
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/google-research/big_vision)
-
-PaliGemma is composed of a [Transformer decoder](https://arxiv.org/abs/1706.03762) and a [Vision Transformer image encoder](https://arxiv.org/abs/2010.11929), with a total of 3 billion parameters. The text decoder is initialized from [Gemma-2B](https://www.kaggle.com/models/google/gemma), and the image encoder is initialized using [SigLIP-So400m/14](https://colab.research.google.com/github/google-research/big_vision/blob/main/big_vision/configs/proj/image_text/SigLIP_demo.ipynb?hl=zh-cn). PaliGemma is trained following the PaLI-3 methodology.
-
-PaliGemma has released three types of models:
-1. **Pre-trained multimodal base models** (labeled as `pt` on Huggingface);
-2. **Fine-tuned models on individual tasks** (e.g., DocVQA, AI2D) (labeled as `ft` on Huggingface);
-3. **Models fine-tuned on mixed datasets** (labeled as `mix` on Huggingface).
-
-These models are available in three different resolutions (224x224, 448x448, 896x896) and three different precisions (bf16, f16, and f32). Each repository includes checkpoints for the given resolution and task, with three revisions available for each precision. The `main` branch of each repository contains float32 checkpoints, while `bf16` and `f16` revisions contain the corresponding precisions. Separate repositories are available for models compatible with Transformer and the original JAX implementation. High-resolution models require larger memory to run due to significantly longer input sequences. They can be beneficial for tasks requiring fine granularity (such as OCR), but for most tasks, the quality improvement is minimal.
-
-##### Architecture
-
-Same as [PaLI-3](#palI-3).
-
-<div align="center">
-  <img src="./image/paligemma.png"  width="800" />
-</div>
-
----
 
 ### MobileVLM
 
