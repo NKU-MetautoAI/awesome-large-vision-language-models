@@ -53,19 +53,26 @@ OpenAI recently released a [practical library for LLMs](https://github.com/opena
 
 
 
-### Llama2
+### YI-1.5
 
-[![arXiv](https://img.shields.io/badge/arXiv-2307.09288-b31b1b.svg)](https://arxiv.org/abs/2307.09288) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/meta-llama/llama)
-[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/collections/meta-llama/llama-2-family-661da1f90a9d678b6f55773b)
+[![arXiv](https://img.shields.io/badge/arXiv-2403.04652-b31b1b.svg)](https://arxiv.org/abs/2403.04652) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/01-ai/Yi-1.5) 
+[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/01-ai/yi-15-2024-05-663f3ecab5f815a3eaca7ca8)
+
+- **Date:** 2024-05
+- **Pretrain Data Scale:** 3.6T
+- **Language Support:** Multiple
+- **Parameter Size:** 6B/9B/34B
+
+The Yi-1.5 model is pretrained on a 500 billion high-quality corpus and fine-tuned on 3 million diverse samples. This large-scale data training enhances the model's performance in tasks such as programming, mathematics, reasoning, and instruction following. The series includes models with 34B, 9B, and 6B parameters, supporting context lengths of 4K, 16K, and 32K, respectively.
+
+In the Yi-1.5 series, particularly the 9B model, a **late layer duplication method** is employed to improve model performance while maintaining efficient training. Compared to traditional model scaling methods, this approach better preserves performance and reduces loss.
+
+The largest Yi 1.5, with 34B parameters, performs almost on par with Meta Llama 3 70B in benchmarks.
+
+> Yi-34B-200K's performance in the "Needle-in-a-Haystack" test improved from 89.3% to 99.8%.
 
 
-The Llama 2 pretrained model shows significant improvements over the Llama 1 model, with a 40% increase in total training tokens and a longer context length of up to 4000 tokens. It also uses grouped-query attention to greatly accelerate inference speed for the 70B model. The Llama 2-Chat series, optimized for dialogue scenarios using Reinforcement Learning from Human Feedback (RLHF), outperforms most existing open models in extensive usability and safety tests, demonstrating performance comparable to ChatGPT in human evaluations.
-
-- **Date:** 2023-07
-- **Pretrain Data Scale:** 2T
-- **Language Support:** en
-- **Parameter Size:** 7B/13B/70B
 
 
 
@@ -83,115 +90,6 @@ Compared to Llama 2, the most notable change in Llama 3 is the introduction of a
 - **Parameter Size:** 8B/70B
 
 
-
-### Orca2
-[![arXiv](https://img.shields.io/badge/arXiv-2311.11045-b31b1b.svg)](https://arxiv.org/pdf/2311.11045.pdf) 
-[![Hugging Face collection](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/collections/microsoft/orca-65bbeef1980f5719cccc89a3)
-
-**Orca 2 is a finetuned version of LLAMA-2**. Orca 2’s training data is a synthetic dataset that was created to enhance the small model’s reasoning abilities. All synthetic training data was moderated using the Microsoft Azure content filters.
-
-The paper provides a detailed explanation of how Orca, despite being a smaller model, can rival large language models like GPT-3.5 and even GPT-4.
-
-- **Date:** 2023-11
-- **Pretrain Data Scale:** same as LLAMA-2
-- **Language Support:** en
-- **Parameter Size:** 7B/13B
-
-
-
-### Qwen
-
-[![arXiv](https://img.shields.io/badge/arXiv-2309.16609-b31b1b.svg)](https://arxiv.org/abs/2309.16609) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/QwenLM/Qwen) 
-[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/Qwen)
-
-Qwen optimize specific tasks through Instruction Fine-Tuning, such as programming language generation (CodeQwen), using Mixture of Experts (MoE) and sparse activation techniques.
-
-- **Date:** 2023-08
-- **Pretrain Data Scale:** 2.2T~3T(1.8B:2.2T;7B:2.4T;14B:3.0T)
-- **Language Support:** en,zh
-- **Parameter Size:** 0.5B/1.8B/4B/7B/14B/72B
-
-
-
-### Qwen1.5
-
-[![AI Blog](https://img.shields.io/badge/AI%20Blog-QWen%20AI-orange.svg)](https://qwen.readthedocs.io/en/latest/) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/QwenLM/Qwen1.5) 
-[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/Qwen)
-
-The various models of Qwen1.5 were trained using a larger number of tokens and fine-tuned with instructions for specific tasks such as code generation. For example, CodeQwen1.5 is specifically optimized for programming tasks, pre-trained with approximately 3 trillion code-related data tokens.
-
-- **Date:** 2023-02
-- **Pretrain Data Scale:** 3T
-- **Language Support:** en,zh
-- **Parameter Size:** 0.5B/1.8B/4B/7B/14B/72B
-
-
-
-### Vicuna
-
-[![AI Blog](https://img.shields.io/badge/AI%20Blog-Vicuna%20AI-orange.svg)](https://lmsys.org/blog/2023-03-30-vicuna/) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/lm-sys/FastChat) 
-[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/lmsys)
-
-1. **Memory Optimization**: To meet Vicuna's requirements for handling long contexts, its maximum context length was increased from Alpaca's 512 to 2048, significantly increasing the demand for GPU memory. To address this issue, researchers adopted gradient checkpointing and FlashAttention techniques to alleviate memory pressure.
-2. **Multi-turn Conversations**: By adjusting the training loss to accommodate the needs of multi-turn conversations, the calculation of training loss is based solely on the chatbot's output.
-3. **Cost Reduction through Spot Instances**: The dataset size increased 40 times and the sequence length increased 4 times, posing greater challenges to training. To reduce costs, researchers used SkyPilot-hosted Spot instances, taking advantage of automatic recovery from preemption and automatic region switching, thereby using the more cost-effective Spot instances. This strategy reduced the training cost of the 7B model from \$500 to approximately \$140, and the training cost of the 13B model from about \$1000 to \$300.
-
-- **Date:** 2023-03
-- **Pretrain Data Scale:** 1.4T
-- **Language Support:** en,zh
-- **Parameter Size:** 7B/13B/33B
-
-
-
-### XGen
-
-[![arXiv](https://img.shields.io/badge/arXiv-2309.03450-b31b1b.svg)](https://arxiv.org/abs/2309.03450) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/salesforce/xGen) 
-[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/Salesforce/xgen-7b-4k-base)
-
-The XGen-7B model supports inputs up to 8K tokens. It is trained using standard dense attention and with up to 1.5T tokens, and it is fine-tuned on public domain instructional data. This makes it a versatile model suitable for standard-sized GPUs and mobile devices.
-
-- **Date:** 2023-07
-- **Pretrain Data Scale:** 1.37T
-- **Language Support:** en
-- **Parameter Size:** 7B
-
-
-
-### Falcon
-
-[![AI Blog](https://img.shields.io/badge/AI%20Blog-Falcon%20AI-orange.svg)](https://huggingface.co/blog/falcon-180b) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/falconry/falcon) 
-[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/tiiuae)
-
-A large portion of the training data comes from [RefinedWeb](https://arxiv.org/abs/2306.01116), a new web dataset based on CommonCrawl. The model employs [**multiquery attention**](https://arxiv.org/abs/1911.02150). In the original multi-head attention scheme, each head has its own query, key, and value, whereas the multiquery attention scheme shares the same key and value across all heads. This technique has little impact on pretraining but significantly [enhances the scalability of inference](https://arxiv.org/abs/2211.05102). In fact, **this technique greatly reduces the memory footprint of the K,V cache during autoregressive decoding, cutting it down by 10-100 times** (the exact value depends on the model architecture), thereby significantly lowering the memory overhead of model inference. This reduction in memory overhead unlocks new optimization possibilities, such as using the saved memory to store historical conversations, making stateful inference possible.
-
-- **Date:** 2023-07
-- **Pretrain Data Scale:** 2T
-- **Language Support:** en,fr
-- **Parameter Size:** 1.3B/7.5B/40B/180B
-
-
-
-### Phi
-
-[![AI Blog](https://img.shields.io/badge/AI%20Blog-Phi%20AI-orange.svg)](https://www.microsoft.com/en-us/research/blog/phi-2-the-surprising-power-of-small-language-models/) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/microsoft/dstoolkit-phi2-finetune) 
-[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/microsoft/phi-2)
-
-**Training Data Quality:** By leveraging "textbook-quality" data, the focus is on synthetic datasets designed to impart common sense reasoning and general knowledge. The training corpus is augmented with carefully selected web data, filtered based on educational value and content quality.
-
-**Innovative Scaling Techniques:** Microsoft employed knowledge expansion techniques from its predecessor model, Phi-1.5, to Phi-2 during the development of Phi-2. They utilized the existing knowledge and learning outcomes from the Phi-1.5 model, transferring this knowledge to the new model to accelerate its convergence during training. Simply put, this approach allows the new model to start from a higher baseline, achieving high performance quickly. This knowledge transfer method not only enhances training efficiency but also significantly improves the model's scores across various benchmarks.
-
-**Optimized Transformer Architecture:** Phi-2 researchers introduced custom optimizations to maximize efficiency.
-
-- **Date:** 2023-12
-- **Pretrain Data Scale:** 1.4T
-- **Language Support:** en
-- **Parameter Size:** 1B/1.5B/2B
 
 
 
@@ -226,11 +124,46 @@ Gemma can run on various consumer-grade hardware without requiring data quantiza
 
 
 
+### Qwen1.5
+
+[![AI Blog](https://img.shields.io/badge/AI%20Blog-QWen%20AI-orange.svg)](https://qwen.readthedocs.io/en/latest/) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/QwenLM/Qwen1.5) 
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/Qwen)
+
+The various models of Qwen1.5 were trained using a larger number of tokens and fine-tuned with instructions for specific tasks such as code generation. For example, CodeQwen1.5 is specifically optimized for programming tasks, pre-trained with approximately 3 trillion code-related data tokens.
+
+- **Date:** 2023-02
+- **Pretrain Data Scale:** 3T
+- **Language Support:** en,zh
+- **Parameter Size:** 0.5B/1.8B/4B/7B/14B/72B
+
+
+
+### Phi
+
+[![AI Blog](https://img.shields.io/badge/AI%20Blog-Phi%20AI-orange.svg)](https://www.microsoft.com/en-us/research/blog/phi-2-the-surprising-power-of-small-language-models/) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/microsoft/dstoolkit-phi2-finetune) 
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/microsoft/phi-2)
+
+**Training Data Quality:** By leveraging "textbook-quality" data, the focus is on synthetic datasets designed to impart common sense reasoning and general knowledge. The training corpus is augmented with carefully selected web data, filtered based on educational value and content quality.
+
+**Innovative Scaling Techniques:** Microsoft employed knowledge expansion techniques from its predecessor model, Phi-1.5, to Phi-2 during the development of Phi-2. They utilized the existing knowledge and learning outcomes from the Phi-1.5 model, transferring this knowledge to the new model to accelerate its convergence during training. Simply put, this approach allows the new model to start from a higher baseline, achieving high performance quickly. This knowledge transfer method not only enhances training efficiency but also significantly improves the model's scores across various benchmarks.
+
+**Optimized Transformer Architecture:** Phi-2 researchers introduced custom optimizations to maximize efficiency.
+
+- **Date:** 2023-12
+- **Pretrain Data Scale:** 1.4T
+- **Language Support:** en
+- **Parameter Size:** 1B/1.5B/2B
+
+
+
 ### Mamba
 
 [![arXiv](https://img.shields.io/badge/arXiv-2312.00752-b31b1b.svg)](https://arxiv.org/abs/2312.00752) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/state-spaces/mamba) 
 [![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/state-spaces)
+
 - **Date:** 2023-12
 - **Pretrain Data Scale:** 10B
 - **Language Support:** en
@@ -250,58 +183,30 @@ The main innovations are as follows:
 
 
 
-### Pythia
-[![arXiv](https://img.shields.io/badge/arXiv-2304.01373-b31b1b.svg)](https://arxiv.org/abs/2304.01373) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/EleutherAI/pythia) 
-[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/collections/EleutherAI/pythia-scaling-suite-64fb5dfa8c21ebb3db7ad2e1)
-- **Date:** 2023-04
-- **Pretrain Data Scale:** 10B
-- **Language Support:** en
-- **Parameter Size:** 130M/370M/790M/1.4B/2.8B
+### StripedHyena
 
-Pythia *Scaling Suite* is a collection of models developed to facilitate interpretability research. It is a suite of 16 LLMs, all trained on public data seen in the exact same order and ranging in size from 70M to 12B parameters.
+[![AI Blog](https://img.shields.io/badge/AI%20Blog-Phi%20AI-orange.svg)](https://www.together.ai/blog/stripedhyena-7b) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/togethercomputer/stripedhyena) 
 
-> The large language model (LLM) suite is a series of language models designed for scientific research. These models emphasize consistency and reproducibility in their design and implementation, aiming to allow researchers to deeply analyze and understand the behavior and changes of large language models during training and scaling processes.
+[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/togethercomputer/stripedhyena-65d8e6e77540dd1da932dbe1)
 
-Pythia contains two sets of eight models with sizes of 70M, 160M, 410M, 1B, 1.4B, 2.8B, 6.9B, and 12B. For each size, there are two models: one trained on the Pile, and one trained on the Pile after the dataset has been globally deduplicated. All 8 model sizes are trained on the exact same data, in the exact same order.
+-  2023-12
+-  **Pretrain Data Scale:** 2T
+-  **Language Support:** Multiple
+-  **Parameter Size:** 7B
 
-> The Pile is a large, open-source English text dataset designed specifically for training large language models. It consists of 22 different, high-quality sub-datasets, including texts from books, academic papers, legal documents, online Q&A, programming code, and movie subtitles. It is widely used for training large language models, including autoregressive transformers. For more details: [click here](https://pile.eleuther.ai/).
+The model series includes two main variants: StripedHyena-Hessian-7B and StripedHyena-Nous-7B. The [former](https://huggingface.co/togethercomputer/StripedHyena-Hessian-7B) is the base model, while the [latter](https://huggingface.co/togethercomputer/StripedHyena-Nous-7B) is the chat model.
 
-The Pythia suite is the only publicly released LLM suite that meets the following three key characteristics:
+StripedHyena adopts a hybrid architecture that combines gated convolutions and grouped-query attention mechanisms. The core component of the model is the state space model (SSM) layer, traditionally used for modeling complex sequences and time series data. The SSM layer can handle long sequence tasks more efficiently, reducing computational resource requirements and training faster on long sequences compared to classic Transformers.
 
-1. Models cover multiple orders of magnitude in scale.
-2. All models are trained on the same data in the same order.
-3. Data and intermediate checkpoints are available for public research use.
-
-The authors also conducted three case studies in language modeling research:
-
-1. **How data bias affects learning behavior**: The study shows that appropriate interventions in language models can reveal that the frequency of pronoun occurrences in the data affects the model's learning bias. The research also proposes a controllable method to analyze and mitigate model bias.
-2. **Does training order affect memory**: Researchers found that Poisson models fit the data well, indicating that training order has little impact on memory. The model shows that memory sequences do not appear more densely at the beginning or end of the training process, but rather, an approximately equal number of memory sequences are distributed between checkpoints.
-3. **Does the frequency of pre-training terms affect task performance throughout the training process**: This correlation is more pronounced in larger models. Smaller models struggle to achieve accurate results on these tasks, even in the later stages of training, indicating that these models cannot successfully learn these tasks regardless of the frequency of relevant information in the training data.
+StripedHyena supports training sequence lengths up to 32K, enabling it to handle longer prompts.
 
 
-
-### Mistral
-[![arXiv](https://img.shields.io/badge/arXiv-2310.06825-b31b1b.svg)](https://arxiv.org/abs/2310.06825) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/mistralai/mistral-common) 
-[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/mistralai)
-
-- **Date:** 2023-09
-- **Pretrain Data Scale:** 8T
-- **Language Support:** en
-- **Parameter Size:** 7B
-
-Mistral 7B 超越了以前最好的 130 亿参数模型（Llama 2）在所有评测基准上的表现，并且在推理、数学和代码生成方面超过了最好的 340 亿参数模型（Llama 1），利用分组查询注意力（Grouped-query Attention, GQA）和滑动窗口注意力（Sliding Window Attention, SWA）。GQA 显著提高了推理速度，减少了解码时的内存需求。SWA 能够更有效地处理更长的序列，从而降低计算成本。
-
-Mistral-7B is a decoder-only Transformer with the following architectural choices:
-
-- Sliding Window Attention - Trained with 8k context length and fixed cache size, with a theoretical attention span of 128K tokens
-- GQA (Grouped Query Attention) - allowing faster inference and lower cache size.
-- Byte-fallback BPE tokenizer - ensures that characters are never mapped to out of vocabulary tokens.
 
 
 
 ### YI
+
 [![arXiv](https://img.shields.io/badge/arXiv-2403.04652-b31b1b.svg)](https://arxiv.org/abs/2403.04652) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/01-ai/Yi) 
 [![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/01-ai/yi-2023-11-663f3f19119ff712e176720f)
@@ -326,23 +231,131 @@ The core highlights are as follows:
 
 
 
-### YI-1.5
-[![arXiv](https://img.shields.io/badge/arXiv-2403.04652-b31b1b.svg)](https://arxiv.org/abs/2403.04652) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/01-ai/Yi-1.5) 
-[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/01-ai/yi-15-2024-05-663f3ecab5f815a3eaca7ca8)
 
-- **Date:** 2023-05
-- **Pretrain Data Scale:** 3.6T
-- **Language Support:** Multiple
-- **Parameter Size:** 6B/9B/34B
 
-The Yi-1.5 model is pretrained on a 500 billion high-quality corpus and fine-tuned on 3 million diverse samples. This large-scale data training enhances the model's performance in tasks such as programming, mathematics, reasoning, and instruction following. The series includes models with 34B, 9B, and 6B parameters, supporting context lengths of 4K, 16K, and 32K, respectively.
+### Orca2
+[![arXiv](https://img.shields.io/badge/arXiv-2311.11045-b31b1b.svg)](https://arxiv.org/pdf/2311.11045.pdf) 
+[![Hugging Face collection](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/collections/microsoft/orca-65bbeef1980f5719cccc89a3)
 
-In the Yi-1.5 series, particularly the 9B model, a **late layer duplication method** is employed to improve model performance while maintaining efficient training. Compared to traditional model scaling methods, this approach better preserves performance and reduces loss.
+**Orca 2 is a finetuned version of LLAMA-2**. Orca 2’s training data is a synthetic dataset that was created to enhance the small model’s reasoning abilities. All synthetic training data was moderated using the Microsoft Azure content filters.
 
-The largest Yi 1.5, with 34B parameters, performs almost on par with Meta Llama 3 70B in benchmarks.
+The paper provides a detailed explanation of how Orca, despite being a smaller model, can rival large language models like GPT-3.5 and even GPT-4.
 
-> Yi-34B-200K's performance in the "Needle-in-a-Haystack" test improved from 89.3% to 99.8%.
+- **Date:** 2023-11
+- **Pretrain Data Scale:** same as LLAMA-2
+- **Language Support:** en
+- **Parameter Size:** 7B/13B
+
+
+
+### Mistral
+
+[![arXiv](https://img.shields.io/badge/arXiv-2310.06825-b31b1b.svg)](https://arxiv.org/abs/2310.06825) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/mistralai/mistral-common) 
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/mistralai)
+
+- **Date:** 2023-09
+- **Pretrain Data Scale:** 8T
+- **Language Support:** en
+- **Parameter Size:** 7B
+
+Mistral 7B 超越了以前最好的 130 亿参数模型（Llama 2）在所有评测基准上的表现，并且在推理、数学和代码生成方面超过了最好的 340 亿参数模型（Llama 1），利用分组查询注意力（Grouped-query Attention, GQA）和滑动窗口注意力（Sliding Window Attention, SWA）。GQA 显著提高了推理速度，减少了解码时的内存需求。SWA 能够更有效地处理更长的序列，从而降低计算成本。
+
+Mistral-7B is a decoder-only Transformer with the following architectural choices:
+
+- Sliding Window Attention - Trained with 8k context length and fixed cache size, with a theoretical attention span of 128K tokens
+- GQA (Grouped Query Attention) - allowing faster inference and lower cache size.
+- Byte-fallback BPE tokenizer - ensures that characters are never mapped to out of vocabulary tokens.
+
+
+
+### Persimmon
+
+[![AI Blog](https://img.shields.io/badge/AI%20Blog-Phi%20AI-orange.svg)](https://www.adept.ai/blog/persimmon-8b) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/persimmon-ai-labs/adept-inference) 
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/adept/persimmon-8b-chat)
+
+- **Date:** 2023-09
+- **Pretrain Data Scale:** 0.737T
+- **Language Support:** en
+- **Parameter Size:** 8B
+
+Persimmon-8B supports a context length of 16K, four times that of LLaMA2 and eight times that of GPT-3.
+
+It adopts several architectural optimizations, including square ReLU activation functions and rotary positional encodings.
+
+The model's input and output embeddings are optimized separately to avoid a full reduction in large embedding layer gradients, thereby improving training efficiency.
+
+
+
+### Qwen
+
+[![arXiv](https://img.shields.io/badge/arXiv-2309.16609-b31b1b.svg)](https://arxiv.org/abs/2309.16609) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/QwenLM/Qwen) 
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/Qwen)
+
+Qwen optimize specific tasks through Instruction Fine-Tuning, such as programming language generation (CodeQwen), using Mixture of Experts (MoE) and sparse activation techniques.
+
+- **Date:** 2023-08
+- **Pretrain Data Scale:** 2.2T~3T(1.8B:2.2T;7B:2.4T;14B:3.0T)
+- **Language Support:** en,zh
+- **Parameter Size:** 0.5B/1.8B/4B/7B/14B/72B
+
+
+
+
+
+### Llama2
+
+[![arXiv](https://img.shields.io/badge/arXiv-2307.09288-b31b1b.svg)](https://arxiv.org/abs/2307.09288) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/meta-llama/llama)
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/collections/meta-llama/llama-2-family-661da1f90a9d678b6f55773b)
+
+
+The Llama 2 pretrained model shows significant improvements over the Llama 1 model, with a 40% increase in total training tokens and a longer context length of up to 4000 tokens. It also uses grouped-query attention to greatly accelerate inference speed for the 70B model. The Llama 2-Chat series, optimized for dialogue scenarios using Reinforcement Learning from Human Feedback (RLHF), outperforms most existing open models in extensive usability and safety tests, demonstrating performance comparable to ChatGPT in human evaluations.
+
+- **Date:** 2023-07
+- **Pretrain Data Scale:** 2T
+- **Language Support:** en
+- **Parameter Size:** 7B/13B/70B
+
+
+
+### Falcon
+
+[![AI Blog](https://img.shields.io/badge/AI%20Blog-Falcon%20AI-orange.svg)](https://huggingface.co/blog/falcon-180b) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/falconry/falcon) 
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/tiiuae)
+
+A large portion of the training data comes from [RefinedWeb](https://arxiv.org/abs/2306.01116), a new web dataset based on CommonCrawl. The model employs [**multiquery attention**](https://arxiv.org/abs/1911.02150). In the original multi-head attention scheme, each head has its own query, key, and value, whereas the multiquery attention scheme shares the same key and value across all heads. This technique has little impact on pretraining but significantly [enhances the scalability of inference](https://arxiv.org/abs/2211.05102). In fact, **this technique greatly reduces the memory footprint of the K,V cache during autoregressive decoding, cutting it down by 10-100 times** (the exact value depends on the model architecture), thereby significantly lowering the memory overhead of model inference. This reduction in memory overhead unlocks new optimization possibilities, such as using the saved memory to store historical conversations, making stateful inference possible.
+
+- **Date:** 2023-07
+- **Pretrain Data Scale:** 2T
+- **Language Support:** en,fr
+- **Parameter Size:** 1.3B/7.5B/40B/180B
+
+
+
+### XGen
+
+[![arXiv](https://img.shields.io/badge/arXiv-2309.03450-b31b1b.svg)](https://arxiv.org/abs/2309.03450) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/salesforce/xGen) 
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/Salesforce/xgen-7b-4k-base)
+
+The XGen-7B model supports inputs up to 8K tokens. It is trained using standard dense attention and with up to 1.5T tokens, and it is fine-tuned on public domain instructional data. This makes it a versatile model suitable for standard-sized GPUs and mobile devices.
+
+- **Date:** 2023-07
+- **Pretrain Data Scale:** 1.37T
+- **Language Support:** en
+- **Parameter Size:** 7B
+
+
+
+
+
+
+
+
 
 
 
@@ -391,38 +404,59 @@ This is a fine-tuned version of [google/gemma-7b](https://huggingface.co/google/
 
 
 
-### StripedHyena
-[![AI Blog](https://img.shields.io/badge/AI%20Blog-Phi%20AI-orange.svg)](https://www.together.ai/blog/stripedhyena-7b) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/togethercomputer/stripedhyena) 
+### Pythia
 
-[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/togethercomputer/stripedhyena-65d8e6e77540dd1da932dbe1)
+[![arXiv](https://img.shields.io/badge/arXiv-2304.01373-b31b1b.svg)](https://arxiv.org/abs/2304.01373) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/EleutherAI/pythia) 
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/collections/EleutherAI/pythia-scaling-suite-64fb5dfa8c21ebb3db7ad2e1)
 
--  2023-12
-- **Pretrain Data Scale:** 2T
-- **Language Support:** Multiple
-- **Parameter Size:** 7B
-
-The model series includes two main variants: StripedHyena-Hessian-7B and StripedHyena-Nous-7B. The [former](https://huggingface.co/togethercomputer/StripedHyena-Hessian-7B) is the base model, while the [latter](https://huggingface.co/togethercomputer/StripedHyena-Nous-7B) is the chat model.
-
-StripedHyena adopts a hybrid architecture that combines gated convolutions and grouped-query attention mechanisms. The core component of the model is the state space model (SSM) layer, traditionally used for modeling complex sequences and time series data. The SSM layer can handle long sequence tasks more efficiently, reducing computational resource requirements and training faster on long sequences compared to classic Transformers.
-
-StripedHyena supports training sequence lengths up to 32K, enabling it to handle longer prompts.
-
-### Persimmon
-[![AI Blog](https://img.shields.io/badge/AI%20Blog-Phi%20AI-orange.svg)](https://www.adept.ai/blog/persimmon-8b) 
-[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/persimmon-ai-labs/adept-inference) 
-[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/adept/persimmon-8b-chat)
-
-- **Date:** 2023-09
-- **Pretrain Data Scale:** 0.737T
+- **Date:** 2023-04
+- **Pretrain Data Scale:** 10B
 - **Language Support:** en
-- **Parameter Size:** 8B
+- **Parameter Size:** 130M/370M/790M/1.4B/2.8B
 
-Persimmon-8B supports a context length of 16K, four times that of LLaMA2 and eight times that of GPT-3.
+Pythia *Scaling Suite* is a collection of models developed to facilitate interpretability research. It is a suite of 16 LLMs, all trained on public data seen in the exact same order and ranging in size from 70M to 12B parameters.
 
-It adopts several architectural optimizations, including square ReLU activation functions and rotary positional encodings.
+> The large language model (LLM) suite is a series of language models designed for scientific research. These models emphasize consistency and reproducibility in their design and implementation, aiming to allow researchers to deeply analyze and understand the behavior and changes of large language models during training and scaling processes.
 
-The model's input and output embeddings are optimized separately to avoid a full reduction in large embedding layer gradients, thereby improving training efficiency.
+Pythia contains two sets of eight models with sizes of 70M, 160M, 410M, 1B, 1.4B, 2.8B, 6.9B, and 12B. For each size, there are two models: one trained on the Pile, and one trained on the Pile after the dataset has been globally deduplicated. All 8 model sizes are trained on the exact same data, in the exact same order.
+
+> The Pile is a large, open-source English text dataset designed specifically for training large language models. It consists of 22 different, high-quality sub-datasets, including texts from books, academic papers, legal documents, online Q&A, programming code, and movie subtitles. It is widely used for training large language models, including autoregressive transformers. For more details: [click here](https://pile.eleuther.ai/).
+
+The Pythia suite is the only publicly released LLM suite that meets the following three key characteristics:
+
+1. Models cover multiple orders of magnitude in scale.
+2. All models are trained on the same data in the same order.
+3. Data and intermediate checkpoints are available for public research use.
+
+The authors also conducted three case studies in language modeling research:
+
+1. **How data bias affects learning behavior**: The study shows that appropriate interventions in language models can reveal that the frequency of pronoun occurrences in the data affects the model's learning bias. The research also proposes a controllable method to analyze and mitigate model bias.
+2. **Does training order affect memory**: Researchers found that Poisson models fit the data well, indicating that training order has little impact on memory. The model shows that memory sequences do not appear more densely at the beginning or end of the training process, but rather, an approximately equal number of memory sequences are distributed between checkpoints.
+3. **Does the frequency of pre-training terms affect task performance throughout the training process**: This correlation is more pronounced in larger models. Smaller models struggle to achieve accurate results on these tasks, even in the later stages of training, indicating that these models cannot successfully learn these tasks regardless of the frequency of relevant information in the training data.
+
+
+
+
+
+
+
+### Vicuna
+
+[![AI Blog](https://img.shields.io/badge/AI%20Blog-Vicuna%20AI-orange.svg)](https://lmsys.org/blog/2023-03-30-vicuna/) 
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/lm-sys/FastChat) 
+[![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/lmsys)
+
+1. **Memory Optimization**: To meet Vicuna's requirements for handling long contexts, its maximum context length was increased from Alpaca's 512 to 2048, significantly increasing the demand for GPU memory. To address this issue, researchers adopted gradient checkpointing and FlashAttention techniques to alleviate memory pressure.
+2. **Multi-turn Conversations**: By adjusting the training loss to accommodate the needs of multi-turn conversations, the calculation of training loss is based solely on the chatbot's output.
+3. **Cost Reduction through Spot Instances**: The dataset size increased 40 times and the sequence length increased 4 times, posing greater challenges to training. To reduce costs, researchers used SkyPilot-hosted Spot instances, taking advantage of automatic recovery from preemption and automatic region switching, thereby using the more cost-effective Spot instances. This strategy reduced the training cost of the 7B model from \$500 to approximately \$140, and the training cost of the 13B model from about \$1000 to \$300.
+
+- **Date:** 2023-03
+- **Pretrain Data Scale:** 1.4T
+- **Language Support:** en,zh
+- **Parameter Size:** 7B/13B/33B
+
+
 
 
 
