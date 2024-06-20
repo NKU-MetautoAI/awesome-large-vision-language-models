@@ -17,41 +17,7 @@
 </div>
 *<em>Image source: <a href="https://lifearchitect.ai/models">LifeArchitect.ai/models</a></em>*
 
-
-## Quick Start🏁
-
-|    Model     |     Organization      |        Parameters        |                          CheckPoint                          |            Details            |
-| :----------: | :-------------------: | :----------------------: | :----------------------------------------------------------: | :---------------------------: |
-| chatGPT | OpenAI | --- | --- | [Hyperlink](#chatgpt) |
-|   Llama 2    |         Meta          |        7B/13B/70B        | [Llama2 Family🤗](https://huggingface.co/collections/meta-llama/llama-2-family-661da1f90a9d678b6f55773b) |     [Hyperlink](#llama2)      |
-|   Llama 3    |         Meta          |          8B/70B          | [Llama3 Family🤗](https://huggingface.co/collections/meta-llama/meta-llama-3-66214712577ca38149ebb2b6) |     [Hyperlink](#llama3)      |
-|    Orca2     |       Microsoft       |          7B/13B          | [Orca Family🤗](https://huggingface.co/collections/microsoft/orca-65bbeef1980f5719cccc89a3) |      [Hyperlink](#orca2)      |
-|     Qwen     |        Alibaba        | 0.5B/1.8B/4B/7B/14B/72B  |             [Qwen🤗](https://huggingface.co/Qwen)             |         [Hyperlink](#qwen)         |
-|   Qwen1.5    |        Alibaba        | 0.5B/1.8B/4B/7B/14B/72B  |           [Qwen1.5🤗](https://huggingface.co/Qwen)            |      [Hyperlink](#qwen15)       |
-|    Vicuna    |         LMSYS         |        7B/13B/33B        |           [Vicuna🤗](https://huggingface.co/lmsys)            |       [Hyperlink](#vicuna)       |
-|     XGen     |      Salesforce       |            7B            | [xgen-7b-4k-base🤗](https://huggingface.co/Salesforce/xgen-7b-4k-base) |         [Hyperlink](#xgen)         |
-|    Falcon    |          UAE          |    1.3B/7.5B/40B/180B    | [Falcon Family🤗](https://huggingface.co/collections/tiiuae/falcon-64fb432660017eeec9837b5a) |       [Hyperlink](#falcon)       |
-|     phi      |       Microsoft       |        1B/1.5B/2B        | [phi-1B🤗](https://huggingface.co/microsoft/phi-1)<br />[phi-1.5B🤗](https://huggingface.co/microsoft/phi-1_5)<br />[phi-2B🤗](https://huggingface.co/microsoft/phi-2) |          [Hyperlink](#phi)          |
-|     phi3     |       Microsoft       |       3.8B/7B/14B        | [Phi-3 family🤗 **(only phi-3-mini is available now)**](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3) |         [Hyperlink](#phi3)         |
-|    Gemma     |        Google         |          2B/7B           | [Gemma Family🤗](https://huggingface.co/collections/google/gemma-release-65d5efbccdbb8c4202ec078b) |        [Hyperlink](#gemma)        |
-|    Mamba     | Albert Gu and Tri Dao | 130M/370M/790M/1.4B/2.8B |     [state-spaces🤗](https://huggingface.co/state-spaces)     |        [Hyperlink](#mamba)        |
-|    Pythia    |      EleutherAI       |         14M～12B         | [Pythia Family🤗](https://huggingface.co/collections/EleutherAI/pythia-scaling-suite-64fb5dfa8c21ebb3db7ad2e1) |       [Hyperlink](pythia)        |
-|   Mistral    |      Mistral AI       |            7B            |         [Mistral🤗](https://huggingface.co/mistralai)         |      [Hyperlink](#Mistral)      |
-|      YI      |         01-ai         |        6B/9B/34B         | [Yi Family](https://huggingface.co/collections/01-ai/yi-2023-11-663f3f19119ff712e176720f) |           [Hyperlink](#yi)           |
-|    YI-1.5    |         01-ai         |        6B/9B/34B         | [Yi-1.5 Family🤗](https://huggingface.co/collections/01-ai/yi-15-2024-05-663f3ecab5f815a3eaca7ca8) |       [Hyperlink](#yi-15)        |
-|    Zephyr    |     Hugging Face      |            7B            |   [HuggingFaceH4🤗 ](https://huggingface.co/HuggingFaceH4)    |       [Hyperlink](#zephyr)       |
-| StripedHyena |      Together AI      |            7B            | [StripedHyena Family🤗](https://huggingface.co/collections/togethercomputer/stripedhyena-65d8e6e77540dd1da932dbe1) | [Hyperlink](#stripedHyena) |
-|  Persimmon   |     Adept AI Labs     |            8B            | [persimmon-8b-chat🤗](https://huggingface.co/adept/persimmon-8b-chat) |    [Hyperlink](#persimmon)    |
-
-
-
 ## Details Regarding Models Above📊
-
-### ChatGPT
-
-OpenAI recently released a [practical library for LLMs](https://github.com/openai/simple-evals) aimed at ensuring the transparency of the accuracy data they publish for their models, such as GPT-4-turbo. This library includes benchmarks like MMLU, MATH, GPQA, DROP, MGSM, and HumanEval.
-
-
 
 ### YI-1.5
 

@@ -12,7 +12,6 @@
 
 |     模型     | 发行日期 |       发行机构        |                             论文                             |           参数           |                            检查点                            |                           细节说明                           |
 | :----------: | :------: | :-------------------: | :----------------------------------------------------------: | :----------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|   ChatGPT    | 2024-05  |        OpenAI         |                             ---                              |           ---            |                             ---                              | [英](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM.md#chatgpt)/[中](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM_zh.md#chatgpt) |
 |   Llama 3    | 2024-04  |         Meta          | [![AI Blog](https://img.shields.io/badge/AI%20Blog-Meta%20AI-orange.svg)](https://ai.meta.com/blog/) |          8B/70B          | [Llama3 Family🤗](https://huggingface.co/collections/meta-llama/meta-llama-3-66214712577ca38149ebb2b6) | [英](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM.md#llama3)/[中](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM_zh.md#llama3) |
 |     phi3     | 2024-04  |       Microsoft       | [![arXiv](https://img.shields.io/badge/arXiv-2404.14219-b31b1b.svg)](https://arxiv.org/abs/2404.14219) |       3.8B/7B/14B        | [Phi-3 family🤗 **(only phi-3-mini is available now)**](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3) | [英](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM.md#phi3)/[中](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM_zh.md#phi3) |
 |    Gemma     | 2024-02  |        Google         | [![AI Blog](https://img.shields.io/badge/AI%20Blog-Phi%20AI-orange.svg)](https://storage.googleapis.com/deepmind-media/gemma/gemma-report.pdf) |          2B/7B           | [Gemma Family🤗](https://huggingface.co/collections/google/gemma-release-65d5efbccdbb8c4202ec078b) | [英](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM.md#gemma)/[中](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM_zh.md#gemma) |
@@ -89,8 +88,12 @@
 
 4. **知识蒸馏方法**：讨论了VLM在目标检测、语义分割等任务中的知识蒸馏技术。
 
-- **多模态大语言模型领域最新的研究进展、数据集和评估基准**
+- **多模态大语言模型领域最新的研究进展、数据集和评估基准****📚
 
 [该仓库](https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models)包含了关于多模态大语言模型的**最新论文**，涵盖了多模态链式思维、大语言模型辅助视觉推理、基础模型以及多模态人类反馈强化学习等主题。
 
 还收录了用于预训练、对齐、多模态指令微调、上下文学习以及评估的**各种数据集**和用于评估不同多模态模型性能和能力的**基准测试**。
+
+- **一个来自OpenAI地轻量级评估库，用于评估大语言模型**
+
+OpenAI最近发布了一个实用的用于LLM评估的库[[GitHub]](https://github.com/openai/simple-evals)，目的是确保他们发布的模型（如ChatGPT4、ChatGPT4o）准确性数据的透明度，例如GPT-4-turbo。涉及MMLU、MATH、GPQA、DROP、MGSM、HumanEval等Benchmark。

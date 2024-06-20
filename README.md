@@ -16,7 +16,6 @@ Feel free to raise a issue or contact us if you find any related papers that are
 
 |    Model     |    Date    |     Organization      |        Paper        |                          Parameters                          |                           CheckPoint                  | Details |
 | :----------: | :-------------------: | :----------------------------------------------------------: | :----------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|   ChatGPT    |   2024-05   |        OpenAI         |                             ---                              |           ---            |                             ---                              | [EN](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM.md#chatgpt)/[ZH](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM_zh.md#chatgpt) |
 |    YI-1.5    |    2024-05    |         01-ai         | [![arXiv](https://img.shields.io/badge/arXiv-2403.04652-b31b1b.svg)](https://arxiv.org/abs/2403.04652) |        6B/9B/34B         | [Yi-1.5 Family🤗](https://huggingface.co/collections/01-ai/yi-15-2024-05-663f3ecab5f815a3eaca7ca8) | [EN](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM.md#yi-15)/[ZH](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM_zh.md#yi-15) |
 |   Llama 3    | 2024-04 |         Meta          | [![AI Blog](https://img.shields.io/badge/AI%20Blog-Meta%20AI-orange.svg)](https://ai.meta.com/blog/) |          8B/70B          | [Llama3 Family🤗](https://huggingface.co/collections/meta-llama/meta-llama-3-66214712577ca38149ebb2b6) | [EN](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM.md#llama3)/[ZH](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM_zh.md#llama3) |
 |     phi3     |     2024-04     |       Microsoft       | [![arXiv](https://img.shields.io/badge/arXiv-2404.14219-b31b1b.svg)](https://arxiv.org/abs/2404.14219) |       3.8B/7B/14B        | [Phi-3 family🤗 **(only phi-3-mini is available now)**](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3) | [EN](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM.md#phi3)/[ZH](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LLM_zh.md#phi3) |
@@ -103,6 +102,10 @@ The website [LifeArchitect.ai/models](https://lifearchitect.ai/models) provides 
 Check out the [repository](https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models) for the **latest papers** on multimodal large language models, covering topics such as multimodal chain-of-thought, LLM-aided visual reasoning, foundation models, and multimodal reinforcement learning from human feedback (RLHF).
 
 It also includes a variety of **datasets** for pre-training, alignment, multimodal instruction tuning, in-context learning, and evaluation, along with **benchmark tests** to assess the performance and capabilities of different multimodal models.
+
+- **A lightweight library for evaluating language models from OpenAI**
+
+OpenAI recently released a [practical library for LLMs](https://github.com/openai/simple-evals) aimed at ensuring the transparency of the accuracy data they publish for their models, such as GPT-4-turbo,ChatGPT4 and ChatGPT4o. This library includes benchmarks like MMLU, MATH, GPQA, DROP, MGSM, and HumanEval.
 
 ## Reference
 

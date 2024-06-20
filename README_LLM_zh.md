@@ -20,14 +20,6 @@
 
 ## 模型细节📊
 
-### ChatGPT
-
-OpenAI最近发布了一个实用的用于LLM评估的库[[GitHub]](https://github.com/openai/simple-evals)，目的是确保他们发布的模型准确性数据的透明度，例如GPT-4-turbo。涉及MMLU、MATH、GPQA、DROP、MGSM、HumanEval等Benchmark。
-
-
-
-
-
 ### YI-1.5
 
 [![arXiv](https://img.shields.io/badge/arXiv-2403.04652-b31b1b.svg)](https://arxiv.org/abs/2403.04652) 
