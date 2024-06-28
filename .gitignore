@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# 不传paper上去
+/paper
+
 # C extensions
 *.so
 
