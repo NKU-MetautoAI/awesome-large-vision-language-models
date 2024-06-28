@@ -99,6 +99,51 @@ For **complete statistics**, please refer to [link](https://chatgpt.com/c/benchm
 
 ## Details Regarding Models Above📊
 
+### Cambrian-1
+
+[![arXiv](https://img.shields.io/badge/Arxiv-2406.16860-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2406.16860)
+
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/cambrian-mllm/cambrian)
+
+[![Hugging Face Collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Collections-blue)](https://huggingface.co/collections/nyu-visionx/cambrian-1-models-666fa7116d5420e514b0f23c)
+
+##### Motivation
+
+The Cambrian-1 research team identifies that the design of the visual components in existing multimodal large language models often disconnects from visual representation learning research, resulting in less accurate sensory foundations in practical scenarios. Although more powerful language models can enhance multimodal capabilities, over-reliance on language as a shortcut might obscure deficiencies in visual representation learning, thereby affecting the model's performance in visual tasks.
+
+Moreover, existing multimodal learning benchmarks fail to fully reflect the diverse perceptual challenges of the real world, especially in vision-centric tasks. The limited scale and sample size of these tests affect their reliability and representativeness.
+
+To address these issues, the team introduces Cambrian-1, which focuses on vision-centric multimodal design to bridge the gaps in the visual component design and research in existing multimodal learning. They also propose a new vision-centric benchmark, CV-Bench, which evaluates the model's 2D and 3D understanding by converting traditional vision benchmark tasks into a visual question answering (VQA) format.
+
+##### Innovations
+
+1. **Vision-Centric Multimodal Design**:
+
+   - The paper systematically studies various visual encoders, including self-supervised, strongly supervised, and their combinations. By experimenting with over 20 different visual encoders and evaluating their performance in multimodal tasks, they find that different visual encoders perform variably across different task types.
+   - Based on the varied performance of these visual encoders, the team proposes a strategy of combining multiple visual encoders, leveraging the strengths of each to enhance the model's overall performance (e.g., combining models like CLIP, DINOv2, and ConvNeXt).
+
+2. **Novel Spatial Visual Aggregator (SVA)**
+
+   - **Dynamic Aggregation of Multi-Visual Encoder Features with Spatial Awareness**: SVA can dynamically aggregate features from multiple visual encoders using learnable query tokens (latent tokens), performing feature aggregation at multiple levels of the model. Additionally, SVA introduces a spatial awareness mechanism, preserving the original spatial structure of the aggregated visual features.
+
+     > - Query tokens are initialized as a two-dimensional grid, used to extract and aggregate features from multiple visual encoders. Each query token represents a specific spatial location and can adapt to different task requirements through learning.
+     > - Spatial awareness is achieved by matching and aggregating the query tokens with specific sub-regions of the visual features, ensuring that each query token only interacts with features near its designated spatial location, thus preserving the spatial structure of the visual information.
+
+   - **Multi-Level Visual Aggregation**: SVA performs multiple rounds of feature aggregation at different levels of the large language model (LLM), allowing the model to repeatedly access and integrate visual information during processing.
+
+     > SVA performs feature aggregation at multiple levels of the model. At each level, the query tokens interact with the visual features to acquire the current level's visual information. This multi-level aggregation ensures that the model can repeatedly access and integrate visual information during processing, extracting and optimizing features layer by layer.
+
+   - **Reduction of Visual Token Count**: SVA intelligently aggregates features, reducing the number of visual tokens input into the LLM.
+
+     > The multi-level visual aggregation capability can be quantified by two key hyperparameters of SVA: the number of aggregation layers (D) and the number of query groups (G). The aggregation layers determine the number of cross-attention layers, and the query groups determine the number of query token groups. Adjusting D and G allows SVA to dynamically control the depth and breadth of feature aggregation, thereby reducing the number of tokens.
+
+3. **CV-Bench: Vision-Centric Benchmark**:
+
+   - Cambrian-1 introduces a new vision-centric benchmark, CV-Bench, which converts traditional vision benchmark tasks into a VQA format. CV-Bench covers 2D and 3D understanding tasks, such as spatial relationships, object counting, depth ordering, and relative distance evaluation.
+   - CV-Bench has a significantly larger sample size than existing vision-centric benchmarks, greatly improving the reliability of evaluations.
+
+---
+
 ### EVE
 [![arXiv](https://img.shields.io/badge/Arxiv-2406.11832-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2406.11832)
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/baaivision/EVE)
@@ -262,7 +307,9 @@ The LLaVa model was proposed in [Visual Instruction Tuning](https://arxiv.org/ab
    - Supports interaction with images of even higher pixel counts (e.g., 672x672, 336x1344, 1344x336 resolutions).
    - Adds capabilities for visual reasoning and Optical Character Recognition (OCR).
 
----
+
+
+
 
 ### DeepSeek-VL
 
@@ -870,6 +917,68 @@ MobileVLM V2 continues to explore the direction of low-resource VLMs, with the f
 
 <div align="center">
   <img src="./image/MobileVLMv2.png"  width="800" />
+</div>
+
+---
+
+### SCA
+
+[![arXiv](https://img.shields.io/badge/Arxiv-2312.00869-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2312.00869v2)
+
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/xk-huang/segment-caption-anything)
+
+[![Hugging Face Model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/xk-huang/segment-caption-anything-gpt2_large-pt_vg/tree/main)
+
+##### Motivation
+
+1. **Endowing SAM with semantic understanding capabilities**: While SAM performs excellently in segmentation tasks, it lacks the ability to generate regional descriptions. By integrating language models, SCA enables SAM to generate regional descriptions, thereby enhancing its semantic understanding capabilities.
+
+##### Innovations
+
+1. **Lightweight query-based feature mixer**: SCA introduces a lightweight query-based feature mixer that aligns region-specific features with the embedding space of language models to generate regional descriptions. This mixer has a small number of trainable parameters (typically in the tens of millions), resulting in lower computational, memory, and communication bandwidth requirements, making the training both fast and scalable.
+2. **Weak supervision pretraining**: To address the scarcity of regional captioning data, SCA first undergoes pretraining on object detection and segmentation tasks. This step is called weak supervision pretraining, as the pretraining data only contains category names instead of full-sentence descriptions. This allows the model to leverage numerous publicly available object detection and segmentation datasets.
+3. **Integration with SAM**: SCA combines SAM with causal language models by stacking a text feature mixer on top of SAM's feature mixer to extract region-specific features for subsequent caption generation. During training, only the text feature mixer is optimized, aligning region-specific features with the embedding space of language models.
+4. **Efficient and scalable training**: With fewer trainable parameters, SCA requires less computational, memory, and communication resources during training, resulting in both fast and scalable training. This has been validated through experiments, with SCA achieving excellent performance on the Visual Genome benchmark, scoring 149.8 CIDEr-D, 17.5 METEOR, and 31.4 SPICE.
+
+##### Architecture
+
+<div align="center">
+  <img src="./image/SCA.png" alt="image-20240510165317066" width="800" />
+</div>
+
+---
+
+### Florence-2
+
+[![arXiv](https://img.shields.io/badge/Arxiv-2311.06242-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2311.06242)
+
+[![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/retkowsky/florence-2)
+
+[![Hugging Face Collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Collections-blue)](https://huggingface.co/collections/microsoft/florence-6669f44df0d87d9c3bfb76de)
+
+##### Motivation
+
+The Florence-2 model team recognizes that existing large vision models face significant challenges in handling the complexities of various spatial hierarchies and semantic granularities. Specifically:
+
+1. Large vision models are typically designed for specific tasks (e.g., image classification, object detection, image description generation) and perform well on these tasks but lack flexibility for multi-task processing.
+2. Although large vision models can transfer between tasks, they rely on large-scale task-specific datasets and adapters for task migration. When new tasks need to be addressed, it often requires redesigning and retraining the models.
+3. The existing architectures for processing visual features are relatively complex: Vision encoders need to understand multi-level spatial information from image-level to pixel-level and semantic information from coarse to fine granularity, often requiring multiple independent models and specialized designs to achieve multi-granularity features.
+
+##### Innovations
+
+1. **Unified Prompt-Driven Representation**
+   - **Innovative Task Prompts**: Traditional VLMs (such as MiniGPT4 and MiniGPT4-V2) set task prompts to indicate the type of task the model is handling. Florence-2 can directly accept text prompts as task instructions. These prompts can be natural language descriptions, such as "describe the content of the image" or "find the car in the image." This approach enables the model to generate corresponding outputs based on different prompts without needing separate model architectures or interfaces for each task.
+   - **Unified End-to-End Seq2Seq Training Framework**: Integrates an image encoder and a multimodal encoder-decoder. This architecture allows the model to handle various tasks without requiring different models to be designed and trained for each task. Consequently, Florence-2 can use the same architecture and parameters to process tasks like image description, object detection, localization, and segmentation.
+   - **Expanded Vocabulary**: Includes position markers in the vocabulary, which can quantify coordinates representing the vertices of bounding boxes, quadrilaterals, or polygons. This allows the model to function without designing task-specific heads.
+2. **Novel Dataset Construction Method**: Florence-2 implements a **self-iterative automated** data annotation method consisting of several stages:
+   - **Initial Annotation**: Uses multiple specialized models to annotate images ("expert models" that have been trained on various public datasets to handle specific types of annotation tasks).
+   - **Data Filtering and Enhancement**: Initially uses natural language processing tools (e.g., SpaCy) to extract objects, attributes, and actions, filtering out texts with too many objects or irrelevant information. Then uses non-maximum suppression (NMS) to remove redundant or overlapping boxes.
+   - **Iterative Data Optimization**: The initially filtered and enhanced data is used to train a multi-task model. After training, this model can re-annotate the original images, generating more accurate labels than the initial annotations. These new annotations are combined with the original ones and the model is retrained. Through multiple rounds of such iterative optimization, the quality of the annotated data is progressively improved.
+
+##### VLM Architecture
+
+<div align="center">
+  <img src="./image/Florence-2.png" alt="image-20240510165317066" width="800" />
 </div>
 
 ---
