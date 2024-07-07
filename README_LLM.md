@@ -19,6 +19,32 @@
 
 ## Details Regarding Models Above📊
 
+### Gemma2
+
+[![AI Blog](https://img.shields.io/badge/AI%20Blog-Gemma2%20AI-orange.svg)](https://storage.googleapis.com/deepmind-media/gemma/gemma-2-report.pdf)
+[![Hugging Face docs](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-docs-green)](https://huggingface.co/docs/transformers/main/en/model_doc/gemma2)
+[![Hugging Face collections](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-collections-blue)](https://huggingface.co/collections/google/gemma-2-release-667d6600fd5220e7b967f315)
+
+
+- **Date:** 2024-06
+- **Pretrain Data Scale:** 2T/8T/13T
+- **Language Support:** en
+- **Parameter Size:** 2.6B/9B/27B
+
+Compared to the Gemma model, Gemma2 introduces the following new features:
+
+1. **Alternating Local Sliding Window and Global Attention**: The sliding window size is set to 4096 tokens, while the global attention span is set to 8192 tokens. This can be utilized in Google AI Studio.
+2. **Local-Global Attention Alternation and Grouped-Query Attention (GQA)**: The local attention mechanism uses a fixed-size sliding window to focus on part of the input sequence, whereas the global attention mechanism allows the model to focus on the entire input sequence. Alternating these attention mechanisms in each layer enables the model to efficiently process long texts and capture global context. GQA divides the query heads of the standard multi-head attention mechanism into several groups, each sharing the same keys and values, reducing the number of parameters and computation.
+3. **Knowledge Distillation**: By using a larger teacher model to guide the training of a smaller model, the training efficiency and model performance are enhanced. The distillation process utilizes richer probability distribution information rather than the traditional next-token prediction task.
+4. **Safety Techniques**: The model undergoes multi-layered filtering during training and fine-tuning to avoid generating harmful content. Specific measures include:
+   - Filtering personal information and sensitive data
+   - Employing multi-stage filtering and rejection mechanisms to reduce errors and hallucinations
+   - Implementing stringent safety policies to prevent the generation of harmful or misleading content
+
+> The 2.6B Gemma2 model will also be released soon and can be deployed on mobile devices.
+
+
+
 ### YI-1.5
 
 [![arXiv](https://img.shields.io/badge/arXiv-2403.04652-b31b1b.svg)](https://arxiv.org/abs/2403.04652) 
@@ -77,7 +103,7 @@ The training dataset is also an innovation, comprising strictly filtered web dat
 
 ### Gemma
 
-[![AI Blog](https://img.shields.io/badge/AI%20Blog-Phi%20AI-orange.svg)](https://storage.googleapis.com/deepmind-media/gemma/gemma-report.pdf) 
+[![AI Blog](https://img.shields.io/badge/AI%20Blog-Gemma%20AI-orange.svg)](https://storage.googleapis.com/deepmind-media/gemma/gemma-report.pdf) 
 [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/google-deepmind/gemma) 
 [![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-models-blue)](https://huggingface.co/collections/google/gemma-release-65d5efbccdbb8c4202ec078b)
 
