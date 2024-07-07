@@ -73,11 +73,17 @@ Feel free to raise a issue or contact us if you find any related papers that are
 
 
 
+## Quick Start —— large model for Segmentation🏁
+
+| Model |  Date   | Publication | Parameters | Demo |                            Paper                             |                            Github                            |                          CheckPoint                          |                           Details                            |
+| :---: | :-----: | :---------: | :--------: | :--: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| LISA  | 2023-08 |  CVPR 2024  |    13B     | ---  | [![arXiv](https://img.shields.io/badge/Arxiv-2308.00692-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2308.00692) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/dvlab-research/LISA) | [![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/xinlai/LISA-13B-llama2-v1) | [EN](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_VPLLM.md#lisa)/[ZH](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_VPLLM_zh.md#lisa) |
+|       |         |             |            |      |                                                              |                                                              |                                                              |                                                              |
+|       |         |             |            |      |                                                              |                                                              |                                                              |                                                              |
+
 
 
 ## Other Relevant Summary Platforms🏗️
-
-
 
 **this navigation page also links to other relevant summary platforms**. Explore the sections below to find the information you need:
 

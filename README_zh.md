@@ -65,6 +65,18 @@
 |     LLaVA-Phi-3-mini      | 2024-04  |     ---      |        ---        |                             None                             |                                                              | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/InternLM/xtuner) | [LLaVA-Phi-3-mini🤗](https://huggingface.co/collections/xtuner/llava-phi-3-mini-662a5f7b9416630a1ad91102) | [英](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LVLMs.md#llava-phi-3-mini)/[中](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LVLMs_zh.md#llava-phi-3-mini) |
 |           Cobra           | 2024-03  |    arXiv     |       3.5B        |     [Cobra](https://huggingface.co/spaces/han1997/cobra)     | [![arXiv](https://img.shields.io/badge/arXiv-2403.14520-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2403.14520) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/h-zhao1997/cobra) | [Cobra Family🤗](https://huggingface.co/collections/han1997/cobra-6615c3242851ba108027105d) | [英](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LVLMs.md#cobra)/[中](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_LVLMs_zh.md#cobra) |
 
+
+
+## 快速开始—— 将大模型应用于分割任务🏁
+
+| Model |  Date   | Publication | Parameters | Demo |                            Paper                             |                            Github                            |                          CheckPoint                          |                           Details                            |
+| :---: | :-----: | :---------: | :--------: | :--: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| LISA  | 2023-08 |  CVPR 2024  |    13B     | ---  | [![arXiv](https://img.shields.io/badge/Arxiv-2308.00692-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2308.00692) | [![GitHub](https://badges.aleen42.com/src/github.svg)](https://github.com/dvlab-research/LISA) | [![Hugging Face model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-blue)](https://huggingface.co/xinlai/LISA-13B-llama2-v1) | [英](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_VPLLM.md#lisa)/[中](https://github.com/NKU-MetautoAI/awesome-large-vision-language-models/blob/main/README_VPLLM_zh.md#lisa) |
+|       |         |             |            |      |                                                              |                                                              |                                                              |                                                              |
+|       |         |             |            |      |                                                              |                                                              |                                                              |                                                              |
+
+
+
 ## 其他总结平台🏗️
 
 此外，**这个导航页面还链接到其他相关的总结平台**。请探索以下各部分，找到您需要的信息：
